@@ -1,11 +1,16 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:poapin/controllers/controller.user.dart';
 import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/components/avatar.dart';
 import 'package:poapin/ui/components/loading.dart';
 import 'package:poapin/ui/page.base.dart';
+import 'package:poapin/ui/pages/auth/controller.dart';
+import 'package:poapin/ui/pages/auth/page.dart';
 import 'package:poapin/ui/pages/me/controller.dart';
 import 'package:poapin/util/show_input.dart';
 
@@ -110,6 +115,30 @@ class MePage extends BasePage<MeController> {
                             desc: 'Notifications, data, etc.',
                           ),
                           Container(height: 1, color: PColor.background),
+                          kIsWeb
+                              ? Container()
+                              : !c.isSignedIn
+                                  ? MeAuthItem(
+                                      title: 'Sign in',
+                                      isSignIn: true,
+                                      onTap: () async {
+                                        Get.lazyPut(() => AuthController());
+                                        showMaterialModalBottomSheet(
+                                          context: context,
+                                          enableDrag: true,
+                                          builder: (context) =>
+                                              const AuthPage(),
+                                        );
+                                      },
+                                    )
+                                  : MeAuthItem(
+                                      title: 'Log out',
+                                      onTap: () async {
+                                        await FirebaseAuth.instance.signOut();
+                                        c.isGetingUserInfo = false;
+                                        c.update();
+                                      },
+                                    ),
                         ],
                       ),
                     ),

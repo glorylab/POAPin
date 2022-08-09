@@ -54,25 +54,31 @@ class AuthPage extends BasePage<AuthController> {
                   16,
                 ),
                 child: Column(children: [
-                  GetPlatform.isAndroid
-                      ? Container()
-                      : AuthButton(
+                  GetPlatform.isIOS
+                      ? AuthButton(
                           text: 'Sign in with Apple',
                           backgroundColor: Colors.grey.shade900,
                           onPressed: () {
-                            controller
-                                .signInWithApple()
-                                .then((value) => Get.back());
+                            controller.signInWithApple().then((value) {
+                              if (value != null) {
+                                Get.back();
+                              }
+                            });
                           },
                           isLoading: c.isAuthing,
                           isAuthing: c.isAppleAuthing,
-                        ),
+                        )
+                      : Container(),
                   const SizedBox(height: 16),
                   AuthButton(
                     text: 'Continue with Google',
                     backgroundColor: Colors.blue,
                     onPressed: () {
-                      controller.signInWithGoogle().then((value) => Get.back());
+                      controller.signInWithGoogle().then((value) {
+                        if (value != null) {
+                          Get.back();
+                        }
+                      });
                     },
                     isLoading: c.isAuthing,
                     isAuthing: c.isGoogleAuthing,
