@@ -98,6 +98,7 @@ dependencies:
   sign_in_with_apple: ^3.3.0
   crypto: ^3.0.1
   get_it: ^7.2.0
+  palette_generator: ^0.3.3+1
 
 dependency_overrides:
   firebase_performance_web: 0.1.0+1
