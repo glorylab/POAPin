@@ -28,12 +28,20 @@ class TokenChart extends StatelessWidget {
       ),
       titlesData: FlTitlesData(
         show: true,
-        rightTitles: SideTitles(
-          showTitles: false,
+        rightTitles: AxisTitles(
+          sideTitles: SideTitles(
+            showTitles: false,
+          ),
         ),
-        topTitles: SideTitles(showTitles: false),
-        bottomTitles: SideTitles(showTitles: false),
-        leftTitles: SideTitles(showTitles: false),
+        topTitles: AxisTitles(
+          sideTitles: SideTitles(showTitles: false),
+        ),
+        bottomTitles: AxisTitles(
+          sideTitles: SideTitles(showTitles: false),
+        ),
+        leftTitles: AxisTitles(
+          sideTitles: SideTitles(showTitles: false),
+        ),
       ),
       borderData: FlBorderData(
         show: false,
@@ -55,18 +63,26 @@ class TokenChart extends StatelessWidget {
           isCurved: true,
           curveSmoothness: controller.chartView.value == 'growth' ? 0.2 : 0.2,
           preventCurveOverShooting: true,
-          colors: gradientColors,
+          gradient: LinearGradient(
+            colors: gradientColors,
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
           barWidth: controller.chartView.value == 'growth' ? 4 : 1,
           isStrokeCapRound:
               controller.chartView.value == 'growth' ? false : true,
           dotData: FlDotData(
             show: false,
           ),
-
           belowBarData: BarAreaData(
             show: true,
-            colors:
-                gradientColors.map((color) => color.withOpacity(0.9)).toList(),
+            gradient: LinearGradient(
+              colors: gradientColors
+                  .map((color) => color.withOpacity(0.9))
+                  .toList(),
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+            ),
           ),
         ),
       ],

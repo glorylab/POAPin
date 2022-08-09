@@ -5,7 +5,7 @@ import 'package:poapin/common/constants.dart';
 import 'package:poapin/common/status.dart';
 import 'package:poapin/data/models/token.dart';
 import 'package:poapin/ui/controller.base.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
 
 class SquareController extends BaseController {
   ScrollController scrollController = ScrollController();

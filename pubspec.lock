@@ -420,7 +420,7 @@ packages:
       name: fl_chart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.41.0"
+    version: "0.55.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -490,7 +490,7 @@ packages:
       name: flutter_slidable
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.0"
+    version: "2.0.0"
   flutter_staggered_grid_view:
     dependency: "direct main"
     description:
@@ -923,13 +923,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
-  pull_to_refresh:
+  pull_to_refresh_flutter3:
     dependency: "direct main"
     description:
-      name: pull_to_refresh
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0"
+      path: "."
+      ref: patch-1
+      resolved-ref: "68d1cd73dd28e000d82952f6f05659a70cd0a9e0"
+      url: "https://github.com/MerdanDev/flutter_pulltorefresh.git"
+    source: git
+    version: "2.0.1"
   quiver:
     dependency: transitive
     description:

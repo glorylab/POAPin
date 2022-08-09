@@ -9,7 +9,7 @@ import 'package:poapin/ui/components/card.note.dart';
 import 'package:poapin/ui/components/loading.dart';
 import 'package:poapin/ui/page.base.dart';
 import 'package:poapin/ui/pages/square/controller.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
 
 class SquarePage extends BasePage {
   const SquarePage({Key? key}) : super(key: key);
