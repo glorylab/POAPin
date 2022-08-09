@@ -199,13 +199,15 @@ class _VerticalView extends StatelessWidget {
                 : 56,
             flexibleSpace: controller.status.value == LoadingStatus.loaded
                 ? Stack(children: [
-                    Positioned(
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      child: Container(
-                        color: Colors.white,
+                    GetBuilder<DetailController>(
+                      builder: (c) => Positioned(
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        child: Container(
+                          color: c.backgroundColor,
+                        ),
                       ),
                     ),
                     Positioned(

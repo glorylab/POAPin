@@ -2,21 +2,19 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:image/image.dart';
 import 'package:jiffy/jiffy.dart';
+import 'package:palette_generator/palette_generator.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:poapin/common/status.dart';
 import 'package:poapin/controllers/tag.dart';
 import 'package:poapin/data/models/token.dart';
 import 'package:poapin/data/repository/poap_repository.dart';
 import 'package:poapin/di/service_locator.dart';
+import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/controller.base.dart';
 import 'package:poapin/ui/pages/detail/dialog/addtag.dart';
 import 'package:screenshot/screenshot.dart';
-import 'package:image/image.dart' as img;
-import 'package:blurhash_dart/blurhash_dart.dart' as dart_blur;
 import 'package:share_plus/share_plus.dart';
 import 'package:we_slide/we_slide.dart';
 
@@ -25,6 +23,10 @@ class EventDetailController extends BaseController {
   String screenName() {
     return 'Event Detail';
   }
+
+  PaletteGenerator paletteGenerator =
+      PaletteGenerator.fromColors([PaletteColor(PColor.background, 1)]);
+  Color backgroundColor = PColor.background;
 
   final POAPRepository poapRepository = getIt.get<POAPRepository>();
 
@@ -51,6 +53,15 @@ class EventDetailController extends BaseController {
   toggleShape() {
     isRound = !isRound;
     update();
+  }
+
+  _updatePaletteGenerator() async {
+    paletteGenerator =
+        await PaletteGenerator.fromImageProvider(NetworkImage(event.imageUrl));
+    if (paletteGenerator.lightVibrantColor != null) {
+      backgroundColor = paletteGenerator.lightVibrantColor!.color;
+      update();
+    }
   }
 
   //Create an instance of ScreenshotController
@@ -84,6 +95,7 @@ class EventDetailController extends BaseController {
     }
     updateID(int.parse(parameters['id']!));
     getData();
+    _updatePaletteGenerator();
   }
 
   void addTag() {
@@ -112,19 +124,6 @@ class EventDetailController extends BaseController {
       }
     }
     return '';
-  }
-
-  void captureBG() async {
-    Uint8List bytes = (await NetworkAssetBundle(Uri.parse(event.imageUrl))
-            .load(event.imageUrl))
-        .buffer
-        .asUint8List();
-    final image = img.Image.fromBytes(20, 20, bytes.toList());
-    final blurHash = dart_blur.BlurHash.encode(image, numCompX: 3, numCompY: 4);
-
-    final backgroundImage =
-        dart_blur.BlurHash.decode(blurHash.hash).toImage(10, 10);
-    blurBackground.value = Uint8List.fromList(encodeJpg(backgroundImage));
   }
 
   void getData() async {
