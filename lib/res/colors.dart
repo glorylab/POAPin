@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class PColor {
   static Color done = Colors.green;
-  static Color background = PColor.background;
+  static Color background = const Color(0xFFF2F2F2);
 
   static const MaterialColor primary = MaterialColor(
     _primaryValue,
