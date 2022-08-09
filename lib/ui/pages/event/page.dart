@@ -48,9 +48,9 @@ class _HorizontalView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'POAP.in',
+          controller.event.id == 0 ? 'POAP.in' : '#${controller.event.id}',
           overflow: TextOverflow.fade,
-          style: GoogleFonts.carterOne(
+          style: GoogleFonts.shareTechMono(
             color: const Color(0xFF6534FF),
             shadows: [
               Shadow(
@@ -167,9 +167,9 @@ class _VerticalView extends StatelessWidget {
                 : const GoBackButton(),
             backgroundColor: Colors.white,
             title: Text(
-              'POAP.in',
+              controller.event.id == 0 ? 'POAP.in' : '#${controller.event.id}',
               overflow: TextOverflow.fade,
-              style: GoogleFonts.carterOne(
+              style: GoogleFonts.shareTechMono(
                 color: const Color(0xFF6534FF),
                 shadows: [
                   Shadow(
