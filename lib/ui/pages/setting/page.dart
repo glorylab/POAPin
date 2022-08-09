@@ -91,6 +91,20 @@ class SettingPage extends BasePage<SettingController> {
                       isRoundCorner: false,
                     ),
                     SettingItem(
+                      title: 'GitHub',
+                      desc: 'glorylab/POAPin',
+                      icon: Image.asset(
+                        'icons/ic_github.png',
+                        package: 'web3_icons',
+                        width: 24.0,
+                        height: 24.0,
+                      ),
+                      onTap: () async {
+                        controller.launchGitHub();
+                      },
+                      isRoundCorner: false,
+                    ),
+                    SettingItem(
                       title: 'POAP.in',
                       desc: 'https://poap.in',
                       icon: Image.asset(

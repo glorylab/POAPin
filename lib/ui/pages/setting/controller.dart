@@ -29,6 +29,10 @@ class SettingController extends BaseController {
     launchURL('https://mirror.xyz/glorylab.eth');
   }
 
+  void launchGitHub() {
+    launchURL('https://github.com/glorylab/POAPin');
+  }
+
   void launchPOAPin() {
     launchURL('https://poap.in');
   }
