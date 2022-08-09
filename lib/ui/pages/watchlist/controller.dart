@@ -71,12 +71,15 @@ class WatchlistController extends BaseController {
         update();
         lastVelocity = velocity;
       });
-      scrollController.position.isScrollingNotifier.addListener(() {
-        if (!scrollController.position.isScrollingNotifier.value) {
-          velocity = 0;
-          update();
-        } else {}
-      });
+
+      if (scrollController.hasClients) {
+        scrollController.position.isScrollingNotifier.addListener(() {
+          if (!scrollController.position.isScrollingNotifier.value) {
+            velocity = 0;
+            update();
+          } else {}
+        });
+      }
     });
   }
 
