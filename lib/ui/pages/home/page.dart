@@ -11,6 +11,7 @@ import 'package:poapin/ui/pages/home/components/card.dart';
 import 'package:poapin/ui/pages/home/components/tags.filter.dart';
 import 'package:poapin/ui/pages/home/components/view.month.dart';
 import 'package:poapin/ui/pages/home/components/view.options.dart';
+import 'package:poapin/ui/pages/home/components/view.tips.empty.dart';
 import 'package:poapin/ui/pages/home/controller.dart';
 import 'package:poapin/ui/pages/me/controller.dart';
 import 'package:poapin/util/show_input.dart';
@@ -179,62 +180,10 @@ class HomePage extends BasePage<HomeController> {
         if (controller.cacheLoadingStatus == CacheLoadingStatus.loading ||
             ((controller.loadingStatus == LoadingStatus.loading) &&
                 controller.count == 0)) {
-          return CustomScrollView(
+          return const CustomScrollView(
             slivers: [
-              SliverAppBar(
-                backgroundColor: Colors.white,
-                automaticallyImplyLeading: false,
-                flexibleSpace: SizedBox(
-                  width: double.infinity,
-                  height: double.infinity,
-                  child: Stack(
-                    children: [
-                      Positioned.fill(
-                        child: SizedBox(
-                          width: double.infinity,
-                          height: double.infinity,
-                          child: RiveAnimation.asset(
-                            'assets/animation/dynamic_bg.riv',
-                            fit: BoxFit.cover,
-                            placeHolder: Container(
-                              decoration: const BoxDecoration(
-                                  gradient: LinearGradient(
-                                begin: Alignment.topRight,
-                                end: Alignment.bottomLeft,
-                                stops: [
-                                  0.3,
-                                  0.6,
-                                  0.8,
-                                ],
-                                colors: [
-                                  Color(0xFF965DE9),
-                                  Color(0xFF6358EE),
-                                  Colors.indigo,
-                                ],
-                              )),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SafeArea(
-                        child: Center(
-                          child: Text(
-                            'Enjoy a life with POAP.',
-                            style: GoogleFonts.carterOne(
-                              color: Colors.white70,
-                              fontSize: 24,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                floating: true,
-                pinned: true,
-                expandedHeight: 256,
-              ),
-              const SliverToBoxAdapter(
+              ENJOYALIFEWITHPOAP(),
+              SliverToBoxAdapter(
                 child: Center(
                   child: LoadingAnimation(),
                 ),
@@ -246,6 +195,18 @@ class HomePage extends BasePage<HomeController> {
         /// loadedStatus
         if ((controller.cacheLoadingStatus == CacheLoadingStatus.loaded ||
             controller.loadingStatus == LoadingStatus.loaded)) {
+          if (controller.count == 0) {
+            return const CustomScrollView(
+              slivers: [
+                ENJOYALIFEWITHPOAP(),
+                SliverToBoxAdapter(
+                  child: Center(
+                    child: EmptyTips(),
+                  ),
+                ),
+              ],
+            );
+          }
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.white,
@@ -394,6 +355,67 @@ class HomePage extends BasePage<HomeController> {
           );
         }
       },
+    );
+  }
+}
+
+class ENJOYALIFEWITHPOAP extends StatelessWidget {
+  const ENJOYALIFEWITHPOAP({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverAppBar(
+      backgroundColor: Colors.white,
+      automaticallyImplyLeading: false,
+      flexibleSpace: SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: SizedBox(
+                width: double.infinity,
+                height: double.infinity,
+                child: RiveAnimation.asset(
+                  'assets/animation/dynamic_bg.riv',
+                  fit: BoxFit.cover,
+                  placeHolder: Container(
+                    decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      stops: [
+                        0.3,
+                        0.6,
+                        0.8,
+                      ],
+                      colors: [
+                        Color(0xFF965DE9),
+                        Color(0xFF6358EE),
+                        Colors.indigo,
+                      ],
+                    )),
+                  ),
+                ),
+              ),
+            ),
+            SafeArea(
+              child: Center(
+                child: Text(
+                  'Enjoy a life with POAP.',
+                  style: GoogleFonts.carterOne(
+                    color: Colors.white70,
+                    fontSize: 24,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      floating: true,
+      pinned: true,
+      expandedHeight: 256,
     );
   }
 }
