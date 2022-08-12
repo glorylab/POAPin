@@ -527,8 +527,7 @@ class DetailView extends StatelessWidget {
           ),
         ),
       ),
-      GetBuilder<DetailController>(
-          builder: (c) => SizedBox(height: c.momentsCount > 0 ? 32 : 0)),
+      const SizedBox(height: 32),
       GetBuilder<DetailController>(
         builder: (c) {
           return c.momentsCount > 0
@@ -547,12 +546,7 @@ class DetailView extends StatelessWidget {
                     ),
                     child: RawMaterialButton(
                       onPressed: () {
-                        Get.showSnackbar(const GetSnackBar(
-                          title: 'Welook Moments',
-                          message:
-                              'Please visit welook.io to view more moments',
-                          duration: Duration(seconds: 3),
-                        ));
+                        c.launchWelook(c.token.value.event.id);
                       },
                       fillColor: Colors.white,
                       splashColor: const Color(0x22EC4899),
@@ -634,6 +628,11 @@ class DetailView extends StatelessWidget {
                             color: const Color.fromARGB(30, 15, 23, 42),
                           ),
                           const SizedBox(width: 8),
+                          const Icon(
+                            Icons.arrow_forward_ios_rounded,
+                            size: 16,
+                            color: Colors.black26,
+                          ),
                           const SizedBox(width: 8),
                         ],
                       ),

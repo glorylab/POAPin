@@ -158,6 +158,12 @@ class DetailController extends BaseController {
     }
   }
 
+  void launchWelook(int eventID) {
+    if (eventID > 0) {
+      launchURL('https://welook.io/moments/$eventID');
+    }
+  }
+
   void getMoments() async {
     var response = await welookRepository.count(token.value.event.id);
     momentsCount = response;
