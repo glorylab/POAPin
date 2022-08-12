@@ -7,6 +7,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:poapin/controllers/controller.user.dart';
 import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/components/avatar.dart';
+import 'package:poapin/ui/components/icons/forward.dart';
 import 'package:poapin/ui/components/loading.dart';
 import 'package:poapin/ui/page.base.dart';
 import 'package:poapin/ui/pages/auth/controller.dart';
@@ -204,11 +205,7 @@ class ConnectWalletCard extends StatelessWidget {
                           const SizedBox(
                             width: 8,
                           ),
-                          Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.blueGrey.shade300,
-                            size: 12,
-                          ),
+                          const ForwardIcon(),
                           const SizedBox(
                             width: 8,
                           ),

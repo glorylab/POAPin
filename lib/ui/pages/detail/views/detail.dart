@@ -7,6 +7,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:poapin/common/status.dart';
 import 'package:poapin/controllers/tag.dart';
 import 'package:poapin/res/colors.dart';
+import 'package:poapin/ui/components/icons/forward.dart';
 import 'package:poapin/ui/pages/detail/controller.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:timelines/timelines.dart';
@@ -628,11 +629,7 @@ class DetailView extends StatelessWidget {
                             color: const Color.fromARGB(30, 15, 23, 42),
                           ),
                           const SizedBox(width: 8),
-                          const Icon(
-                            Icons.arrow_forward_ios_rounded,
-                            size: 16,
-                            color: Colors.black26,
-                          ),
+                          const ForwardIcon(),
                           const SizedBox(width: 8),
                         ],
                       ),
@@ -1049,11 +1046,7 @@ class POAPTitle extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const Icon(
-                          Icons.arrow_forward_ios_rounded,
-                          size: 16,
-                          color: Colors.black26,
-                        ),
+                        const ForwardIcon(),
                         const SizedBox(width: 8),
                       ],
                     ),
