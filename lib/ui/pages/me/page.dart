@@ -237,99 +237,123 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: const BorderRadius.all(
-          Radius.circular(16),
-        ),
-        border: Border.all(color: Colors.black12, width: 1),
-      ),
       margin: EdgeInsets.symmetric(horizontal: horizontalPadding),
-      padding: const EdgeInsets.symmetric(vertical: 16),
-      child: Row(
-        children: [
-          const SizedBox(width: 16),
-          Stack(
-            children: [
-              const POAPinAvatar(),
-              GetBuilder<UserController>(builder: (c) {
-                return Positioned.fill(
-                  child: VerifiedBadge(isVerified: c.user.eth.isNotEmpty),
-                );
-              }),
-            ],
+      child: Material(
+        color: const Color(0xFFF3F3F3),
+        shadowColor: Colors.black26,
+        elevation: 12,
+        shape: const ContinuousRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(24),
           ),
-          const SizedBox(width: 8),
-          GetBuilder<MeController>(builder: (c) {
-            return Expanded(
-              child: RawMaterialButton(
-                onPressed: () {
-                  InputHelper.showBottomInput(context, 'ETH address or ENS',
-                      c.addressController, c.onSubmit);
-                },
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(8),
-                  ),
-                ),
-                child: GetBuilder<MeController>(
-                  builder: (c) => Container(
-                    height: 88,
-                    alignment: Alignment.centerLeft,
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-                    child: GetBuilder<UserController>(
-                      builder: (uc) => Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          FittedBox(
-                            alignment: Alignment.centerLeft,
-                            fit: BoxFit.scaleDown,
-                            child: Text(
-                              c.ensAddress == '' ? 'Anonymous' : c.ensAddress,
-                              maxLines: 1,
-                              style: GoogleFonts.pressStart2p(
-                                color: (uc.isSignedIn && uc.user.eth.isNotEmpty)
-                                    ? const Color(0x886534FF)
-                                    : Colors.black54,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                shadows: [
-                                  Shadow(
-                                      color: Colors.white.withOpacity(0.9),
-                                      offset: const Offset(2, 1),
-                                      blurRadius: 0),
-                                ],
+        ),
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          child: Row(
+            children: [
+              const SizedBox(width: 8),
+              Stack(
+                children: [
+                  const POAPinAvatar(),
+                  GetBuilder<UserController>(builder: (c) {
+                    return Positioned.fill(
+                      child: VerifiedBadge(isVerified: c.user.eth.isNotEmpty),
+                    );
+                  }),
+                ],
+              ),
+              const SizedBox(width: 8),
+              GetBuilder<MeController>(builder: (c) {
+                return Expanded(
+                  child: RawMaterialButton(
+                    onPressed: () {
+                      // InputHelper.showBottomInput(context, 'ETH address or ENS',
+                      //     c.addressController, c.onSubmit);
+                      Get.toNamed('/profile');
+                    },
+                    fillColor: Colors.white,
+                    elevation: 0,
+                    focusElevation: 0,
+                    hoverElevation: 0,
+                    highlightElevation: 0,
+                    shape: const ContinuousRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(36),
+                      ),
+                    ),
+                    child: GetBuilder<MeController>(
+                      builder: (c) => Container(
+                        height: 88,
+                        alignment: Alignment.centerLeft,
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8, horizontal: 12),
+                        child: GetBuilder<UserController>(
+                          builder: (uc) => Row(
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    FittedBox(
+                                      alignment: Alignment.centerLeft,
+                                      fit: BoxFit.scaleDown,
+                                      child: Text(
+                                        c.ensAddress == ''
+                                            ? 'Anonymous'
+                                            : c.ensAddress,
+                                        maxLines: 1,
+                                        style: GoogleFonts.pressStart2p(
+                                          color: (uc.isSignedIn &&
+                                                  uc.user.eth.isNotEmpty)
+                                              ? const Color(0x886534FF)
+                                              : Colors.black54,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          shadows: [
+                                            Shadow(
+                                                color: Colors.white
+                                                    .withOpacity(0.9),
+                                                offset: const Offset(2, 1),
+                                                blurRadius: 0),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 14),
+                                    Text(
+                                      c.ethAddress == ''
+                                          ? 'Set ETH address'
+                                          : c.getSimpleAddress(c.ethAddress),
+                                      maxLines: 1,
+                                      softWrap: false,
+                                      overflow: TextOverflow.fade,
+                                      style: GoogleFonts.pressStart2p(
+                                        color: (uc.isSignedIn &&
+                                                uc.user.eth.isNotEmpty)
+                                            ? const Color(0x886534FF)
+                                            : Colors.black54,
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
+                              const ForwardIcon(),
+                            ],
                           ),
-                          const SizedBox(height: 14),
-                          Text(
-                            c.ethAddress == ''
-                                ? 'Set ETH address'
-                                : c.getSimpleAddress(c.ethAddress),
-                            maxLines: 1,
-                            softWrap: false,
-                            overflow: TextOverflow.fade,
-                            style: GoogleFonts.pressStart2p(
-                              color: (uc.isSignedIn && uc.user.eth.isNotEmpty)
-                                  ? const Color(0x886534FF)
-                                  : Colors.black54,
-                              fontSize: 10,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ),
-            );
-          }),
-          const SizedBox(width: 16),
-        ],
+                );
+              }),
+              const SizedBox(width: 8),
+            ],
+          ),
+        ),
       ),
     );
   }

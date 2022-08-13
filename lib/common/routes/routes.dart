@@ -8,6 +8,7 @@ abstract class AppRoutes {
   static const me = '/me';
   static const tags = '/tags';
   static const setting = '/setting';
+  static const profile = '/profile';
   static const scanAddress = '/scan/:address';
   static const detail = '/poap/:id';
   static const eventDetail = '/event/:id';

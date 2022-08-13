@@ -14,6 +14,8 @@ import 'package:poapin/ui/pages/home/page.dart';
 import 'package:poapin/ui/pages/me/binding.dart';
 import 'package:poapin/ui/pages/me/page.dart';
 import 'package:poapin/ui/pages/not_found/page.dart';
+import 'package:poapin/ui/pages/profile/binding.dart';
+import 'package:poapin/ui/pages/profile/page.dart';
 import 'package:poapin/ui/pages/setting/binding.dart';
 import 'package:poapin/ui/pages/setting/page.dart';
 import 'package:poapin/ui/pages/square/binding.dart';
@@ -80,6 +82,11 @@ class AppPages {
       name: AppRoutes.setting,
       page: () => const SettingPage(),
       binding: SettingBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.profile,
+      page: () => const ProfilePage(),
+      binding: ProfileBinding(),
     ),
     GetPage(
       name: AppRoutes.tags,
