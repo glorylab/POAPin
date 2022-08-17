@@ -22,6 +22,43 @@ class ProfileController extends BaseController {
 
   Future<void> _init() async {}
 
+  Future backToHome() async {
+    Get.back();
+    Future.delayed(const Duration(milliseconds: 300)).then((value) {
+      if (Get.previousRoute == '/profile') {
+        Get.back();
+      } else if (Get.previousRoute == '') {
+        Get.offAndToNamed('/dashboard');
+      } else {
+        Get.until((route) => Get.currentRoute == '/dashboard');
+      }
+    });
+  }
+
+  void showError() {
+    Get.back();
+    Get.snackbar(
+        'Error', 'There was a problem deleting the account, please try again.',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.red.shade300,
+        animationDuration: const Duration(milliseconds: 200),
+        duration: const Duration(seconds: 1),
+        colorText: Colors.white,
+        borderRadius: 8,
+        margin: const EdgeInsets.all(8),
+        overlayBlur: 8,
+        snackStyle: SnackStyle.FLOATING);
+  }
+
+  Future<bool> deleteAccount() async {
+    try {
+      await FirebaseAuth.instance.currentUser?.delete();
+    } catch (e) {
+      return false;
+    }
+    return true;
+  }
+
   String getSimpleAddress(String address) {
     if (address.length > 18) {
       return address.substring(0, 10) +

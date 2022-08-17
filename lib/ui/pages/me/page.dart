@@ -13,7 +13,6 @@ import 'package:poapin/ui/page.base.dart';
 import 'package:poapin/ui/pages/auth/controller.dart';
 import 'package:poapin/ui/pages/auth/page.dart';
 import 'package:poapin/ui/pages/me/controller.dart';
-import 'package:poapin/util/show_input.dart';
 
 class MePage extends BasePage<MeController> {
   const MePage({Key? key}) : super(key: key);
@@ -267,8 +266,6 @@ class ProfileCard extends StatelessWidget {
                 return Expanded(
                   child: RawMaterialButton(
                     onPressed: () {
-                      // InputHelper.showBottomInput(context, 'ETH address or ENS',
-                      //     c.addressController, c.onSubmit);
                       Get.toNamed('/profile');
                     },
                     fillColor: Colors.white,
