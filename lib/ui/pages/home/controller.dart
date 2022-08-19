@@ -744,6 +744,8 @@ class HomeController extends BaseController {
     );
   }
 
+  void hidePOAPs() {}
+
   int _getUniqueCount() {
     List<int> uniqueEventIDList = [];
     for (var token in tokens) {

@@ -291,11 +291,25 @@ class HomePage extends BasePage<HomeController> {
             ),
             floatingActionButton: GetBuilder<HomeController>(
                 builder: (c) => c.isEditMode && c.selectedTokens.isNotEmpty
-                    ? FloatingActionButton.extended(
-                        onPressed: () {
-                          c.editTag();
-                        },
-                        label: const Text('Edit tags'))
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          FloatingActionButton.extended(
+                            onPressed: () {
+                              c.editTag();
+                            },
+                            label: const Text('Edit tags'),
+                          ),
+                          const SizedBox(height: 16),
+                          FloatingActionButton.extended(
+                            onPressed: () {
+                              c.hidePOAPs();
+                            },
+                            label: const Text('Hide POAPs'),
+                          ),
+                        ],
+                      )
                     : Container()),
             floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
             body: Container(
