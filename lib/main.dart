@@ -159,6 +159,24 @@ class MyApp extends StatelessWidget {
     }
   }
 
+  Locale _getLocale() {
+    Box box = Hive.box(prefBox);
+    var languagePref = box.get(prefLanguageKey);
+    Locale locale = const Locale(
+      'en',
+      'US',
+    );
+    if (languagePref != null) {
+      List localeString = languagePref.split('_');
+      if (localeString.length == 2) {
+        locale = Locale(localeString[0], localeString[1]);
+      } else if (localeString.length == 1) {
+        locale = Locale(localeString[0], '');
+      }
+    }
+    return locale;
+  }
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -173,13 +191,10 @@ class MyApp extends StatelessWidget {
       unknownRoute: AppPages.unknownRoute,
       defaultTransition: kIsWeb ? Transition.topLevel : Transition.native,
       translations: LocaleString(), // Translations
-      locale: const Locale(
-        'en',
-        'US',
-      ), // translations will be displayed in that locale
+      locale: _getLocale(), // translations will be displayed in that locale
       fallbackLocale: const Locale(
         'en',
-        'UK',
+        'US',
       ), // specify the fallback locale in case an invalid locale is selected.
       title: 'POAPin',
       theme: ThemeData(
