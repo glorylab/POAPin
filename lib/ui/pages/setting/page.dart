@@ -46,15 +46,17 @@ class SettingPage extends BasePage<SettingController> {
           child: ListView(
             children: [
               const _GroupTitle(title: 'General'),
-              SettingItem(
-                  title: 'Language',
-                  desc: 'English (United States)',
-                  icon: Icon(
-                    Icons.public_rounded,
-                    size: 24,
-                    color: Colors.blueGrey.withOpacity(0.5),
-                  ),
-                  onTap: controller.setLanguage),
+              GetBuilder<SettingController>(
+                builder: (c) => SettingItem(
+                    title: 'Language',
+                    desc: c.languageName,
+                    icon: Icon(
+                      Icons.public_rounded,
+                      size: 24,
+                      color: Colors.blueGrey.withOpacity(0.5),
+                    ),
+                    onTap: controller.showLanguageDialog),
+              ),
               const _GroupTitle(title: 'Data'),
               SettingItem(
                   title: 'Clear all cache',

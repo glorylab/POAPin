@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:poapin/common/constants.dart';
+import 'package:poapin/common/translations/locale_string.dart';
 import 'package:poapin/data/models/account.dart';
 import 'package:poapin/data/models/address.dart';
 import 'package:poapin/data/models/tag.dart';
@@ -21,6 +22,9 @@ class SettingController extends BaseController {
   String buildNumber = '';
   bool isNotificationEventsEnabled = false;
   bool isNotificationFriendsEnabled = false;
+
+  String locale = '';
+  String languageName = '';
 
   void launchTwitter() {
     launchURL('https://twitter.com/glorylaboratory');
@@ -93,8 +97,29 @@ class SettingController extends BaseController {
     update();
   }
 
-  void setLanguage() {
+  void showLanguageDialog() {
     Get.dialog(const LanguagesDialog());
+  }
+
+  setLanguage(String locale) {
+    Hive.box(prefBox).put(prefLanguageKey, locale);
+    if (locale != this.locale) {
+      this.locale = locale;
+      languageName = LocaleString().getLanguageName(locale);
+      update();
+    }
+  }
+
+  _getLanguage() {
+    Box box = Hive.box(prefBox);
+    var languagePref = box.get(prefLanguageKey);
+    if (languagePref != null) {
+      locale = languagePref;
+    } else {
+      locale = LocaleString.defaultLocale;
+    }
+    languageName = LocaleString().getLanguageName(locale);
+    update();
   }
 
   void clearAllCache() async {
@@ -160,6 +185,7 @@ class SettingController extends BaseController {
     version = packageInfo.version;
     buildNumber = packageInfo.buildNumber;
     update();
+    _getLanguage();
     _checkIsEventsNotificationEnabled();
     _checkIsFriendsNotificationEnabled();
   }

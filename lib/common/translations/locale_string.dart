@@ -16,10 +16,11 @@ import 'package:poapin/common/translations/languages/zh_hk.dart';
 import 'package:poapin/common/translations/languages/zh_tw.dart';
 
 class LocaleString extends Translations {
+  static String defaultLocale = 'en_US';
   @override
   Map<String, Map<String, String>> get keys => {
         /// Default Language
-        'en_US': EnUSTranslations.map, // [English] - United States
+        defaultLocale: EnUSTranslations.map, // [English] - United States
         'en_GB': EnGBTranslations.map, // [English] - United Kingdom
 
         /// Sort by alphabetical order
@@ -38,6 +39,10 @@ class LocaleString extends Translations {
             ZhHKTranslations.map, // [Traditional Chinese](繁体中文) - Hong Kong
         'zh_TW': ZhTWTranslations.map, // [Traditional Chinese](繁体中文) - Taiwan
       };
+
+  getLanguageName(String locale) {
+    return keys[locale]!['language_in_native'];
+  }
 
   getAllLanguage() {
     var languages = [];
