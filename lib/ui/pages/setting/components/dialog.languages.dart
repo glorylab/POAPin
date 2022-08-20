@@ -18,7 +18,21 @@ class LanguagesDialog extends StatelessWidget {
           );
         }
         return ListTile(
-          title: Text(languages[index - 1]['name']),
+          title: Row(
+            children: [
+              Text(
+                languages[index - 1]['name'],
+                style: GoogleFonts.robotoMono(color: Colors.black87),
+              ),
+              SizedBox(
+                width: 16,
+              ),
+              Text(
+                languages[index - 1]['progress'],
+                style: GoogleFonts.robotoMono(color: Colors.black38),
+              ),
+            ],
+          ),
           minVerticalPadding: 8,
           shape: ContinuousRectangleBorder(
             borderRadius: BorderRadius.circular(24),

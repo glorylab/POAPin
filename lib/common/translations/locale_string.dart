@@ -41,10 +41,12 @@ class LocaleString extends Translations {
 
   getAllLanguage() {
     var languages = [];
+    int totalItemCount = EnUSTranslations.map.keys.length;
     keys.forEach((key, value) {
       languages.add({
         'locale': key,
         'name': value['language_in_native'],
+        'progress': '${(value.length / totalItemCount) * 100}%',
       });
     });
     return languages;
