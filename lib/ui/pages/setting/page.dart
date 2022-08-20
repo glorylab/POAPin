@@ -45,6 +45,16 @@ class SettingPage extends BasePage<SettingController> {
               EdgeInsets.symmetric(horizontal: getHorizontalPadding(context)),
           child: ListView(
             children: [
+              const _GroupTitle(title: 'General'),
+              SettingItem(
+                  title: 'Language',
+                  desc: 'English (United States)',
+                  icon: Icon(
+                    Icons.public_rounded,
+                    size: 24,
+                    color: Colors.blueGrey.withOpacity(0.5),
+                  ),
+                  onTap: controller.setLanguage),
               const _GroupTitle(title: 'Data'),
               SettingItem(
                   title: 'Clear all cache',

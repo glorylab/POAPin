@@ -11,6 +11,7 @@ import 'package:poapin/data/models/token.dart';
 import 'package:poapin/ui/controller.base.dart';
 import 'package:poapin/ui/pages/home/controller.dart';
 import 'package:poapin/ui/pages/me/controller.dart';
+import 'package:poapin/ui/pages/setting/components/dialog.languages.dart';
 import 'package:poapin/ui/pages/watchlist/controller.dart';
 
 class SettingController extends BaseController {
@@ -90,6 +91,10 @@ class SettingController extends BaseController {
     isNotificationFriendsEnabled = !isNotificationFriendsEnabled;
     Hive.box(prefBox).put(prefFriendNotifyKey, isNotificationFriendsEnabled);
     update();
+  }
+
+  void setLanguage() {
+    Get.dialog(const LanguagesDialog());
   }
 
   void clearAllCache() async {

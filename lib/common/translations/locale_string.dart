@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:poapin/common/translations/languages/de.dart';
 import 'package:poapin/common/translations/languages/en_gb.dart';
 import 'package:poapin/common/translations/languages/en_us.dart';
 import 'package:poapin/common/translations/languages/es.dart';
@@ -17,9 +18,12 @@ import 'package:poapin/common/translations/languages/zh_tw.dart';
 class LocaleString extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
-        'de': JaTranslations.map, // [German](Deutsch)
-        'en_GB': EnGBTranslations.map, // [English] - United Kingdom
+        /// Default Language
         'en_US': EnUSTranslations.map, // [English] - United States
+        'en_GB': EnGBTranslations.map, // [English] - United Kingdom
+
+        /// Sort by alphabetical order
+        'de': DeTranslations.map, // [German](Deutsch)
         'es': ESTranslations.map, // [Castellano](español)
         'fr': FRTranslations.map, // [French](français)
         'ja': JaTranslations.map, // [Japanese](日本語)
@@ -34,4 +38,15 @@ class LocaleString extends Translations {
             ZhHKTranslations.map, // [Traditional Chinese](繁体中文) - Hong Kong
         'zh_TW': ZhTWTranslations.map, // [Traditional Chinese](繁体中文) - Taiwan
       };
+
+  getAllLanguage() {
+    var languages = [];
+    keys.forEach((key, value) {
+      languages.add({
+        'locale': key,
+        'name': value['language_in_native'],
+      });
+    });
+    return languages;
+  }
 }
