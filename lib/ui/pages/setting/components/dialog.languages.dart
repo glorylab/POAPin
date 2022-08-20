@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poapin/common/translations/locale_string.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/ui/pages/setting/controller.dart';
 
 class LanguagesDialog extends StatelessWidget {
@@ -43,9 +44,11 @@ class LanguagesDialog extends StatelessWidget {
                   const SizedBox(
                     width: 16,
                   ),
-                  Text(
-                    languages[index - 1]['progress'],
-                    style: GoogleFonts.robotoMono(color: Colors.black38),
+                  Expanded(
+                    child: Text(
+                      languages[index - 1]['progress'],
+                      style: GoogleFonts.robotoMono(color: Colors.black38),
+                    ),
                   ),
                 ],
               ),
@@ -100,7 +103,7 @@ class LanguagesDialog extends StatelessWidget {
                           horizontal: 16, vertical: 12),
                       width: double.infinity,
                       child: Text(
-                        'Language',
+                        strLanguage,
                         textAlign: TextAlign.center,
                         style: GoogleFonts.robotoSlab(
                           fontSize: 24,

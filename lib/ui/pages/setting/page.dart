@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/ui/components/buttons/back.dart';
 import 'package:poapin/ui/components/buttons/go_home.dart';
 import 'package:poapin/ui/page.base.dart';
@@ -48,7 +49,7 @@ class SettingPage extends BasePage<SettingController> {
               const _GroupTitle(title: 'General'),
               GetBuilder<SettingController>(
                 builder: (c) => SettingItem(
-                    title: 'Language',
+                    title: strLanguage,
                     desc: c.languageName,
                     icon: Icon(
                       Icons.public_rounded,

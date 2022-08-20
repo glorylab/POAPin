@@ -51,7 +51,9 @@ class LocaleString extends Translations {
       languages.add({
         'locale': key,
         'name': value['language_in_native'],
-        'progress': '${(value.length / totalItemCount) * 100}%',
+        'progress': (value.length == totalItemCount)
+            ? '100%'
+            : '${((value.length / totalItemCount) * 100).toStringAsFixed(2)}%',
       });
     });
     return languages;
