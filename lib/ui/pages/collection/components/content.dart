@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poapin/common/status.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/ui/components/alerts/error.dart';
 import 'package:poapin/ui/components/buttons/back.dart';
 import 'package:poapin/ui/components/buttons/go_home.dart';
@@ -84,12 +85,12 @@ class CollectionContent extends StatelessWidget {
                       },
                       child: !c.isFavorite
                           ? Text(
-                              '+ Follow',
+                              '+ $strFollow',
                               style: GoogleFonts.roboto(
                                   color: Theme.of(context).primaryColorDark),
                             )
                           : Text(
-                              'Unfollow',
+                              strUnfollow,
                               style: GoogleFonts.roboto(color: Colors.blueGrey),
                             ),
                     )

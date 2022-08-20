@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/controllers/controller.user.dart';
 import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/components/avatar.dart';
@@ -76,7 +77,7 @@ class MePage extends BasePage<MeController> {
                                     BorderRadius.all(Radius.circular(16))),
                             clipBehavior: Clip.antiAlias,
                             child: MeItem(
-                              title: 'Tags',
+                              title: strTags,
                               onTap: () {
                                 Get.toNamed('/tags');
                               },
@@ -84,7 +85,7 @@ class MePage extends BasePage<MeController> {
                                 Icons.local_offer,
                                 color: Colors.blueGrey.shade300,
                               ),
-                              desc: 'Manage your tags.',
+                              desc: strManageTags,
                             ),
                           ),
                         ),
@@ -104,7 +105,7 @@ class MePage extends BasePage<MeController> {
                       child: Column(
                         children: [
                           MeItem(
-                            title: 'Settings',
+                            title: strSettings,
                             onTap: () {
                               Get.toNamed('/setting');
                             },
@@ -112,14 +113,14 @@ class MePage extends BasePage<MeController> {
                               Icons.settings_suggest,
                               color: Colors.blueGrey.shade300,
                             ),
-                            desc: 'Notifications, data, etc.',
+                            desc: strSettingsDesc,
                           ),
                           Container(height: 1, color: PColor.background),
                           kIsWeb
                               ? Container()
                               : !c.isSignedIn
                                   ? MeAuthItem(
-                                      title: 'Sign in',
+                                      title: strSignIn,
                                       isSignIn: true,
                                       onTap: () async {
                                         Get.lazyPut(() => AuthController());
@@ -132,7 +133,7 @@ class MePage extends BasePage<MeController> {
                                       },
                                     )
                                   : MeAuthItem(
-                                      title: 'Log out',
+                                      title: strLogOut,
                                       onTap: () async {
                                         await FirebaseAuth.instance.signOut();
                                         c.isGetingUserInfo = false;
@@ -193,7 +194,7 @@ class ConnectWalletCard extends StatelessWidget {
                           ),
                           Expanded(
                             child: Text(
-                              'Sign in with browser & connect wallet.',
+                              strConnectWalletHint,
                               style: GoogleFonts.courierPrime(
                                 color: Colors.blueGrey.shade300,
                                 fontSize: 12,
@@ -321,7 +322,7 @@ class ProfileCard extends StatelessWidget {
                                     const SizedBox(height: 14),
                                     Text(
                                       c.ethAddress == ''
-                                          ? 'Set ETH address'
+                                          ? strSetEthAddress
                                           : c.getSimpleAddress(c.ethAddress),
                                       maxLines: 1,
                                       softWrap: false,

@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/pages/dashboard/controller.dart';
 import 'package:poapin/ui/pages/home/page.dart';
@@ -95,20 +96,20 @@ class DashboardPage extends GetView<DashboardController> {
           type: BottomNavigationBarType.fixed,
           showUnselectedLabels: true,
           landscapeLayout: BottomNavigationBarLandscapeLayout.centered,
-          items: const [
+          items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.cottage_outlined),
-              label: 'Home',
+              icon: const Icon(Icons.cottage_outlined),
+              label: strHome,
               backgroundColor: Colors.white,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.collections_bookmark_outlined),
-              label: 'Watchlist',
+              icon: const Icon(Icons.collections_bookmark_outlined),
+              label: strWatchlist,
               backgroundColor: Colors.white,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle_outlined),
-              label: 'Me',
+              icon: const Icon(Icons.account_circle_outlined),
+              label: strMe,
               backgroundColor: Colors.white,
             ),
           ],

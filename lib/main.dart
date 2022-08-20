@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poapin/common/constants.dart';
-import 'package:poapin/common/translations/messages.dart';
+import 'package:poapin/common/translations/locale_string.dart';
 import 'package:poapin/common/routes/pages.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:poapin/controllers/controller.user.dart';
@@ -172,7 +172,7 @@ class MyApp extends StatelessWidget {
       },
       unknownRoute: AppPages.unknownRoute,
       defaultTransition: kIsWeb ? Transition.topLevel : Transition.native,
-      translations: Messages(), // Translations
+      translations: LocaleString(), // Translations
       locale: const Locale(
         'en',
         'US',

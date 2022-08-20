@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/data/models/pref/layout.dart';
 import 'package:poapin/data/models/pref/shape.dart';
 import 'package:poapin/data/models/pref/sort.dart';
@@ -74,7 +75,7 @@ class OptionsView extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
-            'Sort',
+            strSort,
             style: GoogleFonts.epilogue(fontSize: 16, color: Colors.black54),
           ),
         ),
@@ -83,24 +84,24 @@ class OptionsView extends StatelessWidget {
           height: 56,
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: const [
-              SizedBox(
+            children: [
+              const SizedBox(
                 width: 16,
               ),
               SortByButton(
                 icon: Icons.arrow_upward,
-                label: 'from NEW to OLD',
+                label: strNewest,
                 sortBy: SortPref.timeAsc,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 8,
               ),
               SortByButton(
                 icon: Icons.arrow_downward,
-                label: 'from OLD to NEW',
+                label: strOldest,
                 sortBy: SortPref.timeDesc,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 16,
               ),
             ],
@@ -110,7 +111,7 @@ class OptionsView extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
-            'Shape',
+            strShape,
             style: GoogleFonts.epilogue(fontSize: 16, color: Colors.black54),
           ),
         ),

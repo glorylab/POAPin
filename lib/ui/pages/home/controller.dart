@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/controllers/tag.dart';
 import 'package:poapin/data/models/tag.dart';
 import 'package:poapin/secrets.dart';
@@ -847,29 +848,29 @@ class HomeController extends BaseController {
   String getMonthString(int month) {
     switch (month) {
       case 1:
-        return 'January';
+        return strJanuary;
       case 2:
-        return 'February';
+        return strFebruary;
       case 3:
-        return 'March';
+        return strMarch;
       case 4:
-        return 'April';
+        return strApril;
       case 5:
-        return 'May';
+        return strMay;
       case 6:
-        return 'June';
+        return strJune;
       case 7:
-        return 'July';
+        return strJuly;
       case 8:
-        return 'August';
+        return strAugust;
       case 9:
-        return 'September';
+        return strSeptember;
       case 10:
-        return 'October';
+        return strOctober;
       case 11:
-        return 'November';
+        return strNovember;
       case 12:
-        return 'December';
+        return strDecember;
       default:
         return '-';
     }

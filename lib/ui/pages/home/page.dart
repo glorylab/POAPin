@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poapin/common/status.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/controllers/tag.dart';
 import 'package:poapin/ui/components/alerts/error.dart';
 import 'package:poapin/ui/components/card.note.dart';
@@ -90,7 +91,7 @@ class HomePage extends BasePage<HomeController> {
                       SafeArea(
                         child: Center(
                           child: Text(
-                            'Enjoy a life with POAP.',
+                            strEnjoy,
                             style: GoogleFonts.carterOne(
                               color: Colors.white70,
                               fontSize: 24,
@@ -113,8 +114,7 @@ class HomePage extends BasePage<HomeController> {
                       right: getHorizontalPadding(context),
                       top: 16),
                   child: NoteCard(
-                    content:
-                        'Set your address and you\'ll see your POAPs on the home page.',
+                    content: strSetAddress,
                     onOkTap: () {},
                   ),
                 ),
@@ -151,7 +151,7 @@ class HomePage extends BasePage<HomeController> {
                         Container(
                           alignment: Alignment.center,
                           child: Text(
-                            'Set ETH address',
+                            strSetEthAddress,
                             maxLines: 1,
                             style: GoogleFonts.courierPrime(
                               color: Theme.of(context).primaryColorDark,
@@ -165,7 +165,7 @@ class HomePage extends BasePage<HomeController> {
                       controller.handlePress();
                       InputHelper.showBottomInput(
                           context,
-                          'ETH address or ENS',
+                          strEthAddressOrEns,
                           Get.find<MeController>().addressController,
                           Get.find<MeController>().onSubmit);
                     },
@@ -251,9 +251,7 @@ class HomePage extends BasePage<HomeController> {
                       child: Center(
                         child: GetBuilder<HomeController>(
                           builder: (c) => Text(
-                            c.isEditMode
-                                ? 'Edit POAPs'
-                                : 'Enjoy a life with POAP.',
+                            c.isEditMode ? strEditMode : strEnjoy,
                             style: GoogleFonts.carterOne(
                               color: Colors.white70,
                               fontSize: 24,
@@ -276,7 +274,7 @@ class HomePage extends BasePage<HomeController> {
                           child: Row(
                             children: [
                               Text(
-                                'Done',
+                                strDone,
                                 style: GoogleFonts.epilogue(
                                   color: Colors.white,
                                   fontSize: 16,
@@ -295,7 +293,7 @@ class HomePage extends BasePage<HomeController> {
                         onPressed: () {
                           c.editTag();
                         },
-                        label: const Text('Edit tags'))
+                        label: Text(strEditTags))
                     : Container()),
             floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
             body: Container(
@@ -402,7 +400,7 @@ class ENJOYALIFEWITHPOAP extends StatelessWidget {
             SafeArea(
               child: Center(
                 child: Text(
-                  'Enjoy a life with POAP.',
+                  strEnjoy,
                   style: GoogleFonts.carterOne(
                     color: Colors.white70,
                     fontSize: 24,

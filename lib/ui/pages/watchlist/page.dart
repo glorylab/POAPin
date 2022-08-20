@@ -5,6 +5,7 @@ import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poapin/common/status.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/data/models/token.dart';
 import 'package:poapin/ui/components/cache.image.dart';
 import 'package:poapin/ui/components/card.note.dart';
@@ -120,7 +121,7 @@ class WelcomeView extends StatelessWidget {
               bottom: 16,
             ),
             child: NoteCard(
-              content: 'You can add some addresses you are interested in here.',
+              content: strWatchlistHint,
               onOkTap: () {},
             ),
           ),
@@ -153,7 +154,7 @@ class WelcomeView extends StatelessWidget {
                   Container(
                     alignment: Alignment.center,
                     child: Text(
-                      'Add your first collection',
+                      strAddCollection,
                       maxLines: 1,
                       style: GoogleFonts.courierPrime(
                         color: Theme.of(context).primaryColorDark,
@@ -166,7 +167,7 @@ class WelcomeView extends StatelessWidget {
               onPressed: () async {
                 InputHelper.showBottomInput(
                     context,
-                    'ETH address or ENS',
+                    strEthAddressOrEns,
                     watchlistController.addressController,
                     watchlistController.onSubmit);
               },
@@ -230,7 +231,7 @@ class IndexHomeView extends StatelessWidget {
                   onPressed: () {
                     InputHelper.showBottomInput(
                         context,
-                        'ETH address or ENS',
+                        strEthAddressOrEns,
                         watchlistController.addressController,
                         watchlistController.onSubmit);
                   },
@@ -292,7 +293,7 @@ class IndexHomeView extends StatelessWidget {
                     onPressed: () {
                       InputHelper.showBottomInput(
                           context,
-                          'ETH address or ENS',
+                          strEthAddressOrEns,
                           watchlistController.addressController,
                           watchlistController.onSubmit);
                     },
@@ -355,7 +356,7 @@ class IndexHomeView extends StatelessWidget {
                   onPressed: () {
                     InputHelper.showBottomInput(
                         context,
-                        'ETH address or ENS',
+                        strEthAddressOrEns,
                         watchlistController.addressController,
                         watchlistController.onSubmit);
                   },
@@ -747,7 +748,7 @@ class _EmptyWatchlist extends StatelessWidget {
             ),
             Container(
               alignment: Alignment.center,
-              child: Text('Add your first collection',
+              child: Text(strAddCollection,
                   maxLines: 1,
                   style: GoogleFonts.courierPrime(
                     color: Theme.of(context).primaryColorDark,
@@ -759,7 +760,7 @@ class _EmptyWatchlist extends StatelessWidget {
         onPressed: () async {
           InputHelper.showBottomInput(
               context,
-              'ETH address or ENS',
+              strEthAddressOrEns,
               Get.find<WatchlistController>().addressController,
               Get.find<WatchlistController>().onSubmit);
         },

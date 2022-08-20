@@ -10,6 +10,7 @@ const tagBox = 'tag';
 const prefLayoutKey = 'layout';
 const prefShapeKey = 'shape';
 const prefSortKey = 'sort';
+const prefLanguageKey = 'language';
 const prefEventNotifyKey = 'eventNotify';
 const prefFriendNotifyKey = 'friendNotify';
 const prefHeaderNoticeReadKey = 'headerNoticeRead';
