@@ -7,7 +7,7 @@ class JaTranslations {
         'POAPin': 'POAPin',
 
         /// Tabs
-        // Strings.home: 'Home',
+        Strings.home: 'ホーム',
         // Strings.watchlist: 'Watchlist',
         // Strings.me: 'Me',
 
