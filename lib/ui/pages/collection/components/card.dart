@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/ui/pages/collection/components/chart.dart';
 import 'package:poapin/ui/pages/collection/controller.dart';
 
@@ -45,7 +46,7 @@ class CollectionCard extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      'Events',
+                                      strEvents,
                                       style: GoogleFonts.shareTechMono(
                                         color: Colors.black38,
                                         fontWeight: FontWeight.bold,
@@ -71,7 +72,7 @@ class CollectionCard extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      'POAPs',
+                                      strPOAPs,
                                       style: GoogleFonts.shareTechMono(
                                         color: Colors.black45,
                                         fontWeight: FontWeight.bold,
@@ -113,8 +114,8 @@ class CollectionCard extends StatelessWidget {
                                   left: 16,
                                   child: Text(
                                     controller.chartView.value == 'growth'
-                                        ? 'growth'
-                                        : 'monthly',
+                                        ? strGrowth
+                                        : strMonthly,
                                     style: GoogleFonts.epilogue(
                                       fontSize: 16,
                                       color: Theme.of(context)

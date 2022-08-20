@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart' hide User;
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/data/models/user.dart';
 import 'package:poapin/ui/controller.base.dart';
 import 'package:poapin/ui/pages/auth/controller.dart';
@@ -40,7 +41,7 @@ class UserController extends BaseController {
       Get.find<MeController>().getAccount();
     } on DioError catch (e) {
       isGetingUserInfo = false;
-      Get.snackbar('Error', e.message);
+      Get.snackbar(strError, e.message);
       update();
       if (kDebugMode) {
         print(e);

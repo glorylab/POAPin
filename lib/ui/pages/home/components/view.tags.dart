@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/ui/pages/home/components/wrapper.bottomsheet.dart';
 import 'package:poapin/ui/pages/home/controller.dart';
 
@@ -68,7 +69,7 @@ class TagsView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Text(
-              'Tags',
+              strTags,
               style: GoogleFonts.epilogue(fontSize: 16, color: Colors.black54),
             ),
           ),

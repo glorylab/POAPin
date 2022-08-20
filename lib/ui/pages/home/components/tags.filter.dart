@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/ui/pages/home/components/view.countries.dart';
 import 'package:poapin/ui/pages/home/components/view.layers.dart';
 import 'package:poapin/ui/pages/home/components/view.options.dart';
@@ -218,7 +219,7 @@ class FiltersView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            'Clear ALL',
+                            strFilterClearAll,
                             style: GoogleFonts.lato(
                               color: Colors.orangeAccent.shade400,
                             ),
@@ -448,7 +449,7 @@ class ExpandedHintView extends StatelessWidget {
                     width: 16,
                   ),
                   Text(
-                    'Filter',
+                    strFilter,
                     style: GoogleFonts.epilogue(
                         fontSize: 16, color: Colors.black54),
                   ),
@@ -463,7 +464,7 @@ class ExpandedHintView extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             FilterInputLine(
-              title: 'title',
+              title: strFilterTitle,
               controller: filterController.nameController,
               onEditingComplete: () {
                 FocusScopeNode currentFocus = FocusScope.of(context);
@@ -480,7 +481,7 @@ class ExpandedHintView extends StatelessWidget {
               },
             ),
             FilterInputLine(
-              title: 'description',
+              title: strFilterDescription,
               controller: filterController.descController,
               onEditingComplete: () {
                 FocusScopeNode currentFocus = FocusScope.of(context);
@@ -498,8 +499,8 @@ class ExpandedHintView extends StatelessWidget {
             ),
             GetBuilder<HomeController>(
               builder: (c) => FilterLine(
-                title: 'country',
-                hint: 'country',
+                title: strFilterCountry,
+                hint: strFilterCountry,
                 content: c.filters['country'] ?? '',
                 onPressed: () {
                   showMaterialModalBottomSheet(
@@ -518,8 +519,8 @@ class ExpandedHintView extends StatelessWidget {
             ),
             GetBuilder<HomeController>(
               builder: (c) => FilterLine(
-                title: 'tag',
-                hint: 'tag',
+                title: strFilterTag,
+                hint: strFilterTag,
                 content:
                     c.filters['tag'] == null ? '' : c.filters['tag'].name ?? '',
                 onPressed: () {
@@ -540,10 +541,10 @@ class ExpandedHintView extends StatelessWidget {
             ),
             GetBuilder<HomeController>(
               builder: (c) => FilterLine(
-                title: 'chain',
+                title: strFilterChain,
                 content:
                     c.filters['chain'] == null ? '' : c.filters['chain'] ?? '',
-                hint: 'chain',
+                hint: strFilterChain,
                 onClearPressed: () {
                   collectionController.clearChainFilter();
                 },
@@ -604,7 +605,7 @@ class HintView extends StatelessWidget {
                       ),
                       Expanded(
                         child: Text(
-                          'Filter by name, description, location, etc.',
+                          strFilterHint,
                           maxLines: 1,
                           overflow: TextOverflow.fade,
                           softWrap: false,

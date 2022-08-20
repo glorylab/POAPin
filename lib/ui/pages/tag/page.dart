@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/ui/components/buttons/back.dart';
 import 'package:poapin/ui/components/buttons/go_home.dart';
 import 'package:poapin/ui/page.base.dart';
@@ -193,7 +194,7 @@ class TagPage extends BasePage<TagDetailController> {
                         child: Row(
                           children: [
                             Text(
-                              'Done',
+                              strDone,
                               style: GoogleFonts.epilogue(
                                 color: Theme.of(context).primaryColor,
                                 fontSize: 16,
@@ -214,7 +215,7 @@ class TagPage extends BasePage<TagDetailController> {
                     onPressed: () {
                       c.editTag();
                     },
-                    label: const Text('Edit tags'))
+                    label: Text(strEditTags))
                 : Container()),
         floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
         body: Container(

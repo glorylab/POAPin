@@ -1,3 +1,5 @@
+import 'package:poapin/common/translations/strings.dart';
+
 class EnGBTranslations {
   static Map<String, String> get map => {
         'language_in_english': 'English(UK)',
@@ -5,115 +7,115 @@ class EnGBTranslations {
         'POAPin': 'POAPin',
 
         /// Tabs
-        // 'home': 'Home',
-        // 'watchlist': 'Watchlist',
-        // 'me': 'Me',
+        // Strings.home: 'Home',
+        // Strings.watchlist: 'Watchlist',
+        // Strings.me: 'Me',
 
         /// Home(Initial state)
-        // 'enjoy': 'Enjoy a life with POAP',
-        // 'set_address':
+        // Strings.enjoy: 'Enjoy a life with POAP',
+        // Strings.setAddress:
         //     'Set your address and you\'ll see your POAPs on the home page',
-        // 'set_eth_address': 'Set ETH address',
-        // 'eth_address_or_ens': 'ETH address or ENS',
-        // 'invalid_address': 'Invalid address',
+        // Strings.setEthAddress: 'Set ETH address',
+        // Strings.ethAddressOrEns: 'ETH address or ENS',
+        // Strings.invalidAddress: 'Invalid address',
 
         /// Home(empty)
-        // 'no_poap':
+        // Strings.noPOAP:
         //     'You don\'t appear to have any POAP right now.\nBut it\'s not too late!\n\nBegin learning about POAP by creating a POAP.',
 
         /// Home(available)
-        // 'events': 'Events',
-        // 'poaps': 'POAPs',
-        // 'growth': 'growth',
-        // 'monthly': 'monthly',
-        // 'filter_hint': 'Filter by name, description, location, etc.',
+        // Strings.events: 'Events',
+        // Strings.poaps: 'POAPs',
+        // Strings.growth: 'growth',
+        // Strings.monthly: 'monthly',
+        // Strings.filterHint: 'Filter by name, description, location, etc.',
         // --- Prefs
-        // 'sort': 'Sort',
-        // 'newest': 'Newest',
-        // 'oldest': 'Oldest',
-        // 'shape': 'Shape',
-        // 'square': 'Square',
-        // 'round': 'Round',
-        // 'layout': 'Layout',
-        // 'grid': 'Grid',
-        // 'list': 'List',
-        // 'timeline': 'Timeline',
+        // Strings.sort: 'Sort',
+        // Strings.newest: 'Newest',
+        // Strings.oldest: 'Oldest',
+        // Strings.shape: 'Shape',
+        // Strings.square: 'Square',
+        // Strings.round: 'Round',
+        // Strings.layout: 'Layout',
+        // Strings.grid: 'Grid',
+        // Strings.list: 'List',
+        // Strings.timeline: 'Timeline',
         // --- Filter
-        // 'filter': 'Filter',
-        // 'filter_title': 'Title',
-        // 'filter_description': 'Description',
-        // 'filter_country': 'Country',
-        // 'filter_tag': 'Tag',
-        // 'filter_chain': 'Chain',
-        // 'filter_clear_all': 'Clear ALL',
+        // Strings.filter: 'Filter',
+        // Strings.filterTitle: 'Title',
+        // Strings.filterDescription: 'Description',
+        // Strings.filterCountry: 'Country',
+        // Strings.filterTag: 'Tag',
+        // Strings.filterChain: 'Chain',
+        // Strings.filterClearAll: 'Clear ALL',
 
         /// Home(edit mode)
-        // 'edit_mode': 'Edit POAPs',
-        // 'edit_tags': 'Edit tags',
-        // 'new_tag': 'New Tag',
-        // 'new_tag_hint': 'new tag for event',
+        // Strings.editMode: 'Edit POAPs',
+        // Strings.editTags: 'Edit tags',
+        // Strings.newTag: 'New Tag',
+        // Strings.newTagHint: 'new tag for event',
 
         /// Watchlist(Initial state)
-        // 'watchlist_hint':
+        // Strings.watchlistHint:
         //     'You can add some addresses you are interested in here.',
-        // 'add_collection': 'Add your first collection',
+        // Strings.addCollection: 'Add your first collection',
 
         /// Watchlist(available)
-        // 'follow': 'Follow',
-        // 'unfollow': 'Unfollow',
+        // Strings.follow: 'Follow',
+        // Strings.unfollow: 'Unfollow',
 
         /// Me
-        // 'connect_wallet_hint': 'Sign in with browser & connect wallet.',
+        // Strings.connectWalletHint: 'Sign in with browser & connect wallet.',
 
         /// Profile
-        // 'profile': 'Profile',
-        // 'danger_zone': 'Danger Zone',
-        // 'delete_account': 'Delete account',
-        // 'delete_account_desc':
+        // Strings.profile: 'Profile',
+        // Strings.dangerZone: 'Danger Zone',
+        // Strings.deleteAccount: 'Delete account',
+        // Strings.deleteAccountDesc:
         //     'Are you certain you want to delete your account?\n\nThis operation cannot be undone.',
-        // 'delete_account_confirm': 'Delete',
+        // Strings.deleteAccountConfirm: 'Delete',
 
         /// Tags
-        // 'tags': 'Tags',
-        // 'manage_tags': 'Manage your tags',
-        // 'no_tags': 'No tags yet',
-        // 'add_tag': 'New Tag',
-        // 'edit_tag_hint': 'choose from above\nor',
+        // Strings.tags: 'Tags',
+        // Strings.manageTags: 'Manage your tags',
+        // Strings.noTags: 'No tags yet',
+        // Strings.addTag: 'New Tag',
+        // Strings.editTagHint: 'choose from above\nor',
 
         /// Settings
-        // 'settings': 'Settings',
-        // 'settings_desc': 'Notifications, data, etc.',
-        // 'general': 'General',
-        // 'language': 'Language',
-        // 'data': 'General',
-        // 'cache': 'Clear all cache',
-        // 'cache_desc': 'If there are problems with app, please try it.',
-        // 'about': 'About',
+        // Strings.settings: 'Settings',
+        // Strings.settingsDesc: 'Notifications, data, etc.',
+        // Strings.general: 'General',
+        // Strings.language: 'Language',
+        // Strings.data: 'General',
+        // Strings.cache: 'Clear all cache',
+        // Strings.cacheDesc: 'If there are problems with app, please try it.',
+        // Strings.about: 'About',
 
         /// Account
-        // 'sign_in': 'Sign in',
-        // 'log_out': 'Log out',
-        // 'signin_apple': 'Sign in with Apple',
-        // 'signin_google': 'Continue with Google',
-        // 'tos':
+        // Strings.signIn: 'Sign in',
+        // Strings.logOut: 'Log out',
+        // Strings.signinApple: 'Sign in with Apple',
+        // Strings.signinGoogle: 'Continue with Google',
+        // Strings.tos:
         //     'By continuing, you agree to our Terms of Service and Privacy Policy',
 
         /// Common
-        // 'done': 'Done',
-        // 'alert': 'Alert',
-        // 'error': 'Error',
+        // Strings.done: 'Done',
+        // Strings.alert: 'Alert',
+        // Strings.error: 'Error',
         // --- Months
-        // 'january': 'January',
-        // 'february': 'February',
-        // 'march': 'March',
-        // 'april': 'April',
-        // 'may': 'May',
-        // 'june': 'June',
-        // 'july': 'July',
-        // 'august': 'August',
-        // 'september': 'September',
-        // 'october': 'October',
-        // 'november': 'November',
-        // 'december': 'December',
+        // Strings.january: 'January',
+        // Strings.february: 'February',
+        // Strings.march: 'March',
+        // Strings.april: 'April',
+        // Strings.may: 'May',
+        // Strings.june: 'June',
+        // Strings.july: 'July',
+        // Strings.august: 'August',
+        // Strings.september: 'September',
+        // Strings.october: 'October',
+        // Strings.november: 'November',
+        // Strings.december: 'December',
       };
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/ui/page.base.dart';
 import 'package:poapin/ui/pages/auth/controller.dart';
 
@@ -56,7 +57,7 @@ class AuthPage extends BasePage<AuthController> {
                 child: Column(children: [
                   GetPlatform.isIOS
                       ? AuthButton(
-                          text: 'Sign in with Apple',
+                          text: strSigninApple,
                           backgroundColor: Colors.grey.shade900,
                           onPressed: () {
                             controller.signInWithApple().then((value) {
@@ -71,7 +72,7 @@ class AuthPage extends BasePage<AuthController> {
                       : Container(),
                   const SizedBox(height: 16),
                   AuthButton(
-                    text: 'Continue with Google',
+                    text: strSigninGoogle,
                     backgroundColor: Colors.blue,
                     onPressed: () {
                       controller.signInWithGoogle().then((value) {
@@ -101,7 +102,7 @@ class AuthPage extends BasePage<AuthController> {
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Text(
-                  'By continuing, you agree to our Terms of Service and Privacy Policy',
+                  strTos,
                   style: GoogleFonts.roboto(
                     fontSize: 12,
                     fontWeight: FontWeight.w500,

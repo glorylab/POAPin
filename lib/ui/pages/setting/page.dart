@@ -25,7 +25,7 @@ class SettingPage extends BasePage<SettingController> {
             : const GoBackButton(),
         elevation: 2,
         title: Text(
-          'Setting',
+          strSettings,
           overflow: TextOverflow.fade,
           style: GoogleFonts.carterOne(
             color: const Color(0xFF6534FF),
@@ -46,7 +46,7 @@ class SettingPage extends BasePage<SettingController> {
               EdgeInsets.symmetric(horizontal: getHorizontalPadding(context)),
           child: ListView(
             children: [
-              const _GroupTitle(title: 'General'),
+              _GroupTitle(title: strGeneral),
               GetBuilder<SettingController>(
                 builder: (c) => SettingItem(
                     title: strLanguage,
@@ -58,17 +58,17 @@ class SettingPage extends BasePage<SettingController> {
                     ),
                     onTap: controller.showLanguageDialog),
               ),
-              const _GroupTitle(title: 'Data'),
+              _GroupTitle(title: strData),
               SettingItem(
-                  title: 'Clear all cache',
-                  desc: 'If there are problems with app, please try it.',
+                  title: strCache,
+                  desc: strCacheDesc,
                   icon: Icon(
                     Icons.data_usage,
                     size: 24,
                     color: Colors.blueGrey.withOpacity(0.5),
                   ),
                   onTap: controller.clearAllCache),
-              const _GroupTitle(title: 'About'),
+              _GroupTitle(title: strAbout),
               Material(
                 shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(16))),
@@ -76,8 +76,8 @@ class SettingPage extends BasePage<SettingController> {
                 child: Column(
                   children: [
                     SettingItem(
-                      title: 'Twitter',
-                      desc: '@glorylaboratory',
+                      title: strTwitter,
+                      desc: strTwitterHandle,
                       icon: Image.asset(
                         'icons/ic_twitter.png',
                         package: 'web3_icons',
@@ -90,8 +90,8 @@ class SettingPage extends BasePage<SettingController> {
                       isRoundCorner: false,
                     ),
                     SettingItem(
-                      title: 'Mirror',
-                      desc: 'glorylab.eth',
+                      title: strMirror,
+                      desc: strMirrorAddress,
                       icon: Image.asset(
                         'icons/ic_mirror.png',
                         package: 'web3_icons',
@@ -104,8 +104,8 @@ class SettingPage extends BasePage<SettingController> {
                       isRoundCorner: false,
                     ),
                     SettingItem(
-                      title: 'GitHub',
-                      desc: 'glorylab/POAPin',
+                      title: strGitHub,
+                      desc: strGitHubRepo,
                       icon: Image.asset(
                         'icons/ic_github.png',
                         package: 'web3_icons',
@@ -118,8 +118,8 @@ class SettingPage extends BasePage<SettingController> {
                       isRoundCorner: false,
                     ),
                     SettingItem(
-                      title: 'POAP.in',
-                      desc: 'https://poap.in',
+                      title: strPOAPDotIn,
+                      desc: strPOAPDotInURL,
                       icon: Image.asset(
                         'icons/ic_poapin.png',
                         package: 'web3_icons',

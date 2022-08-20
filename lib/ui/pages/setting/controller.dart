@@ -5,6 +5,7 @@ import 'package:hive/hive.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:poapin/common/constants.dart';
 import 'package:poapin/common/translations/locale_string.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/data/models/account.dart';
 import 'package:poapin/data/models/address.dart';
 import 'package:poapin/data/models/tag.dart';
@@ -143,7 +144,7 @@ class SettingController extends BaseController {
     Get.find<HomeController>().getAccount();
     Get.find<WatchlistController>().getAccount();
     Get.defaultDialog(
-        title: 'Done',
+        title: strDone,
         content: const Text(
             'Cache has been cleared.\nLet\'s start from the beginning!'),
         onConfirm: () {
