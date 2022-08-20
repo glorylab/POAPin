@@ -107,6 +107,16 @@ class SettingController extends BaseController {
       this.locale = locale;
       languageName = LocaleString().getLanguageName(locale);
       update();
+      _updateLocale();
+    }
+  }
+
+  _updateLocale() {
+    List localeString = locale.split('_');
+    if (localeString.length == 2) {
+      Get.updateLocale(Locale(localeString[0], localeString[1]));
+    } else if (localeString.length == 1) {
+      Get.updateLocale(Locale(localeString[0], ''));
     }
   }
 
