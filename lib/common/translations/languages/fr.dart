@@ -14,14 +14,14 @@ class FRTranslations {
         /// Home(Initial state)
         Strings.enjoy: 'Une vie pleine de POAPs.',
         Strings.setAddress:
-             'Entrez votre adresse et vous verrez vos POAPs sur la page d\'accueil.',
+            'Entrez votre adresse et vous verrez vos POAPs sur la page d\'accueil.',
         Strings.setEthAddress: 'Définir l\'adresse ETH',
         Strings.ethAddressOrEns: 'adresse ETH ou ENS',
         Strings.invalidAddress: 'adresse invalide',
 
         /// Home(empty)
         Strings.noPOAP:
-             'Vous ne semblez pas avoir de POAP pour l\'instant. Mais il n\'est pas trop tard ! Vous pouvez découvrir les POAPs en créeant votre premier POAP.'
+            'Vous ne semblez pas avoir de POAP pour l\'instant. Mais il n\'est pas trop tard ! Vous pouvez découvrir les POAPs en créeant votre premier POAP.',
 
         /// Home(available)
         Strings.events: 'Évènements',
@@ -57,7 +57,7 @@ class FRTranslations {
 
         /// Watchlist(Initial state)
         Strings.watchlistHint:
-             'Vous pouvez ajouter ici les adresses qui vous intéressent.',
+            'Vous pouvez ajouter ici les adresses qui vous intéressent.',
         Strings.addCollection: 'Ajoutez votre première collection',
 
         /// Watchlist(available)
@@ -72,7 +72,7 @@ class FRTranslations {
         Strings.dangerZone: 'Zone dangereuse',
         Strings.deleteAccount: 'Supprimer le compte',
         Strings.deleteAccountDesc:
-             'Êtes-vous certain de vouloir supprimer votre compte ?\n\nCette opération ne peut être annulée.',
+            'Êtes-vous certain de vouloir supprimer votre compte ?\n\nCette opération ne peut être annulée.',
         Strings.deleteAccountConfirm: 'Supprimer',
 
         /// Tags
@@ -98,7 +98,7 @@ class FRTranslations {
         Strings.signinApple: 'Se connecter avec Apple',
         Strings.signinGoogle: 'Continuer avec Google',
         Strings.tos:
-             'En continuant, vous acceptez nos conditions de service et notre politique de confidentialité.',
+            'En continuant, vous acceptez nos conditions de service et notre politique de confidentialité.',
 
         /// Common
         Strings.done: 'Effectué',
