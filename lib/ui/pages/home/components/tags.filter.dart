@@ -40,9 +40,9 @@ class FilterTags extends StatelessWidget {
                     child: Card(
                       clipBehavior: Clip.antiAlias,
                       elevation: 16,
-                      shape: const RoundedRectangleBorder(
+                      shape: const ContinuousRectangleBorder(
                           side: BorderSide(color: Colors.white70, width: 1),
-                          borderRadius: BorderRadius.all(Radius.circular(8))),
+                          borderRadius: BorderRadius.all(Radius.circular(24))),
                       shadowColor: Colors.black26,
                       child: GetBuilder<HomeController>(builder: (c) {
                         if (c.filters.isEmpty) {
@@ -56,9 +56,9 @@ class FilterTags extends StatelessWidget {
                   Card(
                     clipBehavior: Clip.antiAlias,
                     elevation: 16,
-                    shape: const RoundedRectangleBorder(
+                    shape: const ContinuousRectangleBorder(
                         side: BorderSide(color: Colors.white70, width: 1),
-                        borderRadius: BorderRadius.all(Radius.circular(8))),
+                        borderRadius: BorderRadius.all(Radius.circular(24))),
                     shadowColor: Colors.black26,
                     child: Row(
                       children: [

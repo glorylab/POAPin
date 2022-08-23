@@ -44,9 +44,9 @@ class _ChartCard extends StatelessWidget {
       child: Card(
         clipBehavior: Clip.antiAlias,
         elevation: 16,
-        shape: const RoundedRectangleBorder(
+        shape: const ContinuousRectangleBorder(
             side: BorderSide(color: Colors.white70, width: 1),
-            borderRadius: BorderRadius.all(Radius.circular(8))),
+            borderRadius: BorderRadius.all(Radius.circular(24))),
         shadowColor: Colors.black26,
         child: GetBuilder<HomeController>(
           builder: (c) => InkWell(
@@ -88,9 +88,9 @@ class _CountCard extends StatelessWidget {
     return Card(
       clipBehavior: Clip.antiAlias,
       elevation: 16,
-      shape: const RoundedRectangleBorder(
+      shape: const ContinuousRectangleBorder(
           side: BorderSide(color: Colors.white70, width: 1),
-          borderRadius: BorderRadius.all(Radius.circular(8))),
+          borderRadius: BorderRadius.all(Radius.circular(24))),
       shadowColor: Colors.black26,
       child: InkWell(
         onTap: () {},

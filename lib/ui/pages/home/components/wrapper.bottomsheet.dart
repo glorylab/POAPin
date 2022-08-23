@@ -48,10 +48,10 @@ class BottomSheetWrapper extends StatelessWidget {
             onTap: () {},
             child: Material(
               color: Colors.white,
-              shape: const RoundedRectangleBorder(
+              shape: const ContinuousRectangleBorder(
                 borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(12),
-                    topRight: Radius.circular(12)),
+                    topLeft: Radius.circular(48),
+                    topRight: Radius.circular(48)),
               ),
               clipBehavior: Clip.antiAlias,
               elevation: 16,
