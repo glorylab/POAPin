@@ -32,9 +32,6 @@ class HomeController extends BaseController {
   double scrollDelta = 0;
   double lastOffset = 0;
   final double hideVelocity = 2;
-  void handlePress() {
-    HapticFeedback.vibrate();
-  }
 
   @override
   String screenName() {
