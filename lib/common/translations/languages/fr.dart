@@ -30,6 +30,9 @@ class FRTranslations {
         Strings.monthly: 'par mois',
         Strings.filterHint: 'Filtrez par nom, description, lieu, etc.',
         // --- Prefs
+        // Strings.visibility: 'Visibility',
+        // Strings.hideDuplicates: 'Hide Duplicates',
+        // Strings.showAll: 'Show all',
         Strings.sort: 'Trier',
         Strings.newest: 'Plus récent',
         Strings.oldest: 'Plus ancien',

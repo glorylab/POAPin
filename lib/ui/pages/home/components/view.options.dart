@@ -5,9 +5,11 @@ import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/data/models/pref/layout.dart';
 import 'package:poapin/data/models/pref/shape.dart';
 import 'package:poapin/data/models/pref/sort.dart';
+import 'package:poapin/data/models/pref/visibility.dart';
 import 'package:poapin/ui/pages/home/components/button.clip_shape.dart';
 import 'package:poapin/ui/pages/home/components/button.layout.dart';
 import 'package:poapin/ui/pages/home/components/button.sort_by.dart';
+import 'package:poapin/ui/pages/home/components/button.visibility.dart';
 import 'package:poapin/ui/pages/home/components/wrapper.bottomsheet.dart';
 import 'package:poapin/ui/pages/home/controller.dart';
 
@@ -71,15 +73,50 @@ class OptionsView extends StatelessWidget {
       shrinkWrap: true,
       padding: EdgeInsets.zero,
       children: [
-        const SizedBox(height: 24),
+        const SizedBox(height: 8),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding:
+              const EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 16),
+          child: Text(
+            strVisibility,
+            style: GoogleFonts.epilogue(fontSize: 16, color: Colors.black54),
+          ),
+        ),
+        SizedBox(
+          height: 56,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: [
+              const SizedBox(
+                width: 16,
+              ),
+              VisibilityButton(
+                icon: Icons.unfold_less_rounded,
+                label: strHideDuplicates,
+                visibility: VisibilityPref.hideDuplicates,
+              ),
+              const SizedBox(
+                width: 8,
+              ),
+              VisibilityButton(
+                icon: Icons.unfold_more_rounded,
+                label: strShowAll,
+                visibility: VisibilityPref.showAll,
+              ),
+              const SizedBox(
+                width: 16,
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding:
+              const EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 16),
           child: Text(
             strSort,
             style: GoogleFonts.epilogue(fontSize: 16, color: Colors.black54),
           ),
         ),
-        const SizedBox(height: 16),
         SizedBox(
           height: 56,
           child: ListView(
@@ -107,15 +144,14 @@ class OptionsView extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 24),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding:
+              const EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 16),
           child: Text(
             strShape,
             style: GoogleFonts.epilogue(fontSize: 16, color: Colors.black54),
           ),
         ),
-        const SizedBox(height: 16),
         SizedBox(
           height: 112,
           child: ListView(
@@ -143,15 +179,14 @@ class OptionsView extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 24),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding:
+              const EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 16),
           child: Text(
             'Layout',
             style: GoogleFonts.epilogue(fontSize: 16, color: Colors.black54),
           ),
         ),
-        const SizedBox(height: 16),
         Container(
           constraints:
               BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 2),

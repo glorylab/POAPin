@@ -30,6 +30,9 @@ class ESTranslations {
         // Strings.monthly: 'monthly',
         // Strings.filterHint: 'Filter by name, description, location, etc.',
         // --- Prefs
+        // Strings.visibility: 'Visibility',
+        // Strings.hideDuplicates: 'Hide Duplicates',
+        // Strings.showAll: 'Show all',
         // Strings.sort: 'Sort',
         // Strings.newest: 'Newest',
         // Strings.oldest: 'Oldest',

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/controllers/tag.dart';
+import 'package:poapin/data/models/pref/visibility.dart';
 import 'package:poapin/data/models/tag.dart';
 import 'package:poapin/secrets.dart';
 import 'package:poapin/ui/controller.base.dart';
@@ -85,6 +86,7 @@ class HomeController extends BaseController {
   final error = ''.obs;
 
   /// config
+  VisibilityPref visibility = VisibilityPref.hideDuplicates;
   SortPref sortBy = SortPref.timeAsc;
   ShapePref shape = ShapePref.round;
   LayoutPref layout = LayoutPref.grid;
@@ -312,6 +314,15 @@ class HomeController extends BaseController {
     filters = {};
     update();
     filter();
+  }
+
+  setVisibility(VisibilityPref visibility) {
+    Hive.box(prefBox).put(prefVisibilityKey, visibility);
+    if (visibility != this.visibility) {
+      this.visibility = visibility;
+      update();
+      filter();
+    }
   }
 
   setShape(ShapePref shape) {
