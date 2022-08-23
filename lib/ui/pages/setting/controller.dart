@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:poapin/common/constants.dart';
+import 'package:poapin/common/translations/locale_string.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/data/models/account.dart';
 import 'package:poapin/data/models/address.dart';
 import 'package:poapin/data/models/tag.dart';
@@ -11,6 +13,7 @@ import 'package:poapin/data/models/token.dart';
 import 'package:poapin/ui/controller.base.dart';
 import 'package:poapin/ui/pages/home/controller.dart';
 import 'package:poapin/ui/pages/me/controller.dart';
+import 'package:poapin/ui/pages/setting/components/dialog.languages.dart';
 import 'package:poapin/ui/pages/watchlist/controller.dart';
 
 class SettingController extends BaseController {
@@ -20,6 +23,9 @@ class SettingController extends BaseController {
   String buildNumber = '';
   bool isNotificationEventsEnabled = false;
   bool isNotificationFriendsEnabled = false;
+
+  String locale = '';
+  String languageName = '';
 
   void launchTwitter() {
     launchURL('https://twitter.com/glorylaboratory');
@@ -92,6 +98,41 @@ class SettingController extends BaseController {
     update();
   }
 
+  void showLanguageDialog() {
+    Get.dialog(const LanguagesDialog());
+  }
+
+  setLanguage(String locale) {
+    Hive.box(prefBox).put(prefLanguageKey, locale);
+    if (locale != this.locale) {
+      this.locale = locale;
+      languageName = LocaleString().getLanguageName(locale);
+      update();
+      _updateLocale();
+    }
+  }
+
+  _updateLocale() {
+    List localeString = locale.split('_');
+    if (localeString.length == 2) {
+      Get.updateLocale(Locale(localeString[0], localeString[1]));
+    } else if (localeString.length == 1) {
+      Get.updateLocale(Locale(localeString[0], ''));
+    }
+  }
+
+  _getLanguage() {
+    Box box = Hive.box(prefBox);
+    var languagePref = box.get(prefLanguageKey);
+    if (languagePref != null) {
+      locale = languagePref;
+    } else {
+      locale = LocaleString.defaultLocale;
+    }
+    languageName = LocaleString().getLanguageName(locale);
+    update();
+  }
+
   void clearAllCache() async {
     await Hive.box(prefBox).clear();
     await Hive.box<Account>(accountBox).clear();
@@ -103,7 +144,7 @@ class SettingController extends BaseController {
     Get.find<HomeController>().getAccount();
     Get.find<WatchlistController>().getAccount();
     Get.defaultDialog(
-        title: 'Done',
+        title: strDone,
         content: const Text(
             'Cache has been cleared.\nLet\'s start from the beginning!'),
         onConfirm: () {
@@ -155,6 +196,7 @@ class SettingController extends BaseController {
     version = packageInfo.version;
     buildNumber = packageInfo.buildNumber;
     update();
+    _getLanguage();
     _checkIsEventsNotificationEnabled();
     _checkIsFriendsNotificationEnabled();
   }

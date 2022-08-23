@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poapin/common/constants.dart';
-import 'package:poapin/common/translations/messages.dart';
+import 'package:poapin/common/translations/locale_string.dart';
 import 'package:poapin/common/routes/pages.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:poapin/controllers/controller.user.dart';
@@ -159,6 +159,24 @@ class MyApp extends StatelessWidget {
     }
   }
 
+  Locale _getLocale() {
+    Box box = Hive.box(prefBox);
+    var languagePref = box.get(prefLanguageKey);
+    Locale locale = const Locale(
+      'en',
+      'US',
+    );
+    if (languagePref != null) {
+      List localeString = languagePref.split('_');
+      if (localeString.length == 2) {
+        locale = Locale(localeString[0], localeString[1]);
+      } else if (localeString.length == 1) {
+        locale = Locale(localeString[0], '');
+      }
+    }
+    return locale;
+  }
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -172,14 +190,11 @@ class MyApp extends StatelessWidget {
       },
       unknownRoute: AppPages.unknownRoute,
       defaultTransition: kIsWeb ? Transition.topLevel : Transition.native,
-      translations: Messages(), // Translations
-      locale: const Locale(
-        'en',
-        'US',
-      ), // translations will be displayed in that locale
+      translations: LocaleString(), // Translations
+      locale: _getLocale(), // translations will be displayed in that locale
       fallbackLocale: const Locale(
         'en',
-        'UK',
+        'US',
       ), // specify the fallback locale in case an invalid locale is selected.
       title: 'POAPin',
       theme: ThemeData(

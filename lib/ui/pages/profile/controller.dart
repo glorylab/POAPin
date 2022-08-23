@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/ui/controller.base.dart';
 import 'package:poapin/ui/pages/home/controller.dart';
 import 'package:poapin/ui/pages/me/controller.dart';
@@ -38,7 +39,7 @@ class ProfileController extends BaseController {
   void showError() {
     Get.back();
     Get.snackbar(
-        'Error', 'There was a problem deleting the account, please try again.',
+        strError, 'There was a problem deleting the account, please try again.',
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.red.shade300,
         animationDuration: const Duration(milliseconds: 200),
@@ -86,7 +87,7 @@ class ProfileController extends BaseController {
       Get.find<HomeController>().onInit();
       Get.find<MeController>().onInit();
     } else {
-      Get.snackbar('Error', 'Invalid address',
+      Get.snackbar(strError, strInvalidAddress,
           snackPosition: SnackPosition.BOTTOM,
           backgroundColor: Colors.red.shade300,
           animationDuration: const Duration(milliseconds: 200),

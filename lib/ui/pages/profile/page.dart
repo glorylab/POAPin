@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/controllers/controller.user.dart';
 import 'package:poapin/ui/components/buttons/back.dart';
 import 'package:poapin/ui/components/buttons/go_home.dart';
@@ -26,7 +27,7 @@ class ProfilePage extends BasePage<ProfileController> {
             : const GoBackButton(),
         elevation: 0,
         title: Text(
-          'Profile',
+          strProfile,
           overflow: TextOverflow.fade,
           style: GoogleFonts.carterOne(
             color: const Color(0xFF6534FF),
@@ -46,13 +47,12 @@ class ProfilePage extends BasePage<ProfileController> {
           c.isSignedIn ? const DangerZone() : Container(),
           c.isSignedIn
               ? DangerButton(
-                  text: 'Delete account',
+                  text: strDeleteAccount,
                   onPressed: () {
                     Get.dialog(AlertDialogContent(
-                      title: 'Alert',
-                      content:
-                          'Are you certain you want to delete your account?\n\nThis operation cannot be undone.',
-                      mainButtonText: 'Delete',
+                      title: strAlert,
+                      content: strDeleteAccountDesc,
+                      mainButtonText: strDeleteAccountConfirm,
                       onCancled: () {
                         Get.back();
                       },
@@ -67,22 +67,6 @@ class ProfilePage extends BasePage<ProfileController> {
                         Get.back();
                       },
                     ));
-                    // Get.defaultDialog(
-                    //   title: 'Delete account',
-                    //   content: Text('Are you sure you want to delete your account?'),
-                    //   actions: [
-                    //     TextButton(
-                    //       child: const Text('Cancel'),
-                    //       onPressed: () => Get.back(),
-                    //     ),
-                    //     TextButton(
-                    //       child: const Text('Delete'),
-                    //       onPressed: () async {
-                    //         controller.deleteAccount();
-                    //       },
-                    //     ),
-                    //   ],
-                    // );
                   },
                 )
               : Container(),
@@ -143,7 +127,7 @@ class DangerZone extends StatelessWidget {
           ),
         ),
         Text(
-          'Danger Zone',
+          strDangerZone,
           style: GoogleFonts.robotoMono(
             color: Colors.red[300],
           ),
@@ -183,7 +167,7 @@ class ProfileCard extends StatelessWidget {
               return Expanded(
                 child: RawMaterialButton(
                   onPressed: () {
-                    InputHelper.showBottomInput(context, 'ETH address or ENS',
+                    InputHelper.showBottomInput(context, strEthAddressOrEns,
                         c.addressController, c.onSubmit);
                   },
                   fillColor: Colors.white,
@@ -237,7 +221,7 @@ class ProfileCard extends StatelessWidget {
                                 const SizedBox(height: 14),
                                 Text(
                                   c.ethAddress == ''
-                                      ? 'Set ETH address'
+                                      ? strSetEthAddress
                                       : c.getSimpleAddress(c.ethAddress),
                                   maxLines: 1,
                                   softWrap: false,

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
 import 'package:poapin/common/constants.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/controllers/tag.dart';
 import 'package:poapin/data/models/tag.dart';
 import 'package:poapin/data/models/token.dart';
@@ -45,7 +46,7 @@ class AddTagDialog extends StatelessWidget {
                     color: Colors.grey[200],
                   ),
                   Text(
-                    'choose from above\nor',
+                    strEditTagHint,
                     textAlign: TextAlign.center,
                     style: GoogleFonts.lato(
                       color: Colors.black54,
@@ -164,7 +165,7 @@ class AddTagDialog extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 24, vertical: 16),
                     child: Text(
-                      'New Tag',
+                      strNewTag,
                       style: GoogleFonts.courierPrime(
                         fontWeight: FontWeight.bold,
                         color: Colors.black87,
@@ -173,7 +174,7 @@ class AddTagDialog extends StatelessWidget {
                   ),
                   onPressed: () {
                     InputHelper.showBottomInput(
-                        context, 'new tag for event', textEditController, () {
+                        context, strNewTagHint, textEditController, () {
                       if (textEditController.text.isNotEmpty) {
                         /// Add tag
                         Box _tagBox = Hive.box<Tag>(tagBox);

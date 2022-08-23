@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/ui/components/buttons/back.dart';
 import 'package:poapin/ui/components/buttons/go_home.dart';
 import 'package:poapin/ui/page.base.dart';
@@ -90,7 +91,7 @@ class TagsPage extends BasePage<TagsController> {
             : const GoBackButton(),
         elevation: 2,
         title: Text(
-          'Tags',
+          strTags,
           overflow: TextOverflow.fade,
           style: GoogleFonts.carterOne(
             color: const Color(0xFF6534FF),
@@ -117,7 +118,7 @@ class TagsPage extends BasePage<TagsController> {
                       height: 56,
                     ),
                     Text(
-                      'No tags yet',
+                      strNoTags,
                       style: GoogleFonts.epilogue(
                         fontSize: 26,
                         fontWeight: FontWeight.bold,

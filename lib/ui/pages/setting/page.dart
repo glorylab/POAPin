@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/ui/components/buttons/back.dart';
 import 'package:poapin/ui/components/buttons/go_home.dart';
 import 'package:poapin/ui/page.base.dart';
@@ -24,7 +25,7 @@ class SettingPage extends BasePage<SettingController> {
             : const GoBackButton(),
         elevation: 2,
         title: Text(
-          'Setting',
+          strSettings,
           overflow: TextOverflow.fade,
           style: GoogleFonts.carterOne(
             color: const Color(0xFF6534FF),
@@ -45,17 +46,29 @@ class SettingPage extends BasePage<SettingController> {
               EdgeInsets.symmetric(horizontal: getHorizontalPadding(context)),
           child: ListView(
             children: [
-              const _GroupTitle(title: 'Data'),
+              _GroupTitle(title: strGeneral),
+              GetBuilder<SettingController>(
+                builder: (c) => SettingItem(
+                    title: strLanguage,
+                    desc: c.languageName,
+                    icon: Icon(
+                      Icons.public_rounded,
+                      size: 24,
+                      color: Colors.blueGrey.withOpacity(0.5),
+                    ),
+                    onTap: controller.showLanguageDialog),
+              ),
+              _GroupTitle(title: strData),
               SettingItem(
-                  title: 'Clear all cache',
-                  desc: 'If there are problems with app, please try it.',
+                  title: strCache,
+                  desc: strCacheDesc,
                   icon: Icon(
                     Icons.data_usage,
                     size: 24,
                     color: Colors.blueGrey.withOpacity(0.5),
                   ),
                   onTap: controller.clearAllCache),
-              const _GroupTitle(title: 'About'),
+              _GroupTitle(title: strAbout),
               Material(
                 shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(16))),
@@ -63,8 +76,8 @@ class SettingPage extends BasePage<SettingController> {
                 child: Column(
                   children: [
                     SettingItem(
-                      title: 'Twitter',
-                      desc: '@glorylaboratory',
+                      title: strTwitter,
+                      desc: strTwitterHandle,
                       icon: Image.asset(
                         'icons/ic_twitter.png',
                         package: 'web3_icons',
@@ -77,8 +90,8 @@ class SettingPage extends BasePage<SettingController> {
                       isRoundCorner: false,
                     ),
                     SettingItem(
-                      title: 'Mirror',
-                      desc: 'glorylab.eth',
+                      title: strMirror,
+                      desc: strMirrorAddress,
                       icon: Image.asset(
                         'icons/ic_mirror.png',
                         package: 'web3_icons',
@@ -91,8 +104,8 @@ class SettingPage extends BasePage<SettingController> {
                       isRoundCorner: false,
                     ),
                     SettingItem(
-                      title: 'GitHub',
-                      desc: 'glorylab/POAPin',
+                      title: strGitHub,
+                      desc: strGitHubRepo,
                       icon: Image.asset(
                         'icons/ic_github.png',
                         package: 'web3_icons',
@@ -105,8 +118,8 @@ class SettingPage extends BasePage<SettingController> {
                       isRoundCorner: false,
                     ),
                     SettingItem(
-                      title: 'POAP.in',
-                      desc: 'https://poap.in',
+                      title: strPOAPDotIn,
+                      desc: strPOAPDotInURL,
                       icon: Image.asset(
                         'icons/ic_poapin.png',
                         package: 'web3_icons',

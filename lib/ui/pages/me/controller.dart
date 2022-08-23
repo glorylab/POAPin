@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/ui/controller.base.dart';
 import 'package:poapin/ui/pages/home/controller.dart';
 import 'package:poapin/util/verification.dart';
@@ -82,7 +83,7 @@ class MeController extends BaseController {
       getAccount();
       Get.find<HomeController>().onInit();
     } else {
-      Get.snackbar('Error', 'Invalid address',
+      Get.snackbar(strError, strInvalidAddress,
           snackPosition: SnackPosition.BOTTOM,
           backgroundColor: Colors.red.shade300,
           animationDuration: const Duration(milliseconds: 200),
@@ -299,7 +300,7 @@ class MeController extends BaseController {
         radius: 24,
         titlePadding: const EdgeInsets.all(16),
         contentPadding: const EdgeInsets.all(16),
-        title: 'Error',
+        title: strError,
         content: Text(e.message),
       );
     }

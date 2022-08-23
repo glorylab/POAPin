@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:poapin/common/translations/strings.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// When an address's POAP is empty, this content is displayed.
@@ -24,7 +25,7 @@ class EmptyTips extends StatelessWidget {
               maxWidth: 340,
             ),
             child: Text(
-              'You don\'t appear to have any POAP right now. \nBut it\'s not too late! \n\nBegin learning about POAP right here!',
+              strNoPOAP,
               style: GoogleFonts.roboto(
                 fontSize: 16,
                 color: Colors.grey.shade600,
