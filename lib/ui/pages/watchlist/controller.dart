@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:poapin/common/status.dart';
@@ -197,9 +196,6 @@ class WatchlistController extends BaseController {
     tokens.clear();
     for (var addr in account.addresses) {
       List<Token> _tokens = await getTokens(addr.address) ?? [];
-      if (kDebugMode) {
-        print('_tokens: ${_tokens.length}');
-      }
       tokens.addAll(_tokens);
     }
     _updateLoadingStatus(LoadingStatus.loaded);

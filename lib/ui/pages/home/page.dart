@@ -85,7 +85,7 @@ class HomePage extends BasePage<HomeController> {
         /// loading status
         if (controller.cacheLoadingStatus == CacheLoadingStatus.loading ||
             ((controller.loadingStatus == LoadingStatus.loading) &&
-                controller.count == 0)) {
+                controller.poapCount == 0)) {
           return const CustomScrollView(
             slivers: [
               ENJOYALIFEWITHPOAP(),
@@ -101,7 +101,7 @@ class HomePage extends BasePage<HomeController> {
         /// loadedStatus
         if ((controller.cacheLoadingStatus == CacheLoadingStatus.loaded ||
             controller.loadingStatus == LoadingStatus.loaded)) {
-          if (controller.count == 0) {
+          if (controller.poapCount == 0) {
             return const CustomScrollView(
               slivers: [
                 ENJOYALIFEWITHPOAP(),

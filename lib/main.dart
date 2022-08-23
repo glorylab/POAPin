@@ -17,6 +17,7 @@ import 'package:poapin/data/models/address.dart';
 import 'package:poapin/data/models/pref/layout.dart';
 import 'package:poapin/data/models/pref/shape.dart';
 import 'package:poapin/data/models/pref/sort.dart';
+import 'package:poapin/data/models/pref/visibility.dart';
 import 'package:poapin/data/models/tag.dart';
 import 'package:poapin/data/models/token.dart';
 import 'package:poapin/data/models/user.dart' as loca_user;
@@ -64,6 +65,7 @@ Future<void> main() async {
   Hive.registerAdapter(EventAdapter());
   Hive.registerAdapter(SupplyAdapter());
   Hive.registerAdapter(TagAdapter());
+  Hive.registerAdapter(VisibilityPrefAdapter());
   await Hive.openBox<Account>(accountBox);
   await Hive.openBox<Address>(addressBox);
   await Hive.openBox<Token>(poapBox);

@@ -7,6 +7,7 @@ const prefBox = 'pref';
 const eventBox = 'event';
 const tagBox = 'tag';
 
+const prefVisibilityKey = 'visibility';
 const prefLayoutKey = 'layout';
 const prefShapeKey = 'shape';
 const prefSortKey = 'sort';

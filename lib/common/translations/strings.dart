@@ -18,7 +18,10 @@ class Strings {
   static const growth = 'growth';
   static const monthly = 'monthly';
   static const filterHint = 'filter_hint';
-
+  
+  static const visibility = 'visibility';
+  static const hideDuplicates = 'hideDuplicates';
+  static const showAll = 'showAll';
   static const sort = 'sort';
   static const newest = 'newest';
   static const oldest = 'oldest';
@@ -114,6 +117,9 @@ String get strGrowth => Strings.growth.tr;
 String get strMonthly => Strings.monthly.tr;
 String get strFilterHint => Strings.filterHint.tr;
 
+String get strVisibility => Strings.visibility.tr;
+String get strHideDuplicates => Strings.hideDuplicates.tr;
+String get strShowAll => Strings.showAll.tr;
 String get strSort => Strings.sort.tr;
 String get strNewest => Strings.newest.tr;
 String get strOldest => Strings.oldest.tr;

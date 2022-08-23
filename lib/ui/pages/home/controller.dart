@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/controllers/tag.dart';
+import 'package:poapin/data/models/pref/visibility.dart';
 import 'package:poapin/data/models/tag.dart';
 import 'package:poapin/secrets.dart';
 import 'package:poapin/ui/controller.base.dart';
@@ -51,8 +51,10 @@ class HomeController extends BaseController {
 
   Map filters = {};
 
-  int count = 0;
-  int uniqueCount = 0;
+  int poapCount = 0;
+  int eventCount = 0;
+  int filteredPOAPCount = 0;
+  int filteredEventsCount = 0;
   List<Token> tokens = <Token>[];
   Map filteredTokens = {
     0: {0: <Token>[]}
@@ -62,6 +64,9 @@ class HomeController extends BaseController {
       0: {0: <Token>[]}
     }
   };
+
+  /// Counts the number of POAPs at each event.
+  Map eventCounts = {};
 
   String chartView = 'heatmap';
   List<FlSpot> growthTokenSpots = <FlSpot>[];
@@ -85,6 +90,7 @@ class HomeController extends BaseController {
   final error = ''.obs;
 
   /// config
+  VisibilityPref visibility = VisibilityPref.hideDuplicates;
   SortPref sortBy = SortPref.timeAsc;
   ShapePref shape = ShapePref.round;
   LayoutPref layout = LayoutPref.grid;
@@ -174,8 +180,10 @@ class HomeController extends BaseController {
   @override
   void onInit() {
     super.onInit();
-    count = 0;
-    uniqueCount = 0;
+    poapCount = 0;
+    eventCount = 0;
+    filteredPOAPCount = 0;
+    filteredEventsCount = 0;
     tokens = [];
     getPrefs();
     _getCachedEns();
@@ -312,6 +320,15 @@ class HomeController extends BaseController {
     filters = {};
     update();
     filter();
+  }
+
+  setVisibility(VisibilityPref visibility) {
+    Hive.box(prefBox).put(prefVisibilityKey, visibility);
+    if (visibility != this.visibility) {
+      this.visibility = visibility;
+      update();
+      filter();
+    }
   }
 
   setShape(ShapePref shape) {
@@ -455,6 +472,9 @@ class HomeController extends BaseController {
     _clearLayers();
     _clearChains();
     List<Token> rawTokensDataSortByTime = [];
+    List<int> uniqueEventIDList = [];
+    List<int> filteredUniqueEventIDList = [];
+    filteredPOAPCount = 0;
 
     rawTokensDataSortByTime = tokens;
 
@@ -470,8 +490,24 @@ class HomeController extends BaseController {
     });
     Map<int, Map<int, List<Token>>> tokensByYearAndMonth = {};
     Map<int, Map<int, Map<int, List<Token>>>> tokensByYearAndMonthAndDay = {};
+
+    /// The data must be divided into daily segments for the timeline layout.
     if (layout != LayoutPref.timeline) {
       for (var token in rawTokensDataSortByTime) {
+        if (visibility == VisibilityPref.hideDuplicates) {
+          if (uniqueEventIDList.contains(token.event.id)) {
+            continue;
+          }
+        }
+
+        /// Counts the number of POAPs at each event.
+        if (!uniqueEventIDList.contains(token.event.id)) {
+          uniqueEventIDList.add(token.event.id);
+          eventCounts[token.event.id] = 1;
+        } else {
+          eventCounts[token.event.id] = eventCounts[token.event.id] + 1;
+        }
+
         _getCountries(token.event.country);
         _getTags(token.event.tags);
         _getLayers(token.layer);
@@ -525,9 +561,28 @@ class HomeController extends BaseController {
         }
         tokensByYearAndMonth[token.event.realYear]?[token.event.month]
             ?.add(token);
+
+        if (!filteredUniqueEventIDList.contains(token.event.id)) {
+          filteredUniqueEventIDList.add(token.event.id);
+        }
+        filteredPOAPCount = filteredPOAPCount + 1;
       }
     } else {
       for (var token in rawTokensDataSortByTime) {
+        if (visibility == VisibilityPref.hideDuplicates) {
+          if (uniqueEventIDList.contains(token.event.id)) {
+            continue;
+          }
+        }
+
+        /// Counts the number of POAPs at each event.
+        if (!uniqueEventIDList.contains(token.event.id)) {
+          uniqueEventIDList.add(token.event.id);
+          eventCounts[token.event.id] = 1;
+        } else {
+          eventCounts[token.event.id] = eventCounts[token.event.id] + 1;
+        }
+
         _getCountries(token.event.country);
         _getTags(token.event.tags);
         _getLayers(token.layer);
@@ -599,10 +654,20 @@ class HomeController extends BaseController {
         }
         tokensByYearAndMonth[token.event.realYear]?[token.event.month]
             ?.add(token);
+
+        if (!filteredUniqueEventIDList.contains(token.event.id)) {
+          filteredUniqueEventIDList.add(token.event.id);
+        }
+        filteredPOAPCount = filteredPOAPCount + 1;
       }
     }
+
+    eventCount = uniqueEventIDList.length;
+    filteredEventsCount = filteredUniqueEventIDList.length;
+
     filteredTokensWithDay = tokensByYearAndMonthAndDay;
     filteredTokens = tokensByYearAndMonth;
+
     update();
 
     _generateTokenSpots();
@@ -744,16 +809,6 @@ class HomeController extends BaseController {
 
   void hidePOAPs() {}
 
-  int _getUniqueCount() {
-    List<int> uniqueEventIDList = [];
-    for (var token in tokens) {
-      if (!uniqueEventIDList.contains(token.event.id)) {
-        uniqueEventIDList.add(token.event.id);
-      }
-    }
-    return uniqueEventIDList.length;
-  }
-
   void getCachedData() {
     Box<Token> box = Hive.box(poapBox);
     var allCachedData = box.values;
@@ -786,8 +841,8 @@ class HomeController extends BaseController {
   }
 
   void _updateStatus() {
-    count = tokens.length;
-    uniqueCount = _getUniqueCount();
+    poapCount = tokens.length;
+    filteredPOAPCount = poapCount;
     update();
     filter();
   }
@@ -799,9 +854,11 @@ class HomeController extends BaseController {
 
   void getData() async {
     if (cacheLoadingStatus == CacheLoadingStatus.loaded) {
-      if (count == 0) {
-        count = 0;
-        uniqueCount = 0;
+      if (poapCount == 0) {
+        poapCount = 0;
+        eventCount = 0;
+        filteredPOAPCount = 0;
+        filteredEventsCount = 0;
         tokens = [];
         filteredTokens = {};
         filteredTokensWithDay = {};

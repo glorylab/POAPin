@@ -20,7 +20,7 @@ class CollectionCard extends StatelessWidget {
       builder: (c) => SizedBox(
         height: 160,
         width: double.infinity,
-        child: (c.error.value == '' && c.count > 0)
+        child: (c.error.value == '' && c.poapCount > 0)
             ? Padding(
                 padding: const EdgeInsets.only(
                     left: 16, right: 16, bottom: 0, top: 8),
@@ -114,7 +114,11 @@ class _CountCard extends StatelessWidget {
                     ),
                     GetBuilder<HomeController>(
                       builder: (c) => Text(
-                        c.uniqueCount.toString(),
+                        c.filteredEventsCount < c.eventCount
+                            ? c.filteredEventsCount.toString() +
+                                '/' +
+                                c.eventCount.toString()
+                            : c.eventCount.toString(),
                         style: GoogleFonts.shareTechMono(
                           color: Colors.black54,
                           fontSize: 18,
@@ -142,7 +146,13 @@ class _CountCard extends StatelessWidget {
                     ),
                     GetBuilder<HomeController>(
                       builder: (c) => Text(
-                        c.count.toString(),
+                        c.filteredPOAPCount == 0
+                            ? c.poapCount.toString()
+                            : c.filteredPOAPCount < c.poapCount
+                                ? c.filteredPOAPCount.toString() +
+                                    '/' +
+                                    c.poapCount.toString()
+                                : c.poapCount.toString(),
                         style: GoogleFonts.shareTechMono(
                           color: Colors.black87,
                           fontSize: 26,
