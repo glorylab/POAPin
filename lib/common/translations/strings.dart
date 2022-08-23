@@ -18,7 +18,7 @@ class Strings {
   static const growth = 'growth';
   static const monthly = 'monthly';
   static const filterHint = 'filter_hint';
-
+  
   static const visibility = 'visibility';
   static const hideDuplicates = 'hideDuplicates';
   static const showAll = 'showAll';
