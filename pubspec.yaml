@@ -99,6 +99,7 @@ dependencies:
   crypto: ^3.0.1
   get_it: ^7.2.0
   palette_generator: ^0.3.3+1
+  ethereum_addresses: ^1.0.2
 
 dependency_overrides:
   firebase_performance_web: 0.1.0+1
