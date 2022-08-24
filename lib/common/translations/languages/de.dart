@@ -90,6 +90,7 @@ class DeTranslations {
         // Strings.settingsDesc: 'Notifications, data, etc.',
         // Strings.general: 'General',
         // Strings.language: 'Language',
+        // Strings.contributeLanguage: '🙇 Contribute more translations 🔗',
         // Strings.data: 'General',
         // Strings.cache: 'Clear all cache',
         // Strings.cacheDesc: 'If there are problems with app, please try it.',

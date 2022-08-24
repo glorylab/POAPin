@@ -18,7 +18,7 @@ class Strings {
   static const growth = 'growth';
   static const monthly = 'monthly';
   static const filterHint = 'filter_hint';
-  
+
   static const visibility = 'visibility';
   static const hideDuplicates = 'hideDuplicates';
   static const showAll = 'showAll';
@@ -70,6 +70,7 @@ class Strings {
   static const settingsDesc = 'settings_desc';
   static const general = 'general';
   static const language = 'language';
+  static const contributeLanguage = 'contribute_language';
   static const data = 'data';
   static const cache = 'cache';
   static const cacheDesc = 'cache_desc';
@@ -168,6 +169,7 @@ String get strSettings => Strings.settings.tr;
 String get strSettingsDesc => Strings.settingsDesc.tr;
 String get strGeneral => Strings.general.tr;
 String get strLanguage => Strings.language.tr;
+String get strContributeLanguage => Strings.contributeLanguage.tr;
 String get strData => Strings.data.tr;
 String get strCache => Strings.cache.tr;
 String get strCacheDesc => Strings.cacheDesc.tr;

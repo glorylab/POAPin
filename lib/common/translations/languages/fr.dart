@@ -90,6 +90,7 @@ class FRTranslations {
         Strings.settingsDesc: 'Notifications, données, etc.',
         Strings.general: 'Général',
         Strings.language: 'Langue',
+        // Strings.contributeLanguage: '🙇 Contribute more translations 🔗',
         Strings.data: 'Général',
         Strings.cache: 'Effacer les données en cache',
         Strings.cacheDesc: 'À utiliser en cas de problème avec l\'application.',

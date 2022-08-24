@@ -39,6 +39,11 @@ class SettingController extends BaseController {
     launchURL('https://github.com/glorylab/POAPin');
   }
 
+  void launchGitHubContributingTranslationGuide() {
+    launchURL(
+        'https://github.com/glorylab/POAPin/blob/master/CONTRIBUTING.md#internationalization');
+  }
+
   void launchPOAPin() {
     launchURL('https://poap.in');
   }
