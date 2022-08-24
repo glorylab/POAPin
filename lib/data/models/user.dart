@@ -59,7 +59,7 @@ class Membership extends HiveObject {
 
 var example = {
   "eth": ["0x5Afc7720b161788f9D833555b7EbC3274FD98Da1"],
-  "name": "王二",
+  "name": "",
   "membership": [
     {
       "id": "4179969",

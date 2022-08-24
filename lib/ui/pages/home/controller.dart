@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/controllers/tag.dart';
+import 'package:poapin/data/models/moment.dart';
 import 'package:poapin/data/models/pref/visibility.dart';
 import 'package:poapin/data/models/tag.dart';
+import 'package:poapin/data/repository/welook_repository.dart';
+import 'package:poapin/di/service_locator.dart';
 import 'package:poapin/secrets.dart';
 import 'package:poapin/ui/controller.base.dart';
 import 'package:dio/dio.dart';
@@ -32,6 +35,8 @@ class HomeController extends BaseController {
   double scrollDelta = 0;
   double lastOffset = 0;
   final double hideVelocity = 2;
+
+  final welookRepository = getIt.get<WelookRepository>();
 
   @override
   String screenName() {
@@ -64,6 +69,8 @@ class HomeController extends BaseController {
       0: {0: <Token>[]}
     }
   };
+
+  List<Moment> moments = <Moment>[];
 
   /// Counts the number of POAPs at each event.
   Map eventCounts = {};
@@ -190,6 +197,7 @@ class HomeController extends BaseController {
     _initEns();
     getCachedData();
     getData();
+    getMoments();
     _initWebMessage();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       if (scrollController.hasClients) {
@@ -850,6 +858,13 @@ class HomeController extends BaseController {
   void _updateLoadingStatus(LoadingStatus s) {
     loadingStatus = s;
     update();
+  }
+
+  void getMoments() {
+    welookRepository.getMomentsOfAddress(ethAddress).then((moments) {
+      this.moments = moments;
+      update();
+    });
   }
 
   void getData() async {
