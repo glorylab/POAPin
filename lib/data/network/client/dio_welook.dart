@@ -14,6 +14,7 @@ class DioWelookClient {
       ..options.headers = {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'api_key': WelookConstant.welookAPIKey,
       };
   }
 
