@@ -239,6 +239,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.3"
+  ethereum_addresses:
+    dependency: "direct main"
+    description:
+      name: ethereum_addresses
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   extended_image:
     dependency: "direct main"
     description:
