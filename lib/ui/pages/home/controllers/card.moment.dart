@@ -2,17 +2,12 @@ import 'package:get/get.dart';
 import 'package:poapin/data/models/moment.dart';
 import 'package:poapin/data/repository/welook_repository.dart';
 import 'package:poapin/di/service_locator.dart';
-import 'package:poapin/ui/controller.base.dart';
 
-class MomentsController extends BaseController {
+class MomentsCardController extends GetxController {
   int momentCount = 0;
   bool isLoading = true;
-  bool isLoadingAllMoments = true;
   bool isError = false;
   Moment previewMoment = Moment.empty();
-  List<Moment> moments = [];
-
-  String address = '';
 
   final welookRepository = getIt.get<WelookRepository>();
 
@@ -29,56 +24,8 @@ class MomentsController extends BaseController {
     }
   }
 
-  _getData() {
-    final arguments = Get.arguments;
-    previewMoment = arguments['preview'] as Moment;
-    address = previewMoment.authorAddress;
-    update();
-  }
-
-  @override
-  void onInit() {
-    super.onInit();
-    _getData();
-    getAllMoments(address);
-  }
-
-  int get itemCount {
-    int itemCount;
-    itemCount = isLoadingAllMoments
-        ? 2
-        : moments.isNotEmpty
-            ? moments.length
-            : 1;
-    return itemCount;
-  }
-
-  getAllMoments(String address) {
-    isLoadingAllMoments = true;
-    moments.clear();
-    update();
-    welookRepository
-        .getMomentsOfAddress(address, limit: momentCount)
-        .then((MomentResponse momentResponse) {
-      if (momentResponse.total != null) {
-        momentCount = momentResponse.total!;
-        if (momentResponse.moments != null &&
-            momentResponse.moments!.isNotEmpty) {
-          moments = momentResponse.moments!;
-        }
-      } else {
-        momentCount = 0;
-        moments = [];
-      }
-      isLoadingAllMoments = false;
-      update();
-    });
-  }
-
   getFirstMoment(String address) {
-    moments.clear();
     previewMoment = Moment.empty();
-    isLoadingAllMoments = true;
     isLoading = true;
     momentCount = 0;
     update();
@@ -98,10 +45,5 @@ class MomentsController extends BaseController {
       isLoading = false;
       update();
     });
-  }
-
-  @override
-  String screenName() {
-    return 'Moments';
   }
 }

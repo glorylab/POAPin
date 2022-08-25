@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poapin/controllers/controller.user.dart';
 import 'package:poapin/res/colors.dart';
-import 'package:poapin/ui/pages/moments/controller.dart';
+import 'package:poapin/ui/pages/home/controllers/card.moment.dart';
 
 class MomentCard extends StatelessWidget {
   const MomentCard({Key? key}) : super(key: key);
@@ -54,7 +54,7 @@ class MomentCard extends StatelessWidget {
                       ),
                       const SizedBox(height: 4),
                       Expanded(
-                        child: GetBuilder<MomentsController>(
+                        child: GetBuilder<MomentsCardController>(
                           builder: (c) => Container(
                             alignment: Alignment.topCenter,
                             child: FittedBox(
@@ -112,7 +112,7 @@ class MomentCard extends StatelessWidget {
             side: BorderSide(color: Colors.white70, width: 1),
             borderRadius: BorderRadius.all(Radius.circular(24))),
         shadowColor: Colors.black26,
-        child: GetBuilder<MomentsController>(
+        child: GetBuilder<MomentsCardController>(
           builder: (c) => Stack(
             alignment: Alignment.center,
             children: [
@@ -141,9 +141,12 @@ class MomentCard extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  Get.toNamed('/moments');
-                  Get.find<MomentsController>()
-                      .getAllMoments(Get.find<UserController>().ethAddress);
+                  Get.toNamed(
+                    '/moments',
+                    arguments: {
+                      'preview': c.previewMoment,
+                    },
+                  );
                 },
               ),
             ],

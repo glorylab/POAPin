@@ -31,6 +31,7 @@ import 'package:poapin/ui/pages/collection/controller.filter.dart';
 import 'package:poapin/ui/pages/dashboard/binding.dart';
 import 'package:poapin/ui/pages/home/controller.dart';
 import 'package:poapin/ui/pages/home/controller.filter.dart';
+import 'package:poapin/ui/pages/home/controllers/card.moment.dart';
 import 'package:poapin/ui/pages/me/controller.dart';
 import 'package:poapin/ui/pages/moment/controller.dart';
 import 'package:poapin/ui/pages/moments/controller.dart';
@@ -49,6 +50,7 @@ Future<void> main() async {
   await Hive.initFlutter();
   Get.lazyPut(() => AuthController());
   Get.lazyPut(() => HomeController());
+  Get.lazyPut(() => MomentsCardController());
   Get.lazyPut(() => MomentsController());
   Get.lazyPut(() => MomentController());
   Get.lazyPut(() => CollectionController());
