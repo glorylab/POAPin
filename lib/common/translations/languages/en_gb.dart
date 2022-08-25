@@ -58,6 +58,8 @@ class EnGBTranslations {
         // Strings.newTag: 'New Tag',
         // Strings.newTagHint: 'new tag for event',
 
+        /// Moments
+
         /// Watchlist(Initial state)
         // Strings.watchlistHint:
         //     'You can add some addresses you are interested in here.',

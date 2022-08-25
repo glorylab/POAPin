@@ -1,9 +1,9 @@
-import 'package:get/get.dart';
 import 'package:poapin/data/models/moment.dart';
 import 'package:poapin/data/repository/welook_repository.dart';
 import 'package:poapin/di/service_locator.dart';
+import 'package:poapin/ui/controller.base.dart';
 
-class MomentController extends GetxController {
+class MomentController extends BaseController {
   int momentCount = 0;
   bool isLoading = true;
   bool isError = false;
@@ -28,5 +28,10 @@ class MomentController extends GetxController {
       isLoading = false;
       update();
     });
+  }
+
+  @override
+  String screenName() {
+    return 'Moment';
   }
 }

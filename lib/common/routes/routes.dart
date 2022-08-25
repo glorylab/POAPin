@@ -4,6 +4,8 @@ abstract class AppRoutes {
   static const dashboard = '/dashboard';
   static const home = '/home';
   static const watchlist = '/watchlist';
+  static const moments = '/moments';
+  static const moment = '/moments/:id';
   static const square = '/square';
   static const me = '/me';
   static const tags = '/tags';

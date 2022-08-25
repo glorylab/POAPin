@@ -205,6 +205,9 @@ String get strPOAPxyz => 'POAP.xyz';
 String get strPOAPdirectory => 'POAP.director';
 String get strGitPOAP => 'GitPOAP';
 
+/// Moments
+String get strMoments => 'Moments';
+
 /// ---
 /// Settings
 String get strTwitter => 'Twitter';

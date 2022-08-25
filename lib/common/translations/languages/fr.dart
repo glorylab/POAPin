@@ -58,6 +58,8 @@ class FRTranslations {
         Strings.newTag: 'Nouveau Tag',
         Strings.newTagHint: 'nouveau tag d\'évènement',
 
+        /// Moments
+
         /// Watchlist(Initial state)
         Strings.watchlistHint:
             'Vous pouvez ajouter ici les adresses qui vous intéressent.',

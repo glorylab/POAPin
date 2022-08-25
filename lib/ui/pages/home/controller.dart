@@ -21,7 +21,7 @@ import 'package:poapin/data/models/pref/shape.dart';
 import 'package:poapin/data/models/pref/sort.dart';
 import 'package:poapin/data/models/token.dart';
 import 'package:poapin/ui/pages/detail/dialog/addtag.dart';
-import 'package:poapin/ui/pages/home/controllers/moment.dart';
+import 'package:poapin/ui/pages/moments/controller.dart';
 import 'package:poapin/util/verification.dart';
 import 'package:web3dart/web3dart.dart';
 import 'package:web_socket_channel/io.dart';
@@ -862,7 +862,7 @@ class HomeController extends BaseController {
   }
 
   void getMoments() {
-    Get.find<MomentController>().getFirstMoment(ethAddress);
+    Get.find<MomentsController>().getFirstMoment(ethAddress);
   }
 
   void getData() async {
