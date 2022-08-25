@@ -76,7 +76,7 @@ dependencies:
   blurhash_dart: ^1.1.0
   we_slide: ^2.2.1
   modal_bottom_sheet: ^2.0.1
-  flutter_heatmap_calendar: ^1.0.3
+  flutter_heatmap_calendar: ^1.0.4
   firebase_messaging: 11.0.0
   firebase_core: 1.10.6
   flutter_native_splash: ^2.0.5

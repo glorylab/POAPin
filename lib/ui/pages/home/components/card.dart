@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poapin/common/translations/strings.dart';
+import 'package:poapin/ui/pages/home/components/card.moment.dart';
+import 'package:poapin/ui/pages/home/components/card.poap.dart';
 import 'package:poapin/ui/pages/home/components/chart.dart';
 import 'package:poapin/ui/pages/home/controller.dart';
 
@@ -24,10 +26,11 @@ class CollectionCard extends StatelessWidget {
             ? Padding(
                 padding: const EdgeInsets.only(
                     left: 16, right: 16, bottom: 0, top: 8),
-                child: Row(
-                  children: [
-                    _CountCard(),
-                    _ChartCard(),
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: const [
+                    POAPCard(),
+                    MomentCard(),
                   ],
                 ),
               )
@@ -40,7 +43,8 @@ class CollectionCard extends StatelessWidget {
 class _ChartCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      width: 245,
       child: Card(
         clipBehavior: Clip.antiAlias,
         elevation: 16,
@@ -75,95 +79,6 @@ class _ChartCard extends StatelessWidget {
                 const TokenChart(),
               ],
             ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _CountCard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      clipBehavior: Clip.antiAlias,
-      elevation: 16,
-      shape: const ContinuousRectangleBorder(
-          side: BorderSide(color: Colors.white70, width: 1),
-          borderRadius: BorderRadius.all(Radius.circular(24))),
-      shadowColor: Colors.black26,
-      child: InkWell(
-        onTap: () {},
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(height: 8),
-              Container(
-                padding: const EdgeInsets.all(8),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      strEvents,
-                      style: GoogleFonts.shareTechMono(
-                        color: Colors.black38,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
-                      ),
-                    ),
-                    GetBuilder<HomeController>(
-                      builder: (c) => Text(
-                        c.filteredEventsCount < c.eventCount
-                            ? c.filteredEventsCount.toString() +
-                                '/' +
-                                c.eventCount.toString()
-                            : c.eventCount.toString(),
-                        style: GoogleFonts.shareTechMono(
-                          color: Colors.black54,
-                          fontSize: 18,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              Container(
-                padding: const EdgeInsets.all(8),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      strPOAPs,
-                      style: GoogleFonts.shareTechMono(
-                        color: Colors.black45,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
-                      ),
-                    ),
-                    GetBuilder<HomeController>(
-                      builder: (c) => Text(
-                        c.filteredPOAPCount == 0
-                            ? c.poapCount.toString()
-                            : c.filteredPOAPCount < c.poapCount
-                                ? c.filteredPOAPCount.toString() +
-                                    '/' +
-                                    c.poapCount.toString()
-                                : c.poapCount.toString(),
-                        style: GoogleFonts.shareTechMono(
-                          color: Colors.black87,
-                          fontSize: 26,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 8),
-            ],
           ),
         ),
       ),

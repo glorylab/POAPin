@@ -102,3 +102,21 @@ Map<String, dynamic> _$MomentToJson(Moment instance) => <String, dynamic>{
       'originalUrl': instance.originImageUrl,
       'likesA': instance.likesAddressList,
     };
+
+MomentResponse _$MomentResponseFromJson(Map<String, dynamic> json) =>
+    MomentResponse(
+      json['status'] as int,
+      json['offsetN'] as int,
+      json['total'] as int?,
+      (json['photos'] as List<dynamic>?)
+          ?.map((e) => Moment.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$MomentResponseToJson(MomentResponse instance) =>
+    <String, dynamic>{
+      'status': instance.status,
+      'offsetN': instance.offset,
+      'total': instance.total,
+      'photos': instance.moments,
+    };
