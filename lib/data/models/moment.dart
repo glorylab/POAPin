@@ -80,6 +80,26 @@ class Moment extends HiveObject {
       );
 }
 
+@JsonSerializable()
+class MomentResponse {
+  final int status;
+
+  @JsonKey(name: 'offsetN')
+  final int offset;
+
+  final int? total;
+
+  @JsonKey(name: 'photos')
+  final List<Moment>? moments;
+
+  MomentResponse(this.status, this.offset, this.total, this.moments);
+
+  factory MomentResponse.fromJson(Map<String, dynamic> json) =>
+      _$MomentResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MomentResponseToJson(this);
+}
+
 var example = {
   "id": "001d0e31-8a08-4b0c-ae33-23069fb1f8fe",
   "likes": 1,

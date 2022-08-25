@@ -12,9 +12,10 @@ class TokenChart extends StatelessWidget {
     return GetBuilder<HomeController>(builder: (c) {
       return c.chartView == 'heatmap'
           ? Container(
-              width: double.infinity,
+              width: 200,
               height: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 4),
+              alignment: Alignment.centerRight,
               child: HeatMap(
                 size: 16,
                 datasets: c.heatmapDataset,
@@ -24,7 +25,7 @@ class TokenChart extends StatelessWidget {
                 margin: const EdgeInsets.all(1),
                 showColorTip: false,
                 showText: false,
-                scrollable: true,
+                scrollable: false,
                 fontSize: 0,
                 defaultColor: Colors.green.withOpacity(0.03),
                 colorsets: {

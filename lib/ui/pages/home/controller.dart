@@ -21,6 +21,7 @@ import 'package:poapin/data/models/pref/shape.dart';
 import 'package:poapin/data/models/pref/sort.dart';
 import 'package:poapin/data/models/token.dart';
 import 'package:poapin/ui/pages/detail/dialog/addtag.dart';
+import 'package:poapin/ui/pages/home/controllers/moment.dart';
 import 'package:poapin/util/verification.dart';
 import 'package:web3dart/web3dart.dart';
 import 'package:web_socket_channel/io.dart';
@@ -75,7 +76,7 @@ class HomeController extends BaseController {
   /// Counts the number of POAPs at each event.
   Map eventCounts = {};
 
-  String chartView = 'heatmap';
+  String chartView = 'growth';
   List<FlSpot> growthTokenSpots = <FlSpot>[];
   List<FlSpot> monthlyTokenSpots = <FlSpot>[];
   int maxTokensInGrowthView = 0;
@@ -861,10 +862,7 @@ class HomeController extends BaseController {
   }
 
   void getMoments() {
-    welookRepository.getMomentsOfAddress(ethAddress).then((moments) {
-      this.moments = moments;
-      update();
-    });
+    Get.find<MomentController>().getFirstMoment(ethAddress);
   }
 
   void getData() async {

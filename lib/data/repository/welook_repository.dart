@@ -20,17 +20,22 @@ class WelookRepository {
     }
   }
 
-  Future<List<Moment>> getMomentsOfAddress(String address) async {
+  Future<MomentResponse> getMomentsOfAddress(
+    String address, {
+    int limit = 1,
+    int offset = 0,
+    String sort = 'asc',
+  }) async {
     try {
       String checksumAddress = checksumEthereumAddress(address);
-      final response = await welookAPI.getMomentsOfAddress(checksumAddress);
-      final total = (response.data['total'] as int?) ?? 0;
-      if (total == 0) {
-        return [];
-      } else {
-        final moments = response.data['photos'] as List<dynamic>;
-        return moments.map((moment) => Moment.fromJson(moment)).toList();
-      }
+      final response = await welookAPI.getMomentsOfAddress(
+        checksumAddress,
+        limit: limit,
+        offset: offset,
+        sort: sort,
+      );
+      MomentResponse momentResponse = MomentResponse.fromJson(response.data);
+      return momentResponse;
     } on DioError catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
       throw errorMessage;
