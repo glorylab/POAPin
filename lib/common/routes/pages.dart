@@ -13,6 +13,10 @@ import 'package:poapin/ui/pages/home/binding.dart';
 import 'package:poapin/ui/pages/home/page.dart';
 import 'package:poapin/ui/pages/me/binding.dart';
 import 'package:poapin/ui/pages/me/page.dart';
+import 'package:poapin/ui/pages/moment/binding.dart';
+import 'package:poapin/ui/pages/moment/page.dart';
+import 'package:poapin/ui/pages/moments/binding.dart';
+import 'package:poapin/ui/pages/moments/page.dart';
 import 'package:poapin/ui/pages/not_found/page.dart';
 import 'package:poapin/ui/pages/profile/binding.dart';
 import 'package:poapin/ui/pages/profile/page.dart';
@@ -52,6 +56,16 @@ class AppPages {
       name: AppRoutes.watchlist,
       page: () => const WatchlistPage(),
       binding: WatchlistBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.moments,
+      page: () => const MomentsPage(),
+      binding: MomentsBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.moment,
+      page: () => const MomentPage(),
+      binding: MomentBinding(),
     ),
     GetPage(
       name: AppRoutes.square,

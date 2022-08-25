@@ -1,30 +1,24 @@
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:poapin/data/models/moment.dart';
+import 'package:poapin/controllers/controller.user.dart';
 import 'package:poapin/res/colors.dart';
-import 'package:poapin/ui/pages/home/controllers/moment.dart';
+import 'package:poapin/ui/pages/moments/controller.dart';
 
 class MomentCard extends StatelessWidget {
   const MomentCard({Key? key}) : super(key: key);
 
-  String? _getPreviewImageUrl(Moment previewMoment) {
-    if (previewMoment.bigImageUrl.isNotEmpty) {
-      return previewMoment.bigImageUrl;
-    } else if (previewMoment.smallImageUrl.isNotEmpty) {
-      return previewMoment.smallImageUrl;
-    } else if (previewMoment.originImageUrl != null &&
-        previewMoment.originImageUrl!.isNotEmpty) {
-      return previewMoment.originImageUrl;
-    } else {
-      return null;
-    }
-  }
-
-  Widget _buildPreviewImage(Moment previewMoment) {
-    if (_getPreviewImageUrl(previewMoment) != null) {
-      return Image.network(
-        _getPreviewImageUrl(previewMoment)!,
+  Widget _buildPreviewImage(String? url) {
+    if (url != null) {
+      return ExtendedImage.network(
+        url,
+        clipBehavior: Clip.hardEdge,
+        cache: true,
+        enableLoadState: false,
+        clearMemoryCacheWhenDispose: true,
+        compressionRatio: 0.6,
+        maxBytes: 200 << 10,
         fit: BoxFit.cover,
       );
     }
@@ -60,7 +54,7 @@ class MomentCard extends StatelessWidget {
                       ),
                       const SizedBox(height: 4),
                       Expanded(
-                        child: GetBuilder<MomentController>(
+                        child: GetBuilder<MomentsController>(
                           builder: (c) => Container(
                             alignment: Alignment.topCenter,
                             child: FittedBox(
@@ -118,37 +112,42 @@ class MomentCard extends StatelessWidget {
             side: BorderSide(color: Colors.white70, width: 1),
             borderRadius: BorderRadius.all(Radius.circular(24))),
         shadowColor: Colors.black26,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            GetBuilder<MomentController>(
-              builder: (c) => Container(
+        child: GetBuilder<MomentsController>(
+          builder: (c) => Stack(
+            alignment: Alignment.center,
+            children: [
+              Container(
                 width: double.infinity,
                 height: double.infinity,
                 margin: const EdgeInsets.only(top: 40),
-                child: _buildPreviewImage(c.previewMoment),
+                child:
+                    _buildPreviewImage(c.getPreviewImageURL(c.previewMoment)),
               ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  stops: const [0.3, 1.0],
-                  colors: [
-                    Colors.white,
-                    Colors.white.withOpacity(0.0),
-                  ],
+              Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    stops: const [0.3, 1.0],
+                    colors: [
+                      Colors.white,
+                      Colors.white.withOpacity(0.0),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Positioned.fill(
-              child: _buildMomentsCount(),
-            ),
-            InkWell(
-              onTap: () {},
-            ),
-          ],
+              Positioned.fill(
+                child: _buildMomentsCount(),
+              ),
+              InkWell(
+                onTap: () {
+                  Get.toNamed('/moments');
+                  Get.find<MomentsController>()
+                      .getAllMoments(Get.find<UserController>().ethAddress);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
