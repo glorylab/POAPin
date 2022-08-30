@@ -59,6 +59,13 @@ class FRTranslations {
         Strings.newTagHint: 'nouveau tag d\'évènement',
 
         /// Moments
+        // Strings.momentsDesc: '''Your POAP collection is your digital ID.
+        //
+        // It shows the world who you are: where you’ve been, what you achieved and who you’ve met.
+        //
+        // Moments is a way to add real value to your digital bookmark by saving real-life instances in a POAP, forever.
+        // ''',
+        //Strings.uploadMoments: 'Upload moments on welook.io',
 
         /// Watchlist(Initial state)
         Strings.watchlistHint:

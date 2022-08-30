@@ -46,6 +46,9 @@ class Strings {
   static const newTag = 'new_tag';
   static const newTagHint = 'new_tag_hint';
 
+  static const momentsDesc = 'moments_desc';
+  static const uploadMoments = 'upload_moments';
+
   static const watchlistHint = 'watchlist_hint';
   static const addCollection = 'add_collection';
 
@@ -144,6 +147,9 @@ String get strEditMode => Strings.editMode.tr;
 String get strEditTags => Strings.editTags.tr;
 String get strNewTag => Strings.newTag.tr;
 String get strNewTagHint => Strings.newTagHint.tr;
+
+String get strMomentsDesc => Strings.momentsDesc.tr;
+String get strUploadMoments => Strings.uploadMoments.tr;
 
 String get strWatchlistHint => Strings.watchlistHint.tr;
 String get strAddCollection => Strings.addCollection.tr;

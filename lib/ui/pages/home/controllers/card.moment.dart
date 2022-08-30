@@ -2,8 +2,10 @@ import 'package:get/get.dart';
 import 'package:poapin/data/models/moment.dart';
 import 'package:poapin/data/repository/welook_repository.dart';
 import 'package:poapin/di/service_locator.dart';
+import 'package:poapin/ui/controller.base.dart';
+import 'package:poapin/ui/pages/home/components/dialog.moment.dart';
 
-class MomentsCardController extends GetxController {
+class MomentsCardController extends BaseController {
   int momentCount = 0;
   bool isLoading = true;
   bool isError = false;
@@ -45,5 +47,18 @@ class MomentsCardController extends GetxController {
       isLoading = false;
       update();
     });
+  }
+
+  void showMomentsDialog() {
+    Get.dialog(const MomentDialog());
+  }
+
+  void launchWelook(String address) {
+    launchURL('https://welook.io/$address/poap');
+  }
+
+  @override
+  String screenName() {
+    return 'MomentsCard';
   }
 }
