@@ -2,7 +2,6 @@ import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:poapin/controllers/controller.user.dart';
 import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/pages/home/controllers/card.moment.dart';
 

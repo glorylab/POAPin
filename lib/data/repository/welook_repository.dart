@@ -41,4 +41,25 @@ class WelookRepository {
       throw errorMessage;
     }
   }
+
+  Future<MomentResponse> getMomentsOfEvent(
+    int eventID, {
+    int limit = 20,
+    int offset = 0,
+    String sort = 'asc',
+  }) async {
+    try {
+      final response = await welookAPI.getMomentsOfEvent(
+        eventID,
+        limit: limit,
+        offset: offset,
+        sort: sort,
+      );
+      MomentResponse momentResponse = MomentResponse.fromJson(response.data);
+      return momentResponse;
+    } on DioError catch (e) {
+      final errorMessage = DioExceptions.fromDioError(e).toString();
+      throw errorMessage;
+    }
+  }
 }

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
@@ -8,6 +9,7 @@ import 'package:palette_generator/palette_generator.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:poapin/common/status.dart';
 import 'package:poapin/controllers/tag.dart';
+import 'package:poapin/data/models/moment.dart';
 import 'package:poapin/data/models/token.dart';
 import 'package:poapin/data/repository/gitpoap_repository.dart';
 import 'package:poapin/data/repository/poap_repository.dart';
@@ -56,7 +58,10 @@ class DetailController extends BaseController {
   bool isGitPOAP = false;
   int gitPOAPID = -1;
 
+  bool isLoadingMomentsCount = true;
   int momentsCount = 0;
+  bool isLoadingMoments = true;
+  List<Moment> moments = <Moment>[];
 
   updateID(String? id) {
     tokenID.value = id!;
@@ -110,7 +115,7 @@ class DetailController extends BaseController {
     getData();
     _updatePaletteGenerator();
     checkIsGitPOAP();
-    getMoments();
+    getMomentsCount();
     _initGyroscope();
   }
 
@@ -164,10 +169,66 @@ class DetailController extends BaseController {
     }
   }
 
-  void getMoments() async {
+  void getMomentsCount() async {
     var response = await welookRepository.count(token.value.event.id);
     momentsCount = response;
     update();
+
+    if (momentsCount > 0) {
+      getPreviewMomentOfEvent();
+    }
+  }
+
+  String? getPreviewImageURL(Moment previewMoment) {
+    if (previewMoment.bigImageUrl.isNotEmpty) {
+      return previewMoment.bigImageUrl;
+    } else if (previewMoment.smallImageUrl != null &&
+        previewMoment.smallImageUrl!.isNotEmpty) {
+      return previewMoment.smallImageUrl;
+    } else if (previewMoment.originImageUrl != null &&
+        previewMoment.originImageUrl!.isNotEmpty) {
+      return previewMoment.originImageUrl;
+    } else {
+      return null;
+    }
+  }
+
+  Widget buildPreviewImage(String? url) {
+    if (url != null) {
+      return ExtendedImage.network(
+        url,
+        height: 88,
+        clipBehavior: Clip.hardEdge,
+        cache: true,
+        enableLoadState: true,
+        clearMemoryCacheWhenDispose: false,
+        compressionRatio: 0.6,
+        maxBytes: 200 << 10,
+        fit: BoxFit.cover,
+      );
+    }
+    return Container(
+      color: PColor.background,
+    );
+  }
+
+  getPreviewMomentOfEvent() {
+    isLoadingMoments = true;
+    update();
+    welookRepository
+        .getMomentsOfEvent(token.value.event.id)
+        .then((MomentResponse momentResponse) {
+      if (momentResponse.total != null) {
+        if (momentResponse.moments != null &&
+            momentResponse.moments!.isNotEmpty) {
+          moments = momentResponse.moments!;
+        }
+      } else {
+        moments = [];
+      }
+      isLoadingMoments = false;
+      update();
+    });
   }
 
   void getData() async {

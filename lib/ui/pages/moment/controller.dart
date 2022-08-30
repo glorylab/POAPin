@@ -1,4 +1,3 @@
-import 'package:get/get.dart';
 import 'package:poapin/data/models/moment.dart';
 import 'package:poapin/data/repository/welook_repository.dart';
 import 'package:poapin/di/service_locator.dart';
