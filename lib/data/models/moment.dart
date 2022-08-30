@@ -37,7 +37,7 @@ class Moment extends HiveObject {
 
   @JsonKey(name: '250x250')
   @HiveField(8)
-  final String smallImageUrl;
+  final String? smallImageUrl;
 
   @JsonKey(name: 'originalUrl')
   @HiveField(9)
@@ -85,7 +85,7 @@ class MomentResponse {
   final int status;
 
   @JsonKey(name: 'offsetN')
-  final int offset;
+  final int? offset;
 
   final int? total;
 

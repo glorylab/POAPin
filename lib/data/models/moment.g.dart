@@ -25,7 +25,7 @@ class MomentAdapter extends TypeAdapter<Moment> {
       description: fields[5] as String,
       poapEventID: fields[6] as String,
       bigImageUrl: fields[7] as String,
-      smallImageUrl: fields[8] as String,
+      smallImageUrl: fields[8] as String?,
       originImageUrl: fields[9] as String?,
       likesAddressList: (fields[10] as List?)?.cast<String>(),
     );
@@ -83,7 +83,7 @@ Moment _$MomentFromJson(Map<String, dynamic> json) => Moment(
       description: json['description'] as String,
       poapEventID: json['poapId'] as String,
       bigImageUrl: json['1000x1000'] as String,
-      smallImageUrl: json['250x250'] as String,
+      smallImageUrl: json['250x250'] as String?,
       originImageUrl: json['originalUrl'] as String?,
       likesAddressList:
           (json['likesA'] as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -106,7 +106,7 @@ Map<String, dynamic> _$MomentToJson(Moment instance) => <String, dynamic>{
 MomentResponse _$MomentResponseFromJson(Map<String, dynamic> json) =>
     MomentResponse(
       json['status'] as int,
-      json['offsetN'] as int,
+      json['offsetN'] as int?,
       json['total'] as int?,
       (json['photos'] as List<dynamic>?)
           ?.map((e) => Moment.fromJson(e as Map<String, dynamic>))

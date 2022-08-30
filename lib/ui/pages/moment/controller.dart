@@ -16,7 +16,8 @@ class MomentController extends BaseController {
   String? getPreviewImageURL(Moment previewMoment) {
     if (previewMoment.bigImageUrl.isNotEmpty) {
       return previewMoment.bigImageUrl;
-    } else if (previewMoment.smallImageUrl.isNotEmpty) {
+    } else if (previewMoment.smallImageUrl != null &&
+        previewMoment.smallImageUrl!.isNotEmpty) {
       return previewMoment.smallImageUrl;
     } else if (previewMoment.originImageUrl != null &&
         previewMoment.originImageUrl!.isNotEmpty) {
