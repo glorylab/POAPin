@@ -58,6 +58,15 @@ class ZhTWTranslations {
         // Strings.newTag: 'New Tag',
         // Strings.newTagHint: 'new tag for event',
 
+        /// Moments
+        // Strings.momentsDesc: '''Your POAP collection is your digital ID.
+        //
+        // It shows the world who you are: where you’ve been, what you achieved and who you’ve met.
+        //
+        // Moments is a way to add real value to your digital bookmark by saving real-life instances in a POAP, forever.
+        // ''',
+        //Strings.uploadMoments: 'Upload moments on welook.io',
+
         /// Watchlist(Initial state)
         // Strings.watchlistHint:
         //     'You can add some addresses you are interested in here.',

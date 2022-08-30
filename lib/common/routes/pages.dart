@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:poapin/data/models/moment.dart';
 import 'package:poapin/ui/pages/app/binding.dart';
 import 'package:poapin/ui/pages/app/page.dart';
 import 'package:poapin/ui/pages/collection/binding.dart';
@@ -64,7 +65,9 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.moment,
-      page: () => const MomentPage(),
+      page: () => MomentPage(
+        moment: Moment.empty(),
+      ),
       binding: MomentBinding(),
     ),
     GetPage(

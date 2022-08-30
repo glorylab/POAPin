@@ -31,16 +31,21 @@ class MomentsController extends BaseController {
 
   _getData() {
     final arguments = Get.arguments;
-    previewMoment = arguments['preview'] as Moment;
-    address = previewMoment.authorAddress;
-    update();
+    if (arguments != null && arguments['preview'] != null) {
+      previewMoment = arguments['preview'] as Moment;
+      address = previewMoment.authorAddress;
+      update();
+      getAllMoments(address);
+    } else {
+      isLoadingAllMoments = false;
+      update();
+    }
   }
 
   @override
   void onInit() {
     super.onInit();
     _getData();
-    getAllMoments(address);
   }
 
   int get itemCount {

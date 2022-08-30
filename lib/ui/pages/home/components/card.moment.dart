@@ -15,8 +15,8 @@ class MomentCard extends StatelessWidget {
         url,
         clipBehavior: Clip.hardEdge,
         cache: true,
-        enableLoadState: false,
-        clearMemoryCacheWhenDispose: true,
+        enableLoadState: true,
+        clearMemoryCacheWhenDispose: false,
         compressionRatio: 0.6,
         maxBytes: 200 << 10,
         fit: BoxFit.cover,
@@ -116,12 +116,15 @@ class MomentCard extends StatelessWidget {
           builder: (c) => Stack(
             alignment: Alignment.center,
             children: [
-              Container(
-                width: double.infinity,
-                height: double.infinity,
-                margin: const EdgeInsets.only(top: 40),
-                child:
-                    _buildPreviewImage(c.getPreviewImageURL(c.previewMoment)),
+              Hero(
+                tag: 'moment_${c.previewMoment.momentId}',
+                child: Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  margin: const EdgeInsets.only(top: 40),
+                  child:
+                      _buildPreviewImage(c.getPreviewImageURL(c.previewMoment)),
+                ),
               ),
               Container(
                 decoration: BoxDecoration(
@@ -141,12 +144,17 @@ class MomentCard extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  Get.toNamed(
-                    '/moments',
-                    arguments: {
-                      'preview': c.previewMoment,
-                    },
-                  );
+                  if (c.momentCount > 0 &&
+                      c.previewMoment.momentId.isNotEmpty) {
+                    Get.toNamed(
+                      '/moments',
+                      arguments: {
+                        'preview': c.previewMoment,
+                      },
+                    );
+                  } else {
+                    c.showMomentsDialog();
+                  }
                 },
               ),
             ],
