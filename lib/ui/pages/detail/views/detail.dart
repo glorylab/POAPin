@@ -328,7 +328,9 @@ class POAPTitle extends StatelessWidget {
         onPressed: () async {
           await Get.toNamed(
             '/event/${c.token.value.event.id}',
-            arguments: c.token.value.event,
+            arguments: {
+              'event': c.token.value.event,
+            },
           );
         },
         shape: ContinuousRectangleBorder(

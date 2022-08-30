@@ -33,7 +33,13 @@ class MomentsPreviewCard extends StatelessWidget {
               ),
               child: RawMaterialButton(
                 onPressed: () {
-                  c.launchWelook(c.token.value.event.id);
+                  Get.toNamed(
+                    '/event/${c.token.value.event.id}',
+                    arguments: {
+                      'event': c.token.value.event,
+                      'page': 'moments',
+                    },
+                  );
                 },
                 fillColor: Colors.white,
                 splashColor: const Color(0x22EC4899),
