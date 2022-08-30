@@ -122,7 +122,9 @@ class SquarePage extends BasePage {
                       onTap: () {
                         Get.toNamed(
                           '/event/' + c.events[index - 1].id.toString(),
-                          arguments: c.events[index - 1],
+                          arguments: {
+                            'event': c.events[index - 1],
+                          },
                         );
                       },
                       child: SizedBox(

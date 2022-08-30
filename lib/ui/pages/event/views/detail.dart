@@ -1,14 +1,10 @@
-import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:poapin/common/status.dart';
 import 'package:poapin/controllers/tag.dart';
-import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/pages/event/controller.dart';
-import 'package:screenshot/screenshot.dart';
 import 'package:timelines/timelines.dart';
 
 class DetailView extends StatelessWidget {
@@ -100,6 +96,7 @@ class DetailView extends StatelessWidget {
                 ),
               ),
       ),
+      const SizedBox(height: 8),
       SizedBox(
         height: 86,
         width: double.infinity,
@@ -254,9 +251,9 @@ class DetailView extends StatelessWidget {
         color: Colors.white,
         clipBehavior: Clip.antiAlias,
         shadowColor: Colors.black12,
-        shape: const RoundedRectangleBorder(
+        shape: const ContinuousRectangleBorder(
           borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(8),
+            bottom: Radius.circular(24),
           ),
         ),
         child: InkWell(
@@ -286,12 +283,12 @@ class DetailView extends StatelessWidget {
         builder: (context, state) => isHorizontal
             ? Container()
             : Material(
-                elevation: state.isPinned ? 16 : 0,
-                shadowColor: Colors.black45,
+                elevation: state.isPinned ? 8 : 0,
+                shadowColor: Colors.black12,
+                color: Colors.white,
                 child: Container(
-                    color: PColor.background,
                     padding: const EdgeInsets.only(
-                        left: 16, right: 16, top: 8, bottom: 16),
+                        left: 16, right: 16, top: 80, bottom: 16),
                     alignment: Alignment.centerLeft,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -311,8 +308,18 @@ class DetailView extends StatelessWidget {
                       ],
                     )),
               ),
-        sliver: SliverList(
-          delegate: _detailDelegate(isHorizontal: isHorizontal),
+        sliver: SliverFillRemaining(
+          child: SizedBox(
+            height: double.infinity,
+            width: double.infinity,
+            child: CustomScrollView(
+              slivers: [
+                SliverList(
+                  delegate: _detailDelegate(isHorizontal: isHorizontal),
+                ),
+              ],
+            ),
+          ),
         ),
       );
     } else {

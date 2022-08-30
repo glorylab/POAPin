@@ -10,6 +10,8 @@ import 'package:poapin/ui/components/loading.dart';
 import 'package:poapin/ui/page.base.dart';
 import 'package:poapin/ui/pages/event/controller.dart';
 import 'package:poapin/ui/pages/event/views/detail.dart';
+import 'package:poapin/ui/pages/event/views/page.base_info.dart';
+import 'package:poapin/ui/pages/event/views/page.moments.dart';
 
 class EventDetailPage extends BasePage<EventDetailController> {
   const EventDetailPage({Key? key}) : super(key: key);
@@ -157,138 +159,129 @@ class _VerticalView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            pinned: true,
-            elevation: 0,
-            leading: Get.previousRoute == ''
-                ? const GoHomeButton()
-                : const GoBackButton(),
-            backgroundColor: Colors.white,
-            title: Text(
-              controller.event.id == 0 ? 'POAP.in' : '#${controller.event.id}',
-              overflow: TextOverflow.fade,
-              style: GoogleFonts.shareTechMono(
-                color: const Color(0xFF6534FF),
-                shadows: [
-                  Shadow(
-                      color: Colors.white.withOpacity(0.8),
-                      offset: const Offset(1, 1),
-                      blurRadius: 2),
-                ],
-              ),
-            ),
-            actions: [
-              IconButton(
-                  onPressed: () {
-                    controller.addTag();
-                  },
-                  icon: Image.asset(
-                    'assets/common/ic_tag.png',
-                    width: 28,
-                    height: 28,
-                  )),
-            ],
-            expandedHeight: controller.status.value == LoadingStatus.loaded
-                ? context.width / 2
-                : 56,
-            collapsedHeight: controller.status.value == LoadingStatus.loaded
-                ? 56 + context.width / 4
-                : 56,
-            flexibleSpace: controller.status.value == LoadingStatus.loaded
-                ? Stack(children: [
-                    GetBuilder<EventDetailController>(
-                      builder: (c) => Positioned(
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        child: Container(
-                          color: c.backgroundColor,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      top: 0,
-                      child: Container(
-                        child: controller.blurBackground.value.isEmpty
-                            ? Container()
-                            : Image.memory(
-                                controller.blurBackground.value,
-                                fit: BoxFit.fill,
-                              ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      top: 0,
-                      child: Container(
-                        height: 120,
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                          colors: [const Color(0x00F2F2F2), PColor.background],
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                        )),
-                      ),
-                    ),
-                    Positioned(
-                      left: 0,
-                      right: 0,
-                      top: GetPlatform.isWeb ? 56 : 0,
-                      bottom: 0,
-                      child: Container(
-                        margin: EdgeInsets.only(
-                            top: 56 + MediaQuery.of(context).viewPadding.top),
-                        padding: const EdgeInsets.all(16),
-                        child: GetBuilder<EventDetailController>(
-                          builder: (c) => Material(
-                            shape: c.isRound
-                                ? const CircleBorder()
-                                : const RoundedRectangleBorder(),
-                            clipBehavior: Clip.antiAlias,
-                            color: Colors.transparent,
-                            child: InkWell(
-                              onTap: () => c.toggleShape(),
-                              child: ExtendedImage.network(
-                                controller.event.imageUrl,
-                                fit: BoxFit.scaleDown,
-                                cache: true,
-                                shape: c.isRound
-                                    ? BoxShape.circle
-                                    : BoxShape.rectangle,
-                              ),
+      () => Stack(
+        children: [
+          PageView.builder(
+              controller: controller.pageController,
+              itemCount: 2,
+              pageSnapping: true,
+              itemBuilder: (context, index) {
+                switch (index) {
+                  case 0:
+                    return const BaseInfoView();
+                  case 1:
+                    return const MomentsInEventPage();
+
+                  default:
+                    return Container();
+                }
+              }),
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: SizedBox(
+              height: 256 + MediaQuery.of(context).padding.top,
+              child: Material(
+                elevation: 24,
+                shadowColor: Colors.black45,
+                shape: ContinuousRectangleBorder(
+                  borderRadius: BorderRadius.vertical(
+                    bottom:
+                        Radius.circular(MediaQuery.of(context).size.width / 3),
+                  ),
+                ),
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                child: controller.status.value == LoadingStatus.loaded
+                    ? Stack(children: [
+                        GetBuilder<EventDetailController>(
+                          builder: (c) => Positioned(
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            child: Container(
+                              color: c.backgroundColor,
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                  ])
-                : Container(),
-          ),
-          DetailView(
-            controller: controller,
-            contentWidth: MediaQuery.of(context).size.width,
-            isHorizontal: false,
-            context: context,
-          ),
-          GetBuilder<EventDetailController>(
-            builder: (c) =>
-                c.status.value == LoadingStatus.loading && c.eventID == 0
-                    ? const SliverFillRemaining(
-                        child: Center(
-                          child: LoadingAnimation(),
+                        Positioned(
+                          left: 0,
+                          right: 0,
+                          bottom: 0,
+                          top: 0,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                              colors: [
+                                const Color(0x00F2F2F2),
+                                PColor.background
+                              ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                            )),
+                          ),
                         ),
-                      )
-                    : SliverToBoxAdapter(
-                        child: Container(),
-                      ),
+                        Positioned(
+                          left: 0,
+                          right: 0,
+                          top: GetPlatform.isWeb ? 56 : 0,
+                          bottom: 0,
+                          child: Container(
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 56,
+                                  child: RawMaterialButton(
+                                    onPressed: () {
+                                      Get.back();
+                                    },
+                                    child: const IgnorePointer(
+                                      child: GoBackButton(),
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: GetBuilder<EventDetailController>(
+                                    builder: (c) => Container(
+                                      margin: EdgeInsets.only(
+                                          top: MediaQuery.of(context)
+                                                  .padding
+                                                  .top +
+                                              16,
+                                          bottom: 16),
+                                      child: Material(
+                                        shape: c.isRound
+                                            ? const CircleBorder()
+                                            : const RoundedRectangleBorder(),
+                                        clipBehavior: Clip.antiAlias,
+                                        color: Colors.transparent,
+                                        child: InkWell(
+                                          onTap: () => c.toggleShape(),
+                                          child: ExtendedImage.network(
+                                            controller.event.imageUrl,
+                                            fit: BoxFit.scaleDown,
+                                            cache: true,
+                                            shape: c.isRound
+                                                ? BoxShape.circle
+                                                : BoxShape.rectangle,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 56,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ])
+                    : Container(),
+              ),
+            ),
           ),
         ],
       ),
