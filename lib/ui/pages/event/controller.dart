@@ -152,6 +152,10 @@ class EventDetailController extends BaseController {
     refreshController.loadComplete();
   }
 
+  void launchWelook(int eventID) {
+    launchURL('https://welook.io/moments/$eventID');
+  }
+
   /// Moments ---------------------------------------------------------------End
 
   updateID(int id) {
