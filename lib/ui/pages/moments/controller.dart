@@ -29,6 +29,26 @@ class MomentsController extends BaseController {
     }
   }
 
+  String getENSorETH(Moment moment) {
+    // if (moment.authorENS != null && moment.authorENS!.isNotEmpty) {
+    //   return moment.authorENS!;
+    // } else
+    if (moment.authorAddress.isNotEmpty) {
+      return getSimpleAddress(moment.authorAddress);
+    } else {
+      return '-';
+    }
+  }
+
+  String getSimpleAddress(String address) {
+    if (address.length > 18) {
+      return address.substring(0, 10) +
+          '...' +
+          address.substring(address.length - 4);
+    }
+    return address;
+  }
+
   _getData() {
     final arguments = Get.arguments;
     if (arguments != null && arguments['preview'] != null) {
