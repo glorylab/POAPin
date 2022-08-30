@@ -191,10 +191,10 @@ class _VerticalView extends StatelessWidget {
                   )),
             ],
             expandedHeight: controller.status.value == LoadingStatus.loaded
-                ? context.width
+                ? context.width / 2
                 : 56,
             collapsedHeight: controller.status.value == LoadingStatus.loaded
-                ? 56 + context.width / 2
+                ? 56 + context.width / 4
                 : 56,
             flexibleSpace: controller.status.value == LoadingStatus.loaded
                 ? Stack(children: [

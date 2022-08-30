@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
+import 'package:ens_dart/ens_dart.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,9 +19,12 @@ import 'package:poapin/di/service_locator.dart';
 import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/controller.base.dart';
 import 'package:poapin/ui/pages/detail/dialog/addtag.dart';
+import 'package:poapin/util/verification.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:we_slide/we_slide.dart';
+import 'package:web3dart/web3dart.dart';
+import 'package:web_socket_channel/io.dart';
 
 class DetailController extends BaseController {
   @override
@@ -43,6 +47,7 @@ class DetailController extends BaseController {
   final blurBackground = Uint8List(0).obs;
   final status = LoadingStatus.loading.obs;
   final token = Token.empty().obs;
+  String ownerENS = '';
 
   final times = <Map<String, String>>[].obs;
 
@@ -53,7 +58,7 @@ class DetailController extends BaseController {
   List<double>? gyroscopeValues;
 
   bool isFromCollection = false;
-  bool isRound = false;
+  bool isRound = true;
 
   bool isGitPOAP = false;
   int gitPOAPID = -1;
@@ -74,6 +79,22 @@ class DetailController extends BaseController {
       backgroundColor = paletteGenerator.lightMutedColor!.color;
       update();
     }
+  }
+
+  String getSimpleAddress(String address) {
+    if (address.length > 18) {
+      return address.substring(0, 10) +
+          '...' +
+          address.substring(address.length - 4);
+    }
+    return address;
+  }
+
+  void _getOwnerENS() {
+    VerificationHelper.getENSbyETH(ens, token.value.owner).then((value) {
+      ownerENS = value;
+      update();
+    });
   }
 
   toggleShape() {
@@ -99,6 +120,10 @@ class DetailController extends BaseController {
   @override
   void onInit() {
     super.onInit();
+    final client = Web3Client(rpcUrl, Client(), socketConnector: () {
+      return IOWebSocketChannel.connect(wsUrl).cast<String>();
+    });
+    ens = Ens(client: client);
     Get.put(TagController());
     final parameters = Get.parameters;
     final arguments = Get.arguments;
@@ -109,6 +134,7 @@ class DetailController extends BaseController {
       tokenID.value = token.value.tokenId;
       isFromCollection = true;
       status.value = LoadingStatus.loaded;
+      _getOwnerENS();
     }
     updateID(parameters['id']);
     Get.find<TagController>().refreshTag([token.value.event.id]);
@@ -240,6 +266,7 @@ class DetailController extends BaseController {
     }
     var response = await tokensRepository.getToken(tokenID.value);
     token.value = response;
+    _getOwnerENS();
     refreshOrder();
     refreshTotal();
     Get.find<TagController>().refreshTag([token.value.event.id]);

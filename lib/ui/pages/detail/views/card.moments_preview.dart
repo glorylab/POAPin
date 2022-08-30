@@ -129,6 +129,7 @@ class MomentsPreviewCard extends StatelessWidget {
                       height: 88,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
+                        physics: const ClampingScrollPhysics(),
                         children: c.moments
                             .map((m) =>
                                 c.buildPreviewImage(c.getPreviewImageURL(m)))
