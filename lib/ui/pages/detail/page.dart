@@ -64,17 +64,6 @@ class _HorizontalView extends StatelessWidget {
           leading: Get.previousRoute == ''
               ? const GoHomeButton()
               : const GoBackButton(),
-          actions: [
-            IconButton(
-                onPressed: () {
-                  controller.addTag();
-                },
-                icon: Image.asset(
-                  'assets/common/ic_tag.png',
-                  width: 28,
-                  height: 28,
-                )),
-          ],
         ),
         body: SafeArea(
           child: controller.status.value == LoadingStatus.loading &&
@@ -180,17 +169,6 @@ class _VerticalView extends StatelessWidget {
                 ],
               ),
             ),
-            actions: [
-              IconButton(
-                  onPressed: () {
-                    controller.addTag();
-                  },
-                  icon: Image.asset(
-                    'assets/common/ic_tag.png',
-                    width: 28,
-                    height: 28,
-                  )),
-            ],
             expandedHeight: controller.status.value == LoadingStatus.loaded
                 ? context.width
                 : 56,

@@ -43,7 +43,7 @@ class EventDetailController extends BaseController {
   final slideController = WeSlideController();
 
   bool isFromCollection = false;
-  bool isRound = false;
+  bool isRound = true;
 
   updateID(int id) {
     eventID = id;
