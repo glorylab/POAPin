@@ -17,4 +17,15 @@ class GitPOAPApi {
       rethrow;
     }
   }
+
+  Future<Response> scan(String address) async {
+    try {
+      final Response response = await dioClient.get(
+        GitPOAPConstant.scanGitPOAP(address),
+      );
+      return response;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

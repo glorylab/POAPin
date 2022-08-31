@@ -7,6 +7,8 @@ class PColor {
   static Color welook = const Color(0xFFEC4899);
   static Color welookDark = const Color(0xFF0F172A);
 
+  static Color gitpoap = const Color(0xFF17457C);
+
   static const MaterialColor primary = MaterialColor(
     _primaryValue,
     <int, Color>{
