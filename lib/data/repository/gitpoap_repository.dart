@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:poapin/data/models/gitpoap.dart';
 import 'package:poapin/data/network/api/gitpoap.dart';
 import 'package:poapin/data/network/exceptions.dart';
 
@@ -16,6 +17,28 @@ class GitPOAPRepository {
         'gitPOAPID': gitPOAPID,
         'isGitPOAP': isGitPOAP,
       };
+    } on DioError catch (e) {
+      final errorMessage = DioExceptions.fromDioError(e).toString();
+      throw errorMessage;
+    }
+  }
+
+  Future<List<GitPOAP>> scan(String address) async {
+    try {
+      final response = await gitPOAPAPI.scan(address);
+
+      if (response.data is List) {
+        final gitPOAPs =
+            (response.data as List).map((e) => GitPOAP.fromJson(e)).toList();
+        return gitPOAPs;
+      }
+      if (response.data['msg'] != null) {
+        throw response.data['msg'];
+      }
+      if (response.data['message'] != null) {
+        throw response.data['message'];
+      }
+      throw 'Unknown error';
     } on DioError catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
       throw errorMessage;

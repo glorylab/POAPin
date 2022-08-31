@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/controllers/tag.dart';
+import 'package:poapin/data/models/gitpoap.dart';
 import 'package:poapin/data/models/moment.dart';
 import 'package:poapin/data/models/pref/visibility.dart';
 import 'package:poapin/data/models/tag.dart';
-import 'package:poapin/data/repository/welook_repository.dart';
+import 'package:poapin/data/repository/gitpoap_repository.dart';
 import 'package:poapin/di/service_locator.dart';
 import 'package:poapin/secrets.dart';
 import 'package:poapin/ui/controller.base.dart';
@@ -37,7 +38,7 @@ class HomeController extends BaseController {
   double lastOffset = 0;
   final double hideVelocity = 2;
 
-  final welookRepository = getIt.get<WelookRepository>();
+  final gitPOAPRepository = getIt.get<GitPOAPRepository>();
 
   @override
   String screenName() {
@@ -71,7 +72,9 @@ class HomeController extends BaseController {
     }
   };
 
-  List<Moment> moments = <Moment>[];
+  bool isLoadingGitPOAPs = true;
+  List<GitPOAP> gitPOAPs = <GitPOAP>[];
+  int gitPOAPCount = 0;
 
   /// Counts the number of POAPs at each event.
   Map eventCounts = {};
@@ -199,6 +202,7 @@ class HomeController extends BaseController {
     getCachedData();
     getData();
     getMoments();
+    getGitPOAPs();
     _initWebMessage();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       if (scrollController.hasClients) {
@@ -863,6 +867,18 @@ class HomeController extends BaseController {
 
   void getMoments() {
     Get.find<MomentsCardController>().getFirstMoment(ethAddress);
+  }
+
+  void getGitPOAPs() {
+    isLoadingGitPOAPs = true;
+    update();
+
+    gitPOAPRepository.scan(ethAddress).then((response) {
+      isLoadingGitPOAPs = false;
+      gitPOAPs = response;
+      gitPOAPCount = gitPOAPs.length;
+      update();
+    });
   }
 
   void getData() async {
