@@ -67,6 +67,12 @@ class FRTranslations {
         // ''',
         //Strings.uploadMoments: 'Upload moments on welook.io',
 
+        /// GitPOAP
+        // Strings.gitPOAPDesc:
+        //             '''A GitPOAP is a regular POAP (with an extra spin) that is minted through the GitPOAP platform for specified meaningful contribution to open source projects. Repo owners automatically distribute GitPOAPs to their contributors as recognition of their work.
+        // ''',
+        // Strings.gitPOAPStart: 'Contribute to POAPin',
+
         /// Watchlist(Initial state)
         Strings.watchlistHint:
             'Vous pouvez ajouter ici les adresses qui vous intéressent.',
@@ -117,6 +123,7 @@ class FRTranslations {
         Strings.done: 'Effectué',
         Strings.alert: 'Alerte',
         Strings.error: 'Erreur',
+        // Strings.learnMore: 'learn more',
         // --- Months
         Strings.january: 'Janvier',
         Strings.february: 'Février',

@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poapin/common/translations/strings.dart';
-import 'package:poapin/controllers/controller.user.dart';
 import 'package:poapin/res/colors.dart';
-import 'package:poapin/ui/pages/home/controllers/card.moment.dart';
+import 'package:poapin/ui/pages/home/controller.dart';
 
-class MomentDialog extends StatelessWidget {
-  const MomentDialog({Key? key}) : super(key: key);
+class GitPOAPDialog extends StatelessWidget {
+  const GitPOAPDialog({Key? key}) : super(key: key);
 
-  Widget _buildMomentsDesc() {
+  Widget _buildGitPOAPDesc() {
     return Container(
       padding: const EdgeInsets.only(left: 16, right: 16, bottom: 12),
       child: ListView(
@@ -17,7 +16,7 @@ class MomentDialog extends StatelessWidget {
         children: [
           const SizedBox(height: 72),
           Text(
-            strMomentsDesc,
+            strGitPOAPDesc,
             style: GoogleFonts.roboto(
               fontSize: 16,
               height: 1.5,
@@ -26,18 +25,17 @@ class MomentDialog extends StatelessWidget {
           const SizedBox(height: 16),
           RawMaterialButton(
             onPressed: () {
-              Get.find<MomentsCardController>()
-                  .launchWelook(Get.find<UserController>().ethAddress);
+              Get.find<HomeController>().launchGitPOAP();
             },
             shape: ContinuousRectangleBorder(
               borderRadius: BorderRadius.circular(24),
             ),
-            fillColor: PColor.welook,
+            fillColor: PColor.gitpoap,
             elevation: 0,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               child: Text(
-                strUploadMoments,
+                strLearnMore,
                 style: GoogleFonts.roboto(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
@@ -47,7 +45,7 @@ class MomentDialog extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 40),
         ],
       ),
     );
@@ -70,10 +68,10 @@ class MomentDialog extends StatelessWidget {
           clipBehavior: Clip.antiAlias,
           child: Container(
             constraints: const BoxConstraints(
-                maxWidth: 320, minWidth: 280, minHeight: 128, maxHeight: 512),
+                maxWidth: 300, minWidth: 280, minHeight: 128, maxHeight: 512),
             child: Stack(
               children: [
-                _buildMomentsDesc(),
+                _buildGitPOAPDesc(),
                 Container(
                   height: 56,
                   padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -86,10 +84,10 @@ class MomentDialog extends StatelessWidget {
                     ),
                     child: Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 18),
+                          horizontal: 16, vertical: 14),
                       width: double.infinity,
                       child: Image.asset(
-                        'icons/ic_moments.png',
+                        'icons/ic_gitpoap_full.png',
                         package: 'web3_icons',
                         height: 18,
                       ),
@@ -101,7 +99,7 @@ class MomentDialog extends StatelessWidget {
                   left: 0,
                   right: 0,
                   child: Container(
-                    height: 24,
+                    height: 56,
                     decoration: const BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.bottomCenter,
@@ -111,12 +109,36 @@ class MomentDialog extends StatelessWidget {
                       ),
                     ),
                     alignment: Alignment.bottomCenter,
-                    child: GetBuilder<MomentsCardController>(
+                    child: GetBuilder<HomeController>(
                       builder: (c) => Container(
-                        height: 24,
+                        height: 48,
                         padding:
                             const EdgeInsets.only(left: 16, right: 16, top: 16),
                         alignment: Alignment.bottomCenter,
+                        child: RawMaterialButton(
+                          onPressed: () {
+                            c.launchPOAPinGithub();
+                          },
+                          fillColor: PColor.background,
+                          elevation: 0,
+                          shape: const ContinuousRectangleBorder(
+                            borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(56),
+                            ),
+                          ),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            alignment: Alignment.center,
+                            child: Text(
+                              strGitPOAPStart,
+                              style: GoogleFonts.roboto(
+                                fontSize: 16,
+                                fontWeight: FontWeight.normal,
+                                color: PColor.gitpoap,
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),

@@ -26,7 +26,7 @@ class GitPOAPCard extends StatelessWidget {
     );
   }
 
-  Widget _buildMomentsCount() {
+  Widget _buildGitPOAPCount() {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -140,10 +140,12 @@ class GitPOAPCard extends StatelessWidget {
                 ),
               ),
               Positioned.fill(
-                child: _buildMomentsCount(),
+                child: _buildGitPOAPCount(),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  c.showGitPOAPDialog();
+                },
               ),
             ],
           ),

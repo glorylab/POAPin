@@ -22,6 +22,7 @@ import 'package:poapin/data/models/pref/shape.dart';
 import 'package:poapin/data/models/pref/sort.dart';
 import 'package:poapin/data/models/token.dart';
 import 'package:poapin/ui/pages/detail/dialog/addtag.dart';
+import 'package:poapin/ui/pages/home/components/dialog.gitpoap.dart';
 import 'package:poapin/ui/pages/home/controllers/card.moment.dart';
 import 'package:poapin/util/verification.dart';
 import 'package:web3dart/web3dart.dart';
@@ -99,6 +100,18 @@ class HomeController extends BaseController {
   String accountID = '';
 
   final error = ''.obs;
+
+  void launchGitPOAP() {
+    launchURL('https://www.gitpoap.io');
+  }
+
+  void launchPOAPinGithub() {
+    launchURL('https://github.com/glorylab/POAPin');
+  }
+
+  void showGitPOAPDialog() {
+    Get.dialog(const GitPOAPDialog());
+  }
 
   /// config
   VisibilityPref visibility = VisibilityPref.hideDuplicates;
