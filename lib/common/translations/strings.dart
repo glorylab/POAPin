@@ -49,6 +49,9 @@ class Strings {
   static const momentsDesc = 'moments_desc';
   static const uploadMoments = 'upload_moments';
 
+  static const gitPOAPDesc = 'gitpoap_desc';
+  static const gitPOAPStart = 'gitpoap_start';
+
   static const watchlistHint = 'watchlist_hint';
   static const addCollection = 'add_collection';
 
@@ -88,6 +91,7 @@ class Strings {
   static const done = 'done';
   static const alert = 'alert';
   static const error = 'error';
+  static const learnMore = 'learn_more';
 
   static const january = 'january';
   static const february = 'february';
@@ -151,6 +155,9 @@ String get strNewTagHint => Strings.newTagHint.tr;
 String get strMomentsDesc => Strings.momentsDesc.tr;
 String get strUploadMoments => Strings.uploadMoments.tr;
 
+String get strGitPOAPDesc => Strings.gitPOAPDesc.tr;
+String get strGitPOAPStart => Strings.gitPOAPStart.tr;
+
 String get strWatchlistHint => Strings.watchlistHint.tr;
 String get strAddCollection => Strings.addCollection.tr;
 
@@ -190,6 +197,7 @@ String get strTos => Strings.tos.tr;
 String get strDone => Strings.done.tr;
 String get strAlert => Strings.alert.tr;
 String get strError => Strings.error.tr;
+String get strLearnMore => Strings.learnMore.tr;
 
 String get strJanuary => Strings.january.tr;
 String get strFebruary => Strings.february.tr;
