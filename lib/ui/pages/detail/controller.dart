@@ -135,11 +135,12 @@ class DetailController extends BaseController {
       isFromCollection = true;
       status.value = LoadingStatus.loaded;
       _getOwnerENS();
+      _updatePaletteGenerator();
     }
     updateID(parameters['id']);
     Get.find<TagController>().refreshTag([token.value.event.id]);
     getData();
-    _updatePaletteGenerator();
+
     checkIsGitPOAP();
     getMomentsCount();
     _initGyroscope();
@@ -269,6 +270,7 @@ class DetailController extends BaseController {
     _getOwnerENS();
     refreshOrder();
     refreshTotal();
+    _updatePaletteGenerator();
     Get.find<TagController>().refreshTag([token.value.event.id]);
     token.value.event.tags =
         Get.find<TagController>().tagsInEvents[token.value.event.id];

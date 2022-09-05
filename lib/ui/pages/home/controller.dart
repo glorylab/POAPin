@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:poapin/common/translations/strings.dart';
+import 'package:poapin/controllers/controller.user.dart';
 import 'package:poapin/controllers/tag.dart';
 import 'package:poapin/data/models/gitpoap.dart';
-import 'package:poapin/data/models/moment.dart';
 import 'package:poapin/data/models/pref/visibility.dart';
 import 'package:poapin/data/models/tag.dart';
 import 'package:poapin/data/repository/gitpoap_repository.dart';
@@ -111,6 +111,18 @@ class HomeController extends BaseController {
 
   void showGitPOAPDialog() {
     Get.dialog(const GitPOAPDialog());
+  }
+
+  void showGitPOAPs() {
+    Get.toNamed(
+      '/gitpoaps',
+      arguments: {
+        'gitpoaps': gitPOAPs,
+        'address': Get.find<UserController>().ensAddress.isEmpty
+            ? Get.find<UserController>().ethAddress
+            : Get.find<UserController>().ensAddress,
+      },
+    );
   }
 
   /// config

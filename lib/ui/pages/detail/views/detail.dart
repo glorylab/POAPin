@@ -1,15 +1,12 @@
-import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:poapin/common/status.dart';
 import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/components/icons/forward.dart';
 import 'package:poapin/ui/pages/detail/controller.dart';
 import 'package:poapin/ui/pages/detail/views/card.moments_preview.dart';
-import 'package:screenshot/screenshot.dart';
 import 'package:gradient_ui_widgets/gradient_ui_widgets.dart' as a;
 
 class DetailView extends StatelessWidget {
