@@ -10,6 +10,8 @@ import 'package:poapin/ui/pages/detail/binding.dart';
 import 'package:poapin/ui/pages/detail/page.dart';
 import 'package:poapin/ui/pages/event/binding.dart';
 import 'package:poapin/ui/pages/event/page.dart';
+import 'package:poapin/ui/pages/gitpoaps/binding.dart';
+import 'package:poapin/ui/pages/gitpoaps/page.dart';
 import 'package:poapin/ui/pages/home/binding.dart';
 import 'package:poapin/ui/pages/home/page.dart';
 import 'package:poapin/ui/pages/me/binding.dart';
@@ -69,6 +71,11 @@ class AppPages {
         moment: Moment.empty(),
       ),
       binding: MomentBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.gitpoaps,
+      page: () => const GitPOAPsPage(),
+      binding: GitPOAPsBinding(),
     ),
     GetPage(
       name: AppRoutes.square,

@@ -601,6 +601,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  hexagon:
+    dependency: "direct main"
+    description:
+      name: hexagon
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.0-nullsafety.1"
   hive:
     dependency: "direct main"
     description:

@@ -29,6 +29,7 @@ import 'package:poapin/ui/pages/auth/controller.dart';
 import 'package:poapin/ui/pages/collection/controller.dart';
 import 'package:poapin/ui/pages/collection/controller.filter.dart';
 import 'package:poapin/ui/pages/dashboard/binding.dart';
+import 'package:poapin/ui/pages/gitpoaps/controller.dart';
 import 'package:poapin/ui/pages/home/controller.dart';
 import 'package:poapin/ui/pages/home/controller.filter.dart';
 import 'package:poapin/ui/pages/home/controllers/card.moment.dart';
@@ -53,6 +54,7 @@ Future<void> main() async {
   Get.lazyPut(() => MomentsCardController());
   Get.lazyPut(() => MomentsController());
   Get.lazyPut(() => MomentController());
+  Get.lazyPut(() => GitPOAPsController());
   Get.lazyPut(() => CollectionController());
   Get.lazyPut(() => HomeFilterController());
   Get.lazyPut(() => FilterController());

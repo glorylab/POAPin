@@ -125,7 +125,6 @@ class GitPOAPCard extends StatelessWidget {
                       color: PColor.gitpoap,
                       child: _buildPreviewImage(c.gitPOAPs[0].imageURL),
                     ),
-              // ),
               Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -144,7 +143,11 @@ class GitPOAPCard extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  c.showGitPOAPDialog();
+                  if (c.gitPOAPCount > 0) {
+                    c.showGitPOAPs();
+                  } else {
+                    c.showGitPOAPDialog();
+                  }
                 },
               ),
             ],
