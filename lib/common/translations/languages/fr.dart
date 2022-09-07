@@ -30,9 +30,9 @@ class FRTranslations {
         Strings.monthly: 'par mois',
         Strings.filterHint: 'Filtrez par nom, description, lieu, etc.',
         // --- Prefs
-        // Strings.visibility: 'Visibility',
-        // Strings.hideDuplicates: 'Hide Duplicates',
-        // Strings.showAll: 'Show all',
+        Strings.visibility: 'Visibilité',
+        Strings.hideDuplicates: 'Masquer les doublons',
+        Strings.showAll: 'Montrer tout',
         Strings.sort: 'Trier',
         Strings.newest: 'Plus récent',
         Strings.oldest: 'Plus ancien',
@@ -59,19 +59,16 @@ class FRTranslations {
         Strings.newTagHint: 'nouveau tag d\'évènement',
 
         /// Moments
-        // Strings.momentsDesc: '''Your POAP collection is your digital ID.
-        //
-        // It shows the world who you are: where you’ve been, what you achieved and who you’ve met.
-        //
-        // Moments is a way to add real value to your digital bookmark by saving real-life instances in a POAP, forever.
-        // ''',
-        //Strings.uploadMoments: 'Upload moments on welook.io',
+        Strings.momentsDesc: '''Votre collection de POAPs est votre identité numérique.
+            Elle montre au monde qui vous êtes : où vous êtes allé, ce que vous avez accompli et qui vous avez rencontré.
+            Moments est un moyen d'ajouter de la valeur à votre souvenir numérique en sauvegardant des instants de vie dans un POAP, pour toujours.''',
+        Strings.uploadMoments: 'Publier des moments sur welook.io',
 
         /// GitPOAP
-        // Strings.gitPOAPDesc:
-        //             '''A GitPOAP is a regular POAP (with an extra spin) that is minted through the GitPOAP platform for specified meaningful contribution to open source projects. Repo owners automatically distribute GitPOAPs to their contributors as recognition of their work.
-        // ''',
-        // Strings.gitPOAPStart: 'Contribute to POAPin',
+        Strings.gitPOAPDesc:
+            '''Un GitPOAP est un POAP ordinaire (avec un petit extra) qui est frappé par la plateforme GitPOAP pour les contributions significatives apportées aux projets open source. 
+            Les propriétaires de repos distribuent automatiquement des GitPOAPs à leurs contributeurs en reconnaissance du travail accompli.''',           
+        Strings.gitPOAPStart: 'Contribuer à POAPin',
 
         /// Watchlist(Initial state)
         Strings.watchlistHint:
@@ -105,7 +102,7 @@ class FRTranslations {
         Strings.settingsDesc: 'Notifications, données, etc.',
         Strings.general: 'Général',
         Strings.language: 'Langue',
-        // Strings.contributeLanguage: '🙇 Contribute more translations 🔗',
+        Strings.contributeLanguage: '🙇 Contribuer à d\'autres traductions 🔗',
         Strings.data: 'Général',
         Strings.cache: 'Effacer les données en cache',
         Strings.cacheDesc: 'À utiliser en cas de problème avec l\'application.',
@@ -123,7 +120,7 @@ class FRTranslations {
         Strings.done: 'Effectué',
         Strings.alert: 'Alerte',
         Strings.error: 'Erreur',
-        // Strings.learnMore: 'learn more',
+        Strings.learnMore: 'en savoir plus',
         // --- Months
         Strings.january: 'Janvier',
         Strings.february: 'Février',
