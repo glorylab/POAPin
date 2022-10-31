@@ -40,4 +40,16 @@ class POAPAPI {
       rethrow;
     }
   }
+
+  Future<Response> getEventDetail(int eventID) async {
+    try {
+      final Response response = await dioClient.get(
+        POAPConstant.event(eventID),
+        isAuthorized: true,
+      );
+      return response;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

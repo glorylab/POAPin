@@ -269,31 +269,21 @@ class EventDetailController extends BaseController {
     if (!isFromCollection) {
       status.value = LoadingStatus.loading;
     }
-    try {
-      var response = await Dio().get('https://api.poap.in/event/$eventID');
-      error.value = '';
-      var _res = response.data;
 
-      if (_res['code'] == 0) {
-        event = Event.fromJson(_res['data']);
+    poapRepository.getEventDetail(eventID).then((Event responseEvent) {
+      if (responseEvent.id > 0) {
+        event = responseEvent;
+        status.value = LoadingStatus.loaded;
         update();
-      }
-
-      Get.find<TagController>().refreshTag([event.id]);
-      event.tags = Get.find<TagController>().tagsInEvents[event.id];
-      status.value = LoadingStatus.loaded;
-    } on DioError catch (e) {
-      if (e.response != null) {
-        if (e.response!.data != null && e.response!.data['message'] != null) {
-          status.value = LoadingStatus.failed;
-          error.value = e.response!.data['message'];
-        }
-      } else {
-        // Something happened in setting up or sending the request that triggered an Error
-        error.value = 'Oops, something went wrong';
+        Get.find<TagController>().refreshTag([event.id]);
+        event.tags = Get.find<TagController>().tagsInEvents[event.id];
         status.value = LoadingStatus.loaded;
       }
-    }
+    }).catchError((error) {
+      status.value = LoadingStatus.failed;
+      error.value = 'Oops, something went wrong';
+      update();
+    });
   }
 
   String getTimelineTitle(int index) {

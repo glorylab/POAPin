@@ -14,4 +14,5 @@ class POAPConstant {
   static String scan(String address) => '/actions/scan/$address';
   static String token(String tokenID) => '/token/$tokenID';
   static String poaps(int eventID) => '/event/$eventID/poaps';
+  static String event(int eventID) => '/events/id/$eventID';
 }

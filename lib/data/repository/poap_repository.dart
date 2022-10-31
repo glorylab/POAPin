@@ -41,4 +41,15 @@ class POAPRepository {
       throw errorMessage;
     }
   }
+
+  Future<Event> getEventDetail(int eventID) async {
+    try {
+      final response = await poapAPI.getEventDetail(eventID);
+      final event = Event.fromJson(response.data);
+      return event;
+    } on DioError catch (e) {
+      final errorMessage = DioExceptions.fromDioError(e).toString();
+      throw errorMessage;
+    }
+  }
 }
