@@ -219,6 +219,7 @@ class EventDetailController extends BaseController {
           pageController.animateToPage(1,
               duration: const Duration(milliseconds: 300),
               curve: Curves.easeIn);
+          update();
         });
       }
     }
@@ -232,6 +233,18 @@ class EventDetailController extends BaseController {
       initialRefreshStatus: RefreshStatus.idle,
     );
     _getMoments();
+
+    pageController.addListener(() {
+      currentPageIndex = pageController.page!.round();
+      update();
+    });
+  }
+
+  void jumpToPage(int index) {
+    pageController.animateToPage(index,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOutCubic);
+    update();
   }
 
   void addTag() {

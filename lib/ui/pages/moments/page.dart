@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:poapin/common/translations/strings.dart';
-import 'package:poapin/controllers/controller.user.dart';
 import 'package:poapin/data/models/moment.dart';
 import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/components/buttons/back.dart';
