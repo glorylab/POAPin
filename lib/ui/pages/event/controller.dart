@@ -1,8 +1,10 @@
 import 'dart:io';
-import 'dart:typed_data';
-import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:image_downloader/image_downloader.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:palette_generator/palette_generator.dart';
 import 'package:path_provider/path_provider.dart';
@@ -146,6 +148,26 @@ class EventDetailController extends BaseController {
     });
   }
 
+  savePOAPArtwork(Event event) async {
+    if (Platform.isAndroid || Platform.isIOS) {
+      if (event.imageUrl.isNotEmpty) {
+        try {
+          var imageId = await ImageDownloader.downloadImage(
+            event.imageUrl,
+            destination: AndroidDestinationType.directoryPictures,
+          );
+          if (imageId == null) {
+            return;
+          }
+        } on PlatformException catch (error) {
+          if (kDebugMode) {
+            print(error);
+          }
+        }
+      }
+    }
+  }
+
   void onLoading() async {
     if (isLoadingAllMoments) return;
     await _getMoments();
@@ -237,6 +259,28 @@ class EventDetailController extends BaseController {
     pageController.addListener(() {
       currentPageIndex = pageController.page!.round();
       update();
+    });
+
+    ImageDownloader.callback(onProgressUpdate: (String? imageId, int progress) {
+      if (progress == 100) {
+        Get.snackbar(
+            'Download Complete', 'POAP artwork has been saved to your gallery',
+            messageText: Text(
+              'POAP artwork has been saved to your gallery',
+              style: GoogleFonts.roboto(color: Colors.lightGreen),
+            ),
+            duration: const Duration(seconds: 2),
+            titleText: Text(
+              'Download Complete',
+              style: GoogleFonts.robotoSlab(
+                color: Colors.green,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+            ),
+            animationDuration: const Duration(milliseconds: 200),
+            snackPosition: SnackPosition.BOTTOM);
+      }
     });
   }
 

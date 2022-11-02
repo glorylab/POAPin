@@ -10,7 +10,6 @@ import 'package:poapin/data/models/moment.dart';
 import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/components/loading.dart';
 import 'package:poapin/ui/pages/event/controller.dart';
-import 'package:poapin/ui/pages/home/controller.dart';
 import 'package:poapin/ui/pages/moment/page.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
 

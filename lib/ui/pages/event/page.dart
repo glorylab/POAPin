@@ -1,3 +1,4 @@
+import 'package:dismissible_page/dismissible_page.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,7 @@ import 'package:poapin/ui/components/loading.dart';
 import 'package:poapin/ui/page.base.dart';
 import 'package:poapin/ui/pages/event/controller.dart';
 import 'package:poapin/ui/pages/event/views/detail.dart';
+import 'package:poapin/ui/pages/event/views/page.artwork.dart';
 import 'package:poapin/ui/pages/event/views/page.base_info.dart';
 import 'package:poapin/ui/pages/event/views/page.moments.dart';
 
@@ -257,14 +259,22 @@ class _VerticalView extends StatelessWidget {
                                         clipBehavior: Clip.antiAlias,
                                         color: Colors.transparent,
                                         child: InkWell(
-                                          onTap: () => c.toggleShape(),
-                                          child: ExtendedImage.network(
-                                            controller.event.imageUrl,
-                                            fit: BoxFit.scaleDown,
-                                            cache: true,
-                                            shape: c.isRound
-                                                ? BoxShape.circle
-                                                : BoxShape.rectangle,
+                                          onTap: () =>
+                                              context.pushTransparentRoute(
+                                            ArtworkPage(
+                                              event: c.event,
+                                            ),
+                                          ),
+                                          child: Hero(
+                                            tag: 'event_${c.event.id}',
+                                            child: ExtendedImage.network(
+                                              controller.event.imageUrl,
+                                              fit: BoxFit.scaleDown,
+                                              cache: true,
+                                              shape: c.isRound
+                                                  ? BoxShape.circle
+                                                  : BoxShape.rectangle,
+                                            ),
                                           ),
                                         ),
                                       ),
