@@ -68,6 +68,7 @@ class AuthPage extends BasePage<AuthController> {
                           },
                           isLoading: c.isAuthing,
                           isAuthing: c.isAppleAuthing,
+                          logoAsset: 'apple',
                         )
                       : Container(),
                   const SizedBox(height: 16),
@@ -83,6 +84,7 @@ class AuthPage extends BasePage<AuthController> {
                     },
                     isLoading: c.isAuthing,
                     isAuthing: c.isGoogleAuthing,
+                    logoAsset: 'google',
                   ),
                 ]),
               ),
@@ -124,6 +126,7 @@ class AuthButton extends StatelessWidget {
   final Color backgroundColor;
   final bool isAuthing;
   final bool isLoading;
+  final String logoAsset;
 
   const AuthButton({
     Key? key,
@@ -132,6 +135,7 @@ class AuthButton extends StatelessWidget {
     required this.backgroundColor,
     required this.isAuthing,
     required this.isLoading,
+    this.logoAsset = '',
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -152,13 +156,25 @@ class AuthButton extends StatelessWidget {
       onPressed: isAuthing ? null : onPressed,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 24),
-        child: Text(
-          isAuthing ? '...' : text,
-          style: GoogleFonts.firaMono(
-            fontSize: 18,
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
-          ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(
+              'assets/common/ic_$logoAsset.png',
+              width: 18,
+              height: 18,
+              color: Colors.white,
+            ),
+            const SizedBox(width: 16),
+            Text(
+              isAuthing ? '...' : text,
+              style: GoogleFonts.firaMono(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: Colors.white,
+              ),
+            ),
+          ],
         ),
       ),
     );
