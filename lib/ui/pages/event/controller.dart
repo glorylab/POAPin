@@ -10,9 +10,11 @@ import 'package:palette_generator/palette_generator.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:poapin/common/status.dart';
 import 'package:poapin/controllers/tag.dart';
+import 'package:poapin/data/models/holder.dart';
 import 'package:poapin/data/models/moment.dart';
 import 'package:poapin/data/models/token.dart';
 import 'package:poapin/data/repository/poap_repository.dart';
+import 'package:poapin/data/repository/poapin_repository.dart';
 import 'package:poapin/data/repository/welook_repository.dart';
 import 'package:poapin/di/service_locator.dart';
 import 'package:poapin/res/colors.dart';
@@ -34,6 +36,7 @@ class EventDetailController extends BaseController {
   Color backgroundColor = PColor.background;
 
   final POAPRepository poapRepository = getIt.get<POAPRepository>();
+  final POAPINRepository poapinRepository = getIt.get<POAPINRepository>();
 
   final TextEditingController textEditController = TextEditingController();
 
@@ -294,6 +297,16 @@ class EventDetailController extends BaseController {
         event.tags = Get.find<TagController>().tagsInEvents[event.id];
         status.value = LoadingStatus.loaded;
       }
+    }).catchError((error) {
+      status.value = LoadingStatus.failed;
+      error.value = 'Oops, something went wrong';
+      update();
+    });
+
+    poapRepository
+        .getHoldersOfEvent(eventID)
+        .then((HolderResponse holdersReponse) {
+      // todo
     }).catchError((error) {
       status.value = LoadingStatus.failed;
       error.value = 'Oops, something went wrong';

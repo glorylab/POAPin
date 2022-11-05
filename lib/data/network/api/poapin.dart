@@ -17,4 +17,15 @@ class POAPINAPI {
       rethrow;
     }
   }
+
+  Future<Response> gmgm() async {
+    try {
+      final Response response = await dioClient.get(
+        POAPINConstant.gmgm,
+      );
+      return response;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
