@@ -148,26 +148,6 @@ class EventDetailController extends BaseController {
     });
   }
 
-  savePOAPArtwork(Event event) async {
-    if (Platform.isAndroid || Platform.isIOS) {
-      if (event.imageUrl.isNotEmpty) {
-        try {
-          var imageId = await ImageDownloader.downloadImage(
-            event.imageUrl,
-            destination: AndroidDestinationType.directoryPictures,
-          );
-          if (imageId == null) {
-            return;
-          }
-        } on PlatformException catch (error) {
-          if (kDebugMode) {
-            print(error);
-          }
-        }
-      }
-    }
-  }
-
   void onLoading() async {
     if (isLoadingAllMoments) return;
     await _getMoments();
@@ -259,28 +239,6 @@ class EventDetailController extends BaseController {
     pageController.addListener(() {
       currentPageIndex = pageController.page!.round();
       update();
-    });
-
-    ImageDownloader.callback(onProgressUpdate: (String? imageId, int progress) {
-      if (progress == 100) {
-        Get.snackbar(
-            'Download Complete', 'POAP artwork has been saved to your gallery',
-            messageText: Text(
-              'POAP artwork has been saved to your gallery',
-              style: GoogleFonts.roboto(color: Colors.lightGreen),
-            ),
-            duration: const Duration(seconds: 2),
-            titleText: Text(
-              'Download Complete',
-              style: GoogleFonts.robotoSlab(
-                color: Colors.green,
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ),
-            ),
-            animationDuration: const Duration(milliseconds: 200),
-            snackPosition: SnackPosition.BOTTOM);
-      }
     });
   }
 

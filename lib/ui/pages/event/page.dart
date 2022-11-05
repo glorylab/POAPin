@@ -11,7 +11,7 @@ import 'package:poapin/ui/components/loading.dart';
 import 'package:poapin/ui/page.base.dart';
 import 'package:poapin/ui/pages/event/controller.dart';
 import 'package:poapin/ui/pages/event/views/detail.dart';
-import 'package:poapin/ui/pages/event/views/page.artwork.dart';
+import 'package:poapin/ui/pages/artwork/page.dart';
 import 'package:poapin/ui/pages/event/views/page.base_info.dart';
 import 'package:poapin/ui/pages/event/views/page.moments.dart';
 
@@ -262,11 +262,11 @@ class _VerticalView extends StatelessWidget {
                                           onTap: () =>
                                               context.pushTransparentRoute(
                                             ArtworkPage(
-                                              event: c.event,
+                                              imageUrl: c.event.imageUrl,
                                             ),
                                           ),
                                           child: Hero(
-                                            tag: 'event_${c.event.id}',
+                                            tag: c.event.imageUrl,
                                             child: ExtendedImage.network(
                                               controller.event.imageUrl,
                                               fit: BoxFit.scaleDown,

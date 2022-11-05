@@ -2,15 +2,14 @@ import 'package:dismissible_page/dismissible_page.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:poapin/data/models/token.dart';
 import 'package:poapin/ui/page.base.transparent.dart';
+import 'package:poapin/ui/pages/artwork/controller.dart';
 import 'package:poapin/ui/pages/event/controller.dart';
-import 'package:poapin/ui/pages/moment/controller.dart';
 
-class ArtworkPage extends BaseTransparentPage<MomentController> {
-  const ArtworkPage({Key? key, required this.event}) : super(key: key);
+class ArtworkPage extends BaseTransparentPage<ArtworkController> {
+  const ArtworkPage({Key? key, required this.imageUrl}) : super(key: key);
 
-  final Event event;
+  final String imageUrl;
 
   @override
   Widget getLead() {
@@ -28,12 +27,12 @@ class ArtworkPage extends BaseTransparentPage<MomentController> {
       child: Stack(children: [
         Center(
           child: Hero(
-            tag: 'event_${event.id}',
+            tag: imageUrl,
             child: ExtendedImage.network(
-              event.imageUrl,
+              imageUrl,
               clipBehavior: Clip.hardEdge,
               cache: true,
-              key: Key('event_${event.id}'),
+              key: Key(imageUrl),
               enableLoadState: true,
               clearMemoryCacheWhenDispose: false,
               fit: BoxFit.cover,
@@ -45,7 +44,7 @@ class ArtworkPage extends BaseTransparentPage<MomentController> {
           left: 0,
           right: 0,
           child: BottomSheet(
-            event: event,
+            imageUrl: imageUrl,
           ),
         ),
       ]),
@@ -54,9 +53,9 @@ class ArtworkPage extends BaseTransparentPage<MomentController> {
 }
 
 class BottomSheet extends StatelessWidget {
-  const BottomSheet({Key? key, required this.event}) : super(key: key);
+  const BottomSheet({Key? key, required this.imageUrl}) : super(key: key);
 
-  final Event event;
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +79,7 @@ class BottomSheet extends StatelessWidget {
                 ),
                 RawMaterialButton(
                   onPressed: () {
-                    Get.find<EventDetailController>().savePOAPArtwork(event);
+                    Get.find<ArtworkController>().savePOAPArtwork(imageUrl);
                   },
                   elevation: 1.0,
                   fillColor: Colors.white12,

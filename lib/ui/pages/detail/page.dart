@@ -1,3 +1,4 @@
+import 'package:dismissible_page/dismissible_page.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,6 +9,7 @@ import 'package:poapin/ui/components/buttons/back.dart';
 import 'package:poapin/ui/components/buttons/go_home.dart';
 import 'package:poapin/ui/components/loading.dart';
 import 'package:poapin/ui/page.base.dart';
+import 'package:poapin/ui/pages/artwork/page.dart';
 import 'package:poapin/ui/pages/detail/controller.dart';
 import 'package:poapin/ui/pages/detail/views/detail.dart';
 
@@ -230,14 +232,21 @@ class _VerticalView extends StatelessWidget {
                             clipBehavior: Clip.antiAlias,
                             color: Colors.transparent,
                             child: InkWell(
-                              onTap: () => c.toggleShape(),
-                              child: ExtendedImage.network(
-                                controller.token.value.event.imageUrl,
-                                cache: true,
-                                fit: BoxFit.scaleDown,
-                                shape: c.isRound
-                                    ? BoxShape.circle
-                                    : BoxShape.rectangle,
+                              onTap: () => context.pushTransparentRoute(
+                                ArtworkPage(
+                                  imageUrl: c.token.value.event.imageUrl,
+                                ),
+                              ),
+                              child: Hero(
+                                tag: controller.token.value.event.imageUrl,
+                                child: ExtendedImage.network(
+                                  controller.token.value.event.imageUrl,
+                                  cache: true,
+                                  fit: BoxFit.scaleDown,
+                                  shape: c.isRound
+                                      ? BoxShape.circle
+                                      : BoxShape.rectangle,
+                                ),
                               ),
                             ),
                           ),

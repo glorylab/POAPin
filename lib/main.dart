@@ -25,6 +25,7 @@ import 'package:poapin/di/service_locator.dart';
 import 'package:poapin/firebase_options.dart';
 import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/pages/app/controller.dart';
+import 'package:poapin/ui/pages/artwork/controller.dart';
 import 'package:poapin/ui/pages/auth/controller.dart';
 import 'package:poapin/ui/pages/collection/controller.dart';
 import 'package:poapin/ui/pages/collection/controller.filter.dart';
@@ -64,6 +65,7 @@ Future<void> main() async {
   Get.lazyPut(() => SquareController());
   Get.lazyPut(() => APPController());
   Get.lazyPut(() => UserController());
+  Get.lazyPut(() => ArtworkController());
   Hive.registerAdapter(AccountAdapter());
   Hive.registerAdapter(AddressAdapter());
   Hive.registerAdapter(LayoutPrefAdapter());
