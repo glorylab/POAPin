@@ -12,4 +12,5 @@ class POAPINConstant {
   /// ------------------------------------------------------------
 
   static const String gm = '/user/gm';
+  static const String gmgm = '/gm/gm';
 }

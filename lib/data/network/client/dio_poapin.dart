@@ -26,7 +26,6 @@ class DioPOAPINClient {
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
   }) async {
-    await _setToken();
     try {
       final Response response = await _dio.get(
         url,

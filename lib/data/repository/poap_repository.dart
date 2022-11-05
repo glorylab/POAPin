@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:poapin/data/models/holder.dart';
 import 'package:poapin/data/models/token.dart';
 import 'package:poapin/data/network/api/poap.dart';
 import 'package:poapin/data/network/exceptions.dart';
@@ -31,11 +32,11 @@ class POAPRepository {
     }
   }
 
-  Future<Token> getPOAPsOfEvent(int eventID) async {
+  Future<HolderResponse> getHoldersOfEvent(int eventID) async {
     try {
-      final response = await poapAPI.getPOAPsOfEvent(eventID);
-      final token = Token.fromJson(response.data);
-      return token;
+      final response = await poapAPI.getHoldersOfEvent(eventID);
+      final holdersResponse = HolderResponse.fromJson(response.data);
+      return holdersResponse;
     } on DioError catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
       throw errorMessage;
