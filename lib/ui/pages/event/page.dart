@@ -13,6 +13,7 @@ import 'package:poapin/ui/pages/event/controller.dart';
 import 'package:poapin/ui/pages/event/views/detail.dart';
 import 'package:poapin/ui/pages/artwork/page.dart';
 import 'package:poapin/ui/pages/event/views/page.base_info.dart';
+import 'package:poapin/ui/pages/event/views/page.holders.dart';
 import 'package:poapin/ui/pages/event/views/page.moments.dart';
 
 class EventDetailPage extends BasePage<EventDetailController> {
@@ -165,13 +166,15 @@ class _VerticalView extends StatelessWidget {
         children: [
           PageView.builder(
               controller: controller.pageController,
-              itemCount: 2,
+              itemCount: 3,
               pageSnapping: true,
               itemBuilder: (context, index) {
                 switch (index) {
                   case 0:
                     return const BaseInfoView();
                   case 1:
+                    return const HoldersInEventPage();
+                  case 2:
                     return const MomentsInEventPage();
 
                   default:

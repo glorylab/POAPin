@@ -29,10 +29,18 @@ class POAPAPI {
     }
   }
 
-  Future<Response> getHoldersOfEvent(int eventID) async {
+  Future<Response> getHoldersOfEvent(
+    int eventID, {
+    int limit = 10,
+    int offset = 0,
+  }) async {
     try {
       final Response response = await dioClient.get(
-        POAPConstant.holders(eventID),
+        POAPConstant.holders(
+          eventID,
+          limit: limit,
+          offset: offset,
+        ),
         isAuthorized: true,
       );
       return response;
