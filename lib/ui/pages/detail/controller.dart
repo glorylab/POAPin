@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
+import 'package:dio/dio.dart';
 import 'package:ens_dart/ens_dart.dart';
 import 'package:extended_image/extended_image.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
@@ -10,10 +12,12 @@ import 'package:palette_generator/palette_generator.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:poapin/common/status.dart';
 import 'package:poapin/controllers/tag.dart';
+import 'package:poapin/data/models/holder.dart';
 import 'package:poapin/data/models/moment.dart';
 import 'package:poapin/data/models/token.dart';
 import 'package:poapin/data/repository/gitpoap_repository.dart';
 import 'package:poapin/data/repository/poap_repository.dart';
+import 'package:poapin/data/repository/poapin_repository.dart';
 import 'package:poapin/data/repository/welook_repository.dart';
 import 'package:poapin/di/service_locator.dart';
 import 'package:poapin/res/colors.dart';
@@ -38,7 +42,8 @@ class DetailController extends BaseController {
 
   final TextEditingController textEditController = TextEditingController();
 
-  final tokensRepository = getIt.get<POAPRepository>();
+  final poapRepository = getIt.get<POAPRepository>();
+  final poapinRepository = getIt.get<POAPINRepository>();
   final gitPOAPRepository = getIt.get<GitPOAPRepository>();
   final welookRepository = getIt.get<WelookRepository>();
 
@@ -68,6 +73,10 @@ class DetailController extends BaseController {
   bool isLoadingMoments = true;
   List<Moment> moments = <Moment>[];
 
+  bool isLoadingHolders = true;
+  int holdersCount = 0;
+  List<Holder> holders = <Holder>[];
+
   updateID(String? id) {
     tokenID.value = id!;
   }
@@ -86,6 +95,15 @@ class DetailController extends BaseController {
       return address.substring(0, 10) +
           '...' +
           address.substring(address.length - 4);
+    }
+    return address;
+  }
+
+  String getTinyAddress(String address) {
+    if (address.length > 18) {
+      return address.substring(0, 6) +
+          '...' +
+          address.substring(address.length - 2);
     }
     return address;
   }
@@ -143,6 +161,7 @@ class DetailController extends BaseController {
 
     checkIsGitPOAP();
     getMomentsCount();
+    getHolders();
     _initGyroscope();
   }
 
@@ -206,6 +225,37 @@ class DetailController extends BaseController {
     }
   }
 
+  void getHolders() async {
+    try {
+      var response =
+          await poapRepository.getHoldersOfEvent(token.value.event.id);
+      isLoadingHolders = false;
+      if (response.total > 0) {
+        holdersCount = response.total;
+        holders = response.holders == null ? [] : response.holders!;
+      }
+      update();
+    } on DioError catch (e) {
+      if (e.response?.statusCode == 403) {
+        String token = await poapinRepository.refreshPOAPToken();
+        if (token.isNotEmpty) {
+          getHolders();
+        } else {
+          isLoadingHolders = false;
+          update();
+        }
+      }
+    }
+  }
+
+  String getHolderName(Holder holder) {
+    if (holder.owner.ens != null && holder.owner.ens!.isNotEmpty) {
+      return holder.owner.ens!;
+    } else {
+      return getTinyAddress(holder.owner.id);
+    }
+  }
+
   String? getPreviewImageURL(Moment previewMoment) {
     if (previewMoment.bigImageUrl.isNotEmpty) {
       return previewMoment.bigImageUrl;
@@ -265,7 +315,7 @@ class DetailController extends BaseController {
     if (!isFromCollection) {
       status.value = LoadingStatus.loading;
     }
-    var response = await tokensRepository.getToken(tokenID.value);
+    var response = await poapRepository.getToken(tokenID.value);
     token.value = response;
     _getOwnerENS();
     refreshOrder();

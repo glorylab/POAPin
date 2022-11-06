@@ -20,19 +20,22 @@ class HolderAdapter extends TypeAdapter<Holder> {
       created: fields[0] as String,
       id: fields[1] as String,
       transferCount: fields[2] as String,
+      owner: fields[3] as Owner,
     );
   }
 
   @override
   void write(BinaryWriter writer, Holder obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.created)
       ..writeByte(1)
       ..write(obj.id)
       ..writeByte(2)
-      ..write(obj.transferCount);
+      ..write(obj.transferCount)
+      ..writeByte(3)
+      ..write(obj.owner);
   }
 
   @override
@@ -94,12 +97,14 @@ Holder _$HolderFromJson(Map<String, dynamic> json) => Holder(
       created: json['created'] as String,
       id: json['id'] as String,
       transferCount: json['transferCount'] as String,
+      owner: Owner.fromJson(json['owner'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$HolderToJson(Holder instance) => <String, dynamic>{
       'created': instance.created,
       'id': instance.id,
       'transferCount': instance.transferCount,
+      'owner': instance.owner,
     };
 
 Owner _$OwnerFromJson(Map<String, dynamic> json) => Owner(

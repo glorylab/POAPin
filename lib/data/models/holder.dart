@@ -14,10 +14,14 @@ class Holder extends HiveObject {
   @HiveField(2)
   final String transferCount;
 
+  @HiveField(3)
+  final Owner owner;
+
   Holder({
     required this.created,
     required this.id,
     required this.transferCount,
+    required this.owner,
   });
 
   factory Holder.fromJson(Map<String, dynamic> json) => _$HolderFromJson(json);
@@ -28,6 +32,7 @@ class Holder extends HiveObject {
         created: '',
         id: '0',
         transferCount: '0',
+        owner: Owner.empty(),
       );
 }
 
@@ -51,6 +56,12 @@ class Owner {
   factory Owner.fromJson(Map<String, dynamic> json) => _$OwnerFromJson(json);
 
   Map<String, dynamic> toJson() => _$OwnerToJson(this);
+
+  factory Owner.empty() => Owner(
+        '0x0000000000000000000000000000000000000000',
+        0,
+        null,
+      );
 }
 
 @JsonSerializable()
@@ -62,7 +73,12 @@ class HolderResponse {
   @JsonKey(name: 'tokens')
   final List<Holder>? holders;
 
-  HolderResponse(this.limit, this.offset, this.total, this.holders);
+  HolderResponse(
+    this.limit,
+    this.offset,
+    this.total,
+    this.holders,
+  );
 
   factory HolderResponse.fromJson(Map<String, dynamic> json) =>
       _$HolderResponseFromJson(json);
