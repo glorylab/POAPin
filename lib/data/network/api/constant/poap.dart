@@ -13,6 +13,11 @@ class POAPConstant {
 
   static String scan(String address) => '/actions/scan/$address';
   static String token(String tokenID) => '/token/$tokenID';
-  static String holders(int eventID) => '/event/$eventID/poaps';
+  static String holders(
+    int eventID, {
+    int limit = 10,
+    int offset = 0,
+  }) =>
+      '/event/$eventID/poaps?limit=$limit&offset=$offset';
   static String event(int eventID) => '/events/id/$eventID';
 }

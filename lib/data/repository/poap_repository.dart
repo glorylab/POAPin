@@ -32,9 +32,17 @@ class POAPRepository {
     }
   }
 
-  Future<HolderResponse> getHoldersOfEvent(int eventID) async {
+  Future<HolderResponse> getHoldersOfEvent(
+    int eventID, {
+    int limit = 10,
+    int offset = 0,
+  }) async {
     try {
-      final response = await poapAPI.getHoldersOfEvent(eventID);
+      final response = await poapAPI.getHoldersOfEvent(
+        eventID,
+        limit: limit,
+        offset: offset,
+      );
       final holdersResponse = HolderResponse.fromJson(response.data);
       return holdersResponse;
     } on DioError {

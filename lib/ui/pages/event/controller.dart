@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -59,6 +60,18 @@ class EventDetailController extends BaseController {
   );
   int currentPageIndex = 0;
 
+  /// Holders -------------------------------------------------------------Start
+  List<Holder> holders = [];
+  int holdersCount = 0;
+
+  bool isLoadingHolders = true;
+
+  int offsetHolders = 0;
+  int limitHolders = 10;
+
+  bool isAllHoldersLoaded = false;
+
+  /// Holders -------------------------------------------------------------End
   /// Moments -------------------------------------------------------------Start
   final welookRepository = getIt.get<WelookRepository>();
   List<Moment> moments = [];
@@ -73,6 +86,8 @@ class EventDetailController extends BaseController {
   bool isAllDataLoaded = false;
 
   RefreshController refreshController =
+      RefreshController(initialRefresh: false);
+  RefreshController refreshHoldersController =
       RefreshController(initialRefresh: false);
 
   String? getPreviewImageURL(Moment previewMoment) {
@@ -157,6 +172,12 @@ class EventDetailController extends BaseController {
     refreshController.loadComplete();
   }
 
+  void onHoldersLoading() async {
+    if (isLoadingHolders) return;
+    await getHolders();
+    refreshHoldersController.loadComplete();
+  }
+
   void launchWelook(int eventID) {
     launchURL('https://welook.io/moments/$eventID');
   }
@@ -217,11 +238,21 @@ class EventDetailController extends BaseController {
     if (arguments != null &&
         arguments['page'] != null &&
         arguments['page'] is String) {
-      if (arguments['page'] == 'moments') {
+      if (arguments['page'] == 'holders') {
         currentPageIndex = 1;
         update();
         Future.delayed(const Duration(milliseconds: 300), () {
           pageController.animateToPage(1,
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeIn);
+          update();
+        });
+      }
+      if (arguments['page'] == 'moments') {
+        currentPageIndex = 2;
+        update();
+        Future.delayed(const Duration(milliseconds: 300), () {
+          pageController.animateToPage(2,
               duration: const Duration(milliseconds: 300),
               curve: Curves.easeIn);
           update();
@@ -238,6 +269,11 @@ class EventDetailController extends BaseController {
       initialRefreshStatus: RefreshStatus.idle,
     );
     _getMoments();
+
+    refreshHoldersController = RefreshController(
+      initialRefresh: false,
+      initialRefreshStatus: RefreshStatus.idle,
+    );
 
     pageController.addListener(() {
       currentPageIndex = pageController.page!.round();
@@ -280,6 +316,59 @@ class EventDetailController extends BaseController {
     return '';
   }
 
+  getHolders() async {
+    isLoadingHolders = true;
+    if (offsetHolders == 0) {
+      holders.clear();
+      update();
+    }
+    if (isAllHoldersLoaded) {
+      return;
+    }
+    try {
+      var response = await poapRepository.getHoldersOfEvent(eventID,
+          limit: limitHolders, offset: offsetHolders);
+      offsetHolders = limitHolders + offsetHolders;
+      if (response.total > 0) {
+        holdersCount = response.total;
+        if (response.holders != null && response.holders!.isNotEmpty) {
+          holders.addAll(response.holders!);
+        }
+        if (response.holders!.isEmpty) {
+          isAllHoldersLoaded = true;
+        }
+      } else {
+        if (holdersCount == 0) {
+          holdersCount = 0;
+          holders = [];
+        }
+        isAllHoldersLoaded = true;
+      }
+      isLoadingHolders = false;
+      update();
+      if (isAllHoldersLoaded) {
+        refreshHoldersController.loadNoData();
+      }
+    } on DioError catch (e) {
+      if (e.response?.statusCode == 403) {
+        String token = await poapinRepository.refreshPOAPToken();
+        if (token.isNotEmpty) {
+          getHolders();
+        } else {
+          update();
+        }
+      }
+    }
+  }
+
+  String getHolderName(Holder holder) {
+    if (holder.owner.ens != null && holder.owner.ens!.isNotEmpty) {
+      return holder.owner.ens!;
+    } else {
+      return getSimpleAddress(holder.owner.id);
+    }
+  }
+
   void getData() async {
     if (eventID == 0) {
       return;
@@ -303,15 +392,7 @@ class EventDetailController extends BaseController {
       update();
     });
 
-    poapRepository
-        .getHoldersOfEvent(eventID)
-        .then((HolderResponse holdersReponse) {
-      // todo
-    }).catchError((error) {
-      status.value = LoadingStatus.failed;
-      error.value = 'Oops, something went wrong';
-      update();
-    });
+    getHolders();
   }
 
   String getTimelineTitle(int index) {
