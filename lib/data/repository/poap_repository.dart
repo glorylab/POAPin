@@ -37,9 +37,8 @@ class POAPRepository {
       final response = await poapAPI.getHoldersOfEvent(eventID);
       final holdersResponse = HolderResponse.fromJson(response.data);
       return holdersResponse;
-    } on DioError catch (e) {
-      final errorMessage = DioExceptions.fromDioError(e).toString();
-      throw errorMessage;
+    } on DioError {
+      rethrow;
     }
   }
 

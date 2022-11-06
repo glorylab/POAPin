@@ -72,7 +72,7 @@ class MomentsPreviewCard extends StatelessWidget {
                                     ),
                                     border: Border.all(
                                       color: const Color(0x55EC4899),
-                                      width: 3,
+                                      width: 2,
                                     ),
                                   ),
                                   alignment: Alignment.center,
@@ -100,7 +100,7 @@ class MomentsPreviewCard extends StatelessWidget {
                                     ),
                                     border: Border.all(
                                       color: const Color(0x55EC4899),
-                                      width: 3,
+                                      width: 2,
                                     ),
                                   ),
                                   alignment: Alignment.center,
