@@ -24,6 +24,8 @@ class ZhCNTranslations {
         //     'You don\'t appear to have any POAP right now.\nBut it\'s not too late!\n\nBegin learning about POAP by creating a POAP.',
 
         /// Home(available)
+        // Strings.followers: 'followers',
+        // Strings.followings: 'followings',
         // Strings.events: 'Events',
         // Strings.poaps: 'POAPs',
         // Strings.growth: 'growth',

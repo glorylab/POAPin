@@ -13,6 +13,8 @@ class Strings {
 
   static const noPOAP = 'no_poap';
 
+  static const followers = 'followers';
+  static const followings = 'followings';
   static const events = 'events';
   static const poaps = 'poaps';
   static const growth = 'growth';
@@ -119,6 +121,8 @@ String get strInvalidAddress => Strings.invalidAddress.tr;
 
 String get strNoPOAP => Strings.noPOAP.tr;
 
+String get strFollowers => Strings.followers.tr;
+String get strFollowings => Strings.followings.tr;
 String get strEvents => Strings.events.tr;
 String get strPOAPs => Strings.poaps.tr;
 String get strGrowth => Strings.growth.tr;
