@@ -24,6 +24,8 @@ class FRTranslations {
             'Vous ne semblez pas avoir de POAP pour l\'instant. Mais il n\'est pas trop tard ! Vous pouvez découvrir les POAPs en créeant votre premier POAP.',
 
         /// Home(available)
+        // Strings.followers: 'followers',
+        // Strings.followings: 'followings',
         Strings.events: 'Évènements',
         Strings.poaps: 'POAPs',
         Strings.growth: 'croissance',
@@ -59,7 +61,8 @@ class FRTranslations {
         Strings.newTagHint: 'nouveau tag d\'évènement',
 
         /// Moments
-        Strings.momentsDesc: '''Votre collection de POAPs est votre identité numérique.
+        Strings.momentsDesc:
+            '''Votre collection de POAPs est votre identité numérique.
             Elle montre au monde qui vous êtes : où vous êtes allé, ce que vous avez accompli et qui vous avez rencontré.
             Moments est un moyen d'ajouter de la valeur à votre souvenir numérique en sauvegardant des instants de vie dans un POAP, pour toujours.''',
         Strings.uploadMoments: 'Publier des moments sur welook.io',
@@ -67,7 +70,7 @@ class FRTranslations {
         /// GitPOAP
         Strings.gitPOAPDesc:
             '''Un GitPOAP est un POAP ordinaire (avec un petit extra) qui est frappé par la plateforme GitPOAP pour les contributions significatives apportées aux projets open source. 
-            Les propriétaires de repos distribuent automatiquement des GitPOAPs à leurs contributeurs en reconnaissance du travail accompli.''',           
+            Les propriétaires de repos distribuent automatiquement des GitPOAPs à leurs contributeurs en reconnaissance du travail accompli.''',
         Strings.gitPOAPStart: 'Contribuer à POAPin',
 
         /// Watchlist(Initial state)

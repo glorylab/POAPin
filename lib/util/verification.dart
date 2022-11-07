@@ -31,7 +31,13 @@ class VerificationHelper {
   }
 
   static Future getENSbyETH(Ens client, String eth) {
-    return client.withAddress(eth).getName();
+    Future<String> ensName = Future.value('');
+    try {
+      ensName = client.withAddress(eth).getName();
+      return ensName;
+    } catch (e) {
+      return ensName;
+    }
   }
 
   static Future getETHbyENS(Ens client, String ens) {

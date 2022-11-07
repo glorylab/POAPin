@@ -24,6 +24,7 @@ import 'package:poapin/data/models/token.dart';
 import 'package:poapin/ui/pages/detail/dialog/addtag.dart';
 import 'package:poapin/ui/pages/home/components/dialog.gitpoap.dart';
 import 'package:poapin/ui/pages/home/controllers/card.moment.dart';
+import 'package:poapin/ui/pages/home/controllers/card.social.dart';
 import 'package:poapin/util/verification.dart';
 import 'package:web3dart/web3dart.dart';
 import 'package:web_socket_channel/io.dart';
@@ -227,6 +228,8 @@ class HomeController extends BaseController {
     getCachedData();
     getData();
     getMoments();
+    getFollowers();
+    getFollowings();
     getGitPOAPs();
     _initWebMessage();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
@@ -892,6 +895,14 @@ class HomeController extends BaseController {
 
   void getMoments() {
     Get.find<MomentsCardController>().getFirstMoment(ethAddress);
+  }
+
+  void getFollowers() {
+    Get.find<SocialCardController>().getFollowers(ethAddress);
+  }
+
+  void getFollowings() {
+    Get.find<SocialCardController>().getFollowings(ethAddress);
   }
 
   void getGitPOAPs() {

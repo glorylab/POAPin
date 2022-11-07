@@ -5,6 +5,7 @@ import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/ui/pages/home/components/card.gitpoap.dart';
 import 'package:poapin/ui/pages/home/components/card.moment.dart';
 import 'package:poapin/ui/pages/home/components/card.poap.dart';
+import 'package:poapin/ui/pages/home/components/card.social.dart';
 import 'package:poapin/ui/pages/home/components/chart.dart';
 import 'package:poapin/ui/pages/home/controller.dart';
 
@@ -31,6 +32,7 @@ class CollectionCard extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   children: const [
                     POAPCard(),
+                    SocialCard(),
                     MomentCard(),
                     GitPOAPCard(),
                   ],
