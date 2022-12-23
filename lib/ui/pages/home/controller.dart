@@ -7,6 +7,8 @@ import 'package:poapin/data/models/gitpoap.dart';
 import 'package:poapin/data/models/pref/visibility.dart';
 import 'package:poapin/data/models/tag.dart';
 import 'package:poapin/data/repository/gitpoap_repository.dart';
+import 'package:poapin/data/repository/poap_repository.dart';
+import 'package:poapin/data/repository/poapin_repository.dart';
 import 'package:poapin/di/service_locator.dart';
 import 'package:poapin/secrets.dart';
 import 'package:poapin/ui/controller.base.dart';
@@ -40,6 +42,8 @@ class HomeController extends BaseController {
   double lastOffset = 0;
   final double hideVelocity = 2;
 
+  final tokensRepository = getIt.get<POAPRepository>();
+  final POAPINRepository poapinRepository = getIt.get<POAPINRepository>();
   final gitPOAPRepository = getIt.get<GitPOAPRepository>();
 
   @override
@@ -938,12 +942,11 @@ class HomeController extends BaseController {
     if (ethAddress == '') {
       return;
     }
+
     try {
-      var response =
-          await Dio().get('https://api.poap.tech/actions/scan/$ethAddress');
+      var response = await tokensRepository.scan(ethAddress);
       error.value = '';
-      List _tokens = response.data;
-      List<Token> originData = _tokens.map((t) => Token.fromJson(t)).toList();
+      List<Token> originData = response;
       _refreshTags(originData);
       _updateLoadingStatus(LoadingStatus.loaded);
       _updateStatus();
