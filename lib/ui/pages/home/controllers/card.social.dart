@@ -66,14 +66,26 @@ class SocialCardController extends BaseController {
   }
 
   List<Map<String, String>> initListWithENS(List<String> ethList) {
-    return ethList.map((e) => {checksumEthereumAddress(e): '-'}).toList();
+    return ethList
+        .map((e) =>
+            e.contains('@') ? {e: '-'} : {checksumEthereumAddress(e): '-'})
+        .toList();
   }
 
   Future<List<Map<String, String>>> refreshENS(
       List<Map<String, String>> addresses) async {
     List<Map<String, String>> listWithENS = [];
-    for (var address in addresses) {
-      print(address);
+
+    int addressCount = addresses.length;
+    if (addressCount > 20) {
+      addressCount = 20;
+    }
+
+    for (var address in addresses.take(addressCount)) {
+      if (addresses.first.keys.first.contains('@')) {
+        listWithENS.add(address);
+        continue;
+      }
       try {
         await VerificationHelper.getENSbyETH(ens, address.keys.first)
             .then((ensName) {
@@ -88,6 +100,9 @@ class SocialCardController extends BaseController {
   }
 
   String getSimpleAddress(String address) {
+    if (address.contains('@')) {
+      return address;
+    }
     if (address.contains('eth')) {
       return address;
     }
