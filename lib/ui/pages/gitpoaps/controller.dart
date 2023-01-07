@@ -45,7 +45,10 @@ class GitPOAPsController extends BaseController {
   void _getGitPOAPsByOrganization() {
     Map<String, List<GitPOAP>> gitPOAPsByOrganization = {};
     for (var gitPOAP in gitPOAPs) {
-      String org = gitPOAP.repositories[0].split('/')[0];
+      String org = 'GitPOAP';
+      if (gitPOAP.repositories.isNotEmpty) {
+        org = gitPOAP.repositories[0].split('/')[0];
+      }
       if (gitPOAPsByOrganization.containsKey(org)) {
         gitPOAPsByOrganization[org]!.add(gitPOAP);
       } else {
