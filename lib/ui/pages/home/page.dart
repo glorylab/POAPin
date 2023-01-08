@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:poapin/common/status.dart';
 import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/controllers/tag.dart';
+import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/components/alerts/error.dart';
 import 'package:poapin/ui/components/card.note.dart';
 import 'package:poapin/ui/components/loading.dart';
@@ -13,6 +14,7 @@ import 'package:poapin/ui/pages/home/components/button.set_eth_address.dart';
 import 'package:poapin/ui/pages/home/components/card.dart';
 import 'package:poapin/ui/pages/home/components/fab.edit.dart';
 import 'package:poapin/ui/pages/home/components/tags.filter.dart';
+import 'package:poapin/ui/pages/home/components/view.island.dart';
 import 'package:poapin/ui/pages/home/components/view.month.dart';
 import 'package:poapin/ui/pages/home/components/view.options.dart';
 import 'package:poapin/ui/pages/home/components/view.tips.empty.dart';
@@ -133,24 +135,34 @@ class HomePage extends BasePage<HomeController> {
                         maxHeight: double.infinity,
                         minWidth: 256),
                     child: GetBuilder<HomeController>(
-                      builder: (c) => CustomScrollView(
-                          controller: c.scrollController,
-                          slivers: [
-                            c.isEditMode
-                                ? SliverToBoxAdapter(
-                                    child: Container(),
-                                  )
-                                : SliverToBoxAdapter(
-                                    child: CollectionCard(
-                                      horizontalPadding:
-                                          getHorizontalPadding(context),
-                                      horizonTalPaddingWithMenu:
-                                          getHorizontalPadding(context),
-                                    ),
-                                  ),
-                            const FilterTags(),
-                            ..._getContent(controller),
-                          ]),
+                      builder: (c) => Stack(
+                        children: [
+                          CustomScrollView(
+                              controller: c.scrollController,
+                              slivers: [
+                                c.isEditMode
+                                    ? SliverToBoxAdapter(
+                                        child: Container(),
+                                      )
+                                    : SliverToBoxAdapter(
+                                        child: CollectionCard(
+                                          horizontalPadding:
+                                              getHorizontalPadding(context),
+                                          horizonTalPaddingWithMenu:
+                                              getHorizontalPadding(context),
+                                        ),
+                                      ),
+                                const FilterTags(),
+                                ..._getContent(controller),
+                              ]),
+                          const Positioned(
+                            bottom: 0,
+                            left: 6,
+                            right: 6,
+                            child: DynamicIslandView(),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
 

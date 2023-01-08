@@ -49,6 +49,7 @@ class AppPages {
       name: AppRoutes.dashboard,
       page: () => const DashboardPage(),
       binding: DashboardBinding(),
+      transition: Transition.downToUp,
     ),
     GetPage(
       name: AppRoutes.home,
