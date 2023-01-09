@@ -136,6 +136,26 @@ class HomeController extends BaseController {
   ShapePref shape = ShapePref.round;
   LayoutPref layout = LayoutPref.grid;
 
+  /// Island
+  bool isExpanded = false;
+  bool isIslandLive = false;
+  bool isSticky = false;
+
+  setIsIslandLive(bool isLive) {
+    this.isIslandLive = isLive;
+    update();
+  }
+
+  setIslandExpanded(bool isExpanded) {
+    this.isExpanded = isExpanded;
+    update();
+  }
+
+  setIslandSticky(bool isSticky) {
+    this.isSticky = isSticky;
+    update();
+  }
+
   getPrefs() {
     Box box = Hive.box(prefBox);
     var layoutPref = box.get(prefLayoutKey);

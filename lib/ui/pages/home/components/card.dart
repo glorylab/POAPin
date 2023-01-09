@@ -26,15 +26,17 @@ class CollectionCard extends StatelessWidget {
         width: double.infinity,
         child: (c.error.value == '' && c.poapCount > 0)
             ? Padding(
-                padding: const EdgeInsets.only(
-                    left: 16, right: 16, bottom: 0, top: 8),
+                padding:
+                    const EdgeInsets.only(left: 0, right: 0, bottom: 0, top: 8),
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: const [
+                    SizedBox(width: 16),
                     POAPCard(),
                     SocialCard(),
                     MomentCard(),
                     GitPOAPCard(),
+                    SizedBox(width: 16),
                   ],
                 ),
               )
