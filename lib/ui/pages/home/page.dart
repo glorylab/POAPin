@@ -1,9 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:poapin/common/status.dart';
 import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/controllers/tag.dart';
-import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/components/alerts/error.dart';
 import 'package:poapin/ui/components/card.note.dart';
 import 'package:poapin/ui/components/loading.dart';
@@ -137,29 +138,67 @@ class HomePage extends BasePage<HomeController> {
                     child: GetBuilder<HomeController>(
                       builder: (c) => Stack(
                         children: [
-                          CustomScrollView(
-                              controller: c.scrollController,
-                              slivers: [
-                                c.isEditMode
-                                    ? SliverToBoxAdapter(
-                                        child: Container(),
-                                      )
-                                    : SliverToBoxAdapter(
-                                        child: CollectionCard(
-                                          horizontalPadding:
-                                              getHorizontalPadding(context),
-                                          horizonTalPaddingWithMenu:
-                                              getHorizontalPadding(context),
-                                        ),
+                          ClipRect(
+                            child: AnimatedScale(
+                              scale: c.isExpanded ? 1.1 : 1,
+                              curve: Curves.easeInOutExpo,
+                              duration: const Duration(milliseconds: 500),
+                              child: CustomScrollView(
+                                  controller: c.scrollController,
+                                  slivers: [
+                                    c.isEditMode
+                                        ? SliverToBoxAdapter(
+                                            child: Container(),
+                                          )
+                                        : SliverToBoxAdapter(
+                                            child: CollectionCard(
+                                              horizontalPadding:
+                                                  getHorizontalPadding(context),
+                                              horizonTalPaddingWithMenu:
+                                                  getHorizontalPadding(context),
+                                            ),
+                                          ),
+                                    const FilterTags(),
+                                    ..._getContent(controller),
+                                  ]),
+                            ),
+                          ),
+                          TweenAnimationBuilder(
+                              tween: IntTween(
+                                begin: c.isExpanded ? 0 : 100,
+                                end: c.isExpanded ? 100 : 0,
+                              ),
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.easeInOutCubic,
+                              builder: (context, int progress, child) {
+                                return BackdropFilter(
+                                  filter: ImageFilter.blur(
+                                    sigmaX: 5.0 * progress / 100.0,
+                                    sigmaY: 5.0 * progress / 100.0,
+                                  ),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      c.setIslandExpanded(false);
+                                    },
+                                    onPanStart: (details) =>
+                                        c.setIslandExpanded(false),
+                                    child: IgnorePointer(
+                                      ignoring: !c.isExpanded,
+                                      child: Container(
+                                        color: Colors.black
+                                            .withOpacity(0.8 * progress / 100),
                                       ),
-                                const FilterTags(),
-                                ..._getContent(controller),
-                              ]),
-                          const Positioned(
+                                    ),
+                                  ),
+                                );
+                              }),
+                          AnimatedPositioned(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeInOut,
                             bottom: 0,
-                            left: 6,
-                            right: 6,
-                            child: DynamicIslandView(),
+                            left: c.isExpanded ? 0 : 6,
+                            right: c.isExpanded ? 0 : 6,
+                            child: const DynamicIslandView(),
                           ),
                         ],
                       ),
