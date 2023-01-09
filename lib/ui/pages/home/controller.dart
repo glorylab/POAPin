@@ -141,6 +141,10 @@ class HomeController extends BaseController {
   bool isIslandLive = false;
   bool isSticky = false;
 
+  final addressController = TextEditingController();
+
+  void onAddressSubmit() async {}
+
   setIsIslandLive(bool isLive) {
     this.isIslandLive = isLive;
     update();
