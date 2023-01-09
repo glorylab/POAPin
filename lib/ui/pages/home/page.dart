@@ -140,7 +140,7 @@ class HomePage extends BasePage<HomeController> {
                         children: [
                           ClipRect(
                             child: AnimatedScale(
-                              scale: c.isExpanded ? 1.1 : 1,
+                              scale: c.isExpanded ? 1.06 : 1,
                               curve: Curves.easeInOutExpo,
                               duration: const Duration(milliseconds: 500),
                               child: CustomScrollView(
