@@ -106,6 +106,8 @@ class HomeController extends BaseController {
 
   final error = ''.obs;
 
+  String address = '';
+
   void launchGitPOAP() {
     launchURL('https://www.gitpoap.io');
   }
@@ -143,7 +145,32 @@ class HomeController extends BaseController {
 
   final addressController = TextEditingController();
 
-  void onAddressSubmit() async {}
+  void onAddressSubmit() async {
+    Get.back();
+    if (addressController.text.isNotEmpty) {
+      if (VerificationHelper.isETH(addressController.text.trim()) ||
+          VerificationHelper.isENS(addressController.text.trim())) {
+        address = addressController.text.trim().toLowerCase();
+        update();
+        await Get.toNamed('/scan/$address')?.then((value) {
+          getAccount();
+          addressController.clear();
+          getData();
+        });
+      } else {
+        Get.snackbar(strError, strInvalidAddress,
+            snackPosition: SnackPosition.BOTTOM,
+            backgroundColor: Colors.red.shade300,
+            animationDuration: const Duration(milliseconds: 200),
+            duration: const Duration(seconds: 1),
+            colorText: Colors.white,
+            borderRadius: 8,
+            margin: const EdgeInsets.all(8),
+            overlayBlur: 8,
+            snackStyle: SnackStyle.FLOATING);
+      }
+    }
+  }
 
   setIsIslandLive(bool isLive) {
     this.isIslandLive = isLive;
@@ -260,6 +287,7 @@ class HomeController extends BaseController {
     getFollowings();
     getGitPOAPs();
     _initWebMessage();
+    addressController.text = '';
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       if (scrollController.hasClients) {
         scrollController.addListener(() {
@@ -297,6 +325,12 @@ class HomeController extends BaseController {
         });
       }
     });
+  }
+
+  @override
+  onClose() {
+    addressController.dispose();
+    super.onClose();
   }
 
   _initWebMessage() async {
