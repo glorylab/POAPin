@@ -165,8 +165,16 @@ class HomePage extends BasePage<HomeController> {
                           ),
                           TweenAnimationBuilder(
                               tween: IntTween(
-                                begin: c.isExpanded ? 0 : 100,
-                                end: c.isExpanded ? 100 : 0,
+                                begin: c.isIslandInit
+                                    ? 0
+                                    : c.isExpanded
+                                        ? 0
+                                        : 100,
+                                end: c.isIslandInit
+                                    ? 0
+                                    : c.isExpanded
+                                        ? 100
+                                        : 0,
                               ),
                               duration: const Duration(milliseconds: 300),
                               curve: Curves.easeInOutCubic,
@@ -186,7 +194,7 @@ class HomePage extends BasePage<HomeController> {
                                       ignoring: !c.isExpanded,
                                       child: Container(
                                         color: Colors.black
-                                            .withOpacity(0.8 * progress / 100),
+                                            .withOpacity(0.1 * progress / 100),
                                       ),
                                     ),
                                   ),

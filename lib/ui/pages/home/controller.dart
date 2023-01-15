@@ -27,6 +27,7 @@ import 'package:poapin/ui/pages/detail/dialog/addtag.dart';
 import 'package:poapin/ui/pages/home/components/dialog.gitpoap.dart';
 import 'package:poapin/ui/pages/home/controllers/card.moment.dart';
 import 'package:poapin/ui/pages/home/controllers/card.social.dart';
+import 'package:poapin/ui/pages/home/controllers/island.dart';
 import 'package:poapin/util/verification.dart';
 import 'package:web3dart/web3dart.dart';
 import 'package:web_socket_channel/io.dart';
@@ -140,6 +141,7 @@ class HomeController extends BaseController {
 
   /// Island
   bool isExpanded = false;
+  bool isIslandInit = true;
   bool isIslandLive = false;
   bool isSticky = false;
 
@@ -179,6 +181,7 @@ class HomeController extends BaseController {
 
   setIslandExpanded(bool isExpanded) {
     this.isExpanded = isExpanded;
+    isIslandInit = false;
     update();
   }
 
@@ -287,6 +290,10 @@ class HomeController extends BaseController {
     getFollowings();
     getGitPOAPs();
     _initWebMessage();
+
+    isExpanded = false;
+    isIslandInit = true;
+
     addressController.text = '';
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       if (scrollController.hasClients) {

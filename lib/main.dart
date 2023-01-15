@@ -35,6 +35,7 @@ import 'package:poapin/ui/pages/home/controller.dart';
 import 'package:poapin/ui/pages/home/controller.filter.dart';
 import 'package:poapin/ui/pages/home/controllers/card.moment.dart';
 import 'package:poapin/ui/pages/home/controllers/card.social.dart';
+import 'package:poapin/ui/pages/home/controllers/island.dart';
 import 'package:poapin/ui/pages/me/controller.dart';
 import 'package:poapin/ui/pages/moment/controller.dart';
 import 'package:poapin/ui/pages/moments/controller.dart';
@@ -68,6 +69,7 @@ Future<void> main() async {
   Get.lazyPut(() => APPController());
   Get.lazyPut(() => UserController());
   Get.lazyPut(() => ArtworkController());
+  Get.lazyPut(() => IslandController());
   Hive.registerAdapter(AccountAdapter());
   Hive.registerAdapter(AddressAdapter());
   Hive.registerAdapter(LayoutPrefAdapter());
