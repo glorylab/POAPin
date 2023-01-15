@@ -7,9 +7,9 @@ class VerificationHelper {
   }
 
   static bool isENS(String address) {
-    RegExp website =
-        RegExp(r'^[a-zA-Z0-9]+\.([a-zA-Z0-9]+\.)*[a-zA-Z0-9]+\/?$');
-    return website.hasMatch(address.toLowerCase());
+    RegExp ens = RegExp(
+        r'[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?');
+    return ens.hasMatch(address.toLowerCase());
   }
 
   // static bool isENS(String address) {

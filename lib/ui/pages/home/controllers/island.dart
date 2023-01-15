@@ -38,6 +38,10 @@ class IslandController extends BaseController {
       isVerifying = false;
       addressType = AddressType.ens;
       update();
+    } else if (VerificationHelper.isEmail(address)) {
+      isVerifying = false;
+      addressType = AddressType.email;
+      update();
     } else {
       isVerifying = false;
       addressType = AddressType.invalid;

@@ -158,7 +158,7 @@ class HomePage extends BasePage<HomeController> {
                                                   getHorizontalPadding(context),
                                             ),
                                           ),
-                                    const FilterTags(),
+                                    // const FilterTags(),
                                     ..._getContent(controller),
                                   ]),
                             ),
