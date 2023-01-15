@@ -3,15 +3,19 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/pages/home/controller.dart';
+import 'package:poapin/ui/pages/home/controllers/island.dart';
 import 'package:poapin/ui/pages/watchlist/controller.dart';
 import 'package:poapin/util/show_input.dart';
 
 class DynamicIslandView extends StatelessWidget {
   const DynamicIslandView({Key? key}) : super(key: key);
 
-  double getHeight(int progress, bool isExpanded, BuildContext context) {
-    return 56 +
-        ((MediaQuery.of(context).size.height * 0.5) * (progress / 100.0));
+  double getHeight(int progress, bool isIslandInit, BuildContext context) {
+    if (!isIslandInit) {
+      return 56 +
+          ((MediaQuery.of(context).size.height * 0.5) * (progress / 100.0));
+    }
+    return 56;
   }
 
   double getElavation(int progress, bool isExpanded) {
@@ -29,8 +33,16 @@ class DynamicIslandView extends StatelessWidget {
       builder: (c) {
         return TweenAnimationBuilder(
           tween: IntTween(
-            begin: c.isExpanded ? 0 : 100,
-            end: c.isExpanded ? 100 : 0,
+            begin: c.isIslandInit
+                ? 0
+                : c.isExpanded
+                    ? 0
+                    : 100,
+            end: c.isIslandInit
+                ? 0
+                : c.isExpanded
+                    ? 100
+                    : 0,
           ),
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeInOutCubic,
@@ -43,7 +55,7 @@ class DynamicIslandView extends StatelessWidget {
                 borderRadius: getBorderRadius(progress, c.isExpanded),
               ),
               child: Container(
-                height: getHeight(progress, c.isExpanded, context),
+                height: getHeight(progress, c.isIslandInit, context),
                 margin: const EdgeInsets.only(top: 2, left: 3, right: 3),
                 child: Align(
                   alignment: Alignment.topCenter,
@@ -63,17 +75,17 @@ class DynamicIslandView extends StatelessWidget {
                                   highlightElevation: 0,
                                   onPressed: () {
                                     if (c.isExpanded) {
-                                      InputHelper.showBottomInput(
+                                      Get.put(IslandController());
+                                      InputHelper.showAccountInput(
                                         context,
-                                        'Ethereum address, ENS or email',
+                                        'poap.eth / 0x00...',
                                         c.addressController,
                                         c.onAddressSubmit,
-                                      );
-                                      // Get.to(
-                                      //   () => const IslandView(),
-                                      //   opaque: true,
-                                      //   transition: Transition.downToUp,
-                                      // );
+                                      ).then((value) {
+                                        if (value == 'close') {
+                                          c.setIslandExpanded(false);
+                                        }
+                                      });
                                     } else {
                                       c.setIslandExpanded(!c.isExpanded);
                                     }
@@ -110,16 +122,11 @@ class DynamicIslandView extends StatelessWidget {
                                   ]),
                                 ),
                               ),
-                              // IconButton(
-                              //   icon:
-                              //       const Icon(Icons.keyboard_double_arrow_up_rounded),
-                              //   onPressed: () {},
-                              // ),
                             ]),
                       ),
                       Expanded(
                         child: AnimatedSwitcher(
-                          duration: const Duration(milliseconds: 120),
+                          duration: const Duration(milliseconds: 10),
                           child: progress == 100
                               ? Container(
                                   key: const ValueKey<int>(0),
@@ -128,14 +135,6 @@ class DynamicIslandView extends StatelessWidget {
                                   alignment: Alignment.topCenter,
                                   child: Column(
                                     children: [
-                                      Text(
-                                        'To browse POAP collections, enter an Ethereum address, ENS or email.',
-                                        style: GoogleFonts.robotoMono(
-                                          color:
-                                              PColor.primary.withOpacity(0.4),
-                                          fontSize: 16,
-                                        ),
-                                      ),
                                       const Divider(
                                         height: 32,
                                         color: Colors.black12,
@@ -170,32 +169,31 @@ class IslandView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Hero(
-      tag: 'island',
-      child: Container(
-        color: Colors.white,
-        child: SafeArea(
-          child: Container(
-              margin: const EdgeInsets.all(32),
-              child: const Material(
-                child: Center(
-                  child: Text(
-                    'Island',
-                    style: TextStyle(
-                      color: Colors.green,
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                    ),
+    return Container(
+      color: Colors.white,
+      child: SafeArea(
+        child: Container(
+            margin: const EdgeInsets.all(32),
+            child: const Material(
+              child: Center(
+                child: Text(
+                  'Island',
+                  style: TextStyle(
+                    color: Colors.green,
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              )),
-        ),
+              ),
+            )),
       ),
     );
   }
 }
 
 class AddressList extends StatelessWidget {
+  const AddressList({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     WatchlistController controller = Get.find<WatchlistController>();

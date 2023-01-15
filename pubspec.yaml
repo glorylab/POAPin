@@ -103,6 +103,7 @@ dependencies:
   dismissible_page: ^0.7.3
   hexagon: ^0.2.0-nullsafety.1
   image_downloader: ^0.31.0
+  flutter_svg: ^1.1.6
 
 dependency_overrides:
   firebase_performance_web: 0.1.0+1

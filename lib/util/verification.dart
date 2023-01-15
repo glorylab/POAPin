@@ -7,8 +7,19 @@ class VerificationHelper {
   }
 
   static bool isENS(String address) {
-    RegExp ens = RegExp(r'^((?!\.).)*\.eth$');
-    return ens.hasMatch(address.toLowerCase());
+    RegExp website =
+        RegExp(r'^[a-zA-Z0-9]+\.([a-zA-Z0-9]+\.)*[a-zA-Z0-9]+\/?$');
+    return website.hasMatch(address.toLowerCase());
+  }
+
+  // static bool isENS(String address) {
+  //   RegExp ens = RegExp(r'^((?!\.).)*\.eth$');
+  //   return ens.hasMatch(address.toLowerCase());
+  // }
+
+  static bool isEmail(String address) {
+    RegExp email = RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+');
+    return email.hasMatch(address.toLowerCase());
   }
 
   static Future getEthAndEns(Ens client, String address) async {
