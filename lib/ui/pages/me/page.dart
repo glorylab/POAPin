@@ -188,10 +188,10 @@ class ConnectWalletCard extends StatelessWidget {
                       margin: const EdgeInsets.only(top: 8, bottom: 8, left: 8),
                       child: Row(
                         children: [
-                          const WalletTips(),
-                          const SizedBox(
-                            width: 8,
-                          ),
+                          // const WalletTips(),
+                          // const SizedBox(
+                          //   width: 8,
+                          // ),
                           Expanded(
                             child: Text(
                               strConnectWalletHint,
