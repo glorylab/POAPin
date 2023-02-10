@@ -55,11 +55,11 @@ class MePage extends BasePage<MeController> {
                   horizontalPadding: getHorizontalPadding(context),
                 ),
               ),
-              SliverToBoxAdapter(
-                child: ConnectWalletCard(
-                  horizontalPadding: getHorizontalPadding(context),
-                ),
-              ),
+              // SliverToBoxAdapter(
+              //   child: ConnectWalletCard(
+              //     horizontalPadding: getHorizontalPadding(context),
+              //   ),
+              // ),
               const SliverPadding(padding: EdgeInsets.symmetric(vertical: 16)),
               SliverToBoxAdapter(
                 child: GetBuilder<UserController>(
