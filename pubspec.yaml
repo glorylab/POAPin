@@ -48,7 +48,7 @@ dependencies:
   hive: ^2.0.5
   hive_flutter: ^1.1.0
   hive_generator: ^1.1.2
-  share_plus: ^3.0.4
+  share_plus: ^6.3.1
   path_provider: ^2.0.8
   intl: ^0.17.0
   jiffy: ^5.0.0
