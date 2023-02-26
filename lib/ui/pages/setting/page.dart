@@ -46,7 +46,7 @@ class SettingPage extends BasePage<SettingController> {
               EdgeInsets.symmetric(horizontal: getHorizontalPadding(context)),
           child: ListView(
             children: [
-              _GroupTitle(title: strGeneral),
+              _GroupTitle(title: strLanguage),
               GetBuilder<SettingController>(
                 builder: (c) => SettingItem(
                     title: strLanguage,
