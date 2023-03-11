@@ -25,7 +25,7 @@ class Moment extends HiveObject {
   final String publishDate;
 
   @HiveField(5)
-  final String description;
+  final String? description;
 
   @JsonKey(name: 'poapId')
   @HiveField(6)
