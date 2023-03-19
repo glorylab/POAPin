@@ -319,7 +319,7 @@ class _VerticalView extends StatelessWidget {
                     width: 108,
                     child: RawMaterialButton(
                       onPressed: () {
-                        controller.jumpToPage(1);
+                        controller.jumpToPage(2);
                       },
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(24),
