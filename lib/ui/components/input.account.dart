@@ -279,7 +279,7 @@ class ConfirmButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<IslandController>(builder: (c) {
       if (c.canPaste) {
-        return Container(
+        return const SizedBox(
           width: 2,
           height: 1,
         );
@@ -297,7 +297,7 @@ class ConfirmButton extends StatelessWidget {
                   ),
                 ))
             : RawMaterialButton(
-                onPressed: c.isVerifying ? null : () {},
+                onPressed: c.isVerifying ? null : c.onSubmit,
                 fillColor: c.isVerifying ? Colors.white : Colors.green,
                 constraints: const BoxConstraints(minWidth: 16),
                 elevation: c.isVerifying ? 0 : 8,
