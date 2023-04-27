@@ -80,7 +80,7 @@ dependencies:
   firebase_messaging: ^14.2.5
   firebase_core: ^2.4.1
   flutter_native_splash: ^2.0.5
-  package_info_plus: ^1.4.0
+  package_info_plus: ^3.1.1
   sensors_plus: ^2.0.2
   pull_to_refresh_flutter3: ^2.0.1
   # pull_to_refresh_flutter3:
