@@ -30,14 +30,14 @@ PODS:
     - Firebase/Auth (= 10.3.0)
     - firebase_core
     - Flutter
-  - firebase_core (2.4.1):
+  - firebase_core (2.7.0):
     - Firebase/CoreOnly (= 10.3.0)
     - Flutter
   - firebase_crashlytics (3.0.11):
     - Firebase/Crashlytics (= 10.3.0)
     - firebase_core
     - Flutter
-  - firebase_messaging (14.2.1):
+  - firebase_messaging (14.2.5):
     - Firebase/Messaging (= 10.3.0)
     - firebase_core
     - Flutter
@@ -226,7 +226,7 @@ DEPENDENCIES:
   - GoogleUtilities
   - image_downloader (from `.symlinks/plugins/image_downloader/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
-  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/ios`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - sensors_plus (from `.symlinks/plugins/sensors_plus/ios`)
   - share_plus (from `.symlinks/plugins/share_plus/ios`)
   - sign_in_with_apple (from `.symlinks/plugins/sign_in_with_apple/ios`)
@@ -287,7 +287,7 @@ EXTERNAL SOURCES:
   package_info_plus:
     :path: ".symlinks/plugins/package_info_plus/ios"
   path_provider_foundation:
-    :path: ".symlinks/plugins/path_provider_foundation/ios"
+    :path: ".symlinks/plugins/path_provider_foundation/darwin"
   sensors_plus:
     :path: ".symlinks/plugins/sensors_plus/ios"
   share_plus:
@@ -304,9 +304,9 @@ SPEC CHECKSUMS:
   Firebase: f92fc551ead69c94168d36c2b26188263860acd9
   firebase_analytics: f28e472a67eb553b7fc24a1cf17daf5247713c38
   firebase_auth: 3bab991fe1df91c2f948156e9dee976e01a19ab9
-  firebase_core: bf59c32d2e53814f558efa20840c1902fa2fe461
+  firebase_core: 128d8c43c3a453a4a67463314fc3761bedff860b
   firebase_crashlytics: b19405931669c882e0d08542e69ae9e86633c636
-  firebase_messaging: ee597229fc260f8fa491fa8f2d4a32dfbfa406fa
+  firebase_messaging: 8ac28baba96e69a58ad26b4bb5f9ee67c3e5efe2
   firebase_performance: 7746e15bd685debbfcb5e862b2ec720ba8f13979
   FirebaseABTesting: ae3b32fe26e761fd54c68e37a632a0097b599c87
   FirebaseAnalytics: 036232b6a1e2918e5f67572417be1173576245f3
