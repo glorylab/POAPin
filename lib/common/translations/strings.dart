@@ -76,6 +76,17 @@ class Strings {
 
   static const settings = 'settings';
   static const settingsDesc = 'settings_desc';
+  static const notification = 'notification';
+  static const notificationEmail = 'notification_email';
+  static const notificationEmailDesc = 'notification_email_desc';
+  static const notificationApp = 'notification_app';
+  static const notificationAppDesc = 'notification_app_desc';
+  static const notificationAppThisDevice = 'notification_app_this_device';
+  static const notificationAppDescMore = 'notification_app_desc_more';
+  static const notificationBrowser = 'notification_browser';
+  static const notificationBrowserDesc = 'notification_browser_desc';
+  static const notificationPush = 'notification_push';
+  static const notificationPushDesc = 'notification_push_desc';
   static const general = 'general';
   static const language = 'language';
   static const contributeLanguage = 'contribute_language';
@@ -184,6 +195,17 @@ String get strEditTagHint => Strings.editTagHint.tr;
 
 String get strSettings => Strings.settings.tr;
 String get strSettingsDesc => Strings.settingsDesc.tr;
+String get strNotification => Strings.notification.tr;
+String get strNotificationEmail => Strings.notificationEmail.tr;
+String get strNotificationEmailDesc => Strings.notificationEmailDesc.tr;
+String get strNotificationApp => Strings.notificationApp.tr;
+String get strNotificationAppDesc => Strings.notificationAppDesc.tr;
+String get strNotificationAppThisDevice => Strings.notificationAppThisDevice.tr;
+String get strNotificationAppDescMore => Strings.notificationAppDescMore.tr;
+String get strNotificationBrowser => Strings.notificationBrowser.tr;
+String get strNotificationBrowserDesc => Strings.notificationBrowserDesc.tr;
+String get strNotificationPush => Strings.notificationPush.tr;
+String get strNotificationPushDesc => Strings.notificationPushDesc.tr;
 String get strGeneral => Strings.general.tr;
 String get strLanguage => Strings.language.tr;
 String get strContributeLanguage => Strings.contributeLanguage.tr;
