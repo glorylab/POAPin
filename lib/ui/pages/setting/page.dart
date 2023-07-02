@@ -46,6 +46,25 @@ class SettingPage extends BasePage<SettingController> {
               EdgeInsets.symmetric(horizontal: getHorizontalPadding(context)),
           child: ListView(
             children: [
+              _GroupTitle(title: strNotification),
+              Material(
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(16))),
+                clipBehavior: Clip.antiAlias,
+                child: Column(
+                  children: [
+                    SettingItem(
+                        title: strNotificationApp,
+                        desc: strNotificationAppDesc,
+                        icon: Icon(
+                          Icons.phone_android,
+                          size: 24,
+                          color: Colors.blueGrey.withOpacity(0.5),
+                        ),
+                        onTap: controller.showAppNotificationDialog),
+                  ],
+                ),
+              ),
               _GroupTitle(title: strLanguage),
               GetBuilder<SettingController>(
                 builder: (c) => SettingItem(
@@ -171,6 +190,7 @@ class _GroupTitle extends StatelessWidget {
   final String title;
 
   const _GroupTitle({Key? key, required this.title}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -207,6 +227,7 @@ class SettingItem extends StatelessWidget {
     required this.onTap,
     this.isRoundCorner = true,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
@@ -280,6 +301,7 @@ class SettingSwitchItem extends StatelessWidget {
     required this.isSwitchOn,
     this.isRoundCorner = true,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(

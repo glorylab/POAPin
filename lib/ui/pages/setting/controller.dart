@@ -1,4 +1,5 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -14,6 +15,7 @@ import 'package:poapin/ui/controller.base.dart';
 import 'package:poapin/ui/pages/home/controller.dart';
 import 'package:poapin/ui/pages/me/controller.dart';
 import 'package:poapin/ui/pages/setting/components/dialog.languages.dart';
+import 'package:poapin/ui/pages/setting/components/dialog.notification.app.dart';
 import 'package:poapin/ui/pages/watchlist/controller.dart';
 
 class SettingController extends BaseController {
@@ -26,6 +28,23 @@ class SettingController extends BaseController {
 
   String locale = '';
   String languageName = '';
+
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
+
+  bool _notificationOn = false;
+
+  bool get notificationOn => _notificationOn;
+
+  Future<void> toggleNotification(bool value) async {
+    _notificationOn = value;
+    if (value) {
+      await _firebaseMessaging.requestPermission();
+      String? token = await _firebaseMessaging.getToken();
+    } else {
+      _firebaseMessaging.setAutoInitEnabled(false);
+    }
+    update();
+  }
 
   void launchTwitter() {
     launchURL('https://twitter.com/glorylaboratory');
@@ -105,6 +124,19 @@ class SettingController extends BaseController {
 
   void showLanguageDialog() {
     Get.dialog(const LanguagesDialog());
+  }
+
+  void showAppNotificationDialog() {
+    Get.dialog(const NotificationAppDialog());
+  }
+
+  // TODO: Check the Firebase FCM token
+  void checkFCMToken() async {
+    FirebaseMessaging messaging = FirebaseMessaging.instance;
+    String? token = await messaging.getToken();
+    if (kDebugMode) {
+      print(token);
+    }
   }
 
   setLanguage(String locale) {
@@ -204,5 +236,7 @@ class SettingController extends BaseController {
     _getLanguage();
     _checkIsEventsNotificationEnabled();
     _checkIsFriendsNotificationEnabled();
+    checkFCMToken();
+    toggleEventNotification();
   }
 }
