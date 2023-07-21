@@ -8,147 +8,141 @@ class JaTranslations {
 
         /// Tabs
         Strings.home: 'ホーム',
-        // Strings.watchlist: 'Watchlist',
-        // Strings.me: 'Me',
+        Strings.watchlist: 'ウォッチリスト',
+        Strings.me: '私',
 
         /// Home(Initial state)
-        // Strings.enjoy: 'Enjoy a life with POAP',
-        // Strings.setAddress:
-        //     'Set your address and you\'ll see your POAPs on the home page',
-        // Strings.setEthAddress: 'Set ETH address',
-        // Strings.ethAddressOrEns: 'ETH address or ENS',
-        // Strings.invalidAddress: 'Invalid address',
+        Strings.enjoy: 'POAPと一緒に生活を楽しむ',
+        Strings.setAddress: 'アドレスを設定して、ホームページでPOAPを表示します',
+        Strings.setEthAddress: 'ETHアドレスを設定する',
+        Strings.ethAddressOrEns: 'ETHアドレスまたはENS',
+        Strings.invalidAddress: '無効なアドレス',
 
         /// Home(empty)
-        // Strings.noPOAP:
-        //     'You don\'t appear to have any POAP right now.\nBut it\'s not too late!\n\nBegin learning about POAP by creating a POAP.',
+        Strings.noPOAP:
+            '現在、あなたにはPOAPがないようです。\nしかし、まだ遅くありません！\n\nPOAPについて学び、POAPを作成してみましょう。',
 
         /// Home(available)
-        // Strings.followers: 'followers',
-        // Strings.followings: 'followings',
-        // Strings.events: 'Events',
-        // Strings.poaps: 'POAPs',
-        // Strings.growth: 'growth',
-        // Strings.monthly: 'monthly',
-        // Strings.filterHint: 'Filter by name, description, location, etc.',
-        // --- Prefs
-        // Strings.visibility: 'Visibility',
-        // Strings.hideDuplicates: 'Hide Duplicates',
-        // Strings.showAll: 'Show all',
-        // Strings.sort: 'Sort',
-        // Strings.newest: 'Newest',
-        // Strings.oldest: 'Oldest',
-        // Strings.shape: 'Shape',
-        // Strings.square: 'Square',
-        // Strings.round: 'Round',
-        // Strings.layout: 'Layout',
-        // Strings.grid: 'Grid',
-        // Strings.list: 'List',
-        // Strings.timeline: 'Timeline',
-        // --- Filter
-        // Strings.filter: 'Filter',
-        // Strings.filterTitle: 'Title',
-        // Strings.filterDescription: 'Description',
-        // Strings.filterCountry: 'Country',
-        // Strings.filterTag: 'Tag',
-        // Strings.filterChain: 'Chain',
-        // Strings.filterClearAll: 'Clear ALL',
+        Strings.followers: 'フォロワー',
+        Strings.followings: 'フォロー中',
+        Strings.events: 'イベント',
+        Strings.poaps: 'POAPs',
+        Strings.growth: '成長',
+        Strings.monthly: '毎月',
+        Strings.filterHint: '名前、説明、場所などでフィルタリング',
+        Strings.visibility: '表示',
+        Strings.hideDuplicates: '重複を隠す',
+        Strings.showAll: '全て表示',
+        Strings.sort: '並び替え',
+        Strings.newest: '最新',
+        Strings.oldest: '最古',
+        Strings.shape: '形状',
+        Strings.square: '四角',
+        Strings.round: '円形',
+        Strings.layout: 'レイアウト',
+        Strings.grid: 'グリッド',
+        Strings.list: 'リスト',
+        Strings.timeline: 'タイムライン',
+        Strings.filter: 'フィルタ',
+        Strings.filterTitle: 'タイトル',
+        Strings.filterDescription: '説明',
+        Strings.filterCountry: '国',
+        Strings.filterTag: 'タグ',
+        Strings.filterChain: 'チェーン',
+        Strings.filterClearAll: 'すべてクリア',
 
         /// Home(edit mode)
-        // Strings.editMode: 'Edit POAPs',
-        // Strings.editTags: 'Edit tags',
-        // Strings.newTag: 'New Tag',
-        // Strings.newTagHint: 'new tag for event',
+        Strings.editMode: 'POAPs編集',
+        Strings.editTags: 'タグ編集',
+        Strings.newTag: '新しいタグ',
+        Strings.newTagHint: '新しいイベントのタグ',
 
         /// Moments
-        // Strings.momentsDesc: '''Your POAP collection is your digital ID.
-        //
-        // It shows the world who you are: where you’ve been, what you achieved and who you’ve met.
-        //
-        // Moments is a way to add real value to your digital bookmark by saving real-life instances in a POAP, forever.
-        // ''',
-        //Strings.uploadMoments: 'Upload moments on welook.io',
+        Strings.momentsDesc: '''あなたのPOAPコレクションはあなたのデジタルIDです。
+        
+        それはあなたが誰であるか、どこにいたか、何を達成したか、誰に会ったかを世界に示します。
+        
+        モーメンツは、POAPに実際のインスタンスを永遠に保存することで、デジタルブックマークに実際の価値を追加する方法です。
+        ''',
+        Strings.uploadMoments: 'welook.ioにモーメンツをアップロード',
 
         /// GitPOAP
-        // Strings.gitPOAPDesc:
-        //             '''A GitPOAP is a regular POAP (with an extra spin) that is minted through the GitPOAP platform for specified meaningful contribution to open source projects. Repo owners automatically distribute GitPOAPs to their contributors as recognition of their work.
-        // ''',
-        // Strings.gitPOAPStart: 'Contribute to POAPin',
+        Strings.gitPOAPDesc:
+            '''GitPOAPは、指定された意義深いオープンソースプロジェクトへの貢献を通じてGitPOAPプラットフォームで発行される通常のPOAP（エキストラスピン付き）です。 レポオーナーは、彼らの仕事の認識として自動的にGitPOAPを寄稿者に配布します。
+        ''',
+        Strings.gitPOAPStart: 'POAPinに貢献する',
 
         /// Watchlist(Initial state)
-        // Strings.watchlistHint:
-        //     'You can add some addresses you are interested in here.',
-        // Strings.addCollection: 'Add your first collection',
+        Strings.watchlistHint: 'ここに興味のあるアドレスを追加できます。',
+        Strings.addCollection: '最初のコレクションを追加',
 
         /// Watchlist(available)
-        // Strings.follow: 'Follow',
-        // Strings.unfollow: 'Unfollow',
+        Strings.follow: 'フォロー',
+        Strings.unfollow: 'フォロー解除',
 
         /// Me
-        // Strings.connectWalletHint: 'Sign in with browser & connect wallet.',
+        Strings.connectWalletHint: 'ブラウザでログインしてウォレットを接続。',
 
         /// Profile
-        // Strings.profile: 'Profile',
-        // Strings.dangerZone: 'Danger Zone',
-        // Strings.deleteAccount: 'Delete account',
-        // Strings.deleteAccountDesc:
-        //     'Are you certain you want to delete your account?\n\nThis operation cannot be undone.',
-        // Strings.deleteAccountConfirm: 'Delete',
+        Strings.profile: 'プロフィール',
+        Strings.dangerZone: '危険区域',
+        Strings.deleteAccount: 'アカウントを削除',
+        Strings.deleteAccountDesc: 'アカウントを削除してもよろしいですか？\n\nこの操作は元に戻せません。',
+        Strings.deleteAccountConfirm: '削除',
 
         /// Tags
-        // Strings.tags: 'Tags',
-        // Strings.manageTags: 'Manage your tags',
-        // Strings.noTags: 'No tags yet',
-        // Strings.addTag: 'New Tag',
-        // Strings.editTagHint: 'choose from above\nor',
+        Strings.tags: 'タグ',
+        Strings.manageTags: 'タグを管理',
+        Strings.noTags: 'まだタグはありません',
+        Strings.addTag: '新しいタグ',
+        Strings.editTagHint: '上から選択\nまたは',
 
         /// Settings
-        // Strings.settings: 'Settings',
-        // Strings.settingsDesc: 'Notifications, data, etc.',
-        // Strings.notification: 'Notification',
-        // Strings.notificationEmail: 'Email',
-        // Strings.notificationEmailDesc: 'Get email notifications',
-        // Strings.notificationApp: 'App',
-        // Strings.notificationAppDesc: 'Get app notifications',
-        // Strings.notificationAppThisDevice: 'This device',
-        // Strings.notificationAppDescMore: 'Get app notifications',
-        // Strings.notificationBrowser: 'Browser',
-        // Strings.notificationBrowserDesc: 'Get browser notifications',
-        // Strings.notificationPush: 'Push',
-        // Strings.notificationPushDesc: 'Get push notifications',
-        // Strings.general: 'General',
-        // Strings.language: 'Language',
-        // Strings.contributeLanguage: '🙇 Contribute more translations 🔗',
-        // Strings.data: 'General',
-        // Strings.cache: 'Clear all cache',
-        // Strings.cacheDesc: 'If there are problems with app, please try it.',
-        // Strings.about: 'About',
+        Strings.settings: '設定',
+        Strings.settingsDesc: '通知、データなど',
+        Strings.notification: '通知',
+        Strings.notificationEmail: 'メール',
+        Strings.notificationEmailDesc: 'メール通知を受け取る',
+        Strings.notificationApp: 'アプリ',
+        Strings.notificationAppDesc: 'アプリの通知を受け取る',
+        Strings.notificationAppThisDevice: 'このデバイス',
+        Strings.notificationAppDescMore: 'アプリの通知を受け取る',
+        Strings.notificationBrowser: 'ブラウザ',
+        Strings.notificationBrowserDesc: 'ブラウザの通知を受け取る',
+        Strings.notificationPush: 'プッシュ',
+        Strings.notificationPushDesc: 'プッシュ通知を受け取る',
+        Strings.general: '一般',
+        Strings.language: '言語',
+        Strings.contributeLanguage: '🙇 他の翻訳を提供する 🔗',
+        Strings.data: '一般',
+        Strings.cache: 'すべてのキャッシュをクリア',
+        Strings.cacheDesc: 'アプリに問題がある場合は、これを試してください。',
+        Strings.about: '情報',
 
         /// Account
-        // Strings.signIn: 'Sign in',
-        // Strings.logOut: 'Log out',
-        // Strings.signinApple: 'Sign in with Apple',
-        // Strings.signinGoogle: 'Continue with Google',
-        // Strings.tos:
-        //     'By continuing, you agree to our Terms of Service and Privacy Policy',
+        Strings.signIn: 'サインイン',
+        Strings.logOut: 'ログアウト',
+        Strings.signinApple: 'Appleでサインイン',
+        Strings.signinGoogle: 'Googleで続行',
+        Strings.tos: '続行することで、利用規約およびプライバシーポリシーに同意したことになります',
 
         /// Common
-        // Strings.done: 'Done',
-        // Strings.alert: 'Alert',
-        // Strings.error: 'Error',
-        // Strings.learnMore: 'learn more',
+        Strings.done: '完了',
+        Strings.alert: 'アラート',
+        Strings.error: 'エラー',
+        Strings.learnMore: 'もっと詳しく知る',
         // --- Months
-        // Strings.january: 'January',
-        // Strings.february: 'February',
-        // Strings.march: 'March',
-        // Strings.april: 'April',
-        // Strings.may: 'May',
-        // Strings.june: 'June',
-        // Strings.july: 'July',
-        // Strings.august: 'August',
-        // Strings.september: 'September',
-        // Strings.october: 'October',
-        // Strings.november: 'November',
-        // Strings.december: 'December',
+        Strings.january: '1月',
+        Strings.february: '2月',
+        Strings.march: '3月',
+        Strings.april: '4月',
+        Strings.may: '5月',
+        Strings.june: '6月',
+        Strings.july: '7月',
+        Strings.august: '8月',
+        Strings.september: '9月',
+        Strings.october: '10月',
+        Strings.november: '11月',
+        Strings.december: '12月',
       };
 }
