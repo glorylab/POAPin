@@ -7,148 +7,148 @@ class ThTranslations {
         'POAPin': 'POAPin',
 
         /// Tabs
-        // Strings.home: 'Home',
-        // Strings.watchlist: 'Watchlist',
-        // Strings.me: 'Me',
+        Strings.home: 'บ้าน',
+        Strings.watchlist: 'รายการที่สนใจ',
+        Strings.me: 'ฉัน',
 
         /// Home(Initial state)
-        // Strings.enjoy: 'Enjoy a life with POAP',
-        // Strings.setAddress:
-        //     'Set your address and you\'ll see your POAPs on the home page',
-        // Strings.setEthAddress: 'Set ETH address',
-        // Strings.ethAddressOrEns: 'ETH address or ENS',
-        // Strings.invalidAddress: 'Invalid address',
+        Strings.enjoy: 'สนุกไปกับชีวิตพร้อม POAP',
+        Strings.setAddress:
+            'ตั้งค่าที่อยู่ของคุณและคุณจะเห็น POAPs ของคุณในหน้าหลัก',
+        Strings.setEthAddress: 'ตั้งค่าที่อยู่ ETH',
+        Strings.ethAddressOrEns: 'ที่อยู่ ETH หรือ ENS',
+        Strings.invalidAddress: 'ที่อยู่ไม่ถูกต้อง',
 
         /// Home(empty)
-        // Strings.noPOAP:
-        //     'You don\'t appear to have any POAP right now.\nBut it\'s not too late!\n\nBegin learning about POAP by creating a POAP.',
+        Strings.noPOAP:
+            'คุณไม่มี POAP ในขณะนี้\nแต่ยังไม่สายเกินไป!\n\nเริ่มเรียนรู้เกี่ยวกับ POAP โดยการสร้าง POAP',
 
         /// Home(available)
-        // Strings.followers: 'followers',
-        // Strings.followings: 'followings',
-        // Strings.events: 'Events',
-        // Strings.poaps: 'POAPs',
-        // Strings.growth: 'growth',
-        // Strings.monthly: 'monthly',
-        // Strings.filterHint: 'Filter by name, description, location, etc.',
+        Strings.followers: 'ผู้ติดตาม',
+        Strings.followings: 'กำลังติดตาม',
+        Strings.events: 'เหตุการณ์',
+        Strings.poaps: 'POAPs',
+        Strings.growth: 'การเติบโต',
+        Strings.monthly: 'รายเดือน',
+        Strings.filterHint: 'กรองตามชื่อ, คำอธิบาย, ที่ตั้ง, ฯลฯ',
         // --- Prefs
-        // Strings.visibility: 'Visibility',
-        // Strings.hideDuplicates: 'Hide Duplicates',
-        // Strings.showAll: 'Show all',
-        // Strings.sort: 'Sort',
-        // Strings.newest: 'Newest',
-        // Strings.oldest: 'Oldest',
-        // Strings.shape: 'Shape',
-        // Strings.square: 'Square',
-        // Strings.round: 'Round',
-        // Strings.layout: 'Layout',
-        // Strings.grid: 'Grid',
-        // Strings.list: 'List',
-        // Strings.timeline: 'Timeline',
+        Strings.visibility: 'ทัศนวิสัย',
+        Strings.hideDuplicates: 'ซ่อนรายการซ้ำ',
+        Strings.showAll: 'แสดงทั้งหมด',
+        Strings.sort: 'เรียงลำดับ',
+        Strings.newest: 'ใหม่ที่สุด',
+        Strings.oldest: 'เก่าที่สุด',
+        Strings.shape: 'รูปร่าง',
+        Strings.square: 'สี่เหลี่ยม',
+        Strings.round: 'วงกลม',
+        Strings.layout: 'การจัดรูปแบบ',
+        Strings.grid: 'กริด',
+        Strings.list: 'รายการ',
+        Strings.timeline: 'เส้นเวลา',
         // --- Filter
-        // Strings.filter: 'Filter',
-        // Strings.filterTitle: 'Title',
-        // Strings.filterDescription: 'Description',
-        // Strings.filterCountry: 'Country',
-        // Strings.filterTag: 'Tag',
-        // Strings.filterChain: 'Chain',
-        // Strings.filterClearAll: 'Clear ALL',
+        Strings.filter: 'กรอง',
+        Strings.filterTitle: 'หัวข้อ',
+        Strings.filterDescription: 'คำอธิบาย',
+        Strings.filterCountry: 'ประเทศ',
+        Strings.filterTag: 'แท็ก',
+        Strings.filterChain: 'เชื่อมโยง',
+        Strings.filterClearAll: 'ล้างทั้งหมด',
 
         /// Home(edit mode)
-        // Strings.editMode: 'Edit POAPs',
-        // Strings.editTags: 'Edit tags',
-        // Strings.newTag: 'New Tag',
-        // Strings.newTagHint: 'new tag for event',
+        Strings.editMode: 'แก้ไข POAPs',
+        Strings.editTags: 'แก้ไขแท็ก',
+        Strings.newTag: 'แท็กใหม่',
+        Strings.newTagHint: 'แท็กใหม่สำหรับเหตุการณ์',
 
         /// Moments
-        // Strings.momentsDesc: '''Your POAP collection is your digital ID.
-        //
-        // It shows the world who you are: where you’ve been, what you achieved and who you’ve met.
-        //
-        // Moments is a way to add real value to your digital bookmark by saving real-life instances in a POAP, forever.
-        // ''',
-        //Strings.uploadMoments: 'Upload moments on welook.io',
+        Strings.momentsDesc: '''คอลเล็กชัน POAP ของคุณคือ ID ดิจิทัลของคุณ.
+
+        มันแสดงให้โลกเห็นว่าคุณคือใคร: คุณไปที่ไหน, คุณทำสิ่งที่ทำได้และคุณพบกับใคร.
+        
+        Moments เป็นวิธีเพิ่มคุณค่าจริงๆ ให้กับบุ๊กมาร์กดิจิทัลของคุณโดยการบันทึกเหตุการณ์ในชีวิตจริงใน POAP, ตลอดไป.
+        ''',
+        Strings.uploadMoments: 'อัปโหลดวินาทีที่ welook.io',
 
         /// GitPOAP
-        // Strings.gitPOAPDesc:
-        //             '''A GitPOAP is a regular POAP (with an extra spin) that is minted through the GitPOAP platform for specified meaningful contribution to open source projects. Repo owners automatically distribute GitPOAPs to their contributors as recognition of their work.
-        // ''',
-        // Strings.gitPOAPStart: 'Contribute to POAPin',
+        Strings.gitPOAPDesc:
+            '''GitPOAP คือ POAP ปกติ (พร้อมการหมุนเพิ่มเติม) ที่ถูกสร้างผ่านแพลตฟอร์ม GitPOAP สำหรับการสนับสนุนที่มีความหมายต่อโปรเจคโอเพ่นซอร์ส. เจ้าของ Repo จะแจก GitPOAPs ให้กับผู้สนับสนุนของพวกเขาเพื่อเป็นการรับรู้การทำงานของพวกเขา.
+        ''',
+        Strings.gitPOAPStart: 'สนับสนุน POAPin',
 
         /// Watchlist(Initial state)
-        // Strings.watchlistHint:
-        //     'You can add some addresses you are interested in here.',
-        // Strings.addCollection: 'Add your first collection',
+        Strings.watchlistHint: 'คุณสามารถเพิ่มที่อยู่ที่คุณสนใจได้ที่นี่.',
+        Strings.addCollection: 'เพิ่มคอลเล็กชันแรกของคุณ',
 
         /// Watchlist(available)
-        // Strings.follow: 'Follow',
-        // Strings.unfollow: 'Unfollow',
+        Strings.follow: 'ติดตาม',
+        Strings.unfollow: 'เลิกติดตาม',
 
         /// Me
-        // Strings.connectWalletHint: 'Sign in with browser & connect wallet.',
+        Strings.connectWalletHint:
+            'ลงชื่อเข้าใช้ด้วยเบราว์เซอร์และเชื่อมต่อกระเป๋าเงิน.',
 
         /// Profile
-        // Strings.profile: 'Profile',
-        // Strings.dangerZone: 'Danger Zone',
-        // Strings.deleteAccount: 'Delete account',
-        // Strings.deleteAccountDesc:
-        //     'Are you certain you want to delete your account?\n\nThis operation cannot be undone.',
-        // Strings.deleteAccountConfirm: 'Delete',
+        Strings.profile: 'โปรไฟล์',
+        Strings.dangerZone: 'โซนอันตราย',
+        Strings.deleteAccount: 'ลบบัญชี',
+        Strings.deleteAccountDesc:
+            'คุณแน่ใจหรือว่าต้องการลบบัญชีของคุณ?\n\nการดำเนินการนี้ไม่สามารถยกเลิกได้.',
+        Strings.deleteAccountConfirm: 'ลบ',
 
         /// Tags
-        // Strings.tags: 'Tags',
-        // Strings.manageTags: 'Manage your tags',
-        // Strings.noTags: 'No tags yet',
-        // Strings.addTag: 'New Tag',
-        // Strings.editTagHint: 'choose from above\nor',
+        Strings.tags: 'แท็ก',
+        Strings.manageTags: 'จัดการแท็กของคุณ',
+        Strings.noTags: 'ยังไม่มีแท็ก',
+        Strings.addTag: 'แท็กใหม่',
+        Strings.editTagHint: 'เลือกจากด้านบน\nหรือ',
 
         /// Settings
-        // Strings.settings: 'Settings',
-        // Strings.settingsDesc: 'Notifications, data, etc.',
-        // Strings.notification: 'Notification',
-        // Strings.notificationEmail: 'Email',
-        // Strings.notificationEmailDesc: 'Get email notifications',
-        // Strings.notificationApp: 'App',
-        // Strings.notificationAppDesc: 'Get app notifications',
-        // Strings.notificationAppThisDevice: 'This device',
-        // Strings.notificationAppDescMore: 'Get app notifications',
-        // Strings.notificationBrowser: 'Browser',
-        // Strings.notificationBrowserDesc: 'Get browser notifications',
-        // Strings.notificationPush: 'Push',
-        // Strings.notificationPushDesc: 'Get push notifications',
-        // Strings.general: 'General',
-        // Strings.language: 'Language',
-        // Strings.contributeLanguage: '🙇 Contribute more translations 🔗',
-        // Strings.data: 'General',
-        // Strings.cache: 'Clear all cache',
-        // Strings.cacheDesc: 'If there are problems with app, please try it.',
-        // Strings.about: 'About',
+        Strings.settings: 'การตั้งค่า',
+        Strings.settingsDesc: 'การแจ้งเตือน, ข้อมูล, ฯลฯ',
+        Strings.notification: 'การแจ้งเตือน',
+        Strings.notificationEmail: 'อีเมล',
+        Strings.notificationEmailDesc: 'รับการแจ้งเตือนทางอีเมล',
+        Strings.notificationApp: 'แอพ',
+        Strings.notificationAppDesc: 'รับการแจ้งเตือนจากแอพ',
+        Strings.notificationAppThisDevice: 'อุปกรณ์นี้',
+        Strings.notificationAppDescMore: 'รับการแจ้งเตือนจากแอพ',
+        Strings.notificationBrowser: 'เบราว์เซอร์',
+        Strings.notificationBrowserDesc: 'รับการแจ้งเตือนทางเบราว์เซอร์',
+        Strings.notificationPush: 'การแจ้งเตือน push',
+        Strings.notificationPushDesc: 'รับการแจ้งเตือน push',
+        Strings.general: 'ทั่วไป',
+        Strings.language: 'ภาษา',
+        Strings.contributeLanguage: '🙇 สนับสนุนการแปลเพิ่มเติม 🔗',
+        Strings.data: 'ข้อมูลทั่วไป',
+        Strings.cache: 'ล้างแคชทั้งหมด',
+        Strings.cacheDesc: 'หากมีปัญหากับแอพ, โปรดลอง.',
+        Strings.about: 'เกี่ยวกับ',
 
         /// Account
-        // Strings.signIn: 'Sign in',
-        // Strings.logOut: 'Log out',
-        // Strings.signinApple: 'Sign in with Apple',
-        // Strings.signinGoogle: 'Continue with Google',
-        // Strings.tos:
-        //     'By continuing, you agree to our Terms of Service and Privacy Policy',
+        Strings.signIn: 'ลงชื่อเข้าใช้',
+        Strings.logOut: 'ออกจากระบบ',
+        Strings.signinApple: 'ลงชื่อเข้าใช้ด้วย Apple',
+        Strings.signinGoogle: 'ดำเนินการต่อด้วย Google',
+        Strings.tos:
+            'ด้วยการดำเนินการต่อ, คุณยอมรับข้อกำหนดในการให้บริการและนโยบายความเป็นส่วนตัวของเรา',
 
         /// Common
-        // Strings.done: 'Done',
-        // Strings.alert: 'Alert',
-        // Strings.error: 'Error',
-        // Strings.learnMore: 'learn more',
+        Strings.done: 'เสร็จสิ้น',
+        Strings.alert: 'แจ้งเตือน',
+        Strings.error: 'ข้อผิดพลาด',
+        Strings.learnMore: 'เรียนรู้เพิ่มเติม',
         // --- Months
-        // Strings.january: 'January',
-        // Strings.february: 'February',
-        // Strings.march: 'March',
-        // Strings.april: 'April',
-        // Strings.may: 'May',
-        // Strings.june: 'June',
-        // Strings.july: 'July',
-        // Strings.august: 'August',
-        // Strings.september: 'September',
-        // Strings.october: 'October',
-        // Strings.november: 'November',
-        // Strings.december: 'December',
+        Strings.january: 'มกราคม',
+        Strings.february: 'กุมภาพันธ์',
+        Strings.march: 'มีนาคม',
+        Strings.april: 'เมษายน',
+        Strings.may: 'พฤษภาคม',
+        Strings.june: 'มิถุนายน',
+        Strings.july: 'กรกฎาคม',
+        Strings.august: 'สิงหาคม',
+        Strings.september: 'กันยายน',
+        Strings.october: 'ตุลาคม',
+        Strings.november: 'พฤศจิกายน',
+        Strings.december: 'ธันวาคม',
       };
 }
