@@ -7,148 +7,149 @@ class TrTranslations {
         'POAPin': 'POAPin',
 
         /// Tabs
-        // Strings.home: 'Home',
-        // Strings.watchlist: 'Watchlist',
-        // Strings.me: 'Me',
+        Strings.home: 'Anasayfa',
+        Strings.watchlist: 'İzleme listesi',
+        Strings.me: 'Ben',
 
         /// Home(Initial state)
-        // Strings.enjoy: 'Enjoy a life with POAP',
-        // Strings.setAddress:
-        //     'Set your address and you\'ll see your POAPs on the home page',
-        // Strings.setEthAddress: 'Set ETH address',
-        // Strings.ethAddressOrEns: 'ETH address or ENS',
-        // Strings.invalidAddress: 'Invalid address',
+        Strings.enjoy: 'POAP ile hayatın tadını çıkarın',
+        Strings.setAddress:
+            'Adresinizi ayarlayın ve POAP\'larınızı ana sayfada göreceksiniz',
+        Strings.setEthAddress: 'ETH adresini ayarla',
+        Strings.ethAddressOrEns: 'ETH adresi veya ENS',
+        Strings.invalidAddress: 'Geçersiz adres',
 
         /// Home(empty)
-        // Strings.noPOAP:
-        //     'You don\'t appear to have any POAP right now.\nBut it\'s not too late!\n\nBegin learning about POAP by creating a POAP.',
+        Strings.noPOAP:
+            'Şu anda hiç POAP\'ınız yok gibi görünüyor.\nAma hala geç değil!\n\nPOAP hakkında bilgi edinmeye başlayın ve bir POAP oluşturun.',
 
         /// Home(available)
-        // Strings.followers: 'followers',
-        // Strings.followings: 'followings',
-        // Strings.events: 'Events',
-        // Strings.poaps: 'POAPs',
-        // Strings.growth: 'growth',
-        // Strings.monthly: 'monthly',
-        // Strings.filterHint: 'Filter by name, description, location, etc.',
+        Strings.followers: 'takipçiler',
+        Strings.followings: 'takip edilenler',
+        Strings.events: 'Etkinlikler',
+        Strings.poaps: 'POAPs',
+        Strings.growth: 'büyüme',
+        Strings.monthly: 'aylık',
+        Strings.filterHint: 'Ad, açıklama, konum vb. ile filtreleyin.',
         // --- Prefs
-        // Strings.visibility: 'Visibility',
-        // Strings.hideDuplicates: 'Hide Duplicates',
-        // Strings.showAll: 'Show all',
-        // Strings.sort: 'Sort',
-        // Strings.newest: 'Newest',
-        // Strings.oldest: 'Oldest',
-        // Strings.shape: 'Shape',
-        // Strings.square: 'Square',
-        // Strings.round: 'Round',
-        // Strings.layout: 'Layout',
-        // Strings.grid: 'Grid',
-        // Strings.list: 'List',
-        // Strings.timeline: 'Timeline',
+        Strings.visibility: 'Görünürlük',
+        Strings.hideDuplicates: 'Yinelenenleri Gizle',
+        Strings.showAll: 'Hepsini göster',
+        Strings.sort: 'Sırala',
+        Strings.newest: 'En yeni',
+        Strings.oldest: 'En eski',
+        Strings.shape: 'Şekil',
+        Strings.square: 'Kare',
+        Strings.round: 'Yuvarlak',
+        Strings.layout: 'Düzen',
+        Strings.grid: 'Izgara',
+        Strings.list: 'Liste',
+        Strings.timeline: 'Zaman çizelgesi',
         // --- Filter
-        // Strings.filter: 'Filter',
-        // Strings.filterTitle: 'Title',
-        // Strings.filterDescription: 'Description',
-        // Strings.filterCountry: 'Country',
-        // Strings.filterTag: 'Tag',
-        // Strings.filterChain: 'Chain',
-        // Strings.filterClearAll: 'Clear ALL',
+        Strings.filter: 'Filtre',
+        Strings.filterTitle: 'Başlık',
+        Strings.filterDescription: 'Açıklama',
+        Strings.filterCountry: 'Ülke',
+        Strings.filterTag: 'Etiket',
+        Strings.filterChain: 'Zincir',
+        Strings.filterClearAll: 'Tümünü Temizle',
 
         /// Home(edit mode)
-        // Strings.editMode: 'Edit POAPs',
-        // Strings.editTags: 'Edit tags',
-        // Strings.newTag: 'New Tag',
-        // Strings.newTagHint: 'new tag for event',
+        Strings.editMode: 'POAP\'ları Düzenle',
+        Strings.editTags: 'Etiketleri düzenle',
+        Strings.newTag: 'Yeni Etiket',
+        Strings.newTagHint: 'etkinlik için yeni etiket',
 
         /// Moments
-        // Strings.momentsDesc: '''Your POAP collection is your digital ID.
-        //
-        // It shows the world who you are: where you’ve been, what you achieved and who you’ve met.
-        //
-        // Moments is a way to add real value to your digital bookmark by saving real-life instances in a POAP, forever.
-        // ''',
-        //Strings.uploadMoments: 'Upload moments on welook.io',
+        Strings.momentsDesc: '''POAP koleksiyonunuz dijital kimliğinizdir.
+        
+        Dünyaya kim olduğunuzu gösterir: nerede bulunduğunuzu, ne başardığınızı ve kiminle tanıştığınızı.
+        
+        Anlar, gerçek yaşam anlarını bir POAP'ta sonsuza dek kaydetme şeklinde dijital yer iminize gerçek değer katmanın bir yoludur.
+        ''',
+        Strings.uploadMoments: 'Anları welook.io üzerine yükle',
 
         /// GitPOAP
-        // Strings.gitPOAPDesc:
-        //             '''A GitPOAP is a regular POAP (with an extra spin) that is minted through the GitPOAP platform for specified meaningful contribution to open source projects. Repo owners automatically distribute GitPOAPs to their contributors as recognition of their work.
-        // ''',
-        // Strings.gitPOAPStart: 'Contribute to POAPin',
+        Strings.gitPOAPDesc:
+            '''Bir GitPOAP, belirli anlamlı açık kaynak projelerine katkı sağlama için GitPOAP platformu üzerinden basılan normal bir POAP'tır (ekstra bir dönüş ile). Repo sahipleri, katkıda bulunanların çalışmalarını tanımak için otomatik olarak GitPOAP'ları dağıtır.
+        ''',
+        Strings.gitPOAPStart: 'POAPin\'e katkıda bulun',
 
         /// Watchlist(Initial state)
-        // Strings.watchlistHint:
-        //     'You can add some addresses you are interested in here.',
-        // Strings.addCollection: 'Add your first collection',
+        Strings.watchlistHint:
+            'Buraya ilgilendiğiniz bazı adresleri ekleyebilirsiniz.',
+        Strings.addCollection: 'İlk koleksiyonunuzu ekleyin',
 
         /// Watchlist(available)
-        // Strings.follow: 'Follow',
-        // Strings.unfollow: 'Unfollow',
+        Strings.follow: 'Takip et',
+        Strings.unfollow: 'Takibi bırak',
 
         /// Me
-        // Strings.connectWalletHint: 'Sign in with browser & connect wallet.',
+        Strings.connectWalletHint:
+            'Tarayıcıyla oturum açın & cüzdanı bağlayın.',
 
         /// Profile
-        // Strings.profile: 'Profile',
-        // Strings.dangerZone: 'Danger Zone',
-        // Strings.deleteAccount: 'Delete account',
-        // Strings.deleteAccountDesc:
-        //     'Are you certain you want to delete your account?\n\nThis operation cannot be undone.',
-        // Strings.deleteAccountConfirm: 'Delete',
+        Strings.profile: 'Profil',
+        Strings.dangerZone: 'Tehlike Bölgesi',
+        Strings.deleteAccount: 'Hesabı sil',
+        Strings.deleteAccountDesc:
+            'Hesabınızı silmek istediğinizden emin misiniz?\n\nBu işlem geri alınamaz.',
+        Strings.deleteAccountConfirm: 'Sil',
 
         /// Tags
-        // Strings.tags: 'Tags',
-        // Strings.manageTags: 'Manage your tags',
-        // Strings.noTags: 'No tags yet',
-        // Strings.addTag: 'New Tag',
-        // Strings.editTagHint: 'choose from above\nor',
+        Strings.tags: 'Etiketler',
+        Strings.manageTags: 'Etiketlerinizi yönetin',
+        Strings.noTags: 'Henüz etiket yok',
+        Strings.addTag: 'Yeni Etiket',
+        Strings.editTagHint: 'yukarıdan seçin\nveya',
 
         /// Settings
-        // Strings.settings: 'Settings',
-        // Strings.settingsDesc: 'Notifications, data, etc.',
-        // Strings.notification: 'Notification',
-        // Strings.notificationEmail: 'Email',
-        // Strings.notificationEmailDesc: 'Get email notifications',
-        // Strings.notificationApp: 'App',
-        // Strings.notificationAppDesc: 'Get app notifications',
-        // Strings.notificationAppThisDevice: 'This device',
-        // Strings.notificationAppDescMore: 'Get app notifications',
-        // Strings.notificationBrowser: 'Browser',
-        // Strings.notificationBrowserDesc: 'Get browser notifications',
-        // Strings.notificationPush: 'Push',
-        // Strings.notificationPushDesc: 'Get push notifications',
-        // Strings.general: 'General',
-        // Strings.language: 'Language',
-        // Strings.contributeLanguage: '🙇 Contribute more translations 🔗',
-        // Strings.data: 'General',
-        // Strings.cache: 'Clear all cache',
-        // Strings.cacheDesc: 'If there are problems with app, please try it.',
-        // Strings.about: 'About',
+        Strings.settings: 'Ayarlar',
+        Strings.settingsDesc: 'Bildirimler, veriler, vb.',
+        Strings.notification: 'Bildirim',
+        Strings.notificationEmail: 'E-posta',
+        Strings.notificationEmailDesc: 'E-posta bildirimleri al',
+        Strings.notificationApp: 'Uygulama',
+        Strings.notificationAppDesc: 'Uygulama bildirimleri al',
+        Strings.notificationAppThisDevice: 'Bu cihaz',
+        Strings.notificationAppDescMore: 'Uygulama bildirimleri al',
+        Strings.notificationBrowser: 'Tarayıcı',
+        Strings.notificationBrowserDesc: 'Tarayıcı bildirimleri al',
+        Strings.notificationPush: 'Push',
+        Strings.notificationPushDesc: 'Push bildirimleri al',
+        Strings.general: 'Genel',
+        Strings.language: 'Dil',
+        Strings.contributeLanguage: '🙇 Daha fazla çeviri katkıda bulunun 🔗',
+        Strings.data: 'Genel',
+        Strings.cache: 'Tüm önbelleği temizle',
+        Strings.cacheDesc: 'Uygulamada problemler varsa, lütfen bunu deneyin.',
+        Strings.about: 'Hakkında',
 
         /// Account
-        // Strings.signIn: 'Sign in',
-        // Strings.logOut: 'Log out',
-        // Strings.signinApple: 'Sign in with Apple',
-        // Strings.signinGoogle: 'Continue with Google',
-        // Strings.tos:
-        //     'By continuing, you agree to our Terms of Service and Privacy Policy',
+        Strings.signIn: 'Oturum aç',
+        Strings.logOut: 'Oturumu kapat',
+        Strings.signinApple: 'Apple ile oturum aç',
+        Strings.signinGoogle: 'Google ile devam et',
+        Strings.tos:
+            'Devam ederek, Hizmet Şartlarımızı ve Gizlilik Politikamızı kabul etmiş olursunuz',
 
         /// Common
-        // Strings.done: 'Done',
-        // Strings.alert: 'Alert',
-        // Strings.error: 'Error',
-        // Strings.learnMore: 'learn more',
+        Strings.done: 'Tamamlandı',
+        Strings.alert: 'Uyarı',
+        Strings.error: 'Hata',
+        Strings.learnMore: 'daha fazla öğren',
         // --- Months
-        // Strings.january: 'January',
-        // Strings.february: 'February',
-        // Strings.march: 'March',
-        // Strings.april: 'April',
-        // Strings.may: 'May',
-        // Strings.june: 'June',
-        // Strings.july: 'July',
-        // Strings.august: 'August',
-        // Strings.september: 'September',
-        // Strings.october: 'October',
-        // Strings.november: 'November',
-        // Strings.december: 'December',
+        Strings.january: 'Ocak',
+        Strings.february: 'Şubat',
+        Strings.march: 'Mart',
+        Strings.april: 'Nisan',
+        Strings.may: 'Mayıs',
+        Strings.june: 'Haziran',
+        Strings.july: 'Temmuz',
+        Strings.august: 'Ağustos',
+        Strings.september: 'Eylül',
+        Strings.october: 'Ekim',
+        Strings.november: 'Kasım',
+        Strings.december: 'Aralık',
       };
 }
