@@ -7,148 +7,149 @@ class UkTranslations {
         'POAPin': 'POAPin',
 
         /// Tabs
-        // Strings.home: 'Home',
-        // Strings.watchlist: 'Watchlist',
-        // Strings.me: 'Me',
+        Strings.home: 'Дома',
+        Strings.watchlist: 'Список спостереження',
+        Strings.me: 'Я',
 
         /// Home(Initial state)
-        // Strings.enjoy: 'Enjoy a life with POAP',
-        // Strings.setAddress:
-        //     'Set your address and you\'ll see your POAPs on the home page',
-        // Strings.setEthAddress: 'Set ETH address',
-        // Strings.ethAddressOrEns: 'ETH address or ENS',
-        // Strings.invalidAddress: 'Invalid address',
+        Strings.enjoy: 'Насолоджуйтесь життям з POAP',
+        Strings.setAddress:
+            'Встановіть свою адресу і ви побачите свої POAP на домашній сторінці',
+        Strings.setEthAddress: 'Встановити адресу ETH',
+        Strings.ethAddressOrEns: 'ETH адреса або ENS',
+        Strings.invalidAddress: 'Недійсна адреса',
 
         /// Home(empty)
-        // Strings.noPOAP:
-        //     'You don\'t appear to have any POAP right now.\nBut it\'s not too late!\n\nBegin learning about POAP by creating a POAP.',
+        Strings.noPOAP:
+            'Здається, у вас зараз немає жодного POAP.\nАле ще не пізно!\n\nПочніть дізнаватися про POAP, створивши POAP.',
 
         /// Home(available)
-        // Strings.followers: 'followers',
-        // Strings.followings: 'followings',
-        // Strings.events: 'Events',
-        // Strings.poaps: 'POAPs',
-        // Strings.growth: 'growth',
-        // Strings.monthly: 'monthly',
-        // Strings.filterHint: 'Filter by name, description, location, etc.',
-        // --- Prefs
-        // Strings.visibility: 'Visibility',
-        // Strings.hideDuplicates: 'Hide Duplicates',
-        // Strings.showAll: 'Show all',
-        // Strings.sort: 'Sort',
-        // Strings.newest: 'Newest',
-        // Strings.oldest: 'Oldest',
-        // Strings.shape: 'Shape',
-        // Strings.square: 'Square',
-        // Strings.round: 'Round',
-        // Strings.layout: 'Layout',
-        // Strings.grid: 'Grid',
-        // Strings.list: 'List',
-        // Strings.timeline: 'Timeline',
-        // --- Filter
-        // Strings.filter: 'Filter',
-        // Strings.filterTitle: 'Title',
-        // Strings.filterDescription: 'Description',
-        // Strings.filterCountry: 'Country',
-        // Strings.filterTag: 'Tag',
-        // Strings.filterChain: 'Chain',
-        // Strings.filterClearAll: 'Clear ALL',
+        Strings.followers: 'підписники',
+        Strings.followings: 'слідує',
+        Strings.events: 'Події',
+        Strings.poaps: 'POAPs',
+        Strings.growth: 'рост',
+        Strings.monthly: 'щомісяця',
+        Strings.filterHint: 'Фільтруйте за назвою, описом, місцем тощо.',
+        Strings.visibility: 'Видимість',
+        Strings.hideDuplicates: 'Приховати дублікати',
+        Strings.showAll: 'Показати все',
+        Strings.sort: 'Сортувати',
+        Strings.newest: 'Найновіші',
+        Strings.oldest: 'Найстаріші',
+        Strings.shape: 'Форма',
+        Strings.square: 'Квадрат',
+        Strings.round: 'Круг',
+        Strings.layout: 'Макет',
+        Strings.grid: 'Сітка',
+        Strings.list: 'Список',
+        Strings.timeline: 'Хронологія',
+        Strings.filter: 'Фільтр',
+        Strings.filterTitle: 'Назва',
+        Strings.filterDescription: 'Опис',
+        Strings.filterCountry: 'Країна',
+        Strings.filterTag: 'Тег',
+        Strings.filterChain: 'Ланцюг',
+        Strings.filterClearAll: 'Очистити все',
 
         /// Home(edit mode)
-        // Strings.editMode: 'Edit POAPs',
-        // Strings.editTags: 'Edit tags',
-        // Strings.newTag: 'New Tag',
-        // Strings.newTagHint: 'new tag for event',
+        Strings.editMode: 'Редагувати POAPs',
+        Strings.editTags: 'Редагувати теги',
+        Strings.newTag: 'Новий тег',
+        Strings.newTagHint: 'новий тег для події',
 
         /// Moments
-        // Strings.momentsDesc: '''Your POAP collection is your digital ID.
-        //
-        // It shows the world who you are: where you’ve been, what you achieved and who you’ve met.
-        //
-        // Moments is a way to add real value to your digital bookmark by saving real-life instances in a POAP, forever.
-        // ''',
-        //Strings.uploadMoments: 'Upload moments on welook.io',
+        Strings.momentsDesc: '''Ваша колекція POAP - це ваша цифрова ID.
+
+        Вона показує світові, хто ви: де ви були, що ви досягли та кого ви зустріли.
+
+        Moments - це спосіб додати справжнє значення до вашої цифрової закладки, зберігаючи реальні випадки в POAP назавжди.
+        ''',
+        Strings.uploadMoments: 'Завантажте моменти на welook.io',
 
         /// GitPOAP
-        // Strings.gitPOAPDesc:
-        //             '''A GitPOAP is a regular POAP (with an extra spin) that is minted through the GitPOAP platform for specified meaningful contribution to open source projects. Repo owners automatically distribute GitPOAPs to their contributors as recognition of their work.
-        // ''',
-        // Strings.gitPOAPStart: 'Contribute to POAPin',
+        Strings.gitPOAPDesc:
+            '''GitPOAP - це звичайний POAP (з додатковим обертом), який відбивається через платформу GitPOAP для визначеного значущого внеску в відкриті джерела проектів. Власники Repo автоматично розподіляють GitPOAP між своїми учасниками як визнання їхньої роботи.
+        ''',
+        Strings.gitPOAPStart: 'Внесіть внесок до POAPin',
 
         /// Watchlist(Initial state)
-        // Strings.watchlistHint:
-        //     'You can add some addresses you are interested in here.',
-        // Strings.addCollection: 'Add your first collection',
+        Strings.watchlistHint:
+            'Ви можете додати декілька адрес, які вас цікавлять, тут.',
+        Strings.addCollection: 'Додати свою першу колекцію',
 
         /// Watchlist(available)
-        // Strings.follow: 'Follow',
-        // Strings.unfollow: 'Unfollow',
+        Strings.follow: 'Слідкуйте',
+        Strings.unfollow: 'Відписатись',
 
         /// Me
-        // Strings.connectWalletHint: 'Sign in with browser & connect wallet.',
+        Strings.connectWalletHint:
+            'Увійдіть у систему з браузера та підключіть гаманець.',
 
         /// Profile
-        // Strings.profile: 'Profile',
-        // Strings.dangerZone: 'Danger Zone',
-        // Strings.deleteAccount: 'Delete account',
-        // Strings.deleteAccountDesc:
-        //     'Are you certain you want to delete your account?\n\nThis operation cannot be undone.',
-        // Strings.deleteAccountConfirm: 'Delete',
+        Strings.profile: 'Профіль',
+        Strings.dangerZone: 'Небезпечна зона',
+        Strings.deleteAccount: 'Видалити акаунт',
+        Strings.deleteAccountDesc:
+            'Ви впевнені, що хочете видалити свій акаунт?\n\nЦю операцію не можна скасувати.',
+        Strings.deleteAccountConfirm: 'Видалити',
 
         /// Tags
-        // Strings.tags: 'Tags',
-        // Strings.manageTags: 'Manage your tags',
-        // Strings.noTags: 'No tags yet',
-        // Strings.addTag: 'New Tag',
-        // Strings.editTagHint: 'choose from above\nor',
+        Strings.tags: 'Теги',
+        Strings.manageTags: 'Управляйте своїми тегами',
+        Strings.noTags: 'Тегів ще немає',
+        Strings.addTag: 'Новий тег',
+        Strings.editTagHint: 'виберіть зверху\nабо',
 
         /// Settings
-        // Strings.settings: 'Settings',
-        // Strings.settingsDesc: 'Notifications, data, etc.',
-        // Strings.notification: 'Notification',
-        // Strings.notificationEmail: 'Email',
-        // Strings.notificationEmailDesc: 'Get email notifications',
-        // Strings.notificationApp: 'App',
-        // Strings.notificationAppDesc: 'Get app notifications',
-        // Strings.notificationAppThisDevice: 'This device',
-        // Strings.notificationAppDescMore: 'Get app notifications',
-        // Strings.notificationBrowser: 'Browser',
-        // Strings.notificationBrowserDesc: 'Get browser notifications',
-        // Strings.notificationPush: 'Push',
-        // Strings.notificationPushDesc: 'Get push notifications',
-        // Strings.general: 'General',
-        // Strings.language: 'Language',
-        // Strings.contributeLanguage: '🙇 Contribute more translations 🔗',
-        // Strings.data: 'General',
-        // Strings.cache: 'Clear all cache',
-        // Strings.cacheDesc: 'If there are problems with app, please try it.',
-        // Strings.about: 'About',
+        Strings.settings: 'Налаштування',
+        Strings.settingsDesc: 'Сповіщення, дані, тощо.',
+        Strings.notification: 'Сповіщення',
+        Strings.notificationEmail: 'Електронна пошта',
+        Strings.notificationEmailDesc:
+            'Отримуйте сповіщення електронною поштою',
+        Strings.notificationApp: 'Додаток',
+        Strings.notificationAppDesc: 'Отримуйте сповіщення в додатку',
+        Strings.notificationAppThisDevice: 'Цей пристрій',
+        Strings.notificationAppDescMore: 'Отримуйте сповіщення в додатку',
+        Strings.notificationBrowser: 'Браузер',
+        Strings.notificationBrowserDesc: 'Отримуйте сповіщення в браузері',
+        Strings.notificationPush: 'Push',
+        Strings.notificationPushDesc: 'Отримуйте push сповіщення',
+        Strings.general: 'Загальні',
+        Strings.language: 'Мова',
+        Strings.contributeLanguage: '🙇 Внесіть більше перекладів 🔗',
+        Strings.data: 'Загальні',
+        Strings.cache: 'Очистити весь кеш',
+        Strings.cacheDesc: 'Якщо у вас є проблеми з додатком, спробуйте це.',
+        Strings.about: 'Про додаток',
 
         /// Account
-        // Strings.signIn: 'Sign in',
-        // Strings.logOut: 'Log out',
-        // Strings.signinApple: 'Sign in with Apple',
-        // Strings.signinGoogle: 'Continue with Google',
-        // Strings.tos:
-        //     'By continuing, you agree to our Terms of Service and Privacy Policy',
+        Strings.signIn: 'Увійти',
+        Strings.logOut: 'Вийти',
+        Strings.signinApple: 'Увійти через Apple',
+        Strings.signinGoogle: 'Продовжити з Google',
+        Strings.tos:
+            'Продовжуючи, ви погоджуєтесь з нашими Умовами обслуговування та Політикою конфіденційності',
 
         /// Common
-        // Strings.done: 'Done',
-        // Strings.alert: 'Alert',
-        // Strings.error: 'Error',
-        // Strings.learnMore: 'learn more',
-        // --- Months
-        // Strings.january: 'January',
-        // Strings.february: 'February',
-        // Strings.march: 'March',
-        // Strings.april: 'April',
-        // Strings.may: 'May',
-        // Strings.june: 'June',
-        // Strings.july: 'July',
-        // Strings.august: 'August',
-        // Strings.september: 'September',
-        // Strings.october: 'October',
-        // Strings.november: 'November',
-        // Strings.december: 'December',
+        Strings.done: 'Готово',
+        Strings.alert: 'Сповіщення',
+        Strings.error: 'Помилка',
+        Strings.learnMore: 'дізнатися більше',
+
+        /// Months
+        Strings.january: 'Січень',
+        Strings.february: 'Лютий',
+        Strings.march: 'Березень',
+        Strings.april: 'Квітень',
+        Strings.may: 'Травень',
+        Strings.june: 'Червень',
+        Strings.july: 'Липень',
+        Strings.august: 'Серпень',
+        Strings.september: 'Вересень',
+        Strings.october: 'Жовтень',
+        Strings.november: 'Листопад',
+        Strings.december: 'Грудень',
       };
 }
