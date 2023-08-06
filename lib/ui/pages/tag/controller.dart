@@ -299,8 +299,8 @@ class TagDetailController extends BaseController {
 
                     await imagePath!.writeAsBytes(image);
 
-                    await Share.shareFiles([imagePath!.path],
-                        mimeTypes: ['image/png']);
+                    await Share.shareXFiles(
+                        [XFile(imagePath!.path, mimeType: 'image/png')]);
                   },
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(16))),

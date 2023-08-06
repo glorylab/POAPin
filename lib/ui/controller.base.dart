@@ -57,8 +57,15 @@ abstract class BaseController extends GetxController {
         snackPosition: SnackPosition.BOTTOM));
   }
 
-  void launchURL(String url) async {
-    if (!await launch(url, forceSafariVC: false, forceWebView: false)) {
+  void launchURL(String host, String path) async {
+    if (!await launchUrl(Uri(host: host, path: path, scheme: 'https'),
+        mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $host';
+    }
+  }
+
+  void launchDynamicURL(String url) async {
+    if (!await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $url';
     }
   }
@@ -79,6 +86,7 @@ abstract class BaseController extends GetxController {
   }
 
   late Ens ens;
+
   Future<bool> saveAccount(String address) async {
     if (VerificationHelper.isETH(address) ||
         VerificationHelper.isENS(address)) {

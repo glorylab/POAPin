@@ -164,6 +164,7 @@ class ConnectWalletCard extends StatelessWidget {
 
   const ConnectWalletCard({Key? key, required this.horizontalPadding})
       : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<UserController>(
@@ -180,7 +181,7 @@ class ConnectWalletCard extends StatelessWidget {
                     EdgeInsets.symmetric(horizontal: horizontalPadding + 16),
                 child: RawMaterialButton(
                   onPressed: () {
-                    c.launchURL('https://poap.in/profile');
+                    c.launchURL('poap.in', 'profile');
                   },
                   child: Container(
                       height: 40,
@@ -234,6 +235,7 @@ class ProfileCard extends StatelessWidget {
 
   const ProfileCard({Key? key, required this.horizontalPadding})
       : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -361,6 +363,7 @@ class VerifiedBadge extends StatelessWidget {
   final bool isVerified;
 
   const VerifiedBadge({Key? key, required this.isVerified}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -418,6 +421,7 @@ class MeItem extends StatelessWidget {
       required this.icon,
       required this.onTap})
       : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
@@ -482,6 +486,7 @@ class MeAuthItem extends StatelessWidget {
       required this.onTap,
       this.isSignIn = false})
       : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(

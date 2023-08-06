@@ -47,24 +47,24 @@ class SettingController extends BaseController {
   }
 
   void launchTwitter() {
-    launchURL('https://twitter.com/glorylaboratory');
+    launchURL('twitter.com', 'glorylaboratory');
   }
 
   void launchMirror() {
-    launchURL('https://mirror.xyz/glorylab.eth');
+    launchURL('mirror.xyz', 'glorylab.eth');
   }
 
   void launchGitHub() {
-    launchURL('https://github.com/glorylab/POAPin');
+    launchURL('github.com', 'glorylab/POAPin');
   }
 
   void launchGitHubContributingTranslationGuide() {
-    launchURL(
-        'https://github.com/glorylab/POAPin/blob/master/CONTRIBUTING.md#internationalization');
+    launchURL('github.com',
+        'glorylab/POAPin/blob/master/CONTRIBUTING.md#internationalization');
   }
 
   void launchPOAPin() {
-    launchURL('https://poap.in');
+    launchURL('poap.in', '');
   }
 
   @override

@@ -55,7 +55,7 @@ class MomentsCardController extends BaseController {
   }
 
   void launchWelook(String address) {
-    launchURL('https://welook.io/$address/poap');
+    launchURL('welook.io', '$address/poap');
   }
 
   @override

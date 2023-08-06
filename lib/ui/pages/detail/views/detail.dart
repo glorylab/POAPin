@@ -49,11 +49,11 @@ class DetailView extends StatelessWidget {
             return;
           }
           if (controller.token.value.layer == "Layer2") {
-            controller.launchURL(
-                'https://blockscout.com/xdai/mainnet/token/0x22c1f6050e56d2876009903609a2cc3fef83b415/instance/$id/token-transfers');
+            controller.launchURL('blockscout.com',
+                'xdai/mainnet/token/0x22c1f6050e56d2876009903609a2cc3fef83b415/instance/$id/token-transfers');
           } else {
-            controller.launchURL(
-                'https://etherscan.io/nft/0x22c1f6050e56d2876009903609a2cc3fef83b415/$id');
+            controller.launchURL('etherscan.io',
+                'nft/0x22c1f6050e56d2876009903609a2cc3fef83b415/$id');
           }
         },
         child: Container(
@@ -89,11 +89,11 @@ class DetailView extends StatelessWidget {
             return;
           }
           if (c.token.value.layer == "Layer2") {
-            c.launchURL(
-                'https://blockscout.com/xdai/mainnet/address/$owner/tokens/0x22c1f6050e56d2876009903609a2cc3fef83b415/token-transfers');
+            c.launchURL('blockscout.com',
+                'xdai/mainnet/address/$owner/tokens/0x22c1f6050e56d2876009903609a2cc3fef83b415/token-transfers');
           } else {
-            c.launchURL(
-                'https://etherscan.io/token/0x22c1f6050e56d2876009903609a2cc3fef83b415?a=$owner');
+            c.launchURL('etherscan.io',
+                'token/0x22c1f6050e56d2876009903609a2cc3fef83b415?a=$owner');
           }
         },
         onLongPress: () {

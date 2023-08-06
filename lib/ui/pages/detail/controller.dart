@@ -119,6 +119,7 @@ class DetailController extends BaseController {
   //Create an instance of ScreenshotController
   ScreenshotController screenshotController = ScreenshotController();
   File? imagePath;
+
   Future share() {
     return screenshotController.capture().then((image) async {
       if (image != null) {
@@ -126,7 +127,8 @@ class DetailController extends BaseController {
         imagePath = await File('${directory.path}/image.png').create();
       }
       await imagePath!.writeAsBytes(image!);
-      await Share.shareFiles([imagePath!.path], mimeTypes: ['image/png']);
+      await Share.shareXFiles([XFile(imagePath!.path, mimeType: 'image/png')],
+          text: 'POAPIN');
       return;
     });
   }
@@ -201,13 +203,13 @@ class DetailController extends BaseController {
 
   void launchGitPOAP(int gitPOAPID) {
     if (gitPOAPID > 0) {
-      launchURL('https://www.gitpoap.io/gp/$gitPOAPID');
+      launchURL('www.gitpoap.io/', 'gp/$gitPOAPID');
     }
   }
 
   void launchWelook(int eventID) {
     if (eventID > 0) {
-      launchURL('https://welook.io/moments/$eventID');
+      launchURL('welook.io', 'moments/$eventID');
     }
   }
 

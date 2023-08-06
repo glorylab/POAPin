@@ -125,7 +125,7 @@ class SocialCardController extends BaseController {
   }
 
   void launchPOAP() {
-    launchURL('https://poap.xyz/');
+    launchURL('poap.xyz', '');
   }
 
   @override

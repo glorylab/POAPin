@@ -174,7 +174,7 @@ class EventDetailController extends BaseController {
   }
 
   void launchWelook(int eventID) {
-    launchURL('https://welook.io/moments/$eventID');
+    launchURL('welook.io', 'moments/$eventID');
   }
 
   /// Moments ---------------------------------------------------------------End
@@ -201,6 +201,7 @@ class EventDetailController extends BaseController {
   //Create an instance of ScreenshotController
   ScreenshotController screenshotController = ScreenshotController();
   File? imagePath;
+
   Future share() {
     return screenshotController.capture().then((image) async {
       if (image != null) {
@@ -208,7 +209,7 @@ class EventDetailController extends BaseController {
         imagePath = await File('${directory.path}/image.png').create();
       }
       await imagePath!.writeAsBytes(image!);
-      await Share.shareFiles([imagePath!.path], mimeTypes: ['image/png']);
+      await Share.shareXFiles([XFile(imagePath!.path, mimeType: 'image/png')]);
       return;
     });
   }

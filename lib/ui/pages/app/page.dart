@@ -72,8 +72,8 @@ class APPPage extends BasePage<APPController> {
                                   borderRadius: BorderRadius.circular(8)),
                               fillColor: const Color(0xFF01875f),
                               onPressed: () {
-                                controller.launchURL(
-                                    'https://play.google.com/store/apps/details?id=in.poap');
+                                controller.launchURL('play.google.com',
+                                    'store/apps/details?id=in.poap');
                               },
                               child: Container(
                                 alignment: Alignment.centerLeft,
@@ -131,7 +131,7 @@ class APPPage extends BasePage<APPController> {
                               fillColor: const Color(0xFF24cd77),
                               onPressed: () {
                                 controller.launchURL(
-                                    'https://apkpure.com/poapin/in.poap');
+                                    'apkpure.com', 'poapin/in.poap');
                               },
                               child: Container(
                                 alignment: Alignment.centerLeft,
@@ -193,7 +193,7 @@ class APPPage extends BasePage<APPController> {
                         fillColor: const Color(0xFF2997ff),
                         onPressed: () {
                           controller.launchURL(
-                              'https://testflight.apple.com/join/OqNzJ9UJ');
+                              'testflight.apple.com', 'join/OqNzJ9UJ');
                         },
                         child: Container(
                           alignment: Alignment.centerLeft,

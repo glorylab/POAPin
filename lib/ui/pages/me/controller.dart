@@ -210,7 +210,7 @@ class MeController extends BaseController {
                       hoverElevation: 0,
                       highlightElevation: 0,
                       onPressed: () {
-                        launchURL(link);
+                        launchDynamicURL(link);
                       },
                       child: Text(
                         'visit',

@@ -99,7 +99,7 @@ class AuthPage extends BasePage<AuthController> {
             ),
             child: RawMaterialButton(
               onPressed: () {
-                controller.launchURL('https://api.poap.in/privacy');
+                controller.launchURL('api.poap.in', 'privacy');
               },
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -137,6 +137,7 @@ class AuthButton extends StatelessWidget {
     required this.isLoading,
     this.logoAsset = '',
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(

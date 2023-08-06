@@ -81,7 +81,7 @@ class GitPOAPsController extends BaseController {
   }
 
   launchGitHubOrg(String org) {
-    launchURL('https://github.com/$org');
+    launchURL('github.com', org);
   }
 
   toggleIsExpanded() {

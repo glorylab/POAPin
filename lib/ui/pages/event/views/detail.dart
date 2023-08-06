@@ -182,7 +182,7 @@ class DetailView extends StatelessWidget {
               elevation: 8,
               child: InkWell(
                 onTap: () {
-                  controller.launchURL(controller.event.eventUrl!);
+                  controller.launchDynamicURL(controller.event.eventUrl!);
                 },
                 onLongPress: () {
                   controller.copy(controller.event.eventUrl!);
