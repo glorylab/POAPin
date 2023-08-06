@@ -251,9 +251,7 @@ class MeController extends BaseController {
 
   String getSimpleAddress(String address) {
     if (address.length > 18) {
-      return address.substring(0, 10) +
-          '...' +
-          address.substring(address.length - 4);
+      return '${address.substring(0, 10)}...${address.substring(address.length - 4)}';
     }
     return address;
   }

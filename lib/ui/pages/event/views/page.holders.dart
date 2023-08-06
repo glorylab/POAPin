@@ -75,8 +75,6 @@ class HoldersInEventPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    int crossAxisCount = (screenWidth / 200).floor();
     double safePaddingLeft = MediaQuery.of(context).padding.left;
     double safePaddingRight = MediaQuery.of(context).padding.right;
     return Container(
@@ -178,7 +176,7 @@ class NumberIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 24,
       height: 32,
       child: Column(

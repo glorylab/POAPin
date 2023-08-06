@@ -184,13 +184,13 @@ class FilterLine extends StatelessWidget {
             width: 88,
             height: 56,
             alignment: Alignment.centerRight,
+            margin: const EdgeInsets.only(left: 8, right: 8),
             child: Text(
               title,
               style: GoogleFonts.epilogue(
                 color: Colors.black54,
               ),
             ),
-            margin: const EdgeInsets.only(left: 8, right: 8),
           ),
           Expanded(
             child: Stack(
@@ -262,13 +262,13 @@ class FilterInputLine extends StatelessWidget {
             width: 88,
             height: 56,
             alignment: Alignment.centerRight,
+            margin: const EdgeInsets.only(left: 8, right: 8),
             child: Text(
               title,
               style: GoogleFonts.epilogue(
                 color: Colors.black54,
               ),
             ),
-            margin: const EdgeInsets.only(left: 8, right: 8),
           ),
           Expanded(
             child: Stack(

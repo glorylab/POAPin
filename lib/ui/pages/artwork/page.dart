@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:poapin/ui/page.base.transparent.dart';
 import 'package:poapin/ui/pages/artwork/controller.dart';
-import 'package:poapin/ui/pages/event/controller.dart';
 
 class ArtworkPage extends BaseTransparentPage<ArtworkController> {
   const ArtworkPage({Key? key, required this.imageUrl}) : super(key: key);
@@ -83,13 +82,13 @@ class BottomSheet extends StatelessWidget {
                   },
                   elevation: 1.0,
                   fillColor: Colors.white12,
+                  padding: const EdgeInsets.all(24.0),
+                  shape: const CircleBorder(),
                   child: const Icon(
                     Icons.download_rounded,
                     size: 24.0,
                     color: Colors.white,
                   ),
-                  padding: const EdgeInsets.all(24.0),
-                  shape: const CircleBorder(),
                 ),
                 const SizedBox(width: 16),
               ],

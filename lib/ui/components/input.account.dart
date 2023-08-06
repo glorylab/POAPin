@@ -154,7 +154,7 @@ class InputShortcuts extends StatelessWidget {
                   height: 56,
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Text('test'),
+                  child: const Text('...'),
                 ),
               ),
             );

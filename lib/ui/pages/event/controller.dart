@@ -1,11 +1,8 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:image_downloader/image_downloader.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:palette_generator/palette_generator.dart';
 import 'package:path_provider/path_provider.dart';
@@ -116,9 +113,7 @@ class EventDetailController extends BaseController {
 
   String getSimpleAddress(String address) {
     if (address.length > 18) {
-      return address.substring(0, 10) +
-          '...' +
-          address.substring(address.length - 4);
+      return '${address.substring(0, 10)}...${address.substring(address.length - 4)}';
     }
     return address;
   }

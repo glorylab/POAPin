@@ -54,6 +54,7 @@ class WelcomeView extends StatelessWidget {
       required this.watchlistController,
       required this.horizontalPadding})
       : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -184,6 +185,7 @@ class IndexHomeView extends StatelessWidget {
 
   const IndexHomeView({Key? key, required this.watchlistController})
       : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<WatchlistController>(builder: (c) {
@@ -380,9 +382,7 @@ class IndexHomeView extends StatelessWidget {
 
 String getSimpleAddress(String address) {
   if (address.length > 14) {
-    return address.substring(0, 6) +
-        '...' +
-        address.substring(address.length - 4);
+    return '${address.substring(0, 6)}...${address.substring(address.length - 4)}';
   }
   return address;
 }
@@ -773,6 +773,7 @@ class _TimelineItem extends StatelessWidget {
   final Token token;
 
   const _TimelineItem({Key? key, required this.token}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<WatchlistController>(

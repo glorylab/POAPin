@@ -206,16 +206,21 @@ class MyApp extends StatelessWidget {
       },
       unknownRoute: AppPages.unknownRoute,
       defaultTransition: kIsWeb ? Transition.topLevel : Transition.native,
-      translations: LocaleString(), // Translations
-      locale: _getLocale(), // translations will be displayed in that locale
+      translations: LocaleString(),
+      // Translations
+      locale: _getLocale(),
+      // translations will be displayed in that locale
       fallbackLocale: const Locale(
         'en',
         'US',
-      ), // specify the fallback locale in case an invalid locale is selected.
+      ),
+      // specify the fallback locale in case an invalid locale is selected.
       title: 'POAPin',
       theme: ThemeData(
-        colorSchemeSeed: const Color(0xFF6534FF),
-        backgroundColor: PColor.background,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF6534FF),
+          background: PColor.background,
+        ),
         scaffoldBackgroundColor: PColor.background,
         iconTheme: const IconThemeData(
           color: Color(0xFFFF8934),

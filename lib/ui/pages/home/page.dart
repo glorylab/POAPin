@@ -14,7 +14,6 @@ import 'package:poapin/ui/pages/home/components/appbar.general.dart';
 import 'package:poapin/ui/pages/home/components/button.set_eth_address.dart';
 import 'package:poapin/ui/pages/home/components/card.dart';
 import 'package:poapin/ui/pages/home/components/fab.edit.dart';
-import 'package:poapin/ui/pages/home/components/tags.filter.dart';
 import 'package:poapin/ui/pages/home/components/view.island.dart';
 import 'package:poapin/ui/pages/home/components/view.month.dart';
 import 'package:poapin/ui/pages/home/components/view.options.dart';

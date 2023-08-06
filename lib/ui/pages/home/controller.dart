@@ -175,7 +175,7 @@ class HomeController extends BaseController {
   }
 
   setIsIslandLive(bool isLive) {
-    this.isIslandLive = isLive;
+    isIslandLive = isLive;
     update();
   }
 

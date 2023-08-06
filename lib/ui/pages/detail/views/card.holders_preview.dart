@@ -16,8 +16,8 @@ class HoldersPreviewCard extends StatelessWidget {
           height: 56,
           alignment: Alignment.topCenter,
           margin: const EdgeInsets.only(left: 8, right: 8, bottom: 16),
-          child: Stack(
-            children: const [
+          child: const Stack(
+            children: [
               HoldersContent(),
               HoldersHeader(),
               Positioned(
@@ -104,6 +104,7 @@ class HolderItem extends StatelessWidget {
   final Holder holder;
 
   const HolderItem({Key? key, required this.holder}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<DetailController>(
@@ -378,9 +379,9 @@ class More extends StatelessWidget {
               stops: [0.0, 0.4],
             ),
           ),
-          child: Row(
+          child: const Row(
             mainAxisSize: MainAxisSize.min,
-            children: const [
+            children: [
               SizedBox(width: 32),
               ForwardIcon(),
               SizedBox(width: 8),

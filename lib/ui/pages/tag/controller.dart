@@ -215,6 +215,8 @@ class TagDetailController extends BaseController {
                   child: Image.asset('assets/common/poap_bottom.png'),
                 ),
                 Positioned(
+                    right: 8,
+                    bottom: 4,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
@@ -269,9 +271,7 @@ class TagDetailController extends BaseController {
                           ],
                         )
                       ],
-                    ),
-                    right: 8,
-                    bottom: 4),
+                    )),
               ],
             ),
           ],

@@ -121,7 +121,7 @@ class SquarePage extends BasePage {
                     child: InkWell(
                       onTap: () {
                         Get.toNamed(
-                          '/event/' + c.events[index - 1].id.toString(),
+                          '/event/${c.events[index - 1].id}',
                           arguments: {
                             'event': c.events[index - 1],
                           },

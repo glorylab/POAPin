@@ -34,6 +34,7 @@ class NotFoundPage extends BasePage<NotFoundController> {
                   onPressed: () {
                     Get.toNamed("/dashboard");
                   },
+                  shape: const StadiumBorder(),
                   child: Container(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 16.0, vertical: 8.0),
@@ -45,7 +46,6 @@ class NotFoundPage extends BasePage<NotFoundController> {
                       ),
                     ),
                   ),
-                  shape: const StadiumBorder(),
                 ),
               ),
             ),

@@ -43,6 +43,7 @@ class _HorizontalView extends StatelessWidget {
   final EventDetailController controller;
 
   const _HorizontalView({Key? key, required this.controller}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -159,6 +160,7 @@ class _VerticalView extends StatelessWidget {
   final EventDetailController controller;
 
   const _VerticalView({Key? key, required this.controller}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Obx(
@@ -232,63 +234,60 @@ class _VerticalView extends StatelessWidget {
                           right: 0,
                           top: GetPlatform.isWeb ? 56 : 0,
                           bottom: 0,
-                          child: Container(
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: 56,
-                                  child: RawMaterialButton(
-                                    onPressed: () {
-                                      Get.back();
-                                    },
-                                    child: const IgnorePointer(
-                                      child: GoBackButton(),
-                                    ),
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 56,
+                                child: RawMaterialButton(
+                                  onPressed: () {
+                                    Get.back();
+                                  },
+                                  child: const IgnorePointer(
+                                    child: GoBackButton(),
                                   ),
                                 ),
-                                Expanded(
-                                  child: GetBuilder<EventDetailController>(
-                                    builder: (c) => Container(
-                                      margin: EdgeInsets.only(
-                                          top: MediaQuery.of(context)
-                                                  .padding
-                                                  .top +
-                                              16,
-                                          bottom: 16),
-                                      child: Material(
-                                        shape: c.isRound
-                                            ? const CircleBorder()
-                                            : const RoundedRectangleBorder(),
-                                        clipBehavior: Clip.antiAlias,
-                                        color: Colors.transparent,
-                                        child: InkWell(
-                                          onTap: () =>
-                                              context.pushTransparentRoute(
-                                            ArtworkPage(
-                                              imageUrl: c.event.imageUrl,
-                                            ),
+                              ),
+                              Expanded(
+                                child: GetBuilder<EventDetailController>(
+                                  builder: (c) => Container(
+                                    margin: EdgeInsets.only(
+                                        top:
+                                            MediaQuery.of(context).padding.top +
+                                                16,
+                                        bottom: 16),
+                                    child: Material(
+                                      shape: c.isRound
+                                          ? const CircleBorder()
+                                          : const RoundedRectangleBorder(),
+                                      clipBehavior: Clip.antiAlias,
+                                      color: Colors.transparent,
+                                      child: InkWell(
+                                        onTap: () =>
+                                            context.pushTransparentRoute(
+                                          ArtworkPage(
+                                            imageUrl: c.event.imageUrl,
                                           ),
-                                          child: Hero(
-                                            tag: c.event.imageUrl,
-                                            child: ExtendedImage.network(
-                                              controller.event.imageUrl,
-                                              fit: BoxFit.scaleDown,
-                                              cache: true,
-                                              shape: c.isRound
-                                                  ? BoxShape.circle
-                                                  : BoxShape.rectangle,
-                                            ),
+                                        ),
+                                        child: Hero(
+                                          tag: c.event.imageUrl,
+                                          child: ExtendedImage.network(
+                                            controller.event.imageUrl,
+                                            fit: BoxFit.scaleDown,
+                                            cache: true,
+                                            shape: c.isRound
+                                                ? BoxShape.circle
+                                                : BoxShape.rectangle,
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
-                                const SizedBox(
-                                  width: 56,
-                                ),
-                              ],
-                            ),
+                              ),
+                              const SizedBox(
+                                width: 56,
+                              ),
+                            ],
                           ),
                         ),
                       ])

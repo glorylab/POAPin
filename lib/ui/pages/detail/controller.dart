@@ -92,18 +92,14 @@ class DetailController extends BaseController {
 
   String getSimpleAddress(String address) {
     if (address.length > 18) {
-      return address.substring(0, 10) +
-          '...' +
-          address.substring(address.length - 4);
+      return '${address.substring(0, 10)}...${address.substring(address.length - 4)}';
     }
     return address;
   }
 
   String getTinyAddress(String address) {
     if (address.length > 18) {
-      return address.substring(0, 6) +
-          '...' +
-          address.substring(address.length - 2);
+      return '${address.substring(0, 6)}...${address.substring(address.length - 2)}';
     }
     return address;
   }

@@ -15,7 +15,6 @@ import 'package:poapin/ui/pages/home/components/filter/view.hint.dart';
 import 'package:poapin/ui/pages/home/components/tags.filter.dart';
 import 'package:poapin/ui/pages/home/controller.dart';
 import 'package:poapin/ui/pages/home/controllers/island.dart';
-import 'package:poapin/ui/pages/profile/controller.dart';
 import 'package:poapin/ui/pages/watchlist/controller.dart';
 import 'package:poapin/util/show_input.dart';
 
@@ -69,10 +68,10 @@ class DynamicIslandView extends StatelessWidget {
               child: Container(
                 height: getHeight(progress, c.isIslandInit, context),
                 margin: const EdgeInsets.only(top: 2, left: 3, right: 3),
-                child: Align(
+                child: const Align(
                   alignment: Alignment.topCenter,
                   child: Column(
-                    children: const [
+                    children: [
                       IslandHeader(),
                       Expanded(
                         child: IslandBody(),

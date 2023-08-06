@@ -84,14 +84,14 @@ class BottomSheet extends StatelessWidget {
                   },
                   elevation: 1.0,
                   fillColor: Colors.white12,
+                  padding: const EdgeInsets.all(12.0),
+                  shape: const CircleBorder(),
                   child: Image.asset(
                     'icons/ic_poap.png',
                     package: 'web3_icons',
                     height: 48,
                     width: 48,
                   ),
-                  padding: const EdgeInsets.all(12.0),
-                  shape: const CircleBorder(),
                 ),
                 Expanded(
                   child: Container(
@@ -112,13 +112,13 @@ class BottomSheet extends StatelessWidget {
                   },
                   elevation: 1.0,
                   fillColor: Colors.white12,
+                  padding: const EdgeInsets.all(24.0),
+                  shape: const CircleBorder(),
                   child: const Icon(
                     Icons.download_rounded,
                     size: 24.0,
                     color: Colors.white,
                   ),
-                  padding: const EdgeInsets.all(24.0),
-                  shape: const CircleBorder(),
                 ),
                 const SizedBox(width: 16),
               ],

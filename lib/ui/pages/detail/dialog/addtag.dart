@@ -12,6 +12,7 @@ import 'package:poapin/util/show_input.dart';
 class AddTagDialog extends StatelessWidget {
   final List<Event> events;
   final TextEditingController textEditController;
+
   const AddTagDialog({
     Key? key,
     required this.events,
@@ -29,7 +30,7 @@ class AddTagDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List _buildDivider(TagController c) {
+    List buildDivider(TagController c) {
       return c.allTags.isEmpty
           ? []
           : [
@@ -66,7 +67,7 @@ class AddTagDialog extends StatelessWidget {
             ];
     }
 
-    List _buildTags(TagController c, List<Event> events) {
+    List buildTags(TagController c, List<Event> events) {
       return c.allTags.isEmpty
           ? []
           : c.allTags
@@ -149,8 +150,8 @@ class AddTagDialog extends StatelessWidget {
                       ]),
                 ),
               ),
-              ..._buildTags(c, events),
-              ..._buildDivider(c),
+              ...buildTags(c, events),
+              ...buildDivider(c),
               Container(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -177,9 +178,9 @@ class AddTagDialog extends StatelessWidget {
                         context, strNewTagHint, textEditController, () {
                       if (textEditController.text.isNotEmpty) {
                         /// Add tag
-                        Box _tagBox = Hive.box<Tag>(tagBox);
+                        Box boxTagBox = Hive.box<Tag>(tagBox);
                         bool isSameName = false;
-                        for (var tag in _tagBox.values) {
+                        for (var tag in boxTagBox.values) {
                           if (tag.name == textEditController.text) {
                             isSameName = true;
                           }
@@ -190,13 +191,13 @@ class AddTagDialog extends StatelessWidget {
 
                         Tag newTag = Tag.create(textEditController.text);
 
-                        _tagBox.put(newTag.id, newTag);
+                        boxTagBox.put(newTag.id, newTag);
 
                         /// Add tag to events
-                        Box _eventBox = Hive.box<Event>(eventBox);
+                        Box boxEventBox = Hive.box<Event>(eventBox);
 
                         for (var event in events) {
-                          Event _event = _eventBox.get(event.id,
+                          Event _event = boxEventBox.get(event.id,
                               defaultValue: Event.empty());
 
                           List<Tag> tags = _event.tags ?? [];
@@ -204,9 +205,9 @@ class AddTagDialog extends StatelessWidget {
                           _event.tags = tags;
 
                           if (_event.id == 0) {
-                            _eventBox.put(event.id, event);
+                            boxEventBox.put(event.id, event);
                           } else {
-                            _eventBox.put(event.id, _event);
+                            boxEventBox.put(event.id, _event);
                           }
                         }
 

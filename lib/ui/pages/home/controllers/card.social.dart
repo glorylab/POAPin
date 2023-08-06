@@ -107,9 +107,7 @@ class SocialCardController extends BaseController {
       return address;
     }
     if (address.length > 18) {
-      return checksumEthereumAddress(address).substring(0, 10) +
-          '...' +
-          address.substring(address.length - 4);
+      return '${checksumEthereumAddress(address).substring(0, 10)}...${address.substring(address.length - 4)}';
     }
     return address;
   }

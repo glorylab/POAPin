@@ -7,7 +7,6 @@ import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/pages/dashboard/controller.dart';
 import 'package:poapin/ui/pages/home/page.dart';
 import 'package:poapin/ui/pages/me/page.dart';
-import 'package:poapin/ui/pages/watchlist/page.dart';
 
 class DashboardPage extends GetView<DashboardController> {
   const DashboardPage({Key? key}) : super(key: key);

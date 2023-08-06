@@ -17,17 +17,17 @@ class TagController extends GetxController {
   }
 
   selectTag(String tagID, List<Event> events, callback) {
-    Box _tagBox = Hive.box<Tag>(tagBox);
+    Box boxTagBox = Hive.box<Tag>(tagBox);
 
     TagStatus status = checkStatus(tagID);
-    for (var t in _tagBox.values.toList()) {
+    for (var t in boxTagBox.values.toList()) {
       if ((t as Tag).id == tagID) {
-        Box _eventBox = Hive.box<Event>(eventBox);
+        Box boxEventBox = Hive.box<Event>(eventBox);
         List<int> eventIDs = [];
         for (var e in events) {
           eventIDs.add(e.id);
 
-          List<Tag> selectedTags = _eventBox.get(e.id)?.tags ?? [];
+          List<Tag> selectedTags = boxEventBox.get(e.id)?.tags ?? [];
 
           /// if tag is empty, add tag
           if (selectedTags.isEmpty) {
@@ -55,7 +55,7 @@ class TagController extends GetxController {
 
           e.tags = selectedTags;
 
-          _eventBox.put(e.id, e);
+          boxEventBox.put(e.id, e);
         }
         refreshTag(eventIDs);
       }
@@ -109,16 +109,16 @@ class TagController extends GetxController {
   void refreshTag(List<int> eventIDs) {
     tagIDsInEvents.clear();
     tagIDsInEvents.clear();
-    Box _eventBox = Hive.box<Event>(eventBox);
+    Box boxEventBox = Hive.box<Event>(eventBox);
 
     for (var eventID in eventIDs) {
-      List<Tag> tagsInEvent = _eventBox.get(eventID)?.tags ?? [];
+      List<Tag> tagsInEvent = boxEventBox.get(eventID)?.tags ?? [];
       tagsInEvents[eventID] = tagsInEvent;
       tagIDsInEvents[eventID] = tagsInEvent.map((t) => t.id).toList();
     }
 
-    Box _tagBox = Hive.box<Tag>(tagBox);
-    allTags = _tagBox.values.map((tag) => tag as Tag).toList();
+    Box boxTagBox = Hive.box<Tag>(tagBox);
+    allTags = boxTagBox.values.map((tag) => tag as Tag).toList();
     update();
   }
 }

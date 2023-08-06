@@ -22,6 +22,7 @@ class ErrorBoard extends StatelessWidget {
         onPressed: () {
           Get.toNamed("/home");
         },
+        shape: const StadiumBorder(),
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
           child: Text(
@@ -32,7 +33,6 @@ class ErrorBoard extends StatelessWidget {
             ),
           ),
         ),
-        shape: const StadiumBorder(),
       ),
     );
   }

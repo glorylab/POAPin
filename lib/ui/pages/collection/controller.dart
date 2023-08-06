@@ -87,16 +87,16 @@ class CollectionController extends BaseController {
 
   _getCachedEns() {
     final parameters = Get.parameters;
-    final String _address = parameters['address'].toString();
+    final String address = parameters['address'].toString();
     Box<Address> box = Hive.box(addressBox);
     Address cachedAddress;
     if (box.values.isNotEmpty) {
       cachedAddress = box.values.firstWhere(
-        (addr) => addr.address == _address || addr.ens == _address,
+        (addr) => addr.address == address || addr.ens == address,
         orElse: () => Address('', '', DateTime.now()),
       );
       if (cachedAddress.address == '') {
-        ethAddress = _address;
+        ethAddress = address;
         update();
         return;
       }
@@ -105,7 +105,7 @@ class CollectionController extends BaseController {
       update();
       return;
     } else {
-      ethAddress = _address;
+      ethAddress = address;
       update();
     }
   }
@@ -131,8 +131,8 @@ class CollectionController extends BaseController {
     ens = Ens(client: client);
 
     final parameters = Get.parameters;
-    final String _address = parameters['address'].toString();
-    VerificationHelper.getEthAndEns(ens, _address).then((value) {
+    final String address = parameters['address'].toString();
+    VerificationHelper.getEthAndEns(ens, address).then((value) {
       List<String> ethAndEns = value;
       String eth = ethAndEns[0];
       String ens = ethAndEns[1];
@@ -540,18 +540,18 @@ class CollectionController extends BaseController {
           ?.add(token);
     }
 
-    Map _tokenMap = tokensByYearAndMonth;
+    Map tokenMap = tokensByYearAndMonth;
 
     int lastYear = 0;
     int lastMonth = 0;
 
-    List<FlSpot> _tempGrown = [];
-    List<FlSpot> _tempMonth = [];
-    int _maxGrowth = 0;
-    int _maxMonth = 0;
+    List<FlSpot> tempGrown = [];
+    List<FlSpot> tempMonth = [];
+    int maxGrowth = 0;
+    int maxMonth = 0;
 
     double x = 0, y = 0, splitY = 0;
-    _tokenMap.forEach((year, tokensInMonth) {
+    tokenMap.forEach((year, tokensInMonth) {
       tokensInMonth.forEach((month, tokens) {
         if (year > DateTime.now().year) {
           return;
@@ -581,23 +581,23 @@ class CollectionController extends BaseController {
 
         splitY = tokens.length.toDouble();
 
-        _tempMonth.add(FlSpot(x, splitY));
+        tempMonth.add(FlSpot(x, splitY));
 
         y = tokens.length + y;
 
-        _tempGrown.add(FlSpot(x, y));
+        tempGrown.add(FlSpot(x, y));
 
-        if (_maxMonth < splitY) {
-          _maxMonth = splitY.toInt();
+        if (maxMonth < splitY) {
+          maxMonth = splitY.toInt();
         }
 
-        _maxGrowth = tokens.length + _maxGrowth;
+        maxGrowth = tokens.length + maxGrowth;
       });
     });
-    growthTokenSpots.value = _tempGrown;
-    monthlyTokenSpots.value = _tempMonth;
-    maxTokensInGrowthView.value = _maxGrowth;
-    maxTokensInMonthlyView.value = _maxMonth;
+    growthTokenSpots.value = tempGrown;
+    monthlyTokenSpots.value = tempMonth;
+    maxTokensInGrowthView.value = maxGrowth;
+    maxTokensInMonthlyView.value = maxMonth;
 
     maxXLine.value = x.toInt();
   }

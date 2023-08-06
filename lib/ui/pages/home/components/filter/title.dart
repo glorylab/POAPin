@@ -11,6 +11,7 @@ class FilterTitle extends StatelessWidget {
       width: 96,
       height: 56,
       alignment: Alignment.centerRight,
+      margin: const EdgeInsets.only(left: 8, right: 8),
       child: Text(
         title,
         style: GoogleFonts.epilogue(
@@ -19,7 +20,6 @@ class FilterTitle extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      margin: const EdgeInsets.only(left: 8, right: 8),
     );
   }
 }
