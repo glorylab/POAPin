@@ -215,16 +215,16 @@ class HomeController extends BaseController {
 
   _getCachedEns() {
     if (account.eth != null) {
-      final String _address = account.eth ?? '';
+      final String address = account.eth ?? '';
       Box<Address> box = Hive.box(addressBox);
       Address cachedAddress;
       if (box.values.isNotEmpty) {
         cachedAddress = box.values.firstWhere(
-          (addr) => addr.address == _address || addr.ens == _address,
+          (addr) => addr.address == address || addr.ens == address,
           orElse: () => Address('', '', DateTime.now()),
         );
         if (cachedAddress.address == '') {
-          ethAddress = _address;
+          ethAddress = address;
           update();
           return;
         }
@@ -233,7 +233,7 @@ class HomeController extends BaseController {
         update();
         return;
       } else {
-        ethAddress = _address;
+        ethAddress = address;
         update();
       }
     }
@@ -355,8 +355,8 @@ class HomeController extends BaseController {
     ens = Ens(client: client);
 
     final parameters = Get.parameters;
-    final String _address = parameters['address'].toString();
-    VerificationHelper.getEthAndEns(ens, _address).then((value) {
+    final String address = parameters['address'].toString();
+    VerificationHelper.getEthAndEns(ens, address).then((value) {
       List<String> ethAndEns = value;
       String eth = ethAndEns[0];
       String ens = ethAndEns[1];
@@ -562,11 +562,11 @@ class HomeController extends BaseController {
 
   void _refreshTags(List<Token> tokens) {
     _clearTags();
-    Box _eventsBox = Hive.box<Event>(eventBox);
+    Box eventsBox = Hive.box<Event>(eventBox);
     for (var d in tokens) {
-      Event _newEvent = _eventsBox.get(d.event.id, defaultValue: Event.empty());
-      if (_newEvent.id > 0) {
-        d.event.tags = _newEvent.tags;
+      Event newEvent = eventsBox.get(d.event.id, defaultValue: Event.empty());
+      if (newEvent.id > 0) {
+        d.event.tags = newEvent.tags;
 
         _getTags(d.event.tags);
       }
@@ -827,18 +827,18 @@ class HomeController extends BaseController {
           ?.add(token);
     }
 
-    Map _tokenMap = tokensByYearAndMonth;
+    Map tokenMap = tokensByYearAndMonth;
 
     int lastYear = 0;
     int lastMonth = 0;
-    List<FlSpot> _tempGrown = [];
-    List<FlSpot> _tempMonth = [];
-    int _maxGrowth = 0;
-    int _maxMonth = 0;
+    List<FlSpot> tempGrown = [];
+    List<FlSpot> tempMonth = [];
+    int maxGrowth = 0;
+    int maxMonth = 0;
 
     double x = 0, y = 0, splitY = 0;
     heatmapDataset = {};
-    _tokenMap.forEach((year, tokensInMonth) {
+    tokenMap.forEach((year, tokensInMonth) {
       tokensInMonth.forEach((month, tokens) {
         if (year > DateTime.now().year) {
           return;
@@ -869,17 +869,17 @@ class HomeController extends BaseController {
 
         splitY = tokens.length.toDouble();
 
-        _tempMonth.add(FlSpot(x, splitY));
+        tempMonth.add(FlSpot(x, splitY));
 
         y = tokens.length + y;
 
-        _tempGrown.add(FlSpot(x, y));
+        tempGrown.add(FlSpot(x, y));
 
-        if (_maxMonth < splitY) {
-          _maxMonth = splitY.toInt();
+        if (maxMonth < splitY) {
+          maxMonth = splitY.toInt();
         }
 
-        _maxGrowth = tokens.length + _maxGrowth;
+        maxGrowth = tokens.length + maxGrowth;
 
         tokens.forEach((Token token) {
           heatmapDataset[token.event.startDate!] =
@@ -887,10 +887,10 @@ class HomeController extends BaseController {
         });
       });
     });
-    growthTokenSpots = _tempGrown;
-    monthlyTokenSpots = _tempMonth;
-    maxTokensInGrowthView = _maxGrowth;
-    maxTokensInMonthlyView = _maxMonth;
+    growthTokenSpots = tempGrown;
+    monthlyTokenSpots = tempMonth;
+    maxTokensInGrowthView = maxGrowth;
+    maxTokensInMonthlyView = maxMonth;
 
     maxXLine = x.toInt();
     update();
@@ -899,18 +899,18 @@ class HomeController extends BaseController {
   final TextEditingController textEditController = TextEditingController();
 
   void editTag() {
-    List<Event> _events = [];
+    List<Event> events = [];
     if (tokens.isNotEmpty) {
       for (var t in selectedTokens) {
-        if (!_events.contains(t.event)) {
-          _events.add(t.event);
+        if (!events.contains(t.event)) {
+          events.add(t.event);
         }
       }
     }
-    Get.find<TagController>().refreshTag(_events.map((e) => e.id).toList());
+    Get.find<TagController>().refreshTag(events.map((e) => e.id).toList());
     Get.dialog(
       AddTagDialog(
-        events: _events,
+        events: events,
         textEditController: textEditController,
       ),
     );

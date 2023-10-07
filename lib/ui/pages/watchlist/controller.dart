@@ -195,8 +195,8 @@ class WatchlistController extends BaseController {
     _updateLoadingStatus(LoadingStatus.loading);
     tokens.clear();
     for (var addr in account.addresses) {
-      List<Token> _tokens = await getTokens(addr.address) ?? [];
-      tokens.addAll(_tokens);
+      List<Token> tokens = await getTokens(addr.address) ?? [];
+      tokens.addAll(tokens);
     }
     _updateLoadingStatus(LoadingStatus.loaded);
     _updateStatus();
@@ -206,9 +206,9 @@ class WatchlistController extends BaseController {
   Future getTokens(String eth) async {
     try {
       var response = await Dio().get('https://api.poap.tech/actions/scan/$eth');
-      List _data = response.data;
-      List _tokens = _data.map((t) => Token.fromJson(t)).toList();
-      return _tokens;
+      List data = response.data;
+      List tokens = data.map((t) => Token.fromJson(t)).toList();
+      return tokens;
     } on DioError catch (_) {
       return null;
     }

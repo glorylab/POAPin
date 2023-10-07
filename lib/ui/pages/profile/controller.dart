@@ -72,13 +72,13 @@ class ProfileController extends BaseController {
     if (addressController.text.isNotEmpty &&
             VerificationHelper.isETH(addressController.text.trim()) ||
         VerificationHelper.isENS(addressController.text.trim())) {
-      String _address = addressController.text.trim().toLowerCase();
+      String address = addressController.text.trim().toLowerCase();
 
-      if (_address != ethAddress && _address != ensAddress) {
+      if (address != ethAddress && address != ensAddress) {
         await FirebaseAuth.instance.signOut();
         update();
       }
-      await saveAccount(_address);
+      await saveAccount(address);
       addressController.clear();
 
       getAccount();

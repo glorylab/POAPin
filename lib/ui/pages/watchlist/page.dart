@@ -388,7 +388,7 @@ String getSimpleAddress(String address) {
 }
 
 Widget _buildHeader(BuildContext context) {
-  List _addresses = Get.find<WatchlistController>().account.addresses;
+  List addresses = Get.find<WatchlistController>().account.addresses;
   return SliverToBoxAdapter(
     child: Container(
       height: 48,
@@ -399,7 +399,7 @@ Widget _buildHeader(BuildContext context) {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (BuildContext context, int index) {
-          if (index == 0 || index == _addresses.length + 1) {
+          if (index == 0 || index == addresses.length + 1) {
             return const SizedBox(width: 16);
           }
           return Card(
@@ -410,9 +410,9 @@ Widget _buildHeader(BuildContext context) {
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
               alignment: Alignment.center,
               child: Text(
-                _addresses[index - 1].ens == ''
-                    ? getSimpleAddress(_addresses[index - 1].address)
-                    : _addresses[index - 1].ens,
+                addresses[index - 1].ens == ''
+                    ? getSimpleAddress(addresses[index - 1].address)
+                    : addresses[index - 1].ens,
                 style: GoogleFonts.courierPrime(
                   color: Theme.of(context).primaryColorDark,
                   fontSize: 20,
@@ -421,7 +421,7 @@ Widget _buildHeader(BuildContext context) {
             ),
           );
         },
-        itemCount: _addresses.length + 2,
+        itemCount: addresses.length + 2,
       ),
     ),
   );

@@ -8,10 +8,10 @@ class LayersView extends StatelessWidget {
 
   List<Widget> _buildLayers(BuildContext context) {
     CollectionController controller = Get.find<CollectionController>();
-    List<Widget> _layers = [];
+    List<Widget> layers = [];
     controller.layers.value.forEach(
       (layer, value) {
-        _layers.add(
+        layers.add(
           RawMaterialButton(
             onPressed: () {
               controller.setFilterByLayer(layer);
@@ -54,7 +54,7 @@ class LayersView extends StatelessWidget {
         );
       },
     );
-    return _layers;
+    return layers;
   }
 
   @override

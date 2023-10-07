@@ -105,10 +105,10 @@ class SquareController extends BaseController {
         events.clear();
       }
       error = '';
-      var _res = response.data;
+      var res = response.data;
 
-      if (_res['code'] == 0) {
-        _res['data'].forEach((event) {
+      if (res['code'] == 0) {
+        res['data'].forEach((event) {
           events.add(Event.fromJson(event));
         });
       }

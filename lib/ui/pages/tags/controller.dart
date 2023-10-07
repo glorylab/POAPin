@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:poapin/common/constants.dart';
 import 'package:poapin/data/models/tag.dart';
 import 'package:poapin/data/models/token.dart';
 import 'package:poapin/ui/controller.base.dart';
@@ -16,8 +15,8 @@ class TagsController extends BaseController {
 
   getAllTags() {
     allTags = <Tag>[];
-    Box _tagBox = Hive.box<Tag>(tagBox);
-    for (var t in _tagBox.values.toList()) {
+    Box tagBox = Hive.box<Tag>(tagBox);
+    for (var t in tagBox.values.toList()) {
       allTags.add(t);
     }
     update();
@@ -38,15 +37,15 @@ class TagsController extends BaseController {
           RawMaterialButton(
             child: const Text('Delete'),
             onPressed: () {
-              Box _eventBox = Hive.box<Event>(eventBox);
-              for (var e in _eventBox.values.toList()) {
+              Box eventBox = Hive.box<Event>(eventBox);
+              for (var e in eventBox.values.toList()) {
                 if (e.tags.contains(tag)) {
                   e.tags.remove(tag);
-                  _eventBox.put(e.id, e);
+                  eventBox.put(e.id, e);
                 }
               }
-              Box _tagBox = Hive.box<Tag>(tagBox);
-              _tagBox.deleteAt(allTags.indexWhere((t) => t.id == tag.id));
+              Box tagBox = Hive.box<Tag>(tagBox);
+              tagBox.deleteAt(allTags.indexWhere((t) => t.id == tag.id));
               allTags.removeWhere((t) => t.id == tag.id);
               update();
               Get.back();

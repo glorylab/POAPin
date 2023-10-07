@@ -8,10 +8,10 @@ class CountriesView extends StatelessWidget {
 
   List<Widget> _buildCountries(BuildContext context) {
     CollectionController controller = Get.find<CollectionController>();
-    List<Widget> _countries = [];
+    List<Widget> countries = [];
     controller.countries.value.forEach(
       (country, value) {
-        _countries.add(
+        countries.add(
           RawMaterialButton(
             onPressed: () {
               controller.setFilterByCountry(country);
@@ -54,7 +54,7 @@ class CountriesView extends StatelessWidget {
         );
       },
     );
-    return _countries;
+    return countries;
   }
 
   @override

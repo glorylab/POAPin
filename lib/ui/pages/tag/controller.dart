@@ -63,16 +63,16 @@ class TagDetailController extends BaseController {
   final TextEditingController textEditController = TextEditingController();
 
   void editTag() {
-    List<Event> _events = [];
+    List<Event> events = [];
     for (var e in selectedEvents) {
-      if (!_events.contains(e)) {
-        _events.add(e);
+      if (!events.contains(e)) {
+        events.add(e);
       }
     }
-    Get.find<TagController>().refreshTag(_events.map((e) => e.id).toList());
+    Get.find<TagController>().refreshTag(events.map((e) => e.id).toList());
     Get.dialog(
       AddTagDialog(
-        events: _events,
+        events: events,
         textEditController: textEditController,
       ),
     );
@@ -110,9 +110,9 @@ class TagDetailController extends BaseController {
     if (tagID == '') {
       return;
     }
-    Box _eventsBox = Hive.box<Event>(eventBox);
+    Box eventsBox = Hive.box<Event>(eventBox);
     // Box _tokenBox = Hive.box<Token>(poapBox);
-    for (Event e in _eventsBox.values.toList()) {
+    for (Event e in eventsBox.values.toList()) {
       e.tags?.forEach((tag) {
         if (tag.id == tagID) {
           allEvents.add(e);

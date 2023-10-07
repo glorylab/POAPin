@@ -1,4 +1,3 @@
-import 'package:poapin/common/translations/strings.dart';
 
 class ZhTWTranslations {
   static Map<String, String> get map => {

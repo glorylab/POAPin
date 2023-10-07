@@ -53,9 +53,9 @@ class IslandController extends BaseController {
     if (textEditController.text.isNotEmpty &&
             VerificationHelper.isETH(textEditController.text.trim()) ||
         VerificationHelper.isENS(textEditController.text.trim())) {
-      String _address = textEditController.text.trim().toLowerCase();
+      String address = textEditController.text.trim().toLowerCase();
 
-      await saveAccount(_address);
+      await saveAccount(address);
       textEditController.clear();
 
       getAccount();

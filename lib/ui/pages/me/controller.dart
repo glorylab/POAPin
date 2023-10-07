@@ -47,8 +47,8 @@ class MeController extends BaseController {
     ens = Ens(client: client);
 
     final parameters = Get.parameters;
-    final String _address = parameters['address'].toString();
-    VerificationHelper.getEthAndEns(ens, _address).then((value) {
+    final String address = parameters['address'].toString();
+    VerificationHelper.getEthAndEns(ens, address).then((value) {
       List<String> ethAndEns = value;
       String eth = ethAndEns[0];
       String ens = ethAndEns[1];
@@ -70,13 +70,13 @@ class MeController extends BaseController {
         VerificationHelper.isENS(addressController.text.trim())) {
       isLoading.value = true;
 
-      String _address = addressController.text.trim().toLowerCase();
+      String address = addressController.text.trim().toLowerCase();
 
-      if (_address != ethAddress && _address != ensAddress) {
+      if (address != ethAddress && address != ensAddress) {
         await FirebaseAuth.instance.signOut();
         update();
       }
-      await saveAccount(_address);
+      await saveAccount(address);
       isLoading.value = false;
       addressController.clear();
 

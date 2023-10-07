@@ -10,10 +10,10 @@ class TagsView extends StatelessWidget {
 
   List<Widget> _buildCountries(BuildContext context, Map tags) {
     HomeController controller = Get.find<HomeController>();
-    List<Widget> _tags = [];
+    List<Widget> tags0 = [];
     tags.forEach(
       (tag, value) {
-        _tags.add(
+        tags0.add(
           RawMaterialButton(
             onPressed: () {
               controller.setFilterByTag(value.keys.first);
@@ -56,7 +56,7 @@ class TagsView extends StatelessWidget {
         );
       },
     );
-    return _tags;
+    return tags0;
   }
 
   @override

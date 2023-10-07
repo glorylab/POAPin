@@ -1,4 +1,3 @@
-import 'package:poapin/common/translations/strings.dart';
 
 class DeTranslations {
   static Map<String, String> get map => {
