@@ -197,17 +197,17 @@ class AddTagDialog extends StatelessWidget {
                         Box boxEventBox = Hive.box<Event>(eventBox);
 
                         for (var event in events) {
-                          Event event = boxEventBox.get(event.id,
+                          Event localEvent = boxEventBox.get(event.id,
                               defaultValue: Event.empty());
 
-                          List<Tag> tags = event.tags ?? [];
+                          List<Tag> tags = localEvent.tags ?? [];
                           tags.add(newTag);
-                          event.tags = tags;
+                          localEvent.tags = tags;
 
-                          if (event.id == 0) {
+                          if (localEvent.id == 0) {
                             boxEventBox.put(event.id, event);
                           } else {
-                            boxEventBox.put(event.id, event);
+                            boxEventBox.put(event.id, localEvent);
                           }
                         }
 
