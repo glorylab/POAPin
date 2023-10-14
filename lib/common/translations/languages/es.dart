@@ -20,7 +20,7 @@ class ESTranslations {
         Strings.invalidAddress: 'Dirección no válida',
 
         /// Home(empty)
-        Strings.noPOAP:
+        Strings.noPoap:
             'Parece que no tienes ningún POAP ahora.\nPero aún no es tarde!\n\nComienza a aprender sobre POAP creando un POAP.',
 
         /// Home(available)
@@ -71,10 +71,10 @@ class ESTranslations {
         Strings.uploadMoments: 'Subir momentos en welook.io',
 
         /// GitPOAP
-        Strings.gitPOAPDesc:
+        Strings.gitPoapDesc:
             '''Un GitPOAP es un POAP regular (con un giro extra) que se acuña a través de la plataforma GitPOAP para contribuciones significativas especificadas en proyectos de código abierto. Los propietarios de los repositorios distribuyen automáticamente los GitPOAPs a sus contribuyentes como reconocimiento a su trabajo.
         ''',
-        Strings.gitPOAPStart: 'Contribuir a POAPin',
+        Strings.gitPoapStart: 'Contribuir a POAPin',
 
         /// Watchlist(Initial state)
         Strings.watchlistHint:
@@ -132,8 +132,8 @@ class ESTranslations {
         /// Account
         Strings.signIn: 'Iniciar sesión',
         Strings.logOut: 'Cerrar sesión',
-        Strings.signinApple: 'Iniciar sesión con Apple',
-        Strings.signinGoogle: 'Continuar con Google',
+        Strings.signInApple: 'Iniciar sesión con Apple',
+        Strings.signInGoogle: 'Continuar con Google',
         Strings.tos:
             'Al continuar, aceptas nuestros Términos de servicio y Política de privacidad',
 

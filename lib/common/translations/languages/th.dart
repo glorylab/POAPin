@@ -20,7 +20,7 @@ class ThTranslations {
         Strings.invalidAddress: 'ที่อยู่ไม่ถูกต้อง',
 
         /// Home(empty)
-        Strings.noPOAP:
+        Strings.noPoap:
             'คุณไม่มี POAP ในขณะนี้\nแต่ยังไม่สายเกินไป!\n\nเริ่มเรียนรู้เกี่ยวกับ POAP โดยการสร้าง POAP',
 
         /// Home(available)
@@ -70,10 +70,10 @@ class ThTranslations {
         Strings.uploadMoments: 'อัปโหลดวินาทีที่ welook.io',
 
         /// GitPOAP
-        Strings.gitPOAPDesc:
+        Strings.gitPoapDesc:
             '''GitPOAP คือ POAP ปกติ (พร้อมการหมุนเพิ่มเติม) ที่ถูกสร้างผ่านแพลตฟอร์ม GitPOAP สำหรับการสนับสนุนที่มีความหมายต่อโปรเจคโอเพ่นซอร์ส. เจ้าของ Repo จะแจก GitPOAPs ให้กับผู้สนับสนุนของพวกเขาเพื่อเป็นการรับรู้การทำงานของพวกเขา.
         ''',
-        Strings.gitPOAPStart: 'สนับสนุน POAPin',
+        Strings.gitPoapStart: 'สนับสนุน POAPin',
 
         /// Watchlist(Initial state)
         Strings.watchlistHint: 'คุณสามารถเพิ่มที่อยู่ที่คุณสนใจได้ที่นี่.',
@@ -127,8 +127,8 @@ class ThTranslations {
         /// Account
         Strings.signIn: 'ลงชื่อเข้าใช้',
         Strings.logOut: 'ออกจากระบบ',
-        Strings.signinApple: 'ลงชื่อเข้าใช้ด้วย Apple',
-        Strings.signinGoogle: 'ดำเนินการต่อด้วย Google',
+        Strings.signInApple: 'ลงชื่อเข้าใช้ด้วย Apple',
+        Strings.signInGoogle: 'ดำเนินการต่อด้วย Google',
         Strings.tos:
             'ด้วยการดำเนินการต่อ, คุณยอมรับข้อกำหนดในการให้บริการและนโยบายความเป็นส่วนตัวของเรา',
 

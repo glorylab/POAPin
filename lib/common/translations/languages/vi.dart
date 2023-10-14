@@ -20,7 +20,7 @@ class ViTranslations {
         Strings.invalidAddress: 'Địa chỉ không hợp lệ',
 
         /// Home(empty)
-        Strings.noPOAP:
+        Strings.noPoap:
             'Bạn dường như không có POAP nào ngay bây giờ.\nNhưng không phải quá muộn!\n\nBắt đầu tìm hiểu về POAP bằng cách tạo ra một POAP.',
 
         /// Home(available)
@@ -71,10 +71,10 @@ class ViTranslations {
         Strings.uploadMoments: 'Tải lên những khoảnh khắc trên welook.io',
 
         /// GitPOAP
-        Strings.gitPOAPDesc:
+        Strings.gitPoapDesc:
             '''Một GitPOAP là một POAP thông thường (với một chút xoay) được khai thác thông qua nền tảng GitPOAP cho các đóng góp có ý nghĩa đặc biệt cho các dự án nguồn mở. Chủ sở hữu Repo tự động phân phối GitPOAPs cho những người đóng góp của họ như một sự công nhận công việc của họ.
         ''',
-        Strings.gitPOAPStart: 'Đóng góp cho POAPin',
+        Strings.gitPoapStart: 'Đóng góp cho POAPin',
 
         /// Watchlist(Initial state)
         Strings.watchlistHint:
@@ -128,8 +128,8 @@ class ViTranslations {
         /// Account
         Strings.signIn: 'Đăng nhập',
         Strings.logOut: 'Đăng xuất',
-        Strings.signinApple: 'Đăng nhập với Apple',
-        Strings.signinGoogle: 'Tiếp tục với Google',
+        Strings.signInApple: 'Đăng nhập với Apple',
+        Strings.signInGoogle: 'Tiếp tục với Google',
         Strings.tos:
             'Bằng cách tiếp tục, bạn đồng ý với Điều khoản Dịch vụ và Chính sách Bảo mật của chúng tôi',
 

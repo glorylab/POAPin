@@ -20,7 +20,7 @@ class EnUSTranslations {
         Strings.invalidAddress: 'Invalid address',
 
         /// Home(empty)
-        Strings.noPOAP:
+        Strings.noPoap:
             'You don\'t appear to have any POAP right now.\nBut it\'s not too late!\n\nBegin learning about POAP by creating a POAP.',
 
         /// Home(available)
@@ -70,10 +70,10 @@ Moments is a way to add real value to your digital bookmark by saving real-life 
         Strings.uploadMoments: 'Upload moments on welook.io',
 
         /// GitPOAP
-        Strings.gitPOAPDesc:
+        Strings.gitPoapDesc:
             '''A GitPOAP is a regular POAP (with an extra spin) that is minted through the GitPOAP platform for specified meaningful contribution to open source projects. Repo owners automatically distribute GitPOAPs to their contributors as recognition of their work.
 ''',
-        Strings.gitPOAPStart: 'Contribute to POAPin',
+        Strings.gitPoapStart: 'Contribute to POAPin',
 
         /// Watchlist(Initial state)
         Strings.watchlistHint:
@@ -127,8 +127,8 @@ Moments is a way to add real value to your digital bookmark by saving real-life 
         /// Account
         Strings.signIn: 'Sign in',
         Strings.logOut: 'Log out',
-        Strings.signinApple: 'Sign in with Apple',
-        Strings.signinGoogle: 'Continue with Google',
+        Strings.signInApple: 'Sign in with Apple',
+        Strings.signInGoogle: 'Continue with Google',
         Strings.tos:
             'By continuing, you agree to our Terms of Service and Privacy Policy',
 

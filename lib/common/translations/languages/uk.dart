@@ -20,7 +20,7 @@ class UkTranslations {
         Strings.invalidAddress: 'Недійсна адреса',
 
         /// Home(empty)
-        Strings.noPOAP:
+        Strings.noPoap:
             'Здається, у вас зараз немає жодного POAP.\nАле ще не пізно!\n\nПочніть дізнаватися про POAP, створивши POAP.',
 
         /// Home(available)
@@ -68,10 +68,10 @@ class UkTranslations {
         Strings.uploadMoments: 'Завантажте моменти на welook.io',
 
         /// GitPOAP
-        Strings.gitPOAPDesc:
+        Strings.gitPoapDesc:
             '''GitPOAP - це звичайний POAP (з додатковим обертом), який відбивається через платформу GitPOAP для визначеного значущого внеску в відкриті джерела проектів. Власники Repo автоматично розподіляють GitPOAP між своїми учасниками як визнання їхньої роботи.
         ''',
-        Strings.gitPOAPStart: 'Внесіть внесок до POAPin',
+        Strings.gitPoapStart: 'Внесіть внесок до POAPin',
 
         /// Watchlist(Initial state)
         Strings.watchlistHint:
@@ -127,8 +127,8 @@ class UkTranslations {
         /// Account
         Strings.signIn: 'Увійти',
         Strings.logOut: 'Вийти',
-        Strings.signinApple: 'Увійти через Apple',
-        Strings.signinGoogle: 'Продовжити з Google',
+        Strings.signInApple: 'Увійти через Apple',
+        Strings.signInGoogle: 'Продовжити з Google',
         Strings.tos:
             'Продовжуючи, ви погоджуєтесь з нашими Умовами обслуговування та Політикою конфіденційності',
 

@@ -57,7 +57,7 @@ class AuthPage extends BasePage<AuthController> {
                 child: Column(children: [
                   GetPlatform.isIOS
                       ? AuthButton(
-                          text: strSigninApple,
+                          text: strSignInApple,
                           backgroundColor: Colors.grey.shade900,
                           onPressed: () {
                             controller.signInWithApple().then((value) {
@@ -73,7 +73,7 @@ class AuthPage extends BasePage<AuthController> {
                       : Container(),
                   const SizedBox(height: 16),
                   AuthButton(
-                    text: strSigninGoogle,
+                    text: strSignInGoogle,
                     backgroundColor: Colors.blue,
                     onPressed: () {
                       controller.signInWithGoogle().then((value) {

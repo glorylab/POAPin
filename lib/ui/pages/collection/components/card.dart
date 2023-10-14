@@ -72,7 +72,7 @@ class CollectionCard extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      strPOAPs,
+                                      strPoaps,
                                       style: GoogleFonts.shareTechMono(
                                         color: Colors.black45,
                                         fontWeight: FontWeight.bold,

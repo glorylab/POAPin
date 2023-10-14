@@ -41,7 +41,7 @@ class POAPCard extends StatelessWidget {
                               child: Container(
                                 alignment: Alignment.bottomCenter,
                                 child: Text(
-                                  strPOAPs,
+                                  strPoaps,
                                   style: GoogleFonts.shareTechMono(
                                     color: Colors.black45,
                                     fontWeight: FontWeight.bold,

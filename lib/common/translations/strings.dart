@@ -11,7 +11,7 @@ class Strings {
   static const ethAddressOrEns = 'eth_address_or_ens';
   static const invalidAddress = 'invalid_address';
 
-  static const noPOAP = 'no_poap';
+  static const noPoap = 'no_poap';
 
   static const followers = 'followers';
   static const followings = 'followings';
@@ -51,8 +51,8 @@ class Strings {
   static const momentsDesc = 'moments_desc';
   static const uploadMoments = 'upload_moments';
 
-  static const gitPOAPDesc = 'gitpoap_desc';
-  static const gitPOAPStart = 'gitpoap_start';
+  static const gitPoapDesc = 'gitpoap_desc';
+  static const gitPoapStart = 'gitpoap_start';
 
   static const watchlistHint = 'watchlist_hint';
   static const addCollection = 'add_collection';
@@ -97,8 +97,8 @@ class Strings {
 
   static const signIn = 'sign_in';
   static const logOut = 'log_out';
-  static const signinApple = 'signin_apple';
-  static const signinGoogle = 'signin_google';
+  static const signInApple = 'signin_apple';
+  static const signInGoogle = 'signin_google';
   static const tos = 'tos';
 
   static const done = 'done';
@@ -130,12 +130,12 @@ String get strSetEthAddress => Strings.setEthAddress.tr;
 String get strEthAddressOrEns => Strings.ethAddressOrEns.tr;
 String get strInvalidAddress => Strings.invalidAddress.tr;
 
-String get strNoPOAP => Strings.noPOAP.tr;
+String get strNoPoap => Strings.noPoap.tr;
 
 String get strFollowers => Strings.followers.tr;
 String get strFollowings => Strings.followings.tr;
 String get strEvents => Strings.events.tr;
-String get strPOAPs => Strings.poaps.tr;
+String get strPoaps => Strings.poaps.tr;
 String get strGrowth => Strings.growth.tr;
 String get strMonthly => Strings.monthly.tr;
 String get strFilterHint => Strings.filterHint.tr;
@@ -170,8 +170,8 @@ String get strNewTagHint => Strings.newTagHint.tr;
 String get strMomentsDesc => Strings.momentsDesc.tr;
 String get strUploadMoments => Strings.uploadMoments.tr;
 
-String get strGitPOAPDesc => Strings.gitPOAPDesc.tr;
-String get strGitPOAPStart => Strings.gitPOAPStart.tr;
+String get strGitPOAPDesc => Strings.gitPoapDesc.tr;
+String get strGitPOAPStart => Strings.gitPoapStart.tr;
 
 String get strWatchlistHint => Strings.watchlistHint.tr;
 String get strAddCollection => Strings.addCollection.tr;
@@ -216,8 +216,8 @@ String get strAbout => Strings.about.tr;
 
 String get strSignIn => Strings.signIn.tr;
 String get strLogOut => Strings.logOut.tr;
-String get strSigninApple => Strings.signinApple.tr;
-String get strSigninGoogle => Strings.signinGoogle.tr;
+String get strSignInApple => Strings.signInApple.tr;
+String get strSignInGoogle => Strings.signInGoogle.tr;
 String get strTos => Strings.tos.tr;
 
 String get strDone => Strings.done.tr;
@@ -241,9 +241,9 @@ String get strDecember => Strings.december.tr;
 /// ------------------------------------------------------------
 /// Do not need to translate
 /// Home
-String get strPOAPxyz => 'POAP.xyz';
-String get strPOAPdirectory => 'POAP.director';
-String get strGitPOAP => 'GitPOAP';
+String get strPoapXyz => 'POAP.xyz';
+String get strPoapDirectory => 'POAP.directory';
+String get strGitPoap => 'GitPOAP';
 
 /// Moments
 String get strMoments => 'Moments';
@@ -256,5 +256,5 @@ String get strMirror => 'Mirror';
 String get strMirrorAddress => 'glorylab.eth';
 String get strGitHub => 'GitHub';
 String get strGitHubRepo => 'glorylab/POAPin';
-String get strPOAPDotIn => 'POAP.in';
-String get strPOAPDotInURL => 'https://poap.in';
+String get strPoapDotIn => 'POAP.in';
+String get strPoapDotInURL => 'https://poap.in';

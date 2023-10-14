@@ -19,7 +19,7 @@ class KoTranslations {
         Strings.invalidAddress: '잘못된 주소',
 
         /// Home(empty)
-        Strings.noPOAP:
+        Strings.noPoap:
             '현재 POAP가 없는 것 같습니다.\n하지만 아직 늦지 않았습니다!\n\nPOAP 만들기를 통해 POAP에 대해 배우기 시작하세요.',
 
         /// Home(available)
@@ -69,10 +69,10 @@ class KoTranslations {
         Strings.uploadMoments: 'welook.io에 순간 업로드',
 
         /// GitPOAP
-        Strings.gitPOAPDesc:
+        Strings.gitPoapDesc:
             '''GitPOAP는 GitPOAP 플랫폼을 통해 지정된 의미있는 오픈 소스 프로젝트 기여를 위해 생성된 일반 POAP(추가 스핀 포함)입니다. Repo 소유자들은 그들의 작업을 인식으로써 자동적으로 GitPOAP를 기여자에게 분배합니다.
     ''',
-        Strings.gitPOAPStart: 'POAPin에 기여하기',
+        Strings.gitPoapStart: 'POAPin에 기여하기',
 
         /// Watchlist(Initial state)
         Strings.watchlistHint: '여기에 관심이 있는 몇 가지 주소를 추가할 수 있습니다.',
@@ -124,8 +124,8 @@ class KoTranslations {
         /// Account
         Strings.signIn: '로그인',
         Strings.logOut: '로그아웃',
-        Strings.signinApple: '애플로 로그인',
-        Strings.signinGoogle: '구글로 계속',
+        Strings.signInApple: '애플로 로그인',
+        Strings.signInGoogle: '구글로 계속',
         Strings.tos: '계속하면 당사의 이용 약관 및 개인정보 보호 정책에 동의하는 것입니다.',
 
         /// Common

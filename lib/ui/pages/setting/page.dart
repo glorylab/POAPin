@@ -137,8 +137,8 @@ class SettingPage extends BasePage<SettingController> {
                       isRoundCorner: false,
                     ),
                     SettingItem(
-                      title: strPOAPDotIn,
-                      desc: strPOAPDotInURL,
+                      title: strPoapDotIn,
+                      desc: strPoapDotInURL,
                       icon: Image.asset(
                         'icons/ic_poapin.png',
                         package: 'web3_icons',

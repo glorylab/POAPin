@@ -20,7 +20,7 @@ class FRTranslations {
         Strings.invalidAddress: 'adresse invalide',
 
         /// Home(empty)
-        Strings.noPOAP:
+        Strings.noPoap:
             'Vous ne semblez pas avoir de POAP pour l\'instant. Mais il n\'est pas trop tard ! Vous pouvez découvrir les POAPs en créeant votre premier POAP.',
 
         /// Home(available)
@@ -68,10 +68,10 @@ class FRTranslations {
         Strings.uploadMoments: 'Publier des moments sur welook.io',
 
         /// GitPOAP
-        Strings.gitPOAPDesc:
+        Strings.gitPoapDesc:
             '''Un GitPOAP est un POAP ordinaire (avec un petit extra) qui est frappé par la plateforme GitPOAP pour les contributions significatives apportées aux projets open source. 
             Les propriétaires de repos distribuent automatiquement des GitPOAPs à leurs contributeurs en reconnaissance du travail accompli.''',
-        Strings.gitPOAPStart: 'Contribuer à POAPin',
+        Strings.gitPoapStart: 'Contribuer à POAPin',
 
         /// Watchlist(Initial state)
         Strings.watchlistHint:
@@ -125,8 +125,8 @@ class FRTranslations {
         /// Account
         Strings.signIn: 'Connexion',
         Strings.logOut: 'Se déconnecter',
-        Strings.signinApple: 'Se connecter avec Apple',
-        Strings.signinGoogle: 'Continuer avec Google',
+        Strings.signInApple: 'Se connecter avec Apple',
+        Strings.signInGoogle: 'Continuer avec Google',
         Strings.tos:
             'En continuant, vous acceptez nos conditions de service et notre politique de confidentialité.',
 

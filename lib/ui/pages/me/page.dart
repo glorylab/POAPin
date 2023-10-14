@@ -91,6 +91,36 @@ class MePage extends BasePage<MeController> {
                         ),
                 ),
               ),
+              SliverToBoxAdapter(
+                child: GetBuilder<UserController>(
+                  builder: (c) => !c.isSignedIn
+                      ? Container()
+                      : Container(
+                    margin: const EdgeInsets.only(top: 0),
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.symmetric(
+                        vertical: 16,
+                        horizontal: getHorizontalPadding(context)),
+                    child: Material(
+                      shape: const RoundedRectangleBorder(
+                          borderRadius:
+                          BorderRadius.all(Radius.circular(16))),
+                      clipBehavior: Clip.antiAlias,
+                      child: MeItem(
+                        title: strTags,
+                        onTap: () {
+                          Get.toNamed('/tags');
+                        },
+                        icon: Icon(
+                          Icons.local_offer,
+                          color: Colors.blueGrey.shade300,
+                        ),
+                        desc: strManageTags,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
               GetBuilder<UserController>(
                 builder: (c) => SliverToBoxAdapter(
                   child: Container(

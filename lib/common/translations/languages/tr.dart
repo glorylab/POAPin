@@ -20,7 +20,7 @@ class TrTranslations {
         Strings.invalidAddress: 'Geçersiz adres',
 
         /// Home(empty)
-        Strings.noPOAP:
+        Strings.noPoap:
             'Şu anda hiç POAP\'ınız yok gibi görünüyor.\nAma hala geç değil!\n\nPOAP hakkında bilgi edinmeye başlayın ve bir POAP oluşturun.',
 
         /// Home(available)
@@ -70,10 +70,10 @@ class TrTranslations {
         Strings.uploadMoments: 'Anları welook.io üzerine yükle',
 
         /// GitPOAP
-        Strings.gitPOAPDesc:
+        Strings.gitPoapDesc:
             '''Bir GitPOAP, belirli anlamlı açık kaynak projelerine katkı sağlama için GitPOAP platformu üzerinden basılan normal bir POAP'tır (ekstra bir dönüş ile). Repo sahipleri, katkıda bulunanların çalışmalarını tanımak için otomatik olarak GitPOAP'ları dağıtır.
         ''',
-        Strings.gitPOAPStart: 'POAPin\'e katkıda bulun',
+        Strings.gitPoapStart: 'POAPin\'e katkıda bulun',
 
         /// Watchlist(Initial state)
         Strings.watchlistHint:
@@ -128,8 +128,8 @@ class TrTranslations {
         /// Account
         Strings.signIn: 'Oturum aç',
         Strings.logOut: 'Oturumu kapat',
-        Strings.signinApple: 'Apple ile oturum aç',
-        Strings.signinGoogle: 'Google ile devam et',
+        Strings.signInApple: 'Apple ile oturum aç',
+        Strings.signInGoogle: 'Google ile devam et',
         Strings.tos:
             'Devam ederek, Hizmet Şartlarımızı ve Gizlilik Politikamızı kabul etmiş olursunuz',
 

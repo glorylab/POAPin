@@ -19,7 +19,7 @@ class JaTranslations {
         Strings.invalidAddress: '無効なアドレス',
 
         /// Home(empty)
-        Strings.noPOAP:
+        Strings.noPoap:
             '現在、あなたにはPOAPがないようです。\nしかし、まだ遅くありません！\n\nPOAPについて学び、POAPを作成してみましょう。',
 
         /// Home(available)
@@ -67,10 +67,10 @@ class JaTranslations {
         Strings.uploadMoments: 'welook.ioにモーメンツをアップロード',
 
         /// GitPOAP
-        Strings.gitPOAPDesc:
+        Strings.gitPoapDesc:
             '''GitPOAPは、指定された意義深いオープンソースプロジェクトへの貢献を通じてGitPOAPプラットフォームで発行される通常のPOAP（エキストラスピン付き）です。 レポオーナーは、彼らの仕事の認識として自動的にGitPOAPを寄稿者に配布します。
         ''',
-        Strings.gitPOAPStart: 'POAPinに貢献する',
+        Strings.gitPoapStart: 'POAPinに貢献する',
 
         /// Watchlist(Initial state)
         Strings.watchlistHint: 'ここに興味のあるアドレスを追加できます。',
@@ -122,8 +122,8 @@ class JaTranslations {
         /// Account
         Strings.signIn: 'サインイン',
         Strings.logOut: 'ログアウト',
-        Strings.signinApple: 'Appleでサインイン',
-        Strings.signinGoogle: 'Googleで続行',
+        Strings.signInApple: 'Appleでサインイン',
+        Strings.signInGoogle: 'Googleで続行',
         Strings.tos: '続行することで、利用規約およびプライバシーポリシーに同意したことになります',
 
         /// Common

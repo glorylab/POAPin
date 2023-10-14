@@ -19,7 +19,7 @@ class ZhCNTranslations {
         Strings.invalidAddress: '无效地址',
 
         /// Home(empty)
-        Strings.noPOAP: '您现在似乎没有任何POAP。\n但是没关系！\n\n通过创建POAP开始了解POAP。',
+        Strings.noPoap: '您现在似乎没有任何POAP。\n但是没关系！\n\n通过创建POAP开始了解POAP。',
 
         /// Home(available)
         Strings.followers: '关注者',
@@ -68,10 +68,10 @@ class ZhCNTranslations {
         Strings.uploadMoments: '在welook.io上传Moment',
 
         /// GitPOAP
-        Strings.gitPOAPDesc:
+        Strings.gitPoapDesc:
             '''GitPOAP是通过GitPOAP平台铸造的普通POAP（带有额外的特色），以指定对开源项目的有意义的贡献。仓库所有者自动分发GitPOAPs给他们的贡献者，以表彰他们的工作。
         ''',
-        Strings.gitPOAPStart: '为POAPin做贡献',
+        Strings.gitPoapStart: '为POAPin做贡献',
 
         /// Watchlist(Initial state)
         Strings.watchlistHint: '你可以在这里添加一些你感兴趣的地址。',
@@ -123,8 +123,8 @@ class ZhCNTranslations {
         /// Account
         Strings.signIn: '登录',
         Strings.logOut: '登出',
-        Strings.signinApple: '用Apple登录',
-        Strings.signinGoogle: '用Google继续',
+        Strings.signInApple: '用Apple登录',
+        Strings.signInGoogle: '用Google继续',
         Strings.tos: '继续，即表示你同意我们的服务条款和隐私政策',
 
         /// Common

@@ -25,7 +25,7 @@ class EmptyTips extends StatelessWidget {
               maxWidth: 340,
             ),
             child: Text(
-              strNoPOAP,
+              strNoPoap,
               style: GoogleFonts.roboto(
                 fontSize: 16,
                 color: Colors.grey.shade600,
