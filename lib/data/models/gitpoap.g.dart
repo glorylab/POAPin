@@ -6,17 +6,17 @@ part of 'gitpoap.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class GitPOAPAdapter extends TypeAdapter<GitPOAP> {
+class GitPoapAdapter extends TypeAdapter<GitPoap> {
   @override
   final int typeId = 17;
 
   @override
-  GitPOAP read(BinaryReader reader) {
+  GitPoap read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return GitPOAP(
+    return GitPoap(
       fields[0] as int,
       fields[1] as int,
       fields[2] as String,
@@ -33,7 +33,7 @@ class GitPOAPAdapter extends TypeAdapter<GitPOAP> {
   }
 
   @override
-  void write(BinaryWriter writer, GitPOAP obj) {
+  void write(BinaryWriter writer, GitPoap obj) {
     writer
       ..writeByte(12)
       ..writeByte(0)
@@ -68,7 +68,7 @@ class GitPOAPAdapter extends TypeAdapter<GitPOAP> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is GitPOAPAdapter &&
+      other is GitPoapAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
@@ -77,7 +77,7 @@ class GitPOAPAdapter extends TypeAdapter<GitPOAP> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-GitPOAP _$GitPOAPFromJson(Map<String, dynamic> json) => GitPOAP(
+GitPoap _$GitPoapFromJson(Map<String, dynamic> json) => GitPoap(
       json['gitPoapId'] as int,
       json['gitPoapEventId'] as int,
       json['poapTokenId'] as String,
@@ -92,7 +92,7 @@ GitPOAP _$GitPOAPFromJson(Map<String, dynamic> json) => GitPOAP(
       json['mintedAt'] as String,
     );
 
-Map<String, dynamic> _$GitPOAPToJson(GitPOAP instance) => <String, dynamic>{
+Map<String, dynamic> _$GitPoapToJson(GitPoap instance) => <String, dynamic>{
       'gitPoapId': instance.gitPOAPID,
       'gitPoapEventId': instance.gitPOAPEventID,
       'poapTokenId': instance.poapTokenID,

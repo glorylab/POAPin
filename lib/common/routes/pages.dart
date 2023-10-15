@@ -81,9 +81,9 @@ class AppPages {
       binding: MomentBinding(),
     ),
     GetPage(
-      name: AppRoutes.gitpoaps,
-      page: () => const GitPOAPsPage(),
-      binding: GitPOAPsBinding(),
+      name: AppRoutes.gitPoaps,
+      page: () => const GitPoapsPage(),
+      binding: GitPoapsBinding(),
     ),
     GetPage(
       name: AppRoutes.square,

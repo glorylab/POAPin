@@ -60,7 +60,7 @@ Future<void> main() async {
   Get.lazyPut(() => MomentsCardController());
   Get.lazyPut(() => MomentsController());
   Get.lazyPut(() => MomentController());
-  Get.lazyPut(() => GitPOAPsController());
+  Get.lazyPut(() => GitPoapsController());
   Get.lazyPut(() => CollectionController());
   Get.lazyPut(() => HomeFilterController());
   Get.lazyPut(() => FilterController());

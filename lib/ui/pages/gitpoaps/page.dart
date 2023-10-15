@@ -9,8 +9,8 @@ import 'package:poapin/ui/page.base.dart';
 import 'package:poapin/ui/pages/gitpoaps/components/view.hive.dart';
 import 'package:poapin/ui/pages/gitpoaps/controller.dart';
 
-class GitPOAPsPage extends BasePage<GitPOAPsController> {
-  const GitPOAPsPage({Key? key}) : super(key: key);
+class GitPoapsPage extends BasePage<GitPoapsController> {
+  const GitPoapsPage({Key? key}) : super(key: key);
 
   @override
   Widget getLead() {
@@ -126,7 +126,7 @@ class GitPOAPsPage extends BasePage<GitPOAPsController> {
   Widget getPage(BuildContext context) {
     return Material(
       color: Colors.white,
-      child: GetBuilder<GitPOAPsController>(
+      child: GetBuilder<GitPoapsController>(
         builder: (c) => Scrollbar(
           child: CustomScrollView(
             slivers: [

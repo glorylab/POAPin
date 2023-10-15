@@ -4,7 +4,7 @@ part 'gitpoap.g.dart';
 
 @JsonSerializable()
 @HiveType(typeId: 17)
-class GitPOAP extends HiveObject {
+class GitPoap extends HiveObject {
   @JsonKey(name: 'gitPoapId')
   @HiveField(0)
   final int gitPOAPID;
@@ -47,7 +47,7 @@ class GitPOAP extends HiveObject {
   @HiveField(11)
   final String mintedAt;
 
-  GitPOAP(
+  GitPoap(
     this.gitPOAPID,
     this.gitPOAPEventID,
     this.poapTokenID,
@@ -62,10 +62,10 @@ class GitPOAP extends HiveObject {
     this.mintedAt,
   );
 
-  factory GitPOAP.fromJson(Map<String, dynamic> json) =>
-      _$GitPOAPFromJson(json);
+  factory GitPoap.fromJson(Map<String, dynamic> json) =>
+      _$GitPoapFromJson(json);
 
-  Map<String, dynamic> toJson() => _$GitPOAPToJson(this);
+  Map<String, dynamic> toJson() => _$GitPoapToJson(this);
 }
 
 var example = {

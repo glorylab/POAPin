@@ -79,7 +79,7 @@ class HomeController extends BaseController {
   };
 
   bool isLoadingGitPOAPs = true;
-  List<GitPOAP> gitPOAPs = <GitPOAP>[];
+  List<GitPoap> gitPOAPs = <GitPoap>[];
   int gitPOAPCount = 0;
 
   /// Counts the number of POAPs at each event.

@@ -7,7 +7,7 @@ abstract class AppRoutes {
   static const watchlist = '/watchlist';
   static const moments = '/moments';
   static const moment = '/moments/:id';
-  static const gitpoaps = '/gitpoaps';
+  static const gitPoaps = '/gitPoaps';
   static const square = '/square';
   static const me = '/me';
   static const tags = '/tags';

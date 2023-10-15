@@ -23,13 +23,13 @@ class GitPOAPRepository {
     }
   }
 
-  Future<List<GitPOAP>> scan(String address) async {
+  Future<List<GitPoap>> scan(String address) async {
     try {
       final response = await gitPOAPAPI.scan(address);
 
       if (response.data is List) {
         final gitPOAPs =
-            (response.data as List).map((e) => GitPOAP.fromJson(e)).toList();
+            (response.data as List).map((e) => GitPoap.fromJson(e)).toList();
         return gitPOAPs;
       }
       if (response.data['msg'] != null) {

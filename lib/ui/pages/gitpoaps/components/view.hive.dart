@@ -8,7 +8,7 @@ import 'package:poapin/ui/pages/gitpoaps/controller.dart';
 
 class HiveView extends StatelessWidget {
   final int columnCount;
-  final List<GitPOAP> gitPOAPs;
+  final List<GitPoap> gitPOAPs;
   const HiveView({Key? key, required this.columnCount, required this.gitPOAPs})
       : super(key: key);
 
@@ -47,7 +47,7 @@ class HiveView extends StatelessWidget {
                       color: const Color(0xFF10111e),
                       child: GestureDetector(
                         onTap: () {
-                          Get.find<GitPOAPsController>().jumpToPOAP(
+                          Get.find<GitPoapsController>().jumpToPOAP(
                               gitPOAPs[_getVerticalIndex(col, row)]);
                         },
                         child: Container(

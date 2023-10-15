@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 import 'package:poapin/ui/pages/gitpoaps/controller.dart';
 
-class GitPOAPsBinding implements Bindings {
+class GitPoapsBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => GitPOAPsController());
+    Get.lazyPut(() => GitPoapsController());
   }
 }
