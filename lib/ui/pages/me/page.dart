@@ -107,12 +107,12 @@ class MePage extends BasePage<MeController> {
                           BorderRadius.all(Radius.circular(16))),
                       clipBehavior: Clip.antiAlias,
                       child: MeItem(
-                        title: strTags,
+                        title: strJournal,
                         onTap: () {
                           Get.toNamed('/tags');
                         },
                         icon: Icon(
-                          Icons.local_offer,
+                          Icons.attractions,
                           color: Colors.blueGrey.shade300,
                         ),
                         desc: strManageTags,

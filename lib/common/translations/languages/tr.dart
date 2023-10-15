@@ -103,6 +103,9 @@ class TrTranslations {
         Strings.addTag: 'Yeni Etiket',
         Strings.editTagHint: 'yukarıdan seçin\nveya',
 
+        /// Journal
+        // Strings.journal: 'Journal',
+
         /// Settings
         Strings.settings: 'Ayarlar',
         Strings.settingsDesc: 'Bildirimler, veriler, vb.',

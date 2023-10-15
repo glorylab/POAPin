@@ -102,6 +102,9 @@ Moments is a way to add real value to your digital bookmark by saving real-life 
         Strings.addTag: 'New Tag',
         Strings.editTagHint: 'choose from above\nor',
 
+        /// Journal
+        Strings.journal: 'Journal',
+
         /// Settings
         Strings.settings: 'Settings',
         Strings.settingsDesc: 'Notifications, data, etc.',

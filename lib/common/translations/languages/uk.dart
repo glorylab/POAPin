@@ -101,6 +101,9 @@ class UkTranslations {
         Strings.addTag: 'Новий тег',
         Strings.editTagHint: 'виберіть зверху\nабо',
 
+        /// Journal
+        // Strings.journal: 'Journal',
+
         /// Settings
         Strings.settings: 'Налаштування',
         Strings.settingsDesc: 'Сповіщення, дані, тощо.',

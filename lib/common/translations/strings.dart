@@ -74,6 +74,8 @@ class Strings {
   static const addTag = 'add_tag';
   static const editTagHint = 'edit_tag_hint';
 
+  static const journal = 'journal';
+
   static const settings = 'settings';
   static const settingsDesc = 'settings_desc';
   static const notification = 'notification';
@@ -192,6 +194,8 @@ String get strManageTags => Strings.manageTags.tr;
 String get strNoTags => Strings.noTags.tr;
 String get strAddTag => Strings.addTag.tr;
 String get strEditTagHint => Strings.editTagHint.tr;
+
+String get strJournal => Strings.journal.tr;
 
 String get strSettings => Strings.settings.tr;
 String get strSettingsDesc => Strings.settingsDesc.tr;

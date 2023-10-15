@@ -100,6 +100,9 @@ class FRTranslations {
         Strings.addTag: 'Nouveau Tag',
         Strings.editTagHint: 'Choisissez ci-dessus\nou',
 
+        /// Journal
+        // Strings.journal: 'Journal',
+
         /// Settings
         Strings.settings: 'Réglages',
         Strings.settingsDesc: 'Notifications, données, etc.',

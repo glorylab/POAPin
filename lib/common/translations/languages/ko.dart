@@ -99,6 +99,9 @@ class KoTranslations {
         Strings.addTag: '새 태그',
         Strings.editTagHint: '위에서 선택\n또는',
 
+        /// Journal
+        // Strings.journal: 'Journal',
+
         /// Settings
         Strings.settings: '설정',
         Strings.settingsDesc: '알림, 데이터 등',

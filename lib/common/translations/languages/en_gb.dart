@@ -102,6 +102,9 @@ class EnGBTranslations {
         Strings.addTag: 'New Tag',
         Strings.editTagHint: 'choose from above\nor',
 
+        /// Journal
+        // Strings.journal: 'Journal',
+
         /// Settings
         Strings.settings: 'Settings',
         Strings.settingsDesc: 'Notifications, data, etc.',

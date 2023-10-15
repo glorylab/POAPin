@@ -97,6 +97,9 @@ class JaTranslations {
         Strings.addTag: '新しいタグ',
         Strings.editTagHint: '上から選択\nまたは',
 
+        /// Journal
+        // Strings.journal: 'Journal',
+
         /// Settings
         Strings.settings: '設定',
         Strings.settingsDesc: '通知、データなど',

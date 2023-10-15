@@ -103,6 +103,9 @@ class ViTranslations {
         Strings.addTag: 'Thêm thẻ mới',
         Strings.editTagHint: 'chọn từ trên\nhoặc',
 
+        /// Journal
+        // Strings.journal: 'Journal',
+
         /// Settings
         Strings.settings: 'Cài đặt',
         Strings.settingsDesc: 'Thông báo, dữ liệu, v.v.',

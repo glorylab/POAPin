@@ -98,6 +98,9 @@ class ZhCNTranslations {
         Strings.addTag: '新标签',
         Strings.editTagHint: '从上面选择\n或者',
 
+        /// Journal
+        // Strings.journal: 'Journal',
+
         /// Settings
         Strings.settings: '设置',
         Strings.settingsDesc: '通知、数据等',

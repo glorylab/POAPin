@@ -102,6 +102,9 @@ class ThTranslations {
         Strings.addTag: 'แท็กใหม่',
         Strings.editTagHint: 'เลือกจากด้านบน\nหรือ',
 
+        /// Journal
+        // Strings.journal: 'Journal',
+
         /// Settings
         Strings.settings: 'การตั้งค่า',
         Strings.settingsDesc: 'การแจ้งเตือน, ข้อมูล, ฯลฯ',

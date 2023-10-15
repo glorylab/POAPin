@@ -1,4 +1,3 @@
-
 class ZhTWTranslations {
   static Map<String, String> get map => {
         'language_in_english': 'Chinese (Taiwan)',
@@ -100,6 +99,9 @@ class ZhTWTranslations {
         // Strings.noTags: 'No tags yet',
         // Strings.addTag: 'New Tag',
         // Strings.editTagHint: 'choose from above\nor',
+
+        /// Journal
+        // Strings.journal: 'Journal',
 
         /// Settings
         // Strings.settings: 'Settings',

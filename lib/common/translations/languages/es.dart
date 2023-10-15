@@ -104,6 +104,9 @@ class ESTranslations {
         Strings.addTag: 'Nueva Etiqueta',
         Strings.editTagHint: 'elige de arriba\no',
 
+        /// Journal
+        // Strings.journal: 'Journal',
+
         /// Settings
         Strings.settings: 'Configuración',
         Strings.settingsDesc: 'Notificaciones, datos, etc.',
