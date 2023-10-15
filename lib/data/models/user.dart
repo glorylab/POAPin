@@ -8,7 +8,7 @@ class User extends HiveObject {
   @HiveField(0)
   final List<String> eth;
   @HiveField(1)
-  final String name;
+  final String? name;
   @HiveField(2)
   final List<Membership> membership;
 

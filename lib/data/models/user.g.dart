@@ -18,7 +18,7 @@ class UserAdapter extends TypeAdapter<User> {
     };
     return User(
       eth: (fields[0] as List).cast<String>(),
-      name: fields[1] as String,
+      name: fields[1] as String?,
       membership: (fields[2] as List).cast<Membership>(),
     );
   }
@@ -95,7 +95,7 @@ class MembershipAdapter extends TypeAdapter<Membership> {
 
 User _$UserFromJson(Map<String, dynamic> json) => User(
       eth: (json['eth'] as List<dynamic>).map((e) => e as String).toList(),
-      name: json['name'] as String,
+      name: json['name'] as String?,
       membership: (json['membership'] as List<dynamic>)
           .map((e) => Membership.fromJson(e as Map<String, dynamic>))
           .toList(),
