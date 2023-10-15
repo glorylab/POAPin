@@ -109,7 +109,7 @@ class MePage extends BasePage<MeController> {
                       child: MeItem(
                         title: strJournal,
                         onTap: () {
-                          Get.toNamed('/tags');
+                          Get.toNamed('/journal');
                         },
                         icon: Icon(
                           Icons.attractions,

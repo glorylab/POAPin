@@ -3,6 +3,7 @@ part of 'pages.dart';
 abstract class AppRoutes {
   static const dashboard = '/dashboard';
   static const home = '/home';
+  static const journal = '/journal';
   static const watchlist = '/watchlist';
   static const moments = '/moments';
   static const moment = '/moments/:id';

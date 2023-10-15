@@ -14,6 +14,8 @@ import 'package:poapin/ui/pages/gitpoaps/binding.dart';
 import 'package:poapin/ui/pages/gitpoaps/page.dart';
 import 'package:poapin/ui/pages/home/binding.dart';
 import 'package:poapin/ui/pages/home/page.dart';
+import 'package:poapin/ui/pages/journal/binding.dart';
+import 'package:poapin/ui/pages/journal/page.dart';
 import 'package:poapin/ui/pages/me/binding.dart';
 import 'package:poapin/ui/pages/me/page.dart';
 import 'package:poapin/ui/pages/moment/binding.dart';
@@ -55,6 +57,11 @@ class AppPages {
       name: AppRoutes.home,
       page: () => const HomePage(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.journal,
+      page: () => const JournalPage(),
+      binding: JournalBinding(),
     ),
     GetPage(
       name: AppRoutes.watchlist,
