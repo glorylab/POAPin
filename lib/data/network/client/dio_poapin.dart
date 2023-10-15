@@ -9,8 +9,8 @@ class DioPOAPINClient {
   DioPOAPINClient() {
     _dio
       ..options.baseUrl = POAPINConstant.baseUrl
-      ..options.connectTimeout = BaseConstant.connectionTimeout
-      ..options.receiveTimeout = BaseConstant.receiveTimeout
+      ..options.connectTimeout = const Duration(milliseconds: BaseConstant.connectionTimeout)
+      ..options.receiveTimeout = const Duration(milliseconds: BaseConstant.receiveTimeout)
       ..options.responseType = ResponseType.json
       ..options.headers = {
         'Accept': 'application/json',

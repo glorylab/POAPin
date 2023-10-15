@@ -111,7 +111,7 @@ Future<void> main() async {
     if (user != null) {
       user.getIdToken(true).then((idToken) {
         UserController c = Get.find<UserController>();
-        c.idToken = idToken;
+        c.idToken = idToken!;
       });
     }
   });

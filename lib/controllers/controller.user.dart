@@ -20,7 +20,7 @@ class UserController extends BaseController {
   void getUserInfo() async {
     isGetingUserInfo = true;
     update();
-    idToken = await FirebaseAuth.instance.currentUser!.getIdToken(true);
+    idToken = (await FirebaseAuth.instance.currentUser!.getIdToken(true))!;
     Get.lazyPut(() => AuthController());
     await Get.find<AuthController>().gm();
     try {
@@ -39,9 +39,9 @@ class UserController extends BaseController {
       update();
       Get.find<HomeController>().getAccount();
       Get.find<MeController>().getAccount();
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       isGetingUserInfo = false;
-      Get.snackbar(strError, e.message);
+      Get.snackbar(strError, e.message??"Unknown");
       update();
       if (kDebugMode) {
         print(e);

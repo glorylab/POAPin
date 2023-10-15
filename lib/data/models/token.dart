@@ -179,8 +179,7 @@ class Event {
 
   static DateTime? _timeConverter(t) {
     if (t == null) return null;
-    return Jiffy(t, "dd-MMM-yyyy").dateTime;
-    // return Jiffy(Jiffy(t, "dd-MMM-yyyy").dateTime).yMMMd;
+    return Jiffy.parse(t, pattern: "dd-MMM-yyyy").dateTime;
   }
 
   static int _defaultInt(t) {

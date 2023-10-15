@@ -407,14 +407,15 @@ class EventDetailController extends BaseController {
   String? getTimelineContent(int index) {
     switch (index) {
       case 0:
-        return Jiffy(event.startDate).yMMMd;
+
+        return Jiffy.parse(event.startDate.toString()).yMMMd;
       case 1:
         if (event.startDate!.isAtSameMomentAs(event.endDate!)) {
           return "";
         }
-        return Jiffy(event.endDate).yMMMd;
+        return Jiffy.parse(event.endDate.toString()).yMMMd;
       case 2:
-        return Jiffy(event.expiryDate).yMMMd;
+        return Jiffy.parse(event.expiryDate.toString()).yMMMd;
       default:
         return "-";
     }

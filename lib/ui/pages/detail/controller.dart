@@ -358,15 +358,16 @@ class DetailController extends BaseController {
   String? getTimelineContent(int index) {
     switch (index) {
       case 0:
-        return Jiffy(token.value.event.startDate).yMMMd;
+        if(token.value.event.startDate == null) return null;
+        return Jiffy.parse(token.value.event.startDate.toString()).yMMMd;
       case 1:
         if (token.value.event.startDate!
             .isAtSameMomentAs(token.value.event.endDate!)) {
           return "";
         }
-        return Jiffy(token.value.event.endDate).yMMMd;
+        return Jiffy.parse(token.value.event.endDate.toString()).yMMMd;
       case 2:
-        return Jiffy(token.value.event.expiryDate).yMMMd;
+        return Jiffy.parse(token.value.event.expiryDate.toString()).yMMMd;
       default:
         return "-";
     }

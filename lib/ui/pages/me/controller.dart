@@ -293,13 +293,13 @@ class MeController extends BaseController {
         setIsDispensed(link);
         showClaimLink(context);
       }
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       Get.defaultDialog(
         radius: 24,
         titlePadding: const EdgeInsets.all(16),
         contentPadding: const EdgeInsets.all(16),
         title: strError,
-        content: Text(e.message),
+        content: Text(e.message??"Unknown"),
       );
     }
   }
