@@ -22,11 +22,11 @@ class TokenChart extends StatelessWidget {
       const Color(0xFF9791EB),
     ];
     return LineChartData(
-      gridData: FlGridData(
+      gridData: const FlGridData(
         drawHorizontalLine: false,
         drawVerticalLine: false,
       ),
-      titlesData: FlTitlesData(
+      titlesData: const FlTitlesData(
         show: true,
         rightTitles: AxisTitles(
           sideTitles: SideTitles(
@@ -54,7 +54,7 @@ class TokenChart extends StatelessWidget {
               controller.maxTokensInGrowthView.value.toDouble() / 10
           : controller.maxTokensInMonthlyView.value.toDouble() +
               controller.maxTokensInMonthlyView.value.toDouble() / 10,
-      lineTouchData: LineTouchData(enabled: false),
+      lineTouchData: const LineTouchData(enabled: false),
       lineBarsData: [
         LineChartBarData(
           spots: controller.chartView.value == 'growth'
@@ -71,7 +71,7 @@ class TokenChart extends StatelessWidget {
           barWidth: controller.chartView.value == 'growth' ? 4 : 1,
           isStrokeCapRound:
               controller.chartView.value == 'growth' ? false : true,
-          dotData: FlDotData(
+          dotData: const FlDotData(
             show: false,
           ),
           belowBarData: BarAreaData(

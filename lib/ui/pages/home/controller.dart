@@ -1016,7 +1016,7 @@ class HomeController extends BaseController {
       _updateStatus();
       clearCachedData();
       cacheData();
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       if (e.response != null) {
         if (e.response!.data != null && e.response!.data['message'] != null) {
           error.value = e.response!.data['message'];

@@ -21,7 +21,7 @@ class POAPINRepository {
       } else {
         return null;
       }
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
       throw errorMessage;
     }
@@ -38,7 +38,7 @@ class POAPINRepository {
       } else {
         return '';
       }
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
       throw errorMessage;
     }

@@ -16,7 +16,7 @@ class POAPSocialRepository {
         return followings;
       }
       return [];
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
       throw errorMessage;
     }
@@ -31,7 +31,7 @@ class POAPSocialRepository {
         return followings;
       }
       return [];
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
       throw errorMessage;
     }

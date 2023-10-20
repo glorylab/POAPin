@@ -345,7 +345,7 @@ class EventDetailController extends BaseController {
       if (isAllHoldersLoaded) {
         refreshHoldersController.loadNoData();
       }
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       if (e.response?.statusCode == 403) {
         String token = await poapinRepository.refreshPOAPToken();
         if (token.isNotEmpty) {

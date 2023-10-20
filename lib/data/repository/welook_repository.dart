@@ -14,7 +14,7 @@ class WelookRepository {
       final response = await welookAPI.count(eventID);
       final total = response.data['total'] as int?;
       return total ?? 0;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
       throw errorMessage;
     }
@@ -36,7 +36,7 @@ class WelookRepository {
       );
       MomentResponse momentResponse = MomentResponse.fromJson(response.data);
       return momentResponse;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
       throw errorMessage;
     }
@@ -57,7 +57,7 @@ class WelookRepository {
       );
       MomentResponse momentResponse = MomentResponse.fromJson(response.data);
       return momentResponse;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
       throw errorMessage;
     }

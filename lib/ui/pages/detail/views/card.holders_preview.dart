@@ -83,8 +83,7 @@ class HoldersContent extends StatelessWidget {
                                 (h) => HolderItem(
                                   holder: h,
                                 ),
-                              )
-                              .toList(),
+                              ),
                         ],
                       ),
                     ),

@@ -209,7 +209,7 @@ class WatchlistController extends BaseController {
       List data = response.data;
       List tokens = data.map((t) => Token.fromJson(t)).toList();
       return tokens;
-    } on DioError catch (_) {
+    } on DioException catch (_) {
       return null;
     }
   }

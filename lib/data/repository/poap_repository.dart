@@ -15,7 +15,7 @@ class POAPRepository {
       final tokens =
           (response.data as List).map((e) => Token.fromJson(e)).toList();
       return tokens;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
       throw errorMessage;
     }
@@ -26,7 +26,7 @@ class POAPRepository {
       final response = await poapAPI.getToken(tokenID);
       final token = Token.fromJson(response.data);
       return token;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
       throw errorMessage;
     }
@@ -45,7 +45,7 @@ class POAPRepository {
       );
       final holdersResponse = HolderResponse.fromJson(response.data);
       return holdersResponse;
-    } on DioError {
+    } on DioException {
       rethrow;
     }
   }
@@ -55,7 +55,7 @@ class POAPRepository {
       final response = await poapAPI.getEventDetail(eventID);
       final event = Event.fromJson(response.data);
       return event;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
       throw errorMessage;
     }

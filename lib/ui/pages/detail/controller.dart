@@ -233,7 +233,7 @@ class DetailController extends BaseController {
         holders = response.holders == null ? [] : response.holders!;
       }
       update();
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       if (e.response?.statusCode == 403) {
         String token = await poapinRepository.refreshPOAPToken();
         if (token.isNotEmpty) {

@@ -117,7 +117,7 @@ class SquareController extends BaseController {
       update();
       getCursor();
       return;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       isLoading = false;
       if (e.response != null) {
         if (e.response!.data != null && e.response!.data['message'] != null) {

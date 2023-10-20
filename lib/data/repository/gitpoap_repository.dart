@@ -17,7 +17,7 @@ class GitPOAPRepository {
         'gitPOAPID': gitPOAPID,
         'isGitPOAP': isGitPOAP,
       };
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
       throw errorMessage;
     }
@@ -39,7 +39,7 @@ class GitPOAPRepository {
         throw response.data['message'];
       }
       throw 'Unknown error';
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
       throw errorMessage;
     }

@@ -49,10 +49,12 @@ dependencies:
   hive: ^2.0.5
   hive_flutter: ^1.1.0
   hive_generator: ^2.0.1
+  http: ^1.1.0
   image: ^4.1.3
   image_downloader: ^0.31.0
   intl: ^0.18.1
   jiffy: ^6.2.1
+  json_annotation: ^4.1.1
   json_serializable: ^6.7.1
   modal_bottom_sheet: ^3.0.0-pre
   package_info_plus: ^4.1.0
