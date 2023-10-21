@@ -6,6 +6,7 @@ import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/pages/dashboard/controller.dart';
 import 'package:poapin/ui/pages/home/page.dart';
+import 'package:poapin/ui/pages/journal/page.dart';
 import 'package:poapin/ui/pages/me/page.dart';
 
 class DashboardPage extends GetView<DashboardController> {
@@ -75,8 +76,7 @@ class DashboardPage extends GetView<DashboardController> {
                 index: controller.tabIndex.value,
                 children: const [
                   HomePage(),
-                  // WatchlistPage(),
-                  // SquarePage(),
+                  JournalPage(),
                   MePage(),
                 ],
               ),
@@ -101,11 +101,11 @@ class DashboardPage extends GetView<DashboardController> {
               label: strHome,
               backgroundColor: Colors.white,
             ),
-            // BottomNavigationBarItem(
-            //   icon: const Icon(Icons.collections_bookmark_outlined),
-            //   label: strWatchlist,
-            //   backgroundColor: Colors.white,
-            // ),
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.data_object),
+              label: strJournal,
+              backgroundColor: Colors.white,
+            ),
             BottomNavigationBarItem(
               icon: const Icon(Icons.account_circle_outlined),
               label: strMe,

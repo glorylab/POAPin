@@ -18,8 +18,8 @@ import 'package:poapin/ui/pages/home/controllers/island.dart';
 import 'package:poapin/ui/pages/watchlist/controller.dart';
 import 'package:poapin/util/show_input.dart';
 
-class DynamicIslandView extends StatelessWidget {
-  const DynamicIslandView({Key? key}) : super(key: key);
+class ExploreIslandView extends StatelessWidget {
+  const ExploreIslandView({Key? key}) : super(key: key);
 
   double getHeight(int progress, bool isIslandInit, BuildContext context) {
     if (!isIslandInit) {
@@ -29,7 +29,7 @@ class DynamicIslandView extends StatelessWidget {
     return 56;
   }
 
-  double getElavation(int progress, bool isExpanded) {
+  double getElevation(int progress, bool isExpanded) {
     return 32 + 32 * (progress / 100.0);
   }
 
@@ -59,7 +59,7 @@ class DynamicIslandView extends StatelessWidget {
           curve: Curves.easeInOutCubic,
           builder: (context, int progress, child) {
             return Material(
-              elevation: getElavation(progress, c.isExpanded),
+              elevation: getElevation(progress, c.isExpanded),
               color: Colors.white,
               clipBehavior: Clip.antiAlias,
               shape: ContinuousRectangleBorder(
