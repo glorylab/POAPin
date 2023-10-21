@@ -14,7 +14,7 @@ import 'package:poapin/ui/pages/home/components/appbar.general.dart';
 import 'package:poapin/ui/pages/home/components/button.set_eth_address.dart';
 import 'package:poapin/ui/pages/home/components/card.dart';
 import 'package:poapin/ui/pages/home/components/fab.edit.dart';
-import 'package:poapin/ui/pages/home/components/view.island.dart';
+import 'package:poapin/ui/pages/home/components/view.island.explore.dart';
 import 'package:poapin/ui/pages/home/components/view.month.dart';
 import 'package:poapin/ui/pages/home/components/view.options.dart';
 import 'package:poapin/ui/pages/home/components/view.tips.empty.dart';
@@ -55,7 +55,7 @@ class HomePage extends BasePage<HomeController> {
         if (controller.account.id.isEmpty) {
           return CustomScrollView(
             slivers: [
-              const ENJOYALIFEWITHPOAP(),
+              const EnjoyALifeWithPoap(),
               SliverToBoxAdapter(
                 child: Container(
                   alignment: Alignment.centerLeft,
@@ -90,7 +90,7 @@ class HomePage extends BasePage<HomeController> {
                 controller.poapCount == 0)) {
           return const CustomScrollView(
             slivers: [
-              ENJOYALIFEWITHPOAP(),
+              EnjoyALifeWithPoap(),
               SliverToBoxAdapter(
                 child: Center(
                   child: LoadingAnimation(),
@@ -106,7 +106,7 @@ class HomePage extends BasePage<HomeController> {
           if (controller.poapCount == 0) {
             return const CustomScrollView(
               slivers: [
-                ENJOYALIFEWITHPOAP(),
+                EnjoyALifeWithPoap(),
                 SliverToBoxAdapter(
                   child: Center(
                     child: EmptyTips(),
@@ -139,9 +139,9 @@ class HomePage extends BasePage<HomeController> {
                         children: [
                           ClipRect(
                             child: AnimatedScale(
-                              scale: c.isExpanded ? 1.06 : 1,
-                              curve: Curves.easeInOutExpo,
-                              duration: const Duration(milliseconds: 500),
+                              scale: c.isExpanded ? 1.1 : 1,
+                              curve: Curves.easeInOutCubic,
+                              duration: const Duration(milliseconds: 300),
                               child: CustomScrollView(
                                   controller: c.scrollController,
                                   slivers: [
@@ -205,7 +205,7 @@ class HomePage extends BasePage<HomeController> {
                             bottom: 0,
                             left: c.isExpanded ? 0 : 6,
                             right: c.isExpanded ? 0 : 6,
-                            child: const DynamicIslandView(),
+                            child: const ExploreIslandView(),
                           ),
                         ],
                       ),

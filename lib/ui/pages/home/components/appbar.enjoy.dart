@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:poapin/common/translations/strings.dart';
 import 'package:rive/rive.dart' hide LinearGradient;
 
-class ENJOYALIFEWITHPOAP extends StatelessWidget {
-  const ENJOYALIFEWITHPOAP({Key? key}) : super(key: key);
+class EnjoyALifeWithPoap extends StatelessWidget {
+  const EnjoyALifeWithPoap({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
