@@ -668,11 +668,18 @@ class CollectionController extends BaseController {
     if (ethAddress == '') {
       return;
     }
-    var response = await tokensRepository.scan(ethAddress);
-    tokens.value = response;
-    _updateLoadingStatus(LoadingStatus.loaded);
-    _updateStatus();
-    cacheData();
+    try {
+      var response = await tokensRepository.scan(ethAddress);
+      tokens.value = response;
+      _updateLoadingStatus(LoadingStatus.loaded);
+      _updateStatus();
+      cacheData();
+    } catch (e) {
+      error.value = e.toString();
+      tokens.value = [];
+      _updateLoadingStatus(LoadingStatus.failed);
+      _updateStatus();
+    }
   }
 
   String getMonthString(int month) {

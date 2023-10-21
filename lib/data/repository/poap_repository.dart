@@ -17,7 +17,7 @@ class POAPRepository {
       return tokens;
     } on DioException catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
-      throw errorMessage;
+      return [];
     }
   }
 
