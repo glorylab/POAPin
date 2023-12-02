@@ -6,6 +6,8 @@ const addressBox = 'address';
 const prefBox = 'pref';
 const eventBox = 'event';
 const tagBox = 'tag';
+const journalBlockBox = 'journal_block';
+const journalBox = 'journal';
 
 const prefVisibilityKey = 'visibility';
 const prefLayoutKey = 'layout';
