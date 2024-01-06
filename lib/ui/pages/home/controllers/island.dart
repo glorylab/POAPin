@@ -8,7 +8,7 @@ import 'package:poapin/util/verification.dart';
 
 enum AddressType { ethereum, ens, email, invalid, none }
 
-class IslandController extends BaseController {
+class ExploreIslandController extends BaseController {
   bool canPaste = true;
   bool isVerifying = false;
 

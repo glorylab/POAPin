@@ -110,7 +110,7 @@ class IslandHeader extends StatelessWidget {
           curve: Curves.easeInOutCubic,
           builder: (context, int progress, child) {
             return Container(
-              height: 56 + 12 * (progress / 100.0),
+              height: 56 + 120 * (progress / 100.0),
               margin: EdgeInsets.symmetric(
                   horizontal: 16 * (progress / 100.0),
                   vertical: 24 * (progress / 100.0)),
@@ -123,8 +123,8 @@ class IslandHeader extends StatelessWidget {
                       highlightElevation: 0,
                       onPressed: () {
                         if (c.isExpanded) {
-                          Get.put(IslandController());
-                          InputHelper.showAccountInput(
+                          Get.put(JournalIslandController());
+                          InputHelper.showContentInput(
                             context,
                             'Add some new bookmarks to life!',
                             c.addressController,

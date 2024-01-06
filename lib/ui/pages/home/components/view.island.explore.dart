@@ -125,7 +125,7 @@ class IslandHeader extends StatelessWidget {
                         highlightElevation: 0,
                         onPressed: () {
                           if (c.isExpanded) {
-                            Get.put(IslandController());
+                            Get.put(ExploreIslandController());
                             InputHelper.showAccountInput(
                               context,
                               'poap.eth / 0x00...',

@@ -47,7 +47,7 @@ class SetETHAddressButton extends StatelessWidget {
           ],
         ),
         onPressed: () async {
-          Get.put(IslandController());
+          Get.put(ExploreIslandController());
           InputHelper.showAccountInput(
             context,
             'poap.eth / 0x00...',

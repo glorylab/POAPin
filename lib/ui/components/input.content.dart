@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poapin/res/colors.dart';
-import 'package:poapin/ui/pages/home/controllers/island.dart';
+import 'package:poapin/ui/pages/journal/controllers/island.dart';
 import 'package:poapin/util/screen.dart';
 
-class AccountInput extends StatelessWidget {
+class ContentInput extends StatelessWidget {
   final bool isLarge;
   final String hint;
 
-  const AccountInput({Key? key, required this.hint, this.isLarge = false})
+  const ContentInput({Key? key, required this.hint, this.isLarge = false})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class AccountInput extends StatelessWidget {
                 padding: EdgeInsets.symmetric(
                     horizontal: 16, vertical: isLarge ? 0 : 0),
                 alignment: Alignment.center,
-                child: GetBuilder<ExploreIslandController>(
+                child: GetBuilder<JournalIslandController>(
                   builder: (c) => TextFormField(
                     autofocus: true,
                     controller: c.textEditController,
@@ -70,12 +70,12 @@ class AccountInput extends StatelessWidget {
               ),
             ),
           ),
-          const Positioned(
-            right: 0,
-            top: 0,
-            bottom: 0,
-            child: PasteButton(),
-          ),
+          // const Positioned(
+          //   right: 0,
+          //   top: 0,
+          //   bottom: 0,
+          //   child: PasteButton(),
+          // ),
         ],
       ),
     );
@@ -163,12 +163,12 @@ class InputShortcuts extends StatelessWidget {
   }
 }
 
-class AccountInputPage extends StatelessWidget {
+class ContentInputPage extends StatelessWidget {
   final TextEditingController controller;
   final Function() onEditingComplete;
   final String hint;
 
-  const AccountInputPage({
+  const ContentInputPage({
     Key? key,
     required this.controller,
     required this.onEditingComplete,
@@ -214,7 +214,7 @@ class AccountInputPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           Expanded(
-                            child: AccountInput(
+                            child: ContentInput(
                               hint: hint,
                             ),
                           ),
@@ -233,42 +233,42 @@ class AccountInputPage extends StatelessWidget {
   }
 }
 
-class PasteButton extends StatelessWidget {
-  const PasteButton({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GetBuilder<ExploreIslandController>(builder: (c) {
-      if (c.canPaste) {
-        return Container(
-          margin: const EdgeInsets.only(
-            top: 4,
-            bottom: 4,
-            right: 8,
-          ),
-          padding: const EdgeInsets.only(left: 4, top: 4, bottom: 4),
-          child: RawMaterialButton(
-            onPressed: c.paste,
-            fillColor: PColor.primary,
-            constraints: const BoxConstraints(minWidth: 16),
-            elevation: 2,
-            highlightElevation: 8,
-            shape: ContinuousRectangleBorder(
-              borderRadius: BorderRadius.circular(28),
-            ),
-            child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: const Icon(
-                  Icons.paste,
-                  color: Colors.white,
-                )),
-          ),
-        );
-      }
-      return Container();
-    });
-  }
-}
+// class PasteButton extends StatelessWidget {
+//   const PasteButton({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return GetBuilder<IslandController>(builder: (c) {
+//       if (c.canPaste) {
+//         return Container(
+//           margin: const EdgeInsets.only(
+//             top: 4,
+//             bottom: 4,
+//             right: 8,
+//           ),
+//           padding: const EdgeInsets.only(left: 4, top: 4, bottom: 4),
+//           child: RawMaterialButton(
+//             onPressed: c.paste,
+//             fillColor: PColor.primary,
+//             constraints: const BoxConstraints(minWidth: 16),
+//             elevation: 2,
+//             highlightElevation: 8,
+//             shape: ContinuousRectangleBorder(
+//               borderRadius: BorderRadius.circular(28),
+//             ),
+//             child: Container(
+//                 padding: const EdgeInsets.symmetric(horizontal: 16),
+//                 child: const Icon(
+//                   Icons.paste,
+//                   color: Colors.white,
+//                 )),
+//           ),
+//         );
+//       }
+//       return Container();
+//     });
+//   }
+// }
 
 class ConfirmButton extends StatelessWidget {
   const ConfirmButton({
@@ -277,7 +277,7 @@ class ConfirmButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<ExploreIslandController>(builder: (c) {
+    return GetBuilder<JournalIslandController>(builder: (c) {
       if (c.canPaste) {
         return const SizedBox(
           width: 2,
@@ -289,39 +289,39 @@ class ConfirmButton extends StatelessWidget {
         padding: const EdgeInsets.only(left: 4, top: 4, bottom: 4),
         child: c.addressType == AddressType.invalid
             ? Container(
-                alignment: Alignment.center,
-                child: const Text(
-                  '👀',
-                  style: TextStyle(
-                    fontSize: 24,
-                  ),
-                ))
-            : RawMaterialButton(
-                onPressed: c.isVerifying ? null : c.onSubmit,
-                fillColor: c.isVerifying ? Colors.white : Colors.green,
-                constraints: const BoxConstraints(minWidth: 16),
-                elevation: c.isVerifying ? 0 : 8,
-                highlightElevation: 0,
-                shape: ContinuousRectangleBorder(
-                  borderRadius: BorderRadius.circular(48),
-                ),
-                child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: c.isVerifying
-                        ? const SizedBox(
-                            width: 16,
-                            height: 16,
-                            child: CircularProgressIndicator(
-                              strokeWidth: 2,
-                              valueColor:
-                                  AlwaysStoppedAnimation<Color>(Colors.yellow),
-                            ),
-                          )
-                        : const Icon(
-                            Icons.check,
-                            color: Colors.white,
-                          )),
+            alignment: Alignment.center,
+            child: const Text(
+              '👀',
+              style: TextStyle(
+                fontSize: 24,
               ),
+            ))
+            : RawMaterialButton(
+          onPressed: c.isVerifying ? null : c.onSubmit,
+          fillColor: c.isVerifying ? Colors.white : Colors.green,
+          constraints: const BoxConstraints(minWidth: 16),
+          elevation: c.isVerifying ? 0 : 8,
+          highlightElevation: 0,
+          shape: ContinuousRectangleBorder(
+            borderRadius: BorderRadius.circular(48),
+          ),
+          child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: c.isVerifying
+                  ? const SizedBox(
+                width: 16,
+                height: 16,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2,
+                  valueColor:
+                  AlwaysStoppedAnimation<Color>(Colors.yellow),
+                ),
+              )
+                  : const Icon(
+                Icons.check,
+                color: Colors.white,
+              )),
+        ),
       );
     });
   }
