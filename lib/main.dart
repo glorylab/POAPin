@@ -14,6 +14,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:poapin/controllers/controller.user.dart';
 import 'package:poapin/data/models/account.dart';
 import 'package:poapin/data/models/address.dart';
+import 'package:poapin/data/models/journal/block.dart';
+import 'package:poapin/data/models/journal/journal.dart';
 import 'package:poapin/data/models/pref/layout.dart';
 import 'package:poapin/data/models/pref/shape.dart';
 import 'package:poapin/data/models/pref/sort.dart';
@@ -37,6 +39,7 @@ import 'package:poapin/ui/pages/home/controllers/card.moment.dart';
 import 'package:poapin/ui/pages/home/controllers/card.social.dart';
 import 'package:poapin/ui/pages/home/controllers/island.dart';
 import 'package:poapin/ui/pages/journal/controller.dart';
+import 'package:poapin/ui/pages/journal/controllers/island.dart';
 import 'package:poapin/ui/pages/me/controller.dart';
 import 'package:poapin/ui/pages/moment/controller.dart';
 import 'package:poapin/ui/pages/moments/controller.dart';
@@ -71,8 +74,10 @@ Future<void> main() async {
   Get.lazyPut(() => APPController());
   Get.lazyPut(() => UserController());
   Get.lazyPut(() => ArtworkController());
-  Get.lazyPut(() => IslandController());
+  Get.lazyPut(() => ExploreIslandController());
+  Get.lazyPut(() => JournalIslandController());
   Hive.registerAdapter(AccountAdapter());
+  Hive.registerAdapter(JournalAdapter());
   Hive.registerAdapter(AddressAdapter());
   Hive.registerAdapter(LayoutPrefAdapter());
   Hive.registerAdapter(ShapePrefAdapter());
@@ -88,6 +93,8 @@ Future<void> main() async {
   await Hive.openBox(prefBox);
   await Hive.openBox<Event>(eventBox);
   await Hive.openBox<Tag>(tagBox);
+  await Hive.openBox<JournalBlock>(journalBlockBox);
+  await Hive.openBox<Journal>(journalBox);
   FirebaseAuth.instance.authStateChanges().listen((User? user) {
     UserController c = Get.find<UserController>();
 
