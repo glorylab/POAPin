@@ -9,11 +9,9 @@ import 'package:path_provider/path_provider.dart';
 import 'package:poapin/common/status.dart';
 import 'package:poapin/controllers/tag.dart';
 import 'package:poapin/data/models/holder.dart';
-import 'package:poapin/data/models/moment.dart';
 import 'package:poapin/data/models/token.dart';
 import 'package:poapin/data/repository/poap_repository.dart';
 import 'package:poapin/data/repository/poapin_repository.dart';
-import 'package:poapin/data/repository/welook_repository.dart';
 import 'package:poapin/di/service_locator.dart';
 import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/controller.base.dart';
@@ -70,9 +68,6 @@ class EventDetailController extends BaseController {
 
   /// Holders -------------------------------------------------------------End
   /// Moments -------------------------------------------------------------Start
-  final welookRepository = getIt.get<WelookRepository>();
-  List<Moment> moments = [];
-
   int momentCount = 0;
 
   bool isLoadingAllMoments = true;
@@ -87,30 +82,6 @@ class EventDetailController extends BaseController {
   RefreshController refreshHoldersController =
       RefreshController(initialRefresh: false);
 
-  String? getPreviewImageURL(Moment previewMoment) {
-    if (previewMoment.bigImageUrl.isNotEmpty) {
-      return previewMoment.bigImageUrl;
-    } else if (previewMoment.smallImageUrl != null &&
-        previewMoment.smallImageUrl!.isNotEmpty) {
-      return previewMoment.smallImageUrl;
-    } else if (previewMoment.originImageUrl != null &&
-        previewMoment.originImageUrl!.isNotEmpty) {
-      return previewMoment.originImageUrl;
-    } else {
-      return null;
-    }
-  }
-
-  String getENSorETH(Moment moment) {
-    if (moment.authorENS != null && moment.authorENS!.isNotEmpty) {
-      return moment.authorENS!;
-    } else if (moment.authorAddress.isNotEmpty) {
-      return getSimpleAddress(moment.authorAddress);
-    } else {
-      return '-';
-    }
-  }
-
   String getSimpleAddress(String address) {
     if (address.length > 18) {
       return '${address.substring(0, 10)}...${address.substring(address.length - 4)}';
@@ -118,52 +89,8 @@ class EventDetailController extends BaseController {
     return address;
   }
 
-  _getMoments() {
-    isLoadingAllMoments = true;
-    if (offset == 0) {
-      moments.clear();
-      update();
-    }
-    if (isAllDataLoaded) {
-      return;
-    }
-
-    welookRepository
-        .getMomentsOfEvent(
-      eventID,
-      limit: limit,
-      sort: sort,
-      offset: offset,
-    )
-        .then((MomentResponse momentResponse) {
-      offset = limit + offset;
-      if (momentResponse.total != null) {
-        momentCount = momentResponse.total!;
-        if (momentResponse.moments != null &&
-            momentResponse.moments!.isNotEmpty) {
-          moments.addAll(momentResponse.moments!);
-        }
-        if (momentResponse.moments!.isEmpty) {
-          isAllDataLoaded = true;
-        }
-      } else {
-        if (momentCount == 0) {
-          momentCount = 0;
-          moments = [];
-        }
-        isAllDataLoaded = true;
-      }
-      isLoadingAllMoments = false;
-      update();
-      if (isAllDataLoaded) {
-        refreshController.loadNoData();
-      }
-    });
-  }
-
   void onLoading() async {
     if (isLoadingAllMoments) return;
-    await _getMoments();
     refreshController.loadComplete();
   }
 
@@ -171,10 +98,6 @@ class EventDetailController extends BaseController {
     if (isLoadingHolders) return;
     await getHolders();
     refreshHoldersController.loadComplete();
-  }
-
-  void launchWelook(int eventID) {
-    launchURL('welook.io', 'moments/$eventID');
   }
 
   /// Moments ---------------------------------------------------------------End
@@ -264,7 +187,6 @@ class EventDetailController extends BaseController {
       initialRefresh: false,
       initialRefreshStatus: RefreshStatus.idle,
     );
-    _getMoments();
 
     refreshHoldersController = RefreshController(
       initialRefresh: false,

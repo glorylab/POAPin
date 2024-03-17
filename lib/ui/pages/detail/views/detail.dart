@@ -7,7 +7,6 @@ import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/components/icons/forward.dart';
 import 'package:poapin/ui/pages/detail/controller.dart';
 import 'package:poapin/ui/pages/detail/views/card.holders_preview.dart';
-import 'package:poapin/ui/pages/detail/views/card.moments_preview.dart';
 import 'package:gradient_ui/gradient_ui_widgets.dart' as a;
 
 class DetailView extends StatelessWidget {
@@ -279,7 +278,6 @@ class DetailView extends StatelessWidget {
       ),
       const SizedBox(height: 16),
       const HoldersPreviewCard(),
-      const MomentsPreviewCard(),
       const SizedBox(height: 32),
       const SizedBox(height: 78),
     ]);

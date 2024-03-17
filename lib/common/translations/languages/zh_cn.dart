@@ -58,15 +58,6 @@ class ZhCNTranslations {
         Strings.newTag: '新标签',
         Strings.newTagHint: '新活动标签',
 
-        /// Moments
-        Strings.momentsDesc: '''您的POAP收藏是您的数字身份。
-
-        它向世界展示你是谁：你去过哪里，你取得了什么成就，你遇到了谁。
-        
-        Moments 是一种通过保存POAP中的真实生活情况来增加您数字书签真实价值的方式。
-        ''',
-        Strings.uploadMoments: '在welook.io上传Moment',
-
         /// GitPOAP
         Strings.gitPoapDesc:
             '''GitPOAP是通过GitPOAP平台铸造的普通POAP（带有额外的特色），以指定对开源项目的有意义的贡献。仓库所有者自动分发GitPOAPs给他们的贡献者，以表彰他们的工作。

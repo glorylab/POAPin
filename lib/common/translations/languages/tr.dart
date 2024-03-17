@@ -60,15 +60,6 @@ class TrTranslations {
         Strings.newTag: 'Yeni Etiket',
         Strings.newTagHint: 'etkinlik için yeni etiket',
 
-        /// Moments
-        Strings.momentsDesc: '''POAP koleksiyonunuz dijital kimliğinizdir.
-        
-        Dünyaya kim olduğunuzu gösterir: nerede bulunduğunuzu, ne başardığınızı ve kiminle tanıştığınızı.
-        
-        Anlar, gerçek yaşam anlarını bir POAP'ta sonsuza dek kaydetme şeklinde dijital yer iminize gerçek değer katmanın bir yoludur.
-        ''',
-        Strings.uploadMoments: 'Anları welook.io üzerine yükle',
-
         /// GitPOAP
         Strings.gitPoapDesc:
             '''Bir GitPOAP, belirli anlamlı açık kaynak projelerine katkı sağlama için GitPOAP platformu üzerinden basılan normal bir POAP'tır (ekstra bir dönüş ile). Repo sahipleri, katkıda bulunanların çalışmalarını tanımak için otomatik olarak GitPOAP'ları dağıtır.

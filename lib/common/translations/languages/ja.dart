@@ -57,15 +57,6 @@ class JaTranslations {
         Strings.newTag: '新しいタグ',
         Strings.newTagHint: '新しいイベントのタグ',
 
-        /// Moments
-        Strings.momentsDesc: '''あなたのPOAPコレクションはあなたのデジタルIDです。
-        
-        それはあなたが誰であるか、どこにいたか、何を達成したか、誰に会ったかを世界に示します。
-        
-        モーメンツは、POAPに実際のインスタンスを永遠に保存することで、デジタルブックマークに実際の価値を追加する方法です。
-        ''',
-        Strings.uploadMoments: 'welook.ioにモーメンツをアップロード',
-
         /// GitPOAP
         Strings.gitPoapDesc:
             '''GitPOAPは、指定された意義深いオープンソースプロジェクトへの貢献を通じてGitPOAPプラットフォームで発行される通常のPOAP（エキストラスピン付き）です。 レポオーナーは、彼らの仕事の認識として自動的にGitPOAPを寄稿者に配布します。

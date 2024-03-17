@@ -60,16 +60,6 @@ class ESTranslations {
         Strings.newTag: 'Nueva Etiqueta',
         Strings.newTagHint: 'nueva etiqueta para el evento',
 
-        /// Moments
-        Strings.momentsDesc:
-            '''Tu colección de POAP es tu identificación digital.
-        
-        Muestra al mundo quién eres: dónde has estado, qué has logrado y con quién te has encontrado.
-        
-        Los momentos es una manera de agregar valor real a tu marcador digital guardando instancias de la vida real en un POAP, para siempre.
-        ''',
-        Strings.uploadMoments: 'Subir momentos en welook.io',
-
         /// GitPOAP
         Strings.gitPoapDesc:
             '''Un GitPOAP es un POAP regular (con un giro extra) que se acuña a través de la plataforma GitPOAP para contribuciones significativas especificadas en proyectos de código abierto. Los propietarios de los repositorios distribuyen automáticamente los GitPOAPs a sus contribuyentes como reconocimiento a su trabajo.

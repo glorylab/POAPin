@@ -44,11 +44,6 @@ Build your decentralized professional identity.
 
 https://www.gitpoap.io/
 
-### Welook
-
-Web3 Social Platform. Building the future of NFTs.
-
-https://welook.io/
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):

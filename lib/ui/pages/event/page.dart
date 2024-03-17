@@ -14,7 +14,6 @@ import 'package:poapin/ui/pages/event/views/detail.dart';
 import 'package:poapin/ui/pages/artwork/page.dart';
 import 'package:poapin/ui/pages/event/views/page.base_info.dart';
 import 'package:poapin/ui/pages/event/views/page.holders.dart';
-import 'package:poapin/ui/pages/event/views/page.moments.dart';
 
 class EventDetailPage extends BasePage<EventDetailController> {
   const EventDetailPage({Key? key}) : super(key: key);
@@ -168,7 +167,7 @@ class _VerticalView extends StatelessWidget {
         children: [
           PageView.builder(
               controller: controller.pageController,
-              itemCount: 3,
+              itemCount: 2,
               pageSnapping: true,
               itemBuilder: (context, index) {
                 switch (index) {
@@ -176,9 +175,6 @@ class _VerticalView extends StatelessWidget {
                     return const BaseInfoView();
                   case 1:
                     return const HoldersInEventPage();
-                  case 2:
-                    return const MomentsInEventPage();
-
                   default:
                     return Container();
                 }
@@ -295,63 +291,6 @@ class _VerticalView extends StatelessWidget {
               ),
             ),
           ),
-          GetBuilder(builder: (EventDetailController c) {
-            return AnimatedPositioned(
-              right: c.currentPageIndex == 0 ? 16 : -128,
-              bottom: 16,
-              duration: const Duration(milliseconds: 250),
-              child: SafeArea(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(24),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.purple.withOpacity(0.09),
-                        blurRadius: 8,
-                        offset: const Offset(-8, 4),
-                      ),
-                    ],
-                  ),
-                  child: SizedBox(
-                    height: 48,
-                    width: 108,
-                    child: RawMaterialButton(
-                      onPressed: () {
-                        controller.jumpToPage(2);
-                      },
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24),
-                      ),
-                      clipBehavior: Clip.antiAlias,
-                      child: IgnorePointer(
-                          child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          const SizedBox(width: 4),
-                          Expanded(
-                            child: Image.asset(
-                              'icons/ic_welook.png',
-                              package: 'web3_icons',
-                              width: 64,
-                              height: 18,
-                              color: PColor.welook,
-                            ),
-                          ),
-                          const SizedBox(width: 2),
-                          Icon(
-                            Icons.arrow_right_rounded,
-                            color: PColor.welook,
-                          ),
-                          const SizedBox(width: 4),
-                        ],
-                      )),
-                    ),
-                  ),
-                ),
-              ),
-            );
-          }),
         ],
       ),
     );

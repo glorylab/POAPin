@@ -5,8 +5,6 @@ abstract class AppRoutes {
   static const home = '/home';
   static const journal = '/journal';
   static const watchlist = '/watchlist';
-  static const moments = '/moments';
-  static const moment = '/moments/:id';
   static const gitPoaps = '/gitPoaps';
   static const square = '/square';
   static const me = '/me';

@@ -25,7 +25,6 @@ import 'package:poapin/data/models/pref/sort.dart';
 import 'package:poapin/data/models/token.dart';
 import 'package:poapin/ui/pages/detail/dialog/addtag.dart';
 import 'package:poapin/ui/pages/home/components/dialog.gitpoap.dart';
-import 'package:poapin/ui/pages/home/controllers/card.moment.dart';
 import 'package:poapin/ui/pages/home/controllers/card.social.dart';
 import 'package:poapin/util/verification.dart';
 import 'package:web3dart/web3dart.dart';
@@ -284,7 +283,6 @@ class HomeController extends BaseController {
     _initEns();
     getCachedData();
     getData();
-    getMoments();
     getFollowers();
     getFollowings();
     getGitPOAPs();
@@ -959,10 +957,6 @@ class HomeController extends BaseController {
   void _updateLoadingStatus(LoadingStatus s) {
     loadingStatus = s;
     update();
-  }
-
-  void getMoments() {
-    Get.find<MomentsCardController>().getFirstMoment(ethAddress);
   }
 
   void getFollowers() {

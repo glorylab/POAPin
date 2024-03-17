@@ -58,15 +58,6 @@ class ZhTWTranslations {
         // Strings.newTag: 'New Tag',
         // Strings.newTagHint: 'new tag for event',
 
-        /// Moments
-        // Strings.momentsDesc: '''Your POAP collection is your digital ID.
-        //
-        // It shows the world who you are: where you’ve been, what you achieved and who you’ve met.
-        //
-        // Moments is a way to add real value to your digital bookmark by saving real-life instances in a POAP, forever.
-        // ''',
-        //Strings.uploadMoments: 'Upload moments on welook.io',
-
         /// GitPOAP
         // Strings.gitPOAPDesc:
         //             '''A GitPOAP is a regular POAP (with an extra spin) that is minted through the GitPOAP platform for specified meaningful contribution to open source projects. Repo owners automatically distribute GitPOAPs to their contributors as recognition of their work.

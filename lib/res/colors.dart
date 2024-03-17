@@ -4,9 +4,6 @@ class PColor {
   static Color done = Colors.green;
   static Color background = const Color(0xFFF2F2F2);
 
-  static Color welook = const Color(0xFFEC4899);
-  static Color welookDark = const Color(0xFF0F172A);
-
   static Color gitpoap = const Color(0xFF17457C);
 
   static const MaterialColor primary = MaterialColor(

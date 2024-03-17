@@ -60,13 +60,6 @@ class FRTranslations {
         Strings.newTag: 'Nouveau Tag',
         Strings.newTagHint: 'nouveau tag d\'évènement',
 
-        /// Moments
-        Strings.momentsDesc:
-            '''Votre collection de POAPs est votre identité numérique.
-            Elle montre au monde qui vous êtes : où vous êtes allé, ce que vous avez accompli et qui vous avez rencontré.
-            Moments est un moyen d'ajouter de la valeur à votre souvenir numérique en sauvegardant des instants de vie dans un POAP, pour toujours.''',
-        Strings.uploadMoments: 'Publier des moments sur welook.io',
-
         /// GitPOAP
         Strings.gitPoapDesc:
             '''Un GitPOAP est un POAP ordinaire (avec un petit extra) qui est frappé par la plateforme GitPOAP pour les contributions significatives apportées aux projets open source. 

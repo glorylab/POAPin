@@ -60,16 +60,6 @@ class ViTranslations {
         Strings.newTag: 'Thẻ mới',
         Strings.newTagHint: 'thẻ mới cho sự kiện',
 
-        /// Moments
-        Strings.momentsDesc:
-            '''Bộ sưu tập POAP của bạn là ID kỹ thuật số của bạn.
-        
-        Nó cho thế giới biết bạn là ai: nơi bạn đã đến, những gì bạn đã đạt được và ai bạn đã gặp.
-        
-        Moments là cách để thêm giá trị thực sự cho dấu trang kỹ thuật số của bạn bằng cách lưu trữ những trường hợp trong đời thực trong một POAP, mãi mãi.
-        ''',
-        Strings.uploadMoments: 'Tải lên những khoảnh khắc trên welook.io',
-
         /// GitPOAP
         Strings.gitPoapDesc:
             '''Một GitPOAP là một POAP thông thường (với một chút xoay) được khai thác thông qua nền tảng GitPOAP cho các đóng góp có ý nghĩa đặc biệt cho các dự án nguồn mở. Chủ sở hữu Repo tự động phân phối GitPOAPs cho những người đóng góp của họ như một sự công nhận công việc của họ.

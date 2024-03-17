@@ -59,15 +59,6 @@ class KoTranslations {
         Strings.newTag: '새로운 태그',
         Strings.newTagHint: '이벤트에 대한 새로운 태그',
 
-        /// Moments
-        Strings.momentsDesc: '''귀하의 POAP 컬렉션은 귀하의 디지털 ID입니다.
-    
-    이는 세계에 당신이 누구인지, 어디에 있었는지, 무엇을 이루었는지, 누구를 만났는지 보여줍니다.
-    
-    Moments는 POAP에 실제 인스턴스를 영원히 저장하여 디지털 북마크에 실제 가치를 추가하는 방법입니다.
-    ''',
-        Strings.uploadMoments: 'welook.io에 순간 업로드',
-
         /// GitPOAP
         Strings.gitPoapDesc:
             '''GitPOAP는 GitPOAP 플랫폼을 통해 지정된 의미있는 오픈 소스 프로젝트 기여를 위해 생성된 일반 POAP(추가 스핀 포함)입니다. Repo 소유자들은 그들의 작업을 인식으로써 자동적으로 GitPOAP를 기여자에게 분배합니다.

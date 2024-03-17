@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poapin/common/translations/strings.dart';
 import 'package:poapin/ui/pages/home/components/card.gitpoap.dart';
-import 'package:poapin/ui/pages/home/components/card.moment.dart';
 import 'package:poapin/ui/pages/home/components/card.poap.dart';
 import 'package:poapin/ui/pages/home/components/card.social.dart';
 import 'package:poapin/ui/pages/home/components/chart.dart';
@@ -34,7 +33,6 @@ class CollectionCard extends StatelessWidget {
                     SizedBox(width: 16),
                     POAPCard(),
                     SocialCard(),
-                    MomentCard(),
                     GitPOAPCard(),
                     SizedBox(width: 16),
                   ],

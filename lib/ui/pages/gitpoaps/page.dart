@@ -71,7 +71,7 @@ class GitPoapsPage extends BasePage<GitPoapsController> {
                           style: GoogleFonts.robotoMono(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: PColor.welookDark.withOpacity(0.8),
+                            color: PColor.gitpoap.withOpacity(0.8),
                           ),
                         ),
                         const SizedBox(width: 8),
@@ -80,7 +80,7 @@ class GitPoapsPage extends BasePage<GitPoapsController> {
                           style: GoogleFonts.robotoMono(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: PColor.welookDark.withOpacity(0.4),
+                            color: PColor.gitpoap.withOpacity(0.4),
                           ),
                         ),
                         Expanded(
@@ -95,7 +95,7 @@ class GitPoapsPage extends BasePage<GitPoapsController> {
                             package: 'web3_icons',
                             height: 16,
                             width: 16,
-                            color: PColor.welookDark.withOpacity(0.5),
+                            color: PColor.gitpoap.withOpacity(0.5),
                           ),
                         ),
                       ],
@@ -205,7 +205,7 @@ class GitPoapsPage extends BasePage<GitPoapsController> {
                         style: GoogleFonts.robotoMono(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
-                          color: PColor.welookDark.withOpacity(0.8),
+                          color: PColor.gitpoap.withOpacity(0.8),
                         ),
                       ),
                     ),

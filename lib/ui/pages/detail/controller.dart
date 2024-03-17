@@ -13,12 +13,10 @@ import 'package:path_provider/path_provider.dart';
 import 'package:poapin/common/status.dart';
 import 'package:poapin/controllers/tag.dart';
 import 'package:poapin/data/models/holder.dart';
-import 'package:poapin/data/models/moment.dart';
 import 'package:poapin/data/models/token.dart';
 import 'package:poapin/data/repository/gitpoap_repository.dart';
 import 'package:poapin/data/repository/poap_repository.dart';
 import 'package:poapin/data/repository/poapin_repository.dart';
-import 'package:poapin/data/repository/welook_repository.dart';
 import 'package:poapin/di/service_locator.dart';
 import 'package:poapin/res/colors.dart';
 import 'package:poapin/ui/controller.base.dart';
@@ -45,7 +43,6 @@ class DetailController extends BaseController {
   final poapRepository = getIt.get<POAPRepository>();
   final poapinRepository = getIt.get<POAPINRepository>();
   final gitPOAPRepository = getIt.get<GitPOAPRepository>();
-  final welookRepository = getIt.get<WelookRepository>();
 
   final tokenID = ''.obs;
   final error = ''.obs;
@@ -71,7 +68,6 @@ class DetailController extends BaseController {
   bool isLoadingMomentsCount = true;
   int momentsCount = 0;
   bool isLoadingMoments = true;
-  List<Moment> moments = <Moment>[];
 
   bool isLoadingHolders = true;
   int holdersCount = 0;
@@ -158,7 +154,6 @@ class DetailController extends BaseController {
     getData();
 
     checkIsGitPOAP();
-    getMomentsCount();
     getHolders();
     _initGyroscope();
   }
@@ -207,22 +202,6 @@ class DetailController extends BaseController {
     }
   }
 
-  void launchWelook(int eventID) {
-    if (eventID > 0) {
-      launchURL('welook.io', 'moments/$eventID');
-    }
-  }
-
-  void getMomentsCount() async {
-    var response = await welookRepository.count(token.value.event.id);
-    momentsCount = response;
-    update();
-
-    if (momentsCount > 0) {
-      getPreviewMomentOfEvent();
-    }
-  }
-
   void getHolders() async {
     try {
       var response =
@@ -254,20 +233,6 @@ class DetailController extends BaseController {
     }
   }
 
-  String? getPreviewImageURL(Moment previewMoment) {
-    if (previewMoment.bigImageUrl.isNotEmpty) {
-      return previewMoment.bigImageUrl;
-    } else if (previewMoment.smallImageUrl != null &&
-        previewMoment.smallImageUrl!.isNotEmpty) {
-      return previewMoment.smallImageUrl;
-    } else if (previewMoment.originImageUrl != null &&
-        previewMoment.originImageUrl!.isNotEmpty) {
-      return previewMoment.originImageUrl;
-    } else {
-      return null;
-    }
-  }
-
   Widget buildPreviewImage(String? url) {
     if (url != null) {
       return ExtendedImage.network(
@@ -285,25 +250,6 @@ class DetailController extends BaseController {
     return Container(
       color: PColor.background,
     );
-  }
-
-  getPreviewMomentOfEvent() {
-    isLoadingMoments = true;
-    update();
-    welookRepository
-        .getMomentsOfEvent(token.value.event.id)
-        .then((MomentResponse momentResponse) {
-      if (momentResponse.total != null) {
-        if (momentResponse.moments != null &&
-            momentResponse.moments!.isNotEmpty) {
-          moments = momentResponse.moments!;
-        }
-      } else {
-        moments = [];
-      }
-      isLoadingMoments = false;
-      update();
-    });
   }
 
   void getData() async {
