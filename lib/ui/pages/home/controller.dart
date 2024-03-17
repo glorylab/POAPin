@@ -121,7 +121,7 @@ class HomeController extends BaseController {
 
   void showGitPOAPs() {
     Get.toNamed(
-      '/gitpoaps',
+      '/gitPoaps',
       arguments: {
         'gitpoaps': gitPOAPs,
         'address': Get.find<UserController>().ensAddress.isEmpty
