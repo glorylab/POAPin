@@ -87,7 +87,7 @@ class HoldersInEventPage extends StatelessWidget {
           right: 0,
           bottom: 0),
       child: GetBuilder<EventDetailController>(
-        builder: (c) => c.isLoadingAllMoments
+        builder: (c) => c.isLoadingHolders
             ? ListView(
                 children: const [
                   SizedBox(height: 256 + 32),

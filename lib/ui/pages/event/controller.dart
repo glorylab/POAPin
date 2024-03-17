@@ -70,8 +70,6 @@ class EventDetailController extends BaseController {
   /// Moments -------------------------------------------------------------Start
   int momentCount = 0;
 
-  bool isLoadingAllMoments = true;
-
   int offset = 0;
   int limit = 20;
   String sort = 'desc';
@@ -90,7 +88,6 @@ class EventDetailController extends BaseController {
   }
 
   void onLoading() async {
-    if (isLoadingAllMoments) return;
     refreshController.loadComplete();
   }
 
