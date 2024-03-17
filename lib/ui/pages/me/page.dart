@@ -464,7 +464,7 @@ class MeItem extends StatelessWidget {
       splashColor: Theme.of(context).primaryColorLight.withOpacity(0.5),
       highlightColor: Theme.of(context).primaryColorLight.withOpacity(0.3),
       child: Container(
-        height: 64,
+        height: 68,
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
         alignment: Alignment.centerLeft,
         child: Row(

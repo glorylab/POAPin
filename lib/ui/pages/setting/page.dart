@@ -243,7 +243,7 @@ class SettingItem extends StatelessWidget {
           borderRadius: BorderRadius.all(
               Radius.circular(isRoundCorner ?? true ? 16 : 0))),
       child: Container(
-        height: 64,
+        height: 68,
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
         alignment: Alignment.centerLeft,
         child: Row(
