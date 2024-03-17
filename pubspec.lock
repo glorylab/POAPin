@@ -798,11 +798,12 @@ packages:
   image_downloader:
     dependency: "direct main"
     description:
-      name: image_downloader
-      sha256: "2b1c1d1fcfb6677175d009af3fc86914aee07684c12ea061f380ef1f44cae8df"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.31.0"
+      path: "."
+      ref: master
+      resolved-ref: "9565dbc5c83e013bce2af4daef2616133ae16254"
+      url: "https://github.com/ko2ic/image_downloader"
+    source: git
+    version: "0.32.0"
   intl:
     dependency: "direct main"
     description:
