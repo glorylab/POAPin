@@ -49,6 +49,8 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
+    ndkVersion "26.2.11394342"
+
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "in.poap"
