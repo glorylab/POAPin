@@ -68,7 +68,7 @@ dependencies:
   sqflite: ^2.0.2
   timelines: ^0.1.0
   uuid: ^3.0.5
-  url_launcher: ^6.1.8
+  url_launcher: ^6.2.5
   url_strategy: ^0.2.0
   we_slide: ^2.2.1
   web_socket_channel: ^2.1.0
