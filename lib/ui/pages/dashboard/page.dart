@@ -76,7 +76,7 @@ class DashboardPage extends GetView<DashboardController> {
                 index: controller.tabIndex.value,
                 children: const [
                   HomePage(),
-                  JournalPage(),
+                  // JournalPage(),
                   MePage(),
                 ],
               ),
@@ -101,11 +101,11 @@ class DashboardPage extends GetView<DashboardController> {
               label: strHome,
               backgroundColor: Colors.white,
             ),
-            BottomNavigationBarItem(
-              icon: const Icon(Icons.data_object),
-              label: strJournal,
-              backgroundColor: Colors.white,
-            ),
+            // BottomNavigationBarItem(
+            //   icon: const Icon(Icons.data_object),
+            //   label: strJournal,
+            //   backgroundColor: Colors.white,
+            // ),
             BottomNavigationBarItem(
               icon: const Icon(Icons.account_circle_outlined),
               label: strMe,
