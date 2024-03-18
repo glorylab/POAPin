@@ -17,7 +17,7 @@ dependencies:
   crypto: ^3.0.1
   dash_painter: ^1.0.2
   dismissible_page: ^1.0.2
-  dio: ^5.3.3
+  dio: ^5.4.1
   dotenv: ^3.0.0
   ethereum_addresses: ^1.0.2
   extended_image: ^8.1.1
