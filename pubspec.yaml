@@ -50,7 +50,7 @@ dependencies:
   hive_flutter: ^1.1.0
   hive_generator: ^2.0.1
   http: ^1.1.0
-  image: ^4.1.3
+  image: ^4.1.7
   intl: ^0.18.1
   jiffy: ^6.2.1
   json_annotation: ^4.8.1
