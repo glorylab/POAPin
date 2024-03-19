@@ -61,7 +61,7 @@ dependencies:
   path_provider: ^2.0.8
   pull_to_refresh_flutter3: ^2.0.1
   rive: ^0.12.1
-  screenshot: ^2.1.0
+  screenshot: ^2.3.0
   sensors_plus: ^3.1.0
   share_plus: ^7.1.0
   sign_in_with_apple: ^5.0.0
