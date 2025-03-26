@@ -86,10 +86,6 @@ dependencies:
   flutter_sticky_header: # ^0.6.0
     git:
       url: https://github.com/UnderKoen/flutter_sticky_header
-  image_downloader:
-    git:
-      url: https://github.com/ko2ic/image_downloader
-      ref: master
   flutter_riverpod: ^2.5.1
   riverpod_annotation: ^2.3.5
 

@@ -867,15 +867,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.7"
-  image_downloader:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: master
-      resolved-ref: "9565dbc5c83e013bce2af4daef2616133ae16254"
-      url: "https://github.com/ko2ic/image_downloader"
-    source: git
-    version: "0.32.0"
   intl:
     dependency: "direct main"
     description:
