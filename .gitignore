@@ -52,3 +52,6 @@ app.*.map.json
 
 # API secret keys
 /lib/secrets.dart
+
+# FVM Version Cache
+.fvm/
