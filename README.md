@@ -1,4 +1,5 @@
 # POAPin
+[![license](https://img.shields.io/github/license/glorylab/POAPin)](https://github.com/glorylab/POAPin/blob/master/LICENSE.md)
 [![GitPOAP Badge](https://public-api.gitpoap.io/v1/repo/glorylab/POAPin/badge)](https://www.gitpoap.io/gh/glorylab/POAPin) <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
