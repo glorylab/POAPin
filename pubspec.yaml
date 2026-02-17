@@ -3,7 +3,7 @@ description: Organize the bookmarks of your life.
 
 publish_to: 'none'
 
-version: 1.4.11+57
+version: 1.5.0+58
 
 environment:
   sdk: ^3.0.0
